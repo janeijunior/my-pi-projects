@@ -212,6 +212,13 @@ if __name__ == '__main__':
     mcp.config(0, mcp.OUTPUT)
     mcp.config(1, mcp.OUTPUT)
     mcp.config(2, mcp.OUTPUT)
+    mcp.config(3, mcp.OUTPUT)
+    mcp.config(4, mcp.OUTPUT)
+    mcp.config(5, mcp.OUTPUT)
+    mcp.config(6, mcp.OUTPUT)
+    mcp.config(7, mcp.OUTPUT)
+    mcp.config(8, mcp.OUTPUT)
+    mcp.config(9, mcp.OUTPUT)
     
     # Set pin 3 to input with the pullup resistor enabled
     #mcp.pullup(3, True)
