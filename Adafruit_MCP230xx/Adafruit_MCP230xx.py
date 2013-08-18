@@ -21,5 +21,37 @@ if __name__ == '__main__':
     mcp.config(3, OUTPUT) 
     mcp.config(4, OUTPUT) 
     mcp.config(5, OUTPUT) 
-    mcp.config(6, OUTPUT) mcp.config(7, OUTPUT) mcp.config(8, OUTPUT) mcp.config(9, OUTPUT) # Set pin 3 to input with the pullup resistor enabled # mcp.pullup(3, 1) # Read pin 3 and display the results # print "%d: %x" % (3, mcp.input(3) >> 3) # Python speed test on output 0 toggling at max speed while (True): #mcp.output(Pin,State) mcp.output(1, 1) # Pin 0 High
-mcp.output(0, 1) # Pin 0 High mcp.output(2, 1) # Pin 0 High mcp.output(3, 1) # Pin 0 High mcp.output(4, 1) # Pin 0 High mcp.output(5, 1) # Pin 0 High mcp.output(6, 1) # Pin 0 High mcp.output(7, 1) # Pin 0 High mcp.output(8, 1) # Pin 0 High mcp.output(9, 1) # Pin 0 High time.sleep(1.2) mcp.output(1, 0) # Pin 1 Low mcp.output(0, 0) # Pin 1 Low mcp.output(2, 0) # Pin 0 High mcp.output(3, 0) # Pin 0 High mcp.output(4, 0) # Pin 0 High mcp.output(5, 0) # Pin 0 High mcp.output(6, 0) # Pin 0 High mcp.output(7, 0) # Pin 0 High mcp.output(8, 0) # Pin 0 High mcp.output(9, 0) # Pin 0 High time.sleep(1.2)
+    mcp.config(6, OUTPUT) 
+    mcp.config(7, OUTPUT) 
+    mcp.config(8, OUTPUT) 
+    mcp.config(9, OUTPUT) 
+    
+    # Set pin 3 to input with the pullup resistor enabled 
+    # mcp.pullup(3, 1) 
+    # Read pin 3 and display the results 
+    # print "%d: %x" % (3, mcp.input(3) >> 3) 
+    # Python speed test on output 0 toggling at max speed 
+    
+    while (True): #mcp.output(Pin,State) 
+      mcp.output(1, 1) # Pin 0 High
+      mcp.output(0, 1) # Pin 0 High 
+      mcp.output(2, 1) # Pin 0 High 
+      mcp.output(3, 1) # Pin 0 High 
+      mcp.output(4, 1) # Pin 0 High 
+      mcp.output(5, 1) # Pin 0 High 
+      mcp.output(6, 1) # Pin 0 High 
+      mcp.output(7, 1) # Pin 0 High 
+      mcp.output(8, 1) # Pin 0 High 
+      mcp.output(9, 1) # Pin 0 High 
+      time.sleep(1.2) 
+      mcp.output(1, 0) # Pin 1 Low 
+      mcp.output(0, 0) # Pin 1 Low 
+      mcp.output(2, 0) # Pin 0 High 
+      mcp.output(3, 0) # Pin 0 High 
+      mcp.output(4, 0) # Pin 0 High 
+      mcp.output(5, 0) # Pin 0 High 
+      mcp.output(6, 0) # Pin 0 High 
+      mcp.output(7, 0) # Pin 0 High 
+      mcp.output(8, 0) # Pin 0 High 
+      mcp.output(9, 0) # Pin 0 High 
+      time.sleep(1.2)
