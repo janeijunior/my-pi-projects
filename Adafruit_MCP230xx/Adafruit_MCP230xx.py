@@ -1,7 +1,8 @@
 from Adafruit_I2C import Adafruit_I2C 
 
 import smbus 
-import time  
+import time 
+import spidev 
 from Adafruit_MCP230xx import * 
 
 OUTPUT = 0 
