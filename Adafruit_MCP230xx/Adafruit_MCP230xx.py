@@ -214,7 +214,7 @@ if __name__ == '__main__':
     mcp.config(2, mcp.OUTPUT)
     
     # Set pin 3 to input with the pullup resistor enabled
-    mcp.pullup(3, True)
+    #mcp.pullup(3, True)
 
     # Read pin 3 and display the results
     #print "%d: %x" % (3, mcp.input(3))
