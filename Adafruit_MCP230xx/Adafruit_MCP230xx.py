@@ -219,8 +219,8 @@ if __name__ == '__main__':
     
     # Python speed test on output 0 toggling at max speed
     while True:
-      mcp.output(1, 1) # Pin 0 High
-      mcp.output(0, 1) # Pin 0 High 
+      mcp.output(0, 1) # Pin 0 High
+      mcp.output(1, 1) # Pin 0 High 
       mcp.output(2, 1) # Pin 0 High 
       mcp.output(3, 1) # Pin 0 High 
       mcp.output(4, 1) # Pin 0 High 
