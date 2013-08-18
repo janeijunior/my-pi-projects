@@ -264,4 +264,4 @@ if __name__ == '__main__':
     #  mcp.output(8, 0) # Pin 0 High 
     #  time.sleep(1.2)
     #  mcp.output(9, 0) # Pin 0 High 
-      time.sleep(1.2)
+    #  time.sleep(1.2)
