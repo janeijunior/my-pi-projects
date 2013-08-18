@@ -250,24 +250,24 @@ if __name__ == '__main__':
     mcp.output(8, 1) # Pin 0 High 
     time.sleep(0.5)
     mcp.output(9, 1) # Pin 0 High 
-    time.sleep(0.5)
-    mcp.output(9, 0) # Pin 1 Low 
-    time.sleep(0.5)
-    mcp.output(8, 0) # Pin 0 High 
-    time.sleep(0.5)
-    mcp.output(7, 0) # Pin 0 High 
-    time.sleep(0.5)
-    mcp.output(6, 0) # Pin 0 High 
-    time.sleep(0.5)
-    mcp.output(5, 0) # Pin 0 High 
-    time.sleep(0.5)
-    mcp.output(4, 0) # Pin 0 High 
-    time.sleep(0.5)
-    mcp.output(3, 0) # Pin 0 High
-    time.sleep(0.5)
-    mcp.output(2, 0) # Pin 0 High 
+    time.sleep(3)
+    mcp.output(0, 0) # Pin 1 Low 
     time.sleep(0.5)
     mcp.output(1, 0) # Pin 0 High 
     time.sleep(0.5)
-    mcp.output(0, 0) # Pin 1 Low 
+    mcp.output(2, 0) # Pin 0 High 
+    time.sleep(0.5)
+    mcp.output(3, 0) # Pin 0 High 
+    time.sleep(0.5)
+    mcp.output(4, 0) # Pin 0 High 
+    time.sleep(0.5)
+    mcp.output(5, 0) # Pin 0 High 
+    time.sleep(0.5)
+    mcp.output(6, 0) # Pin 0 High
+    time.sleep(0.5)
+    mcp.output(7, 0) # Pin 0 High 
+    time.sleep(0.5)
+    mcp.output(8, 0) # Pin 0 High 
+    time.sleep(0.5)
+    mcp.output(9, 0) # Pin 1 Low 
     time.sleep(0.5)
