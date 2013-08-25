@@ -82,9 +82,9 @@ try:
         else:
             print "Comando invalido!"
  
-except #KeyboardInterrupt:      Trata o CTRL+C
-    print "Erro..."
-    #exit(0)
+except KeyboardInterrupt:   #   Trata o CTRL+C
+    print "Saindo..."
+    exit(0)
 
 
 #mcp.output(0, 1) # Pin High 
