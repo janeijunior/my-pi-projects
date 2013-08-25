@@ -1,5 +1,7 @@
 import socket
- 
+
+class Servidor;
+
 host = ''
 port = 7000
  
