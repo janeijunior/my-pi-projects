@@ -40,6 +40,8 @@ try:
         comando = msg.strip() 
  
         if comando.int() == 1:
+           mcp.output(0, 1)
+        if comando.int() == 1:
            mcp.output(1, 1)
         elif var == 150:
            mcp.output(2, 1)
