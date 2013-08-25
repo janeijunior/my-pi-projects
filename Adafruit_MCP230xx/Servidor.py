@@ -3,7 +3,7 @@ import Adafruit_MCP230xx
 
 import time
 
-class Servidor(Adafruit_MCP230xx):
+class Servidor:
 
     host = ''
     port = 1234
