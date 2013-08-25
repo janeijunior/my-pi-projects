@@ -1,7 +1,6 @@
 import socket
 import time
 import Adafruit_MCP230xx
-
 from threading import Thread
 HOST, PORT = "192.168.1.104", 20002
 class verificaMensagensClientes(Thread):
