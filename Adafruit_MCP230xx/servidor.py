@@ -41,7 +41,7 @@ try:
  
         if comando[2:3] == "0":
             mcp.output(0, 1)
-        elif comando[2] == "1":
+        elif comando[2:3] == "1":
             mcp.output(1, 1)
         else:
             mcp.output(9, 1)
