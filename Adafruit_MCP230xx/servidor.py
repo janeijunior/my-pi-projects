@@ -34,7 +34,9 @@ mcp.config(9, mcp.OUTPUT)
 try:
     while True:
         msg = con.recv(1024)
-        
+          
+        print "Mensagem recebida de -> " + msg.strip()
+ 
         if msg.strip() == "l0":
             mcp.output(0, 1)
         elif msg.strip() == "l1":
@@ -46,10 +48,8 @@ try:
             time.sleep(1)
             mcp.output(0, 0)  
             mcp.output(1, 0)  
-            mcp.output(2, 0)  
-          
-        print "Mensagem recebida de -> " + msg.strip()
-   
+            mcp.output(2, 0) 
+ 
 except KeyboardInterrupt:   #   Trata o CTRL+C
     print "Saindo..."
     exit(0)
