@@ -19,15 +19,6 @@ print "aguardando mensagem"
 recebe = con.recv(1024)
 
 
-    try:
-        msg = True
-        while msg != None:
-            msg = new_sock.recv(1024) 
-            print "Mensagem recebida de -> %s" % (msg)
-    except KeyboardInterrupt:   #   Trata o CTRL+C
-        print "Saindo..."
-        exit(0)
-
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
     
 mcp.config(0, mcp.OUTPUT)
@@ -40,6 +31,19 @@ mcp.config(6, mcp.OUTPUT)
 mcp.config(7, mcp.OUTPUT)
 mcp.config(8, mcp.OUTPUT)
 mcp.config(9, mcp.OUTPUT)
+
+    try:
+        msg = True
+        while msg != None:
+            msg = new_sock.recv(1024) 
+            print "Mensagem recebida de -> %s" % (msg)
+            
+            
+            
+    except KeyboardInterrupt:   #   Trata o CTRL+C
+        print "Saindo..."
+        exit(0)
+
 
 mcp.output(0, 1) # Pin High 
 mcp.output(1, 1) 
