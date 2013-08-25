@@ -33,6 +33,8 @@ mcp.config(9, mcp.OUTPUT)
 
 try:
     while true:
+        msg = con.recv(1024)
+        
         comando = con.recv(1024)
         
         if msg.strip() == "l0":
