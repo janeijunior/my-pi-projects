@@ -15,7 +15,7 @@ print 'conectado'
 print "aguardando mensagem"
 recebe = con.recv(1024)
 
-if recebe == "liga"
+if (recebe == "liga"):
   print "Liga"
  
 print "mensagem recebida: "+ recebe
