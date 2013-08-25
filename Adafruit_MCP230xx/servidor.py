@@ -46,7 +46,7 @@ try:
         else:
             mcp.output(9, 1)
             mcp.output(9, 0)
-           print "Comando invalido! " + comando 
+            print "Comando invalido! " + comando 
  
 except KeyboardInterrupt:   #   Trata o CTRL+C
     print "Saindo..."
