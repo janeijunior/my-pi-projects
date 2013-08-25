@@ -92,7 +92,7 @@ conectados =0
 listaConectados =[]
 listaThread =[]
 """Set the quantifier of initial clients you wait to start the chat"""
-while (conectados<2):
+while (conectados<1):
     print "Conectados: "+str(conectados)
     conn, addr = tcp_server_socket.accept()
     temp = verificaMensagensClientes(conn)
