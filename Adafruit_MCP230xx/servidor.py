@@ -39,17 +39,13 @@ try:
  
         comando = msg.strip() 
  
-        if int(comando) == 0:
-           mcp.output(0, 1)
-        elif int(comando) == 1:
-           mcp.output(1, 1)
-        elif int(comando) == 2:
-           mcp.output(2, 1)
-        elif int(comando) == 3:
-           mcp.output(3, 1)
+        if comando == "l0":
+            mcp.output(0, 1)
+        elif comando == "l1":
+            mcp.output(1, 1)
         else:
-           mcp.output(4, 1)
-         
+            print "Comando invalido! " + comando 
+ 
 except KeyboardInterrupt:   #   Trata o CTRL+C
     print "Saindo..."
     exit(0)
