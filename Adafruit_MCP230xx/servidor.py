@@ -35,11 +35,11 @@ try:
     while True:
         msg = con.recv(1024)
           
-        print "Mensagem recebida de -> " + msg.strip()
- 
         comando = msg.strip() 
  
         if len(comando) > 0:
+            print "Mensagem recebida de -> " + msg.strip()
+            
             if comando[2] == "l" and comando[3] == "0":
                 mcp.output(0, 1)
             elif comando[2] == "l" and comando[3] == "1":
