@@ -20,7 +20,7 @@ class Servidor(Adafruit_MCP230xx):
     print "aguardando mensagem"
     recebe = con.recv(1024)
     
-    mcp = Adafruit_MCP230XX(address=0x20, num_gpios=16)
+    mcp = Adafruit_MCP230xx(address=0x20, num_gpios=16)
     
     # Set pins 0, 1, 2 as outputs
     mcp.config(0, mcp.OUTPUT)
