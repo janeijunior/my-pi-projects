@@ -34,12 +34,11 @@ mcp.config(9, mcp.OUTPUT)
 
 try:
     msg = True
+    
     while msg != None:
         msg = serv_socket.recv(1024) 
         print "Mensagem recebida de -> %s" % (msg)
-        
-        
-        
+   
 except KeyboardInterrupt:   #   Trata o CTRL+C
     print "Saindo..."
     exit(0)
