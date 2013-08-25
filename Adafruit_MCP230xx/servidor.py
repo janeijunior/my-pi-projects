@@ -20,7 +20,6 @@ recebe = con.recv(1024)
 
 mcp = Adafruit_MCP230XX(address=0x20, num_gpios=16)
     
-    # Set pins 0, 1, 2 as outputs
 mcp.config(0, mcp.OUTPUT)
 mcp.config(1, mcp.OUTPUT)
 mcp.config(2, mcp.OUTPUT)
