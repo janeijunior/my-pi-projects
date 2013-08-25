@@ -37,6 +37,8 @@ try:
     while msg != None:
         msg = con.recv(1024)
         
+        l1 = "l1"
+        
         if (msg.upper() == "1"):
             mcp.output(1, 1)  
           
