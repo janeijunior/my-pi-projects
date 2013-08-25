@@ -15,6 +15,7 @@ print 'conectado'
 print "aguardando mensagem"
 recebe = con.recv(1024)
 
+
  
 print "mensagem recebida: "+ recebe
 serv_socket.close()
