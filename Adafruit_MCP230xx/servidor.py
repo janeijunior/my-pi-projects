@@ -16,8 +16,7 @@ print 'aguardando conexao'
 con, cliente = serv_socket.accept()
 print 'conectado'
 print "aguardando mensagem"
-recebe = con.recv(1024)
-
+#recebe = con.recv(1024)
 
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
     
