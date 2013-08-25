@@ -35,7 +35,7 @@ try:
     msg = True
     
     while msg != None:
-        msg = serv_socket.recv(1024) 
+        msg = con.recv(1024)
         print "Mensagem recebida de -> %s" % (msg)
    
 except KeyboardInterrupt:   #   Trata o CTRL+C
