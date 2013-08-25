@@ -1,7 +1,7 @@
 import socket
  
 host = ''
-port = 7000
+port = 1234
  
 addr = (host, port)
 serv_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
