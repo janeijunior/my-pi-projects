@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import socket
 import Adafruit_MCP230xx
 
