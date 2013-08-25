@@ -42,13 +42,7 @@ try:
         elif msg.strip() == "l1":
             mcp.output(1, 1)
         else:
-            mcp.output(0, 1)  
-            mcp.output(1, 1)  
-            mcp.output(2, 1) 
-            time.sleep(1)
-            mcp.output(0, 0)  
-            mcp.output(1, 0)  
-            mcp.output(2, 0) 
+            print "Comando inválido!" 
  
 except KeyboardInterrupt:   #   Trata o CTRL+C
     print "Saindo..."
