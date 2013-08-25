@@ -44,6 +44,7 @@ try:
         elif comando == "l1":
             mcp.output(1, 1)
         else:
+            mcp.output(9, 1)
             print "Comando invalido! " + comando 
  
 except KeyboardInterrupt:   #   Trata o CTRL+C
