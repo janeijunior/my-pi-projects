@@ -4,7 +4,7 @@ import Adafruit_MCP230xx
 
  
 host = ''
-port = 1234
+port = 7000
  
 addr = (host, port)
 serv_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
