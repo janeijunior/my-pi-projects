@@ -2,7 +2,6 @@ import socket
 from Adafruit_I2C import Adafruit_I2C
 
 import time
-
   
 host = ''
 port = 7000
