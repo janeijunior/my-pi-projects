@@ -16,7 +16,7 @@ print "aguardando mensagem"
 recebe = con.recv(1024)
 
 if recebe == 'liga'
-  print "Liga!"
+  print "Liga"
  
 print "mensagem recebida: "+ recebe
 serv_socket.close()
