@@ -36,7 +36,9 @@ try:
     
     while msg != None:
         msg = con.recv(1024)
-                
+        
+        comando = con.recv(1024)
+        
         if msg.strip() == "l0":
             mcp.output(0, 1)
         elif msg.strip() == "l1":
