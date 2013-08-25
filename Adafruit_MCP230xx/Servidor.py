@@ -1,6 +1,6 @@
 import socket
 import Adafruit_I2C
-import Adafruit_MCP230XX
+import Adafruit_MCP230xx
 
 host = ''
 port = 7000
