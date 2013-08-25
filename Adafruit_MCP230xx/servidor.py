@@ -40,6 +40,7 @@ try:
         if msg.strip() == "l0":
             mcp.output(0, 1)
         elif msg.strip() == "l1":
+            mcp.output(1, 1)
         else:
             mcp.output(1, 0)  
           
