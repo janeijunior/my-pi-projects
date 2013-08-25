@@ -37,7 +37,7 @@ try:
     while msg != None:
         msg = con.recv(1024)
                 
-        if msg in ('l1', 'L1'):
+        if msg.upper() in ('l1', 'L1'):
             mcp.output(1, 1)  
           
         print "Mensagem recebida de -> %s" % (msg.upper())
