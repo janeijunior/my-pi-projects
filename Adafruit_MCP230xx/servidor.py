@@ -48,7 +48,7 @@ try:
             mcp.output(1, 0)  
             mcp.output(2, 0)  
           
-        print "Mensagem recebida de -> " + (msg.strip())
+        print "Mensagem recebida de -> " + msg.strip()
    
 except KeyboardInterrupt:   #   Trata o CTRL+C
     print "Saindo..."
