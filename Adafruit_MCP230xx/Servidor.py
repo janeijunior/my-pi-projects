@@ -1,9 +1,9 @@
 import socket
-import Adafruit_MCP230XX
+import Adafruit_MCP230xx
 
 import time
 
-class Servidor(Adafruit_MCP230XX):
+class Servidor(Adafruit_MCP230xx):
 
     host = ''
     port = 1234
