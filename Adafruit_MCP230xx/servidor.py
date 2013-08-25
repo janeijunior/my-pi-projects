@@ -39,7 +39,7 @@ try:
  
         comando = msg.strip() 
  
-        if len(comando) > 0
+        if len(comando) > 0:
             if comando[2] == "l" and comando[3] == "0":
                 mcp.output(0, 1)
             elif comando[2] == "l" and comando[3] == "1":
