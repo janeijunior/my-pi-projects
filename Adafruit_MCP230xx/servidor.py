@@ -32,7 +32,7 @@ mcp.config(8, mcp.OUTPUT)
 mcp.config(9, mcp.OUTPUT)
 
 try:
-    while true:
+    while True:
         msg = con.recv(1024)
         
         if msg.strip() == "l0":
