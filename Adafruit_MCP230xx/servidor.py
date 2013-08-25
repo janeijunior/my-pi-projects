@@ -41,11 +41,11 @@ try:
  
         if comando.int() == 0:
            mcp.output(0, 1)
-        if comando.int() == 1:
+        elif comando.int() == 1:
            mcp.output(1, 1)
-        elif var == 150:
+        elif comando.int() == 2::
            mcp.output(2, 1)
-        elif var == 100:
+        elif comando.int() == 3:
            mcp.output(3, 1)
         else:
            mcp.output(4, 1)
