@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-if "12" == "12":
+if "l1" == "l1":
     print "true"
 else:
     print "false"
