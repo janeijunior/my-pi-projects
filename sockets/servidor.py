@@ -1,12 +1,3 @@
-#########=====serv_tuto.py=====##########
-#!/user/bin/python
-#
-# Coded by: Alisson Menezes [kernelcrash]
-#
-# servidor que recebe mensagens de aplicação client parecido com o netsend
-#
-#
- 
 import socket
  
 host = ''
