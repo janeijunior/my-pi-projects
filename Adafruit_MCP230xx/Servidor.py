@@ -1,8 +1,10 @@
 import socket
-from Adafruit_I2C import Adafruit_I2C
+from Adafruit_MCP230XX import Adafruit_MCP230XX
 
 import time
-  
+
+class Servidor(Adafruit_MCP230XX):
+
 host = ''
 port = 1234
  
