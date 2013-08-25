@@ -2,7 +2,8 @@
 
 msg = "l1         "
 
-if msg.strip() == "l1":
-    print "true"
-else:
-    print "false"
+while True:
+    if msg.strip() == "l1":
+        print "true"
+    else:
+        print "false"
