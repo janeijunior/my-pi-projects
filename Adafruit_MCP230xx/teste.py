@@ -2,7 +2,7 @@
 
 msg = "l1           "
 
-if "l1" == "l1":
+if msg == "l1":
     print "true"
 else:
     print "false"
