@@ -1,6 +1,6 @@
 import socket
 from Adafruit_MCP230xx
-import Adafruit_MCP230xx
+import Adafruit_MCP230xx.py
 
 host = ''
 port = 7000
