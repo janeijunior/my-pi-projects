@@ -37,12 +37,14 @@ try:
           
         print "Mensagem recebida de -> " + msg.strip()
  
-        if msg.strip() == "l0":
+        comando = msg.strip() 
+ 
+        if comando == "l0":
             mcp.output(0, 1)
-        elif msg.strip() == "l1":
+        elif comando == "l1":
             mcp.output(1, 1)
         else:
-            print "Comando invalido!" 
+            print "Comando invalido! " + comando 
  
 except KeyboardInterrupt:   #   Trata o CTRL+C
     print "Saindo..."
