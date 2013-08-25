@@ -32,8 +32,6 @@ mcp.config(8, mcp.OUTPUT)
 mcp.config(9, mcp.OUTPUT)
 
 try:
-    msg = True
-    
     while true:
         comando = con.recv(1024)
         
