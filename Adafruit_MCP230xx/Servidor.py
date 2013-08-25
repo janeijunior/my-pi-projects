@@ -1,5 +1,8 @@
 import socket
-import Adafruit_MCP230xx
+from Adafruit_I2C import Adafruit_I2C
+
+import time
+
 
 class Adafruit_MCP230XX(Adafruit_I2C):
 
