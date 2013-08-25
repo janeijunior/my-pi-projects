@@ -2,5 +2,5 @@
 
 if "12" == "12":
     print "true"
-else
+else:
     print "false"
