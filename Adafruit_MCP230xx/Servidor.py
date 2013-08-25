@@ -1,5 +1,5 @@
 import socket
-import Adafruit_MCP230xx
+import Adafruit_MCP230XX
 
 import time
 
