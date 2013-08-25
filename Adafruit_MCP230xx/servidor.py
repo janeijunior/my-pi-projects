@@ -39,7 +39,7 @@ try:
         
         l1 = "l1"
         
-        if (msg.upper() == "1"):
+        if (msg == l1):
             mcp.output(1, 1)  
           
         print "Mensagem recebida de -> %s" % (msg.upper())
