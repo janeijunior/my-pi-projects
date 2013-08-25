@@ -25,7 +25,7 @@ class VerificaMensagens(Thread):
 import socket
 #setar aqui o endereço IP do servidor
 #set here the IP adress of the server
-HOST, PORT = "192.168.0.147", 20002
+HOST, PORT = "192.168.1.104", 20002
 
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp.connect((HOST, PORT))
