@@ -39,9 +39,9 @@ try:
  
         comando = msg.strip() 
  
-        if comando[2:3] == "0":
+        if comando[2:3] == "l0":
             mcp.output(0, 1)
-        elif comando[2:3] == "1":
+        elif comando[2:3] == "l1":
             mcp.output(1, 1)
         else:
             mcp.output(9, 1)
