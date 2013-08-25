@@ -45,6 +45,7 @@ try:
             mcp.output(1, 1)
         else:
             mcp.output(9, 1)
+            time.sleep(0)
             mcp.output(9, 0)
             print "Comando invalido! " + comando 
  
