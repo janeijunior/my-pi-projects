@@ -37,7 +37,7 @@ try:
     while msg != None:
         msg = con.recv(1024)
                 
-        if msg.upper() == "L1":
+        if msg.strip() == "l1":
             mcp.output(1, 1)
         else:
             mcp.output(1, 0)  
