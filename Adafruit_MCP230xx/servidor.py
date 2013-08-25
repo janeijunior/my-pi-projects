@@ -40,7 +40,7 @@ try:
         if msg.upper() == 'L1':
           mcp.output(1, 1)  
           
-        print "Mensagem recebida de -> %s" % (msg.strip())
+        print "Mensagem recebida de -> %s" % (msg.upper()) + "Fim"
    
 except KeyboardInterrupt:   #   Trata o CTRL+C
     print "Saindo..."
