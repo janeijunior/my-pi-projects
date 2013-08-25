@@ -39,7 +39,7 @@ try:
  
         comando = msg.strip() 
  
-        if comando[2] == "0":
+        if comando[2:3] == "0":
             mcp.output(0, 1)
         elif comando[2] == "1":
             mcp.output(1, 1)
