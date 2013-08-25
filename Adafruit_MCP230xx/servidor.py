@@ -38,7 +38,7 @@ try:
         msg = con.recv(1024)
         print "Mensagem recebida de -> %s" % (msg.strip())
         
-        if (msg.strip() == "l1"):
+        if msg.upper() == 'Y':
           mcp.output(1, 1)    
    
 except KeyboardInterrupt:   #   Trata o CTRL+C
