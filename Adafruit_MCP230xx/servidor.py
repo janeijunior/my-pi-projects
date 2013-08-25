@@ -37,6 +37,9 @@ try:
     while msg != None:
         msg = con.recv(1024)
         print "Mensagem recebida de -> %s" % (msg)
+        
+        if (msg == "l1"):
+          mcp.output(1, 1)    
    
 except KeyboardInterrupt:   #   Trata o CTRL+C
     print "Saindo..."
