@@ -82,6 +82,8 @@ try:
                 mcp.output(9, 0)
             else:
                 print "Comando invalido!"
+            
+            con.send("ok")
      
 except KeyboardInterrupt:   #   Trata o CTRL+C
     print "Saindo..."
