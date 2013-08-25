@@ -43,7 +43,7 @@ try:
            mcp.output(0, 1)
         elif comando.int() == 1:
            mcp.output(1, 1)
-        elif comando.int() == 2::
+        elif comando.int() == 2:
            mcp.output(2, 1)
         elif comando.int() == 3:
            mcp.output(3, 1)
