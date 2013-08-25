@@ -35,7 +35,7 @@ mcp.config(9, mcp.OUTPUT)
 try:
     msg = True
     while msg != None:
-        msg = new_sock.recv(1024) 
+        msg = serv_socket.recv(1024) 
         print "Mensagem recebida de -> %s" % (msg)
         
         
