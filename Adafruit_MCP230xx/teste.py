@@ -10,7 +10,7 @@ def conectado(con, cliente):
     while True:
         msg = con.recv(1024)
         if not msg: break
-        print cliente, ms
+        print cliente, msg
 
    print 'Finalizando conexao do cliente', cliente
    con.close()
