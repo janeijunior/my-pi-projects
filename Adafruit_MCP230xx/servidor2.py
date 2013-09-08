@@ -29,7 +29,7 @@ class verificaMensagensClientes(Thread):
         mcp.config(9, mcp.OUTPUT)
 
         
-        while (1):
+        while (1 and conectados > 0):
             data = self.conn.recv(1024)
             print data
             for conexao in listaConectados:
