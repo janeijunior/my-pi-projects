@@ -17,7 +17,6 @@ mcp.config(7, mcp.OUTPUT)
 mcp.config(8, mcp.OUTPUT)
 mcp.config(9, mcp.OUTPUT)
 
-
 def conectado(con, cliente):
     print 'Conectado por', cliente
 
