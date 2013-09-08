@@ -3,6 +3,7 @@ import time
 import Adafruit_MCP230xx
 from threading import Thread
 HOST, PORT = "192.168.1.104", 7000
+
 class verificaMensagensClientes(Thread):
     def __init__(self, conn):
         Thread.__init__(self)
