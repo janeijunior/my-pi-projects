@@ -34,7 +34,7 @@ class verificaMensagensClientes(Thread):
         
             for conexao in listaConectados:
                 if(conexao != self.conn):
-                msg = conexao.recv(1024)
+                    msg = conexao.recv(1024)
           
                     comando = msg.strip() 
              
