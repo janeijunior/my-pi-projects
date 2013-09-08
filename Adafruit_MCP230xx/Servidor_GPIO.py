@@ -24,11 +24,13 @@ def conectado(con, cliente):
 
     while True:
         msg = con.recv(1024)
+        comando = msg.strip() 
+     
         if not msg: break
+        
         print cliente, msg
                   
-        comando = msg.strip() 
- 
+        
         if len(comando) > 0:
             #print "Mensagem recebida -> " + msg.strip()
             
