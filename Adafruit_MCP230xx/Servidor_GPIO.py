@@ -21,6 +21,8 @@ mcp.config(7, mcp.OUTPUT)
 mcp.config(8, mcp.OUTPUT)
 mcp.config(9, mcp.OUTPUT)
 
+print "Aguardando conexões..."
+
 def conectado(con, cliente):
     print 'Conectado: ', cliente
 
