@@ -26,7 +26,8 @@ def conectado(con, cliente):
         msg = con.recv(1024)
         comando = msg.strip() 
      
-        if not msg: break
+        if not msg: 
+            break
         
         print cliente, msg
                   
