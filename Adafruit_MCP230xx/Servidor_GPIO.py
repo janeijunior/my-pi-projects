@@ -4,7 +4,7 @@ import time
 import Adafruit_MCP230xx
 
 HOST = '192.168.1.104'  # Endereco IP do Servidor
-PORT = 7000             # Porta que o Servidor esta
+PORT = 7000             # Porta do Servidor
 
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
