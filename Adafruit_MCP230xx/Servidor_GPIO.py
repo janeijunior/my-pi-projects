@@ -30,8 +30,7 @@ def conectado(con, cliente):
         comando = msg.strip() 
  
         if len(comando) > 0:
-            print "Mensagem recebida -> " + msg.strip()
-            
+            #print "Mensagem recebida -> " + msg.strip()
             if comando[2] == "l" and comando[3] == "0":
                 mcp.output(0, 1)
             elif comando[2] == "l" and comando[3] == "1":
