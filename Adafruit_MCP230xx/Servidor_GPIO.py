@@ -29,7 +29,7 @@ def conectado(con, cliente):
         if not msg: 
             break
         
-        print cliente, msg
+        print cliente, comando
                   
         
         if len(comando) > 0:
