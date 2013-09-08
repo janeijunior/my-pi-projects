@@ -7,10 +7,10 @@ PORT = 7000            # Porta que o Servidor esta
 def conectado(con, cliente):
     print 'Conectado por', cliente
 
-   while True:
-       msg = con.recv(1024)
+    while True:
+    msg = con.recv(1024)
       if not msg: break
-       print cliente, msg
+        print cliente, msg
 
    print 'Finalizando conexao do cliente', cliente
    con.close()
