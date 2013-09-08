@@ -31,7 +31,6 @@ class verificaMensagensClientes(Thread):
 
         
         while (1):
-        
             for conexao in listaConectados:
                 if(conexao != self.conn):
                     msg = conexao.recv(1024)
