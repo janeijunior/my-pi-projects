@@ -10,8 +10,8 @@ mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
 print "Configurando reles..."
 
-mcp.config(0, 0)
-mcp.config(1, 0)
+mcp.config(0, mcp.OUTPUT)
+mcp.config(1, mcp.OUTPUT)
 mcp.config(2, mcp.OUTPUT)
 mcp.config(3, mcp.OUTPUT)
 mcp.config(4, mcp.OUTPUT)
