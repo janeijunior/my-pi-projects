@@ -20,7 +20,7 @@ mcp.config(8, mcp.OUTPUT)
 mcp.config(9, mcp.OUTPUT)
 
 def conectado(con, cliente):
-    print 'Conectado por', cliente
+    print 'Conectado: ', cliente
 
     while True:
         msg = con.recv(1024)
