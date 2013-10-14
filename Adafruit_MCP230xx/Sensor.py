@@ -42,4 +42,4 @@ while True:
     if (input7 == 1): 
         print("sensor7") 
     #slight pause to debounce 
-    time.sleep(0.05
+    time.sleep(0.05)
