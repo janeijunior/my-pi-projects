@@ -3,7 +3,7 @@ import time
 import Adafruit_MCP230xx
 
  
-host = ''
+host = '127.0.0.1'
 port = 7000
  
 addr = (host, port)
