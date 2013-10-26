@@ -27,11 +27,11 @@ while True:
     input7 = GPIO.input(4)
     
     #if the last reading was low and this one high, print 
-    if (input0 == 0): 
+    if (input0 == 1): 
         print("sensor0") 
-    if (input1 == 0): 
+    if (input1 == 1): 
         print("sensor1") 
-    if (input2 == 0): 
+    if (input2 == 1): 
         print("sensor2") 
     if (input3 == 1): 
         print("sensor3") 
