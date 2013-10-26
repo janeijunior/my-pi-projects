@@ -42,6 +42,6 @@ while True:
     if (input6 == 1): 
         print("sensor6") 
     if (input7 == 1): 
-        print("sensor 7 Normal")
+        print("sensor7")
     #slight pause to debounce 
     time.sleep(0.05)
