@@ -28,7 +28,7 @@ while True:
     
     #if the last reading was low and this one high, print 
     if (input0 == 1): 
-        print("sensor0") 
+        print("sensor 0 Normal") 
     else:
         print("Sensor 7 violado!")
     
