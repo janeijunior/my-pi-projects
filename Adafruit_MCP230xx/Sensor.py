@@ -41,11 +41,7 @@ while True:
         print("sensor5") 
     if (input6 == 1): 
         print("sensor6") 
-        
     if (input7 == 1): 
         print("sensor 7 Normal")
-    else:
-        print("Sensor 7 violado!")
-    
     #slight pause to debounce 
     time.sleep(0.05)
