@@ -29,22 +29,43 @@ while True:
     #if the last reading was low and this one high, print 
     if (input0 == 1): 
         print("sensor0") 
+    else:
+        print("Sensor 7 violado!")
+    
     if (input1 == 1): 
-        print("sensor1") 
+        print("sensor1")
+    else:
+        print("Sensor 7 violado!")
+    
     if (input2 == 1): 
         print("sensor2") 
+    else:
+        print("Sensor 7 violado!")
+        
     if (input3 == 1): 
         print("sensor3") 
+    else:
+        print("Sensor 7 violado!")
+    
     if (input4 == 1):
         print("sensor4") 
+    else:
+        print("Sensor 7 violado!")
+    
     if (input5 == 1): 
         print("sensor5") 
+    else:
+        print("Sensor 7 violado!")
+    
     if (input6 == 1): 
         print("sensor6") 
+    else:
+        print("Sensor 7 violado!")
         
     if (input7 == 1): 
         print("sensor 7 Normal")
     else:
         print("Sensor 7 violado!")
+    
     #slight pause to debounce 
     time.sleep(0.05)
