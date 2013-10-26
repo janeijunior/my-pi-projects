@@ -15,7 +15,7 @@ prev_input0 = 0
 
 while True: 
     #take a reading 
-    #print("Lendo sensores...")
+    print("Lendo sensores...")
     
     input0 = GPIO.input(17) 
     input1 = GPIO.input(18) 
