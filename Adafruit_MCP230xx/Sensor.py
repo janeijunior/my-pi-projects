@@ -30,7 +30,7 @@ while True:
     if (input0 == 1): 
         print("sensor0")
     else:
-        print("Sendor 0 Violado!"
+        print("Sendor 0 Violado!")
     
     if (input1 == 1): 
         print("sensor1") 
