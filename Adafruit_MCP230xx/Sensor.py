@@ -27,40 +27,20 @@ while True:
     input7 = GPIO.input(4)
     
     #if the last reading was low and this one high, print 
-    if (input0 == 1): 
-        print("sensor 0 Normal") 
-    else:
-        print("Sensor 0 violado!")
-    
-    if (input1 == 1): 
-        print("sensor 1 Normal")
-    else:
-        print("Sensor 1 violado!")
-    
-    if (input2 == 1): 
-        print("sensor 2 Normal") 
-    else:
-        print("Sensor 2 violado!")
-        
+    if (input0 == 0): 
+        print("sensor0") 
+    if (input1 == 0): 
+        print("sensor1") 
+    if (input2 == 0): 
+        print("sensor2") 
     if (input3 == 1): 
-        print("sensor 3 Normal") 
-    else:
-        print("Sensor 3 violado!")
-    
+        print("sensor3") 
     if (input4 == 1):
-        print("sensor 4 Normal") 
-    else:
-        print("Sensor 4 violado!")
-    
+        print("sensor4") 
     if (input5 == 1): 
-        print("sensor 5 Normal") 
-    else:
-        print("Sensor 5 violado!")
-    
+        print("sensor5") 
     if (input6 == 1): 
-        print("sensor 6 Normal") 
-    else:
-        print("Sensor 6 violado!")
+        print("sensor6") 
         
     if (input7 == 1): 
         print("sensor 7 Normal")
