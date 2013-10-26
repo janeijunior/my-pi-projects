@@ -19,10 +19,10 @@ if __name__ == '__main__':
     
     #while (True): 
         #mcp.output(Pin,State) 
-        mcp.output(10, 1) # Pin 10 High 
-        mcp.output(11, 1) # Pin 11 High 
-        mcp.output(12, 1) # Pin 12 High 
-        time.sleep(1.2) 
-        mcp.output(10, 0) # Pin 10 High 
-        mcp.output(11, 0) # Pin 11 High 
-        mcp.output(12, 0)
+    mcp.output(10, 1) # Pin 10 High 
+    mcp.output(11, 1) # Pin 11 High 
+    mcp.output(12, 1) # Pin 12 High 
+    time.sleep(1.2) 
+    mcp.output(10, 0) # Pin 10 High 
+    mcp.output(11, 0) # Pin 11 High 
+    mcp.output(12, 0)
