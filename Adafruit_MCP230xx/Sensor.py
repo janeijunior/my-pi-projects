@@ -30,37 +30,37 @@ while True:
     if (input0 == 1): 
         print("sensor 0 Normal") 
     else:
-        print("Sensor 7 violado!")
+        print("Sensor 0 violado!")
     
     if (input1 == 1): 
-        print("sensor1")
+        print("sensor 1 Normal")
     else:
-        print("Sensor 7 violado!")
+        print("Sensor 1 violado!")
     
     if (input2 == 1): 
-        print("sensor2") 
+        print("sensor 2 Normal") 
     else:
-        print("Sensor 7 violado!")
+        print("Sensor 2 violado!")
         
     if (input3 == 1): 
-        print("sensor3") 
+        print("sensor 3 Normal") 
     else:
-        print("Sensor 7 violado!")
+        print("Sensor 3 violado!")
     
     if (input4 == 1):
-        print("sensor4") 
+        print("sensor 4 Normal") 
     else:
-        print("Sensor 7 violado!")
+        print("Sensor 4 violado!")
     
     if (input5 == 1): 
-        print("sensor5") 
+        print("sensor 5 Normal") 
     else:
-        print("Sensor 7 violado!")
+        print("Sensor 5 violado!")
     
     if (input6 == 1): 
-        print("sensor6") 
+        print("sensor 6 Normal") 
     else:
-        print("Sensor 7 violado!")
+        print("Sensor 6 violado!")
         
     if (input7 == 1): 
         print("sensor 7 Normal")
