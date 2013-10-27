@@ -39,7 +39,7 @@ while True:
         print("sensor 0 Normal")
     else:
         print("Sendor 0 Violado!")
-        mcp.output(10, 0)
+        mcp.output(10, 1)
         sleep(20)
         mcp.output(10, 0)
         
