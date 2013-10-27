@@ -103,7 +103,7 @@ def conectado(con, cliente):
             #else:
             #    print "Comando invalido!"
         
-def Alarme:
+def Alarme():
     while True: 
         #take a reading 
         #print("Lendo sensores...")
