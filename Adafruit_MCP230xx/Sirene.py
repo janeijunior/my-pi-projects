@@ -23,7 +23,7 @@ if __name__ == '__main__':
     mcp.output(10, 1) # Pin 10 High 
     mcp.output(11, 1) # Pin 11 High 
     mcp.output(12, 1) # Pin 12 High
-    print "LIGADO AGUARDE O DESLIGAMENTO"
+    print "LIGADO"
     time.sleep(5) 
     print "DESLIGANDO"
     mcp.output(10, 0) # Pin 10 High
