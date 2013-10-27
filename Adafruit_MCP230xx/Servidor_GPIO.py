@@ -106,7 +106,7 @@ def conectado(con, cliente):
         
 def Alarme(Liga):
         
-    while True: 
+    while Liga: 
         #take a reading 
         #print("Lendo sensores...")
         
