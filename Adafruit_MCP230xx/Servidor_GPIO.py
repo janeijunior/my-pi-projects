@@ -149,7 +149,7 @@ def conectado(con, cliente):
                 mcp.output(9, 0)
             elif comando[2] == "d" and comando[3] == "a": # Desliga o alarme
                 mcp.output(10, 0)
-                Liga = False
+                thread1.stop()
             #else:
             #    print "Comando invalido!"
 
