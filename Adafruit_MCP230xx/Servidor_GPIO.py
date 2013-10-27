@@ -2,7 +2,6 @@ import socket
 import thread
 import threading
 import time
-import event
 import Adafruit_MCP230xx
 import RPi.GPIO as GPIO 
 
