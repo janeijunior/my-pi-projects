@@ -20,6 +20,7 @@ mcp.config(6, mcp.OUTPUT)
 mcp.config(7, mcp.OUTPUT)
 mcp.config(8, mcp.OUTPUT)
 mcp.config(9, mcp.OUTPUT)
+mcp.config(10, mcp.OUTPUT) #Sirene Alarme
 
 print "Aguardando conexoes..."
 
