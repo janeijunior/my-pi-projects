@@ -1,4 +1,4 @@
-import /usr/local/lib/python2.7/dist-packages/spidev
+import spidev
 import time
 spi = spidev.SpiDev()
 spi.open(0,0)
