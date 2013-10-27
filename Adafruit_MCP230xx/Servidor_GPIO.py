@@ -126,6 +126,8 @@ def conectado(con, cliente):
                 mcp.output(8, 1)
             elif comando[2] == "l" and comando[3] == "9":
                 mcp.output(9, 1)
+            elif comando[2] == "l" and comando[3] == "p":
+                mcp.output(10, 1)
             elif comando[2] == "l" and comando[3] == "a": # Liga o Alarme
                 thread1 = ThreadAlarme(1, "Thread-1", 1)
                 thread1.start()
