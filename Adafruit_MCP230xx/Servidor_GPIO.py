@@ -40,7 +40,7 @@ prev_input0 = 0
 
 print "Aguardando conexoes..."
 
-class myThread (threading.Thread):
+class ThreadAlarme(threading.Thread):
     def __init__(self, threadID, name, counter):
         threading.Thread.__init__(self)
         self.threadID = threadID
@@ -126,7 +126,7 @@ def conectado(con, cliente):
             elif comando[2] == "l" and comando[3] == "9":
                 mcp.output(9, 1)
             elif comando[2] == "l" and comando[3] == "a": # Liga o Alarme
-                thread1 = myThread(1, "Thread-1", 1)
+                thread1 = ThreadAlarme(1, "Thread-1", 1)
                 thread1.start()
             elif comando[2] == "d" and comando[3] == "0":
                 mcp.output(0, 0)
