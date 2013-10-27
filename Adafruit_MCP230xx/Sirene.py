@@ -17,12 +17,12 @@ if __name__ == '__main__':
     mcp.config(12, OUTPUT) 
     # Python speed test on output 0 toggling at max speed 
     
-    while (True): 
+    #while (True): 
         #mcp.output(Pin,State) 
-        mcp.output(10, 1) # Pin 10 High 
-        mcp.output(11, 1) # Pin 11 High 
-        mcp.output(12, 1) # Pin 12 High 
-        time.sleep(1.2) 
-        mcp.output(10, 0) # Pin 10 High 
-        mcp.output(11, 0) # Pin 11 High 
-        mcp.output(12, 0)
+    mcp.output(10, 1) # Pin 10 High 
+    mcp.output(11, 1) # Pin 11 High 
+    mcp.output(12, 1) # Pin 12 High 
+    time.sleep(5) 
+    mcp.output(10, 0) # Pin 10 High 
+    mcp.output(11, 0) # Pin 11 High 
+    mcp.output(12, 0)
