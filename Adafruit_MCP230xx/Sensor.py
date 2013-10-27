@@ -1,5 +1,7 @@
 import time 
 import RPi.GPIO as GPIO 
+import Adafruit_MCP230xx
+
 GPIO.setmode(GPIO.BCM) 
 GPIO.setup(17,GPIO.IN) #GPIO0 
 GPIO.setup(18,GPIO.IN) #GPIO1 
@@ -12,6 +14,13 @@ GPIO.setup(4,GPIO.IN) #GPIO7
 
 print 'Start' #initialise a previous input variable to 0 (assume button not pressed last) 
 prev_input0 = 0 
+
+
+
+mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
+
+mcp.config(9, mcp.OUTPUT)
+
 
 while True: 
     #take a reading 
