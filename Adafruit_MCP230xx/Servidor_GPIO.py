@@ -10,6 +10,8 @@ PORT = 7000             # Porta do Servidor
 
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
+Liga = True
+
 print "Configurando reles..."
 
 mcp.config(0, mcp.OUTPUT)
@@ -77,7 +79,8 @@ def conectado(con, cliente):
             elif comando[2] == "l" and comando[3] == "9":
                 mcp.output(9, 1)
             elif comando[2] == "l" and comando[3] == "a": # Liga o Alarme
-                thread.start_new_thread(Alarme, tuple([True]))
+                Liga = True
+                thread.start_new_thread(Alarme, tuple([1]))
             elif comando[2] == "d" and comando[3] == "0":
                 mcp.output(0, 0)
             elif comando[2] == "d" and comando[3] == "1":
@@ -100,7 +103,7 @@ def conectado(con, cliente):
                 mcp.output(9, 0)
             elif comando[2] == "d" and comando[3] == "a": # Desliga o alarme
                 mcp.output(10, 0)
-                thread.exit()
+                Liga = False
             #else:
             #    print "Comando invalido!"
         
