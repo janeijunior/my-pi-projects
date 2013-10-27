@@ -60,8 +60,8 @@ if __name__ == '__main__':
     mcp.output(6, 0)
     mcp.output(7, 0)
     mcp.output(8, 0)
-    mcp.output(9, 0) # Pin 10 High 
-    mcp.output(10, 0)
+    mcp.output(9, 0) 
+    mcp.output(10, 0)  # Pin 10 High
     mcp.output(11, 0) # Pin 11 High 
     mcp.output(12, 0)
     mcp.output(13, 0)
