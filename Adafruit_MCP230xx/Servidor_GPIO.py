@@ -6,7 +6,7 @@ import Adafruit_MCP230xx
 import RPi.GPIO as GPIO 
 
 HOST = '192.168.0.104'  # IP do Servidor
-PORT = 7002             # Porta do Servidor
+PORT = 7000             # Porta do Servidor
 
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
