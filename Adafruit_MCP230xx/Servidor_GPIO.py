@@ -10,8 +10,6 @@ PORT = 7000             # Porta do Servidor
 
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
-Liga = True
-
 print "Configurando reles..."
 
 mcp.config(0, mcp.OUTPUT)
@@ -41,6 +39,54 @@ GPIO.setup(4,GPIO.IN) #GPIO7
 prev_input0 = 0 
 
 print "Aguardando conexoes..."
+
+class myThread (threading.Thread):
+    def __init__(self, threadID, name, counter):
+        threading.Thread.__init__(self)
+        self.threadID = threadID
+        self.name = name
+        self.counter = counter
+    def stop(self):
+        self.__stop_thread_event.set()
+    def run(self):        
+        while True: 
+            #take a reading 
+            #print("Lendo sensores...")
+            
+            input0 = GPIO.input(17) 
+            input1 = GPIO.input(18) 
+            input2 = GPIO.input(27) 
+            input3 = GPIO.input(22) 
+            input4 = GPIO.input(23) 
+            input5 = GPIO.input(24) 
+            input6 = GPIO.input(25) 
+            input7 = GPIO.input(4)
+            
+            #if the last reading was low and this one high, print 
+            if (input0 == 1): 
+                print("sensor 0 Normal")
+            else:
+                print("Sendor 0 Violado!")
+                mcp.output(10, 1)
+                time.sleep(5) 
+                mcp.output(10, 0)
+                
+            if (input1 == 1): 
+                print("sensor1") 
+            if (input2 == 1): 
+                print("sensor2") 
+            if (input3 == 1): 
+                print("sensor3") 
+            if (input4 == 1):
+                print("sensor4") 
+            if (input5 == 1): 
+                print("sensor5") 
+            if (input6 == 1): 
+                print("sensor6") 
+            if (input7 == 1): 
+                print("sensor7")
+            #slight pause to debounce 
+            time.sleep(0.05)
 
 def conectado(con, cliente):
     print 'Conectado: ', cliente
@@ -79,8 +125,8 @@ def conectado(con, cliente):
             elif comando[2] == "l" and comando[3] == "9":
                 mcp.output(9, 1)
             elif comando[2] == "l" and comando[3] == "a": # Liga o Alarme
-                Liga = True
-                thread.start_new_thread(Alarme, tuple([1]))
+                thread1 = myThread(1, "Thread-1", 1)
+                thread1.start()
             elif comando[2] == "d" and comando[3] == "0":
                 mcp.output(0, 0)
             elif comando[2] == "d" and comando[3] == "1":
@@ -106,49 +152,6 @@ def conectado(con, cliente):
                 Liga = False
             #else:
             #    print "Comando invalido!"
-        
-def Alarme(A):
-        
-    while Liga: 
-        #take a reading 
-        #print("Lendo sensores...")
-        
-        input0 = GPIO.input(17) 
-        input1 = GPIO.input(18) 
-        input2 = GPIO.input(27) 
-        input3 = GPIO.input(22) 
-        input4 = GPIO.input(23) 
-        input5 = GPIO.input(24) 
-        input6 = GPIO.input(25) 
-        input7 = GPIO.input(4)
-        
-        #if the last reading was low and this one high, print 
-        if (input0 == 1): 
-            print("sensor 0 Normal")
-        else:
-            print("Sendor 0 Violado!")
-            mcp.output(10, 1)
-            time.sleep(5) 
-            mcp.output(10, 0)
-            
-        if (input1 == 1): 
-            print("sensor1") 
-        if (input2 == 1): 
-            print("sensor2") 
-        if (input3 == 1): 
-            print("sensor3") 
-        if (input4 == 1):
-            print("sensor4") 
-        if (input5 == 1): 
-            print("sensor5") 
-        if (input6 == 1): 
-            print("sensor6") 
-        if (input7 == 1): 
-            print("sensor7")
-        #slight pause to debounce 
-        time.sleep(0.05)
-    
-
 
     print 'Finalizando conexao do cliente', cliente
     con.close()
