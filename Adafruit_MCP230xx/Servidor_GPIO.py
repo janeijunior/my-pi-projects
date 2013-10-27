@@ -60,6 +60,9 @@ def conectado(con, cliente):
                 mcp.output(8, 1)
             elif comando[2] == "l" and comando[3] == "9":
                 mcp.output(9, 1)
+            elif comando[2] == "l" and comando[3] == "a":
+                
+                
             elif comando[2] == "d" and comando[3] == "0":
                 mcp.output(0, 0)
             elif comando[2] == "d" and comando[3] == "1":
@@ -80,6 +83,8 @@ def conectado(con, cliente):
                 mcp.output(8, 0)
             elif comando[2] == "d" and comando[3] == "9":
                 mcp.output(9, 0)
+            elif comando[2] == "d" and comando[3] == "a":
+                
             #else:
             #    print "Comando invalido!"
         
