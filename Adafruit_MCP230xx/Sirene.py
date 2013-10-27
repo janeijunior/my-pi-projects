@@ -18,11 +18,17 @@ if __name__ == '__main__':
     # Python speed test on output 0 toggling at max speed 
     
     #while (True): 
-        #mcp.output(Pin,State) 
+    #mcp.output(Pin,State) 
+    print "10 ON"
     mcp.output(10, 1) # Pin 10 High 
+    print "11 ON"
     mcp.output(11, 1) # Pin 11 High 
+    print "12 ON"
     mcp.output(12, 1) # Pin 12 High 
     time.sleep(5) 
+    print "10 OFF"
     mcp.output(10, 0) # Pin 10 High 
+    print "11 OFF"
     mcp.output(11, 0) # Pin 11 High 
+    print "12 OFF"
     mcp.output(12, 0)
