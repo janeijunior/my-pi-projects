@@ -40,6 +40,8 @@ while True:
     else:
         print("Sendor 0 Violado!")
         mcp.output(10, 1)
+        sleep(20)
+        mcp.output(10, 0)
         
     if (input1 == 1): 
         print("sensor1") 
