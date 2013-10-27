@@ -101,7 +101,6 @@ def conectado(con, cliente):
             elif comando[2] == "d" and comando[3] == "a": # Desliga o alarme
                 mcp.output(10, 0)
                 thread.start_new_thread(Alarme, tuple([False]))
-            
             #else:
             #    print "Comando invalido!"
         
