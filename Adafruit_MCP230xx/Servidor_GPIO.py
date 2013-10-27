@@ -47,6 +47,7 @@ class myThread (threading.Thread):
         self.name = name
         self.counter = counter
     def stop(self):
+        mcp.output(10, 0)
         self.__stop_thread_event.set()
     def run(self):        
         while True: 
