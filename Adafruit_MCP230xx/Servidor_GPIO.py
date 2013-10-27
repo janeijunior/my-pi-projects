@@ -77,7 +77,7 @@ def conectado(con, cliente):
             elif comando[2] == "l" and comando[3] == "9":
                 mcp.output(9, 1)
             elif comando[2] == "l" and comando[3] == "a": # Liga o Alarme
-                thread.start_new_thread(Alarme, tuple([1]))
+                thread.start_new_thread(Alarme, tuple([True]))
             elif comando[2] == "d" and comando[3] == "0":
                 mcp.output(0, 0)
             elif comando[2] == "d" and comando[3] == "1":
