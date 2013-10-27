@@ -1,5 +1,6 @@
 import socket
 import thread
+import threading
 import time
 import Adafruit_MCP230xx
 import RPi.GPIO as GPIO 
@@ -76,7 +77,7 @@ def conectado(con, cliente):
             elif comando[2] == "l" and comando[3] == "9":
                 mcp.output(9, 1)
             elif comando[2] == "l" and comando[3] == "a": # Liga o Alarme
-                thread.start_new_thread(Alarme)
+                thread.start_new_thread(Alarme, tuple([1]))
             elif comando[2] == "d" and comando[3] == "0":
                 mcp.output(0, 0)
             elif comando[2] == "d" and comando[3] == "1":
@@ -103,7 +104,8 @@ def conectado(con, cliente):
             #else:
             #    print "Comando invalido!"
         
-def Alarme():
+def Alarme(Liga):
+        
     while True: 
         #take a reading 
         #print("Lendo sensores...")
