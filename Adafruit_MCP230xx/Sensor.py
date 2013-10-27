@@ -21,7 +21,7 @@ mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 mcp.config(10, mcp.OUTPUT)
 
 
-while Trcue: 
+while True: 
     #take a reading 
     #print("Lendo sensores...")
     
