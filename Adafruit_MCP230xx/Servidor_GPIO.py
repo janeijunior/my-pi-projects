@@ -149,6 +149,8 @@ def conectado(con, cliente):
                 mcp.output(8, 0)
             elif comando[2] == "d" and comando[3] == "9":
                 mcp.output(9, 0)
+            elif comando[2] == "d" and comando[3] == "p": 
+                mcp.output(9, 10)
             elif comando[2] == "d" and comando[3] == "a": # Desliga o alarme
                 thread1.stop()
             #else:
