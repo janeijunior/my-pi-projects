@@ -40,7 +40,7 @@ while True:
     else:
         print("Sendor 0 Violado!")
         mcp.output(10, 1)
-        sleep(20)
+        time.sleep(5) 
         mcp.output(10, 0)
         
     if (input1 == 1): 
