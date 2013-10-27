@@ -29,3 +29,4 @@ if __name__ == '__main__':
     mcp.output(10, 0) # Pin 10 High
     mcp.output(11, 0) # Pin 11 High 
     mcp.output(12, 0) # Pin 12 High
+    print "DESLIGADO"
