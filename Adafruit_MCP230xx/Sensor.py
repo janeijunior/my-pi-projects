@@ -16,7 +16,6 @@ print 'Start' #initialise a previous input variable to 0 (assume button not pres
 prev_input0 = 0 
 
 
-
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
 mcp.config(9, mcp.OUTPUT)
@@ -38,9 +37,11 @@ while True:
     #if the last reading was low and this one high, print 
     if (input0 == 1): 
         print("sensor 0 Normal")
+        mcp.output(9, 0)
     else:
         print("Sendor 0 Violado!")
-    
+        mcp.output(9, 1)
+        
     if (input1 == 1): 
         print("sensor1") 
     if (input2 == 1): 
