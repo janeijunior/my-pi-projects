@@ -20,37 +20,11 @@ if __name__ == '__main__':
     #while (True): 
     #mcp.output(Pin,State) 
     print "LIGANDO"
-    mcp.output(0, 1)
-    mcp.output(1, 1)
-    mcp.output(2, 1)
-    mcp.output(3, 1)
-    mcp.output(4, 1)
-    mcp.output(5, 1)
-    mcp.output(6, 1)
-    mcp.output(7, 1)
-    mcp.output(8, 1)
-    mcp.output(9, 1)
     mcp.output(10, 1) # Pin 10 High 
     mcp.output(11, 1) # Pin 11 High 
-    mcp.output(12, 1) # Pin 12 High 
-    mcp.output(13, 1)
-    mcp.output(14, 1)
-    mcp.output(15, 1)
+    mcp.output(12, 1) # Pin 12 High
     time.sleep(5) 
     print "DESLIGANDO"
-    mcp.output(0, 0)
-    mcp.output(1, 0)
-    mcp.output(2, 0)
-    mcp.output(3, 0)
-    mcp.output(4, 0)
-    mcp.output(5, 0)
-    mcp.output(6, 0)
-    mcp.output(7, 0)
-    mcp.output(8, 0)
-    mcp.output(9, 0) 
     mcp.output(10, 0) # Pin 10 High
     mcp.output(11, 0) # Pin 11 High 
     mcp.output(12, 0) # Pin 12 High
-    mcp.output(13, 0)
-    mcp.output(14, 0)
-    mcp.output(15, 0)
