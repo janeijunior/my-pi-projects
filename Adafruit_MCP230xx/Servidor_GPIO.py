@@ -83,8 +83,9 @@ def conectado(con, cliente):
                 mcp.output(8, 0)
             elif comando[2] == "d" and comando[3] == "9":
                 mcp.output(9, 0)
-            elif comando[2] == "d" and comando[3] == "a":
-                
+            elif comando[2] == "d" and comando[3] == "a": # Desliga o alarme
+            
+            
             #else:
             #    print "Comando invalido!"
         
