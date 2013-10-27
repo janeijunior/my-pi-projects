@@ -37,10 +37,10 @@ while True:
     #if the last reading was low and this one high, print 
     if (input0 == 1): 
         print("sensor 0 Normal")
-        mcp.output(9, 0)
+        mcp.output(11, 0)
     else:
         print("Sendor 0 Violado!")
-        mcp.output(9, 1)
+        mcp.output(11, 1)
         
     if (input1 == 1): 
         print("sensor1") 
