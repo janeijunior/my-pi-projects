@@ -18,7 +18,7 @@ prev_input0 = 0
 
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
-mcp.config(11, mcp.OUTPUT)
+mcp.config(1, mcp.OUTPUT)
 
 
 while True: 
@@ -37,10 +37,10 @@ while True:
     #if the last reading was low and this one high, print 
     if (input0 == 1): 
         print("sensor 0 Normal")
-        mcp.output(11, 0)
+        mcp.output(12, 0)
     else:
         print("Sendor 0 Violado!")
-        mcp.output(11, 1)
+        mcp.output(12, 1)
         
     if (input1 == 1): 
         print("sensor1") 
