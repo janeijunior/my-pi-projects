@@ -18,7 +18,7 @@ prev_input0 = 0
 
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
-mcp.config(9, mcp.OUTPUT)
+mcp.config(11, mcp.OUTPUT)
 
 
 while True: 
