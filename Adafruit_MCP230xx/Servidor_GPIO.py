@@ -50,7 +50,7 @@ class ThreadAlarme(threading.Thread):
         mcp.output(10, 0)
         self.__stop_thread_event.set()
     def run(self):        
-        while True: 
+        while not self.__stop_thread_event.isSet(): 
             #take a reading 
             #print("Lendo sensores...")
             
