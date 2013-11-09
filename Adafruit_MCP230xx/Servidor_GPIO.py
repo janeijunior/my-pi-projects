@@ -4,6 +4,8 @@ import threading
 import time
 import Adafruit_MCP230xx
 import RPi.GPIO as GPIO 
+import os
+import commands
 
 HOST = '192.168.5.125'  # IP do Servidor
 PORT = 5000             # Porta do Servidor
@@ -131,6 +133,8 @@ def conectado(con, cliente):
             elif comando[2] == "l" and comando[3] == "a": # Liga o Alarme
                 thread1 = ThreadAlarme(1, "Thread-1", 1)
                 thread1.start()
+            elif comando[2] == "l" and comando[3] == "c":
+                            
             elif comando[2] == "d" and comando[3] == "0":
                 mcp.output(0, 0)
             elif comando[2] == "d" and comando[3] == "1":
@@ -155,6 +159,8 @@ def conectado(con, cliente):
                 mcp.output(10, 0)
             elif comando[2] == "d" and comando[3] == "a": # Desliga o alarme
                 thread1.stop()
+            elif comando[2] == "d" and comando[3] == "c":
+                
             #else:
             #    print "Comando invalido!"
 
