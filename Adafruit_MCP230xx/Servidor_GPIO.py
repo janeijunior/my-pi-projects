@@ -160,7 +160,7 @@ def conectado(con, cliente):
             elif comando[2] == "d" and comando[3] == "a": # Desliga o alarme
                 thread1.stop()
             elif comando[2] == "d" and comando[3] == "c":
-                
+                os.system('echo "** Trapped CTRL-C"')    
             #else:
             #    print "Comando invalido!"
 
