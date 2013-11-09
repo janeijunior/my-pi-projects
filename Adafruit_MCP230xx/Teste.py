@@ -1,5 +1,5 @@
 os.system
-os.spawn*
+os.spawn
 os.popen*
 popen2.*
 commands.*
