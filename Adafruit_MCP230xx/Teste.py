@@ -1,9 +1,5 @@
-import os.system
-import os.spawn*
-import os.popen*
-import popen2.*
-import commands.*
+import subprocess
 
 if __name__ == '__main__':
     #var = os.system("ls")
-    subprocess.call(['gst-server.sh', str(domid)])
+    subprocess.call(['gst-server.sh', ''])
