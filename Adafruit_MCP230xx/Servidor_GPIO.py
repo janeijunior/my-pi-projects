@@ -163,7 +163,6 @@ def conectado(con, cliente):
                 thread1.stop()
             elif comando[2] == "d" and comando[3] == "c":
                 os.system('cd')
-                time.sleep(1)
                 os.system('sudo mjpg-streamer/mjpg-streamer.sh stop')    
             #else:
             #    print "Comando invalido!"
