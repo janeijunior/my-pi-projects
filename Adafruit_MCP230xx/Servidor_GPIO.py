@@ -135,7 +135,7 @@ def conectado(con, cliente):
                 thread1.start()
             elif comando[2] == "l" and comando[3] == "c":
                 os.system('cd')
-                time.sleep(500) 
+                time.sleep(1) 
                 os.system('sudo mjpg-streamer/mjpg-streamer.sh start')                
             elif comando[2] == "d" and comando[3] == "0":
                 mcp.output(0, 0)
