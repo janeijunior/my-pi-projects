@@ -160,8 +160,7 @@ def conectado(con, cliente):
             elif comando[2] == "d" and comando[3] == "a": # Desliga o alarme
                 thread1.stop()
             elif comando[2] == "d" and comando[3] == "c":
-                os.system('cd')
-                os.system('sudo mjpg-streamer/mjpg-streamer.sh stop')    
+                os.system('mjpg-streamer/mjpg-streamer.sh stop')    
             #else:
             #    print "Comando invalido!"
 
