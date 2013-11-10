@@ -162,7 +162,7 @@ def conectado(con, cliente):
                 thread1.stop()
             elif comando[2] == "d" and comando[3] == "c":
                 os.system('cd')
-                os.system('./mjpg-streamer.sh stop')    
+                os.system('mjpg-streamer/mjpg-streamer.sh stop')    
             #else:
             #    print "Comando invalido!"
 
