@@ -24,7 +24,6 @@ def PegarXMLStatusReles():
     root = doc.createElement('Status')
     rele = doc.createElement('Reles')
 
-    
     for i in range(0, 10):        
         if 1 == 1:
             rele.setAttribute('rele' + str(i), '1')
