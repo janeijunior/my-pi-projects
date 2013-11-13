@@ -189,15 +189,6 @@ def conectado(con, cliente):
                     rele.setAttribute('rele1', '1')
                 else
                     rele.setAttribute('rele1', '0')
-                rele.setAttribute('rele1', mcp.input(1))
-                rele.setAttribute('rele1', mcp.input(2))
-                rele.setAttribute('rele1', mcp.input(3))
-                rele.setAttribute('rele1', mcp.input(4))
-                rele.setAttribute('rele1', mcp.input(5))
-                rele.setAttribute('rele1', mcp.input(6))
-                rele.setAttribute('rele1', mcp.input(7))
-                rele.setAttribute('rele1', mcp.input(8))
-                rele.setAttribute('rele1', mcp.input(9))  
                 
                 doc.appendChild(root)
                 root.appendChild(rele)
