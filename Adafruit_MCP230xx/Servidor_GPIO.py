@@ -185,7 +185,10 @@ def conectado(con, cliente):
                 
                 ConfigurarRelesLeitura()
                 
-                rele.setAttribute('rele1', mcp.input(0))
+                if mcp.input(0) == 1:
+                    rele.setAttribute('rele1', '1')
+                else
+                    rele.setAttribute('rele1', '0')
                 rele.setAttribute('rele1', mcp.input(1))
                 rele.setAttribute('rele1', mcp.input(2))
                 rele.setAttribute('rele1', mcp.input(3))
