@@ -166,7 +166,7 @@ def conectado(con, cliente):
             elif comando[2] == "l" and comando[3] == "9":
                 mcp.output(9, 1)
             elif comando[2] == "l" and comando[3] == "p":
-                mcp.pullup(10, HIGH)
+                mcp.output(10, 1)
             elif comando[2] == "l" and comando[3] == "a": # Liga o Alarme
                 thread1 = ThreadAlarme(1, "Thread-1", 1)
                 thread1.start()
@@ -193,7 +193,7 @@ def conectado(con, cliente):
             elif comando[2] == "d" and comando[3] == "9":
                 mcp.output(9, 0)
             elif comando[2] == "d" and comando[3] == "p": 
-               mcp.pullup(10, HIGH)
+                mcp.output(10, 0)
             elif comando[2] == "d" and comando[3] == "a": # Desliga o alarme
                 thread1.stop()
             elif comando[2] == "d" and comando[3] == "c":
