@@ -198,9 +198,9 @@ def conectado(con, cliente):
                 os.system('mjpg-streamer/mjpg-streamer.sh stop') 
             elif comando[2] == "s" and comando[3] == "t":
                             
-                print doc.toprettyxml()
+                print PegarXMLStatusReles().toprettyxml()
                 
-                PegarXMLStatusReles
+                
                 
                 #con.send(doc)
                 
