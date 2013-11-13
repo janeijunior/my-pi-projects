@@ -182,7 +182,7 @@ def conectado(con, cliente):
                       
                 print doc.toprettyxml()
             
-                con.send(doc)
+                con.send(str(doc))
                 
             #else:
             #    print "Comando invalido!"
