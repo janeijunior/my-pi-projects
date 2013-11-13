@@ -182,21 +182,10 @@ def conectado(con, cliente):
             elif comando[2] == "d" and comando[3] == "c":
                 os.system('mjpg-streamer/mjpg-streamer.sh stop') 
             elif comando[2] == "s" and comando[3] == "t":
-                doc = xml.dom.minidom.Document()
-                root = doc.createElement('Status')
-                rele = doc.createElement('Rele')
-                
-                ConfigurarRelesLeitura()
-                
-                if mcp.input(0) == 1:
-                    rele.setAttribute('rele1', '1')
-                else:
-                    rele.setAttribute('rele1', '0')
-                
-                doc.appendChild(root)
-                root.appendChild(rele)
-                
+                            
                 print doc.toprettyxml()
+                
+                PegarXMLStatusReles
                 
                 con.send(doc)
                 
