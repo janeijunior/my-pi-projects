@@ -214,6 +214,8 @@ orig = (HOST, PORT)
 tcp.bind(orig)
 tcp.listen(1)
 
+ConfigurarRelesEscrita
+
 while True:
    con, cliente = tcp.accept()
    thread.start_new_thread(conectado, tuple([con, cliente]))
