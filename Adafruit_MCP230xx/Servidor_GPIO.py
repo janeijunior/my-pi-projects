@@ -83,35 +83,6 @@ class ThreadAlarme(threading.Thread):
             #slight pause to debounce 
             time.sleep(0.05)
 
-def ConfigurarRelesEscrita(Self):
-    print "Configurando reles para escrita..."
-    
-    mcp.config(0, mcp.OUTPUT)
-    mcp.config(1, mcp.OUTPUT)
-    mcp.config(2, mcp.OUTPUT)
-    mcp.config(3, mcp.OUTPUT)
-    mcp.config(4, mcp.OUTPUT)
-    mcp.config(5, mcp.OUTPUT)
-    mcp.config(6, mcp.OUTPUT)
-    mcp.config(7, mcp.OUTPUT)
-    mcp.config(8, mcp.OUTPUT)
-    mcp.config(9, mcp.OUTPUT)  #Cooler
-
-def ConfigurarRelesLeitura(Self):
-    print "Configurando reles para leitura..."
-    
-    mcp.config(0, mcp.INPUT)
-    mcp.config(1, mcp.INPUT)
-    mcp.config(2, mcp.INPUT)
-    mcp.config(3, mcp.INPUT)
-    mcp.config(4, mcp.INPUT)
-    mcp.config(5, mcp.INPUT)
-    mcp.config(6, mcp.INPUT)
-    mcp.config(7, mcp.INPUT)
-    mcp.config(8, mcp.INPUT)
-    mcp.config(9, mcp.INPUT)  #Cooler
-
-
 def conectado(con, cliente):
     print 'Conectado: ', cliente
 
