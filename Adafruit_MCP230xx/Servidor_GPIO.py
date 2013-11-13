@@ -190,7 +190,7 @@ def conectado(con, cliente):
                 rele.setAttribute('rele1', mcp.input(9))  
                 
                 doc.appendChild(root)
-                lobo.appendChild(rele)
+                root.appendChild(rele)
                 
                 print doc.toprettyxml()
                 
