@@ -24,8 +24,6 @@ def PegarXMLStatusReles():
     root = doc.createElement('Status')
     rele = doc.createElement('Rele')
     
-    ConfigurarRelesLeitura()
-    
     for i in range(0, 10):        
         if mcp.input(i) == 1:
             rele.setAttribute('rele' + str(i), '1')
