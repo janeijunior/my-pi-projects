@@ -22,7 +22,8 @@ def ConfigurarRelesEscrita():
 def PegarXMLStatusReles():
     doc = xml.dom.minidom.Document()
     root = doc.createElement('Status')
-    rele = doc.createElement('Rele')
+    rele = doc.createElement('Reles')
+
     
     for i in range(0, 10):        
         if mcp.input(i) == 1:
