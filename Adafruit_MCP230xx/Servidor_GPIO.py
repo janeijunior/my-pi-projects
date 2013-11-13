@@ -56,6 +56,8 @@ def PegarXMLStatusRele():
     
     doc.appendChild(root)
     root.appendChild(rele)
+    
+    return doc
 
 mcp.config(10, mcp.OUTPUT) #Sirene Alarme
 
