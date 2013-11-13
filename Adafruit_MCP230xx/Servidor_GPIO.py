@@ -83,7 +83,7 @@ class ThreadAlarme(threading.Thread):
             #slight pause to debounce 
             time.sleep(0.05)
 
-def ConfigurarRelesEscrita
+def ConfigurarRelesEscrita(Self):
     print "Configurando reles para escrita..."
     
     mcp.config(0, mcp.OUTPUT)
