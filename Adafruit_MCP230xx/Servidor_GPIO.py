@@ -13,6 +13,8 @@ PORT = 5000            # Porta do Servidor
 
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
+ConfigurarRelesEscrita
+
 mcp.config(10, mcp.OUTPUT) #Sirene Alarme
 
 print "Configurando sendores do alarme..."
