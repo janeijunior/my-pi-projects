@@ -49,10 +49,10 @@ def PegarXMLStatusRele():
     ConfigurarRelesLeitura()
     
     for i in range(0, 9):
-    if mcp.input(0) == 1:
-        rele.setAttribute('rele1', '1')
-    else:
-        rele.setAttribute('rele1', '0')
+        if mcp.input(0) == 1:
+            rele.setAttribute('rele1', '1')
+        else:
+            rele.setAttribute('rele1', '0')
     
     doc.appendChild(root)
     root.appendChild(rele)
