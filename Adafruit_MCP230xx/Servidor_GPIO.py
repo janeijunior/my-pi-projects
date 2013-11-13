@@ -97,7 +97,7 @@ def ConfigurarRelesEscrita(Self):
     mcp.config(8, mcp.OUTPUT)
     mcp.config(9, mcp.OUTPUT)  #Cooler
 
-  def ConfigurarRelesLeitura(Self);
+  def ConfigurarRelesLeitura(Self):
     print "Configurando reles para leitura..."
     
     mcp.config(0, mcp.INPUT)
