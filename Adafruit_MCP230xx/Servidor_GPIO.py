@@ -187,7 +187,7 @@ def conectado(con, cliente):
                 
                 PegarXMLStatusReles
                 
-                con.send(doc)
+                #con.send(doc)
                 
             #else:
             #    print "Comando invalido!"
