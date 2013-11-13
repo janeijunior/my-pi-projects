@@ -26,7 +26,7 @@ def PegarXMLStatusReles():
 
     
     for i in range(0, 10):        
-        if mcp.input(i) == 1:
+        if 1 == 1:
             rele.setAttribute('rele' + str(i), '1')
         else:
             rele.setAttribute('rele' + str(i), '0')
