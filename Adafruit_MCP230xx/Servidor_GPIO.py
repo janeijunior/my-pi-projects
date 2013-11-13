@@ -41,7 +41,7 @@ def ConfigurarRelesLeitura():
     mcp.config(8, mcp.INPUT)
     mcp.config(9, mcp.INPUT)  #Cooler
 
-def PegarXMLStatusRele():
+def PegarXMLStatusReles():
     doc = xml.dom.minidom.Document()
     root = doc.createElement('Status')
     rele = doc.createElement('Rele')
