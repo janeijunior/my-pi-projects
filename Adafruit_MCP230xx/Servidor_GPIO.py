@@ -163,6 +163,19 @@ def conectado(con, cliente):
             elif comando[2] == "d" and comando[3] == "c":
                 os.system('mjpg-streamer/mjpg-streamer.sh stop') 
             elif comando[2] == "s" and comando[3] = "t"
+                doc = xml.dom.minidom.Document()
+                root = doc.createElement('Status')
+                rele = doc.createElement('Rele')
+                rele.setAttribute('rele1', mcp.input(0))
+                rele.setAttribute('rele1', mcp.input(1))
+                rele.setAttribute('rele1', mcp.input(2))
+                rele.setAttribute('rele1', mcp.input(3))
+                rele.setAttribute('rele1', mcp.input(4))
+                rele.setAttribute('rele1', mcp.input(5))
+                rele.setAttribute('rele1', mcp.input(6))
+                rele.setAttribute('rele1', mcp.input(7))
+                rele.setAttribute('rele1', mcp.input(8))
+                rele.setAttribute('rele1', mcp.input(9))                
                 
             #else:
             #    print "Comando invalido!"
