@@ -180,7 +180,7 @@ def conectado(con, cliente):
                 doc.appendChild(root)
                 lobo.appendChild(rele)
                 
-                con.
+                con.send(doc)
                 
             #else:
             #    print "Comando invalido!"
