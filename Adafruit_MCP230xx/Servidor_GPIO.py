@@ -48,7 +48,7 @@ def PegarXMLStatusReles():
     
     ConfigurarRelesLeitura()
     
-    for i in range(0, 9):
+    for i in range(0, 10):
         if mcp.input(i, True) == 1:
             rele.setAttribute('rele' + str(i), '1')
         else:
