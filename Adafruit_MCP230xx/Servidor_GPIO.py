@@ -23,6 +23,9 @@ def ConfigurarRelesLeitura():
     print "Configurando reles para leitura..."
     
     for i in range(0, 10):
+        mcp.config(i, mcp.OUTPUT)  
+    
+    for i in range(0, 10):
         mcp.pullup(i, 1)
     
 def PegarXMLStatusReles():
