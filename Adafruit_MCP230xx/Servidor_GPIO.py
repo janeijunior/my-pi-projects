@@ -50,9 +50,9 @@ def PegarXMLStatusReles():
     
     for i in range(0, 9):
         if mcp.input(i) == 1:
-            rele.setAttribute('rele' + i, '1')
+            rele.setAttribute('rele' + str(i), '1')
         else:
-            rele.setAttribute('rele' + i, '0')
+            rele.setAttribute('rele' + str(i), '0')
     
     doc.appendChild(root)
     root.appendChild(rele)
