@@ -13,7 +13,7 @@ PORT = 5001            # Porta do Servidor
 
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
-def ConfigurarRelesEscrita(Self):
+def ConfigurarRelesEscrita():
     print "Configurando reles para escrita..."
     
     mcp.config(0, mcp.OUTPUT)
@@ -27,7 +27,7 @@ def ConfigurarRelesEscrita(Self):
     mcp.config(8, mcp.OUTPUT)
     mcp.config(9, mcp.OUTPUT)  #Cooler
 
-def ConfigurarRelesLeitura(Self):
+def ConfigurarRelesLeitura():
     print "Configurando reles para leitura..."
     
     mcp.config(0, mcp.INPUT)
