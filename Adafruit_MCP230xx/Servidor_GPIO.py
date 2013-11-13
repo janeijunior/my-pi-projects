@@ -30,17 +30,9 @@ def ConfigurarRelesEscrita():
 def ConfigurarRelesLeitura():
     print "Configurando reles para leitura..."
     
-    mcp.config(0, mcp.INPUT)
-    mcp.config(1, mcp.INPUT)
-    mcp.config(2, mcp.INPUT)
-    mcp.config(3, mcp.INPUT)
-    mcp.config(4, mcp.INPUT)
-    mcp.config(5, mcp.INPUT)
-    mcp.config(6, mcp.INPUT)
-    mcp.config(7, mcp.INPUT)
-    mcp.config(8, mcp.INPUT)
-    mcp.config(9, mcp.INPUT)  #Cooler
-
+    for i in (0, 10)
+        mcp.config(i, 1)
+    
 def PegarXMLStatusReles():
     doc = xml.dom.minidom.Document()
     root = doc.createElement('Status')
