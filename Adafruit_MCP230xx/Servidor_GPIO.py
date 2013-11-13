@@ -182,6 +182,8 @@ def conectado(con, cliente):
                 doc = xml.dom.minidom.Document()
                 root = doc.createElement('Status')
                 rele = doc.createElement('Rele')
+                
+                ConfigurarRelesLeitura()
                 rele.setAttribute('rele1', mcp.input(0))
                 rele.setAttribute('rele1', mcp.input(1))
                 rele.setAttribute('rele1', mcp.input(2))
