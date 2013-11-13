@@ -180,6 +180,8 @@ def conectado(con, cliente):
                 doc.appendChild(root)
                 lobo.appendChild(rele)
                 
+                print doc.toprettyxml()
+                
                 con.send(doc)
                 
             #else:
