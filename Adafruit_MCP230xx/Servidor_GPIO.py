@@ -41,6 +41,9 @@ def ConfigurarRelesLeitura():
     mcp.config(8, mcp.INPUT)
     mcp.config(9, mcp.INPUT)  #Cooler
 
+def PegarXMLStatusRele():
+    
+
 mcp.config(10, mcp.OUTPUT) #Sirene Alarme
 
 print "Configurando sendores do alarme..."
