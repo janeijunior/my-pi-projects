@@ -9,11 +9,11 @@ import commands
 import xml.dom.minidom
 
 HOST = '192.168.5.125'  # IP do Servidor
-PORT = 5000            # Porta do Servidor
+PORT = 5001            # Porta do Servidor
 
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
-def ConfigurarRelesEscrita(Self):
+def ConfigurarRelesEscrita():
     print "Configurando reles para escrita..."
     
     mcp.config(0, mcp.OUTPUT)
