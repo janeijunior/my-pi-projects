@@ -17,7 +17,7 @@ def ConfigurarRelesEscrita():
     print "Configurando reles para escrita..."
     
     for i in range(0, 10):
-        mcp.config(i, mcp.INPUT)    
+        mcp.config(i, mcp.OUTPUT)    
     
 def ConfigurarRelesLeitura():
     print "Configurando reles para leitura..."
