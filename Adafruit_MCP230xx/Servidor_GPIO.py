@@ -30,6 +30,7 @@ def ConfigurarRelesEscrita
     mcp.config(9, mcp.OUTPUT)  #Cooler
 
   def ConfigurarRelesLeitura:
+     print "Configurando reles para leitura..."
     mcp.config(0, mcp.INPUT)
     mcp.config(1, mcp.INPUT)
     mcp.config(2, mcp.INPUT)
