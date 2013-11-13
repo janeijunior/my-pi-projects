@@ -187,7 +187,7 @@ def conectado(con, cliente):
                 
                 if mcp.input(0) == 1:
                     rele.setAttribute('rele1', '1')
-                else
+                else:
                     rele.setAttribute('rele1', '0')
                 
                 doc.appendChild(root)
