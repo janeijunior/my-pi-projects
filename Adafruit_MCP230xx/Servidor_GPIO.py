@@ -16,7 +16,7 @@ mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 def ConfigurarRelesEscrita():
     print "Configurando reles para escrita..."
     
-    for i in range(0, 11):
+    for i in range(0, 10):
         mcp.config(i, mcp.OUTPUT)    
     
 def ConfigurarRelesLeitura():
