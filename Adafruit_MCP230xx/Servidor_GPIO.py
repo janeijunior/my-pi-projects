@@ -19,7 +19,7 @@ def ConfigurarRelesEscrita():
     for i in (0, 10):
         mcp.config(i, mcp.OUTPUT)
     
-    mcp.config(10, mcp.OUTPUT)
+    mcp.config(9, mcp.OUTPUT)
     
     
 def ConfigurarRelesLeitura():
