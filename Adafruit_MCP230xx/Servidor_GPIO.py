@@ -6,6 +6,7 @@ import Adafruit_MCP230xx
 import RPi.GPIO as GPIO 
 import os
 import commands
+import xml.dom.minidom
 
 HOST = '192.168.5.125'  # IP do Servidor
 PORT = 5000            # Porta do Servidor
