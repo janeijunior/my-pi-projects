@@ -214,7 +214,7 @@ orig = (HOST, PORT)
 tcp.bind(orig)
 tcp.listen(1)
 
-ConfigurarRelesEscrita
+ConfigurarRelesEscrita()
 
 while True:
    con, cliente = tcp.accept()
