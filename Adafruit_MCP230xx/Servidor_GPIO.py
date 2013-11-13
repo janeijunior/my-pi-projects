@@ -41,8 +41,6 @@ def ConfigurarRelesLeitura(Self):
     mcp.config(8, mcp.INPUT)
     mcp.config(9, mcp.INPUT)  #Cooler
 
-ConfigurarRelesEscrita
-
 mcp.config(10, mcp.OUTPUT) #Sirene Alarme
 
 print "Configurando sendores do alarme..."
