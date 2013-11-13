@@ -184,6 +184,7 @@ def conectado(con, cliente):
                 rele = doc.createElement('Rele')
                 
                 ConfigurarRelesLeitura()
+                
                 rele.setAttribute('rele1', mcp.input(0))
                 rele.setAttribute('rele1', mcp.input(1))
                 rele.setAttribute('rele1', mcp.input(2))
