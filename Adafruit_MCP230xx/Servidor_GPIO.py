@@ -181,7 +181,7 @@ def conectado(con, cliente):
             
                 con.send(str(doc))
             
-            con.send(comando)
+            con.sendall(comando)
                 
             #else:
             #    print "Comando invalido!"
