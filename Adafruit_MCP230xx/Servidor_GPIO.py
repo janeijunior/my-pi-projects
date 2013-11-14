@@ -67,7 +67,7 @@ class ThreadAlarme(threading.Thread):
         self.__stop_thread_event.set()
     def run(self):        
         while not self.__stop_thread_event.isSet(): 
-            #take a reading 
+      
             #print("Lendo sensores...")
             
             input0 = GPIO.input(17) 
@@ -79,7 +79,6 @@ class ThreadAlarme(threading.Thread):
             input6 = GPIO.input(25) 
             input7 = GPIO.input(4)
             
-            #if the last reading was low and this one high, print 
             if (input0 == 1): 
                 print("sensor 0 Normal")
             else:
@@ -102,7 +101,7 @@ class ThreadAlarme(threading.Thread):
                 print("sensor6") 
             if (input7 == 1): 
                 print("sensor7")
-            #slight pause to debounce 
+            
             time.sleep(0.05)
 
 def conectado(con, cliente):
