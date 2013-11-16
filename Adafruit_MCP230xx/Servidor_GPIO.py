@@ -8,8 +8,8 @@ import os
 import commands
 import xml.dom.minidom
 
-HOST = ''  # IP do Servidor
-PORT = 5000            # Porta do Servidor
+HOST = ''    # IP do Servidor
+PORT = 5000  # Porta do Servidor
 
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
