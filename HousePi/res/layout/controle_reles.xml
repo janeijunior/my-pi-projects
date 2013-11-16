@@ -1,0 +1,147 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".ControleReles" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="288dp"
+        android:layout_gravity="fill"
+        android:layout_weight="0.05" >
+
+        <TableLayout
+            android:id="@+id/TableLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="422dp" >
+
+            <TableRow
+                android:id="@+id/TableRow01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ToggleButton
+                    android:id="@+id/btnRele1"
+                    android:layout_width="116dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.53"
+                    android:text="ToggleButton"
+                    android:textOff="Relê 1"
+                    android:textOn="Relê 1" />
+
+                <ToggleButton
+                    android:id="@+id/btnRele2"
+                    android:layout_width="116dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.53"
+                    android:text="ToggleButton"
+                    android:textOff="Relê 2"
+                    android:textOn="Relê 2" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/TableRow02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ToggleButton
+                    android:id="@+id/btnRele3"
+                    android:layout_width="116dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.53"
+                    android:text="ToggleButton"
+                    android:textOff="Relê 3"
+                    android:textOn="Relê 3" />
+
+                <ToggleButton
+                    android:id="@+id/btnRele4"
+                    android:layout_width="116dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.53"
+                    android:text="ToggleButton"
+                    android:textOff="Relê 4"
+                    android:textOn="Relê 4" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/TableRow03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ToggleButton
+                    android:id="@+id/btnRele5"
+                    android:layout_width="116dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.53"
+                    android:text="ToggleButton"
+                    android:textOff="Relê 5"
+                    android:textOn="Relê 5" />
+
+                <ToggleButton
+                    android:id="@+id/btnRele6"
+                    android:layout_width="116dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.53"
+                    android:text="ToggleButton"
+                    android:textOff="Relê 6"
+                    android:textOn="Relê 6" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/TableRow04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ToggleButton
+                    android:id="@+id/btnRele7"
+                    android:layout_width="116dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.53"
+                    android:text="ToggleButton"
+                    android:textOff="Relê 7"
+                    android:textOn="Relê 7" />
+
+                <ToggleButton
+                    android:id="@+id/btnRele8"
+                    android:layout_width="116dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.53"
+                    android:text="ToggleButton"
+                    android:textOff="Relê 8"
+                    android:textOn="Relê 8" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/TableRow5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ToggleButton
+                    android:id="@+id/btnRele9"
+                    android:layout_width="116dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.53"
+                    android:text="ToggleButton"
+                    android:textOff="Relê 9"
+                    android:textOn="Relê 9" />
+
+                <ToggleButton
+                    android:id="@+id/btnRele10"
+                    android:layout_width="116dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.53"
+                    android:text="ToggleButton"
+                    android:textOff="Relê 10"
+                    android:textOn="Relê 10" />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
+</LinearLayout>
