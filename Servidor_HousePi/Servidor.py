@@ -182,9 +182,6 @@ def conectado(con, cliente):
                 con.send(str(doc))
             
             con.sendall(comando)
-                
-            #else:
-            #    print "Comando invalido!"
 
     print 'Finalizando conexao do cliente', cliente
     con.close()
