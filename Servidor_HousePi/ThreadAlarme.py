@@ -3,6 +3,7 @@ import threading
 import time
 import Adafruit_MCP230xx
 import RPi.GPIO as GPIO 
+import EnviaEmail
 
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
