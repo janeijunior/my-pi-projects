@@ -51,11 +51,6 @@ def PegarXMLStatusReles():
     
     return doc
 
-
-prev_input0 = 0 
-
-print "Aguardando conexoes..."
-
 def conectado(con, cliente):
     print 'Conectado: ', cliente
 
