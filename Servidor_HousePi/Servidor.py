@@ -8,6 +8,7 @@ import os
 import commands
 import xml.dom.minidom
 import EnviaEmail
+import ThreadAlarme
 
 HOST = ''    # IP do Servidor
 PORT = 5000  # Porta do Servidor
