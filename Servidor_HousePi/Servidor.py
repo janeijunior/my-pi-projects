@@ -50,7 +50,7 @@ GPIO.setup(22,GPIO.IN) #GPIO3
 GPIO.setup(23,GPIO.IN) #gpio4 
 GPIO.setup(24,GPIO.IN) #GPIO5 
 GPIO.setup(25,GPIO.IN) #GPIO6 
-GPIO.setup(4,GPIO.IN) #GPIO7 
+GPIO.setup(4,GPIO.IN)  #GPIO7 
 
 prev_input0 = 0 
 
