@@ -96,8 +96,8 @@ def conectado(con, cliente):
             elif comando[2] == "l" and comando[3] == "p":
                 mcp.output(10, 1)
             elif comando[2] == "l" and comando[3] == "a": # Liga o Alarme
-                thread1 = ThreadAlarme.ThreadAlarme(1, "Thread", 1)
-                thread1.start()
+                threadalarme = ThreadAlarme.ThreadAlarme(1, "Thread", 1)
+                threadalarme.start()
             elif comando[2] == "l" and comando[3] == "c":
                 os.system('mjpg-streamer/mjpg-streamer.sh start')
             elif comando[2] == "l" and comando[3] == "r":
@@ -125,7 +125,7 @@ def conectado(con, cliente):
             elif comando[2] == "d" and comando[3] == "p": 
                 mcp.output(10, 0)
             elif comando[2] == "d" and comando[3] == "a": # Desliga o alarme
-                thread1.stop()
+                threadalarme.stop()
             elif comando[2] == "d" and comando[3] == "c":
                 os.system('mjpg-streamer/mjpg-streamer.sh stop') 
             elif comando[2] == "s" and comando[3] == "t":
