@@ -35,9 +35,9 @@ class ThreadAlarme(threading.Thread):
                 print("sensor 0 Normal")
             else:
                 print("Sendor 0 Violado!")
-                mcp.output(10, 1)
-                time.sleep(5) 
-                mcp.output(10, 0)
+                #mcp.output(10, 1)
+                #time.sleep(5) 
+                #mcp.output(10, 0)
                 EnviaEmail.EnviarEmail()
                 
             if (input1 == 1): 
