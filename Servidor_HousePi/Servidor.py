@@ -46,11 +46,8 @@ def PegarXMLStatusReles():
         else:
             rele.setAttribute('rele' + str(i), '0')
     
-    ConfigurarRelesEscrita()
-    
     doc.appendChild(root)
     root.appendChild(rele)
-    
     return doc
 
 
