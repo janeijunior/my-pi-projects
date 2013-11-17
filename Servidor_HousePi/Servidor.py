@@ -145,7 +145,9 @@ orig = (HOST, PORT)
 tcp.bind(orig)
 tcp.listen(1)
 
-ConfigurarRelesEscrita()
+ConfigurarReles()
+
+print "Aguardando conexoes..."
 
 while True:
    con, cliente = tcp.accept()
