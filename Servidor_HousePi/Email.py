@@ -17,7 +17,7 @@ def EnviarEmail():
     
     print 'enviando email\n'
     try:
-        msg1 = MIMEText('%s'% econteudo)
+        msg1 = MIMEText('%s %s' econteudo)
         msg1['Subject'] = econteudo
         msg1['From'] = efrom
         msg1['To'] = eto
