@@ -25,11 +25,11 @@ def EnviarEmail():
         
         smtp = smtplib.SMTP(servidor, porta)
         
-        serv.ehlo()
-        serv.starttls()
-        serv.login(efrom,esenha)
-        serv.sendmail(msg1['From'], msg1['To'], msg1.as_string())
-        serv.quit()
+        smtp.ehlo()
+        smtp.starttls()
+        smtp.login(remetente, senha)
+        smtp.sendmail(msg['From'], msg['To'], msg.as_string())
+        smtp.quit()
     except Exception, e:
         print "Erro: ",e
     else:
