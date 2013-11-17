@@ -48,6 +48,7 @@ def PegarXMLStatusReles():
     
     doc.appendChild(root)
     root.appendChild(rele)
+    
     return doc
 
 
