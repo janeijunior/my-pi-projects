@@ -18,7 +18,23 @@ def ConfigurarReles():
     print "Configurando reles..."
     
     for i in range(0, 10):
-        mcp.config(i, mcp.OUTPUT)    
+        mcp.config(i, mcp.OUTPUT)
+
+def ConfigurarSensoresAlarme():
+    print "Configurando sendores do alarme..."
+
+    GPIO.setmode(GPIO.BCM) 
+    GPIO.setup(17,GPIO.IN) #GPIO0 
+    GPIO.setup(18,GPIO.IN) #GPIO1 
+    GPIO.setup(27,GPIO.IN) #GPIO2 
+    GPIO.setup(22,GPIO.IN) #GPIO3 
+    GPIO.setup(23,GPIO.IN) #gpio4 
+    GPIO.setup(24,GPIO.IN) #GPIO5 
+    GPIO.setup(25,GPIO.IN) #GPIO6 
+    GPIO.setup(4,GPIO.IN)  #GPIO7 
+    
+    mcp.config(10, mcp.OUTPUT) #Sirene Alarme
+
     
 
 def PegarXMLStatusReles():
