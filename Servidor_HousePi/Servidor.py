@@ -7,7 +7,6 @@ import RPi.GPIO as GPIO
 import os
 import commands
 import xml.dom.minidom
-import EnviaEmail
 import ThreadAlarme
 
 HOST = ''    # IP do Servidor
