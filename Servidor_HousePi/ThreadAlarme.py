@@ -19,9 +19,6 @@ class ThreadAlarme(threading.Thread):
         self.__stop_thread_event.set()
     def run(self):        
         while not self.__stop_thread_event.isSet(): 
-      
-            #print("Lendo sensores...")
-            
             input0 = GPIO.input(17) 
             input1 = GPIO.input(18) 
             input2 = GPIO.input(27) 
