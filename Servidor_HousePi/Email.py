@@ -28,6 +28,6 @@ def EnviarEmail():
         serv.sendmail(msg1['From'], msg1['To'], msg1.as_string())
         serv.quit()
     except Exception, e:
-        print "Erro ",e
+        print "Erro: ",e
     else:
         print "Enviado!"
