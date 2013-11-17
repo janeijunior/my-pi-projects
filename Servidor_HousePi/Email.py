@@ -15,7 +15,7 @@ def EnviarEmail():
     esenha = 'britsp3021281ney'
     econteudo = 'E-mail enviado automaticamento pelo aplicativo House Pi'
     
-    print 'enviando email\n'
+    print 'Enviando email\n'
     try:
         msg1 = MIMEText('%s'% econteudo)
         msg1['Subject'] = esubject
