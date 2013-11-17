@@ -145,6 +145,7 @@ tcp.listen(1)
 
 ConfigurarReles()
 ConfigurarSensoresAlarme()
+
 print "Aguardando conexoes..."
 
 while True:
