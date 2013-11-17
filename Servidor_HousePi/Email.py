@@ -8,7 +8,7 @@ from email.MIMEText import MIMEText
 form = cgi.FieldStorage()
 
 efrom = 'robatistello@gmail.com'
-eto = 'robatistello@gmail.com'
+eto = 'rodrigobatistello@hotmail.com'
 esubject = 'Alarme disparado!'
 eservidor = 'smtp.gmail.com'
 esenha = 'britsp3021281ney'
