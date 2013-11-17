@@ -7,6 +7,7 @@ import RPi.GPIO as GPIO
 import os
 import commands
 import xml.dom.minidom
+import Email
 
 HOST = ''    # IP do Servidor
 PORT = 5000  # Porta do Servidor
@@ -83,9 +84,9 @@ class ThreadAlarme(threading.Thread):
                 print("sensor 0 Normal")
             else:
                 print("Sendor 0 Violado!")
-                mcp.output(10, 1)
-                time.sleep(5) 
-                mcp.output(10, 0)
+                #mcp.output(10, 1)
+                #time.sleep(5) 
+                #mcp.output(10, 0)
                 
             if (input1 == 1): 
                 print("sensor1") 
