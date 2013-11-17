@@ -14,12 +14,13 @@ PORT = 5000  # Porta do Servidor
 
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
-def ConfigurarRelesEscrita():
+def ConfigurarReles():
     print "Configurando reles para escrita..."
     
     for i in range(0, 10):
         mcp.config(i, mcp.OUTPUT)    
     
+
 def PegarXMLStatusReles():
     doc = xml.dom.minidom.Document()
     root = doc.createElement('Status')
@@ -38,19 +39,6 @@ def PegarXMLStatusReles():
     
     return doc
 
-mcp.config(10, mcp.OUTPUT) #Sirene Alarme
-
-print "Configurando sendores do alarme..."
-
-GPIO.setmode(GPIO.BCM) 
-GPIO.setup(17,GPIO.IN) #GPIO0 
-GPIO.setup(18,GPIO.IN) #GPIO1 
-GPIO.setup(27,GPIO.IN) #GPIO2 
-GPIO.setup(22,GPIO.IN) #GPIO3 
-GPIO.setup(23,GPIO.IN) #gpio4 
-GPIO.setup(24,GPIO.IN) #GPIO5 
-GPIO.setup(25,GPIO.IN) #GPIO6 
-GPIO.setup(4,GPIO.IN)  #GPIO7 
 
 prev_input0 = 0 
 
