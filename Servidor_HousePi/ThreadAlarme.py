@@ -2,7 +2,7 @@ import thread
 import threading
 import time
 
-class ThreadAlarme(threading.Thread):
+class ThreadAlarme(threading.Thread, GPIO, mcp):
     def __init__(self, threadID, name, counter):
         threading.Thread.__init__(self)
         self.threadID = threadID
