@@ -7,7 +7,7 @@ import RPi.GPIO as GPIO
 import os
 import commands
 import xml.dom.minidom
-import Email
+import EnviaEmail
 
 HOST = ''    # IP do Servidor
 PORT = 5000  # Porta do Servidor
