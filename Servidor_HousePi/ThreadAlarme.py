@@ -4,7 +4,10 @@ import time
 import RPi.GPIO as GPIO 
 import EnviaEmail
 
-class ThreadAlarme(threading.Thread):
+class ThreadAlarme(threading.Thread, aMCP):
+    
+    mcp = aMCP
+    
     def __init__(self, threadID, name, counter):
         threading.Thread.__init__(self)
         self.threadID = threadID
