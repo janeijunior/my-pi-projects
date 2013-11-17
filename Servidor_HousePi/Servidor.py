@@ -14,24 +14,6 @@ PORT = 5000  # Porta do Servidor
 
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
-tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-orig = (HOST, PORT)
-
-tcp.bind(orig)
-tcp.listen(1)
-
-ConfigurarReles()
-ConfigurarSensoresAlarme()
-
-print "Aguardando conexoes..."
-
-while True:
-   con, cliente = tcp.accept()
-   thread.start_new_thread(conectado, tuple([con, cliente]))
-
-tcp.close()
-
 def ConfigurarReles():
     print "Configurando reles..."
     
@@ -153,3 +135,21 @@ def conectado(con, cliente):
     print 'Finalizando conexao do cliente', cliente
     con.close()
     thread.exit()
+
+tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+orig = (HOST, PORT)
+
+tcp.bind(orig)
+tcp.listen(1)
+
+ConfigurarReles()
+ConfigurarSensoresAlarme()
+
+print "Aguardando conexoes..."
+
+while True:
+   con, cliente = tcp.accept()
+   thread.start_new_thread(conectado, tuple([con, cliente]))
+
+tcp.close()
