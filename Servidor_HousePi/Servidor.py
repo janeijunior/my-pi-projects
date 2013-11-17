@@ -87,6 +87,7 @@ class ThreadAlarme(threading.Thread):
                 #mcp.output(10, 1)
                 #time.sleep(5) 
                 #mcp.output(10, 0)
+                Email.EnviarEmail()
                 
             if (input1 == 1): 
                 print("sensor1") 
