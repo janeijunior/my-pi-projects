@@ -5,7 +5,7 @@ import commands
 
 from email.MIMEText import MIMEText
 
-def EnviarEmail()
+def EnviarEmail():
     form = cgi.FieldStorage()
     
     efrom = 'robatistello@gmail.com'
