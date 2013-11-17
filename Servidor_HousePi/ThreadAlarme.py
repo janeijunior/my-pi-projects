@@ -8,13 +8,12 @@ import EnviaEmail
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
 class ThreadAlarme(threading.Thread):
-    def __init__(self, threadID, name, counter, aMCP):
+    def __init__(self, threadID, name, counter):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.name = name
         self.counter = counter
         self.__stop_thread_event = threading.Event()
-        self.mcp = aMCP
     def stop(self):
         mcp.output(10, 0)
         self.__stop_thread_event.set()
