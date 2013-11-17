@@ -35,8 +35,6 @@ def ConfigurarSensoresAlarme():
     
     mcp.config(10, mcp.OUTPUT) #Sirene Alarme
 
-    
-
 def PegarXMLStatusReles():
     doc = xml.dom.minidom.Document()
     root = doc.createElement('Status')
