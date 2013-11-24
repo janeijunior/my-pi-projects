@@ -13,7 +13,7 @@ def EnviarEmail():
     assunto = 'Alarme disparado!'
     servidor = 'smtp.gmail.com'
     porta = 587
-    senha = 'britsp3021281ney'
+    senha = '#brit267930ney#'
     conteudo = 'E-mail enviado automaticamento pelo aplicativo House Pi'
     
     print 'Enviando e-mail\n'
