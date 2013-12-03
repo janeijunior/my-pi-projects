@@ -92,7 +92,6 @@ def conectado(con, cliente):
             elif comando[2] == "l" and comando[3] == "a": # Liga o Alarme
                 threadalarme = ThreadAlarme.ThreadAlarme(1, "Thread", 1)
                 threadalarme.start()
-                con.sendall('Alarme Ligado')
             elif comando[2] == "l" and comando[3] == "c":
                 os.system('mjpg-streamer/mjpg-streamer.sh start')
             elif comando[2] == "l" and comando[3] == "r":
