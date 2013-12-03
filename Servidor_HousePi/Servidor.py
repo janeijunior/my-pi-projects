@@ -10,7 +10,7 @@ import xml.dom.minidom
 import ThreadAlarme
 
 HOST = ''    # IP do Servidor
-PORT = 5001  # Porta do Servidor
+PORT = 5000  # Porta do Servidor
 
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
@@ -117,7 +117,7 @@ def conectado(con, cliente):
             elif comando[2] == "d" and comando[3] == "8":
                 mcp.output(8, 0)
             elif comando[2] == "d" and comando[3] == "9":
-                mcp.output(9, 0)
+                mcp.output(9, 0)h
             elif comando[2] == "d" and comando[3] == "p": 
                 mcp.output(10, 0)
             elif comando[2] == "d" and comando[3] == "a": # Desliga o alarme
