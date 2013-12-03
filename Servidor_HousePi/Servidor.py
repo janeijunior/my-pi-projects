@@ -10,7 +10,7 @@ import xml.dom.minidom
 import ThreadAlarme
 
 HOST = ''    # IP do Servidor
-PORT = 5000  # Porta do Servidor
+PORT = 5001  # Porta do Servidor
 
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
@@ -66,8 +66,7 @@ def conectado(con, cliente):
         
         if len(comando) > 0:
             #print "Mensagem recebida -> " + msg.strip()
-            
-            con.sendall(comando)
+        
             
             if comando[2] == "l" and comando[3] == "0":
                 mcp.output(0, 1)
@@ -133,7 +132,7 @@ def conectado(con, cliente):
             
                 con.send(str(doc))
             
-            con.sendall(comando)
+            con.send(comando)
 
     print 'Finalizando conexao do cliente', cliente
     con.close()
