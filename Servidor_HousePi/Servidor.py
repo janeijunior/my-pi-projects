@@ -8,6 +8,7 @@ import os
 import commands
 import xml.dom.minidom
 import ThreadAlarme
+import MySQLdb
 
 HOST = ''    # IP do Servidor
 PORT = 5001  # Porta do Servidor
