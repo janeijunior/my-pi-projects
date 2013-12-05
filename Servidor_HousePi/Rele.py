@@ -6,7 +6,7 @@ class Rele(object):
         self.status = status
         self.nome = nome
         
-    #Propriedades
+    #propriedades
     @property
     def getNumero(self):
         return self.numero
