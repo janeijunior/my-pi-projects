@@ -30,9 +30,6 @@ cursor = db.cursor()
 def getMCP():
     return mcp
 
-def getGPIO():
-    return GPIO
-
 def ConfigurarReles():
     print "Configurando reles..."
     
