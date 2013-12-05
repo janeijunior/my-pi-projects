@@ -27,8 +27,8 @@ cursor = db.cursor()
 #for row in cursor.fetchall():
 #   print " ",row[0]," ",row[1]
 
-#array de reles
-
+def getMcp():
+    return mcp
 
 def ConfigurarReles():
     print "Configurando reles..."
