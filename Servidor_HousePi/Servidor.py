@@ -18,7 +18,7 @@ mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
 #Variavel de conexão com o banco de dados MySQL
 con = MySQLdb.connect(host='localhost', user='root', passwd='', db='housepi')
-con = MySQLdb.connect(user='root', db='testepy')
+con = MySQLdb.connect(user='root', db='housepi')
 
 def ConfigurarReles():
     print "Configurando reles..."
