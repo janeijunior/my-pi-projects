@@ -29,7 +29,7 @@ class Rele(object):
     
     @property
     def setNome(self, nome):
-        return self.nome
+        self.nome = nome
     
     
     
