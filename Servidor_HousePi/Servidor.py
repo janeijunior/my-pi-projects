@@ -10,7 +10,7 @@ import xml.dom.minidom
 import ThreadAlarme
 import MySQLdb
 
-HOST = ''    # IP do Servidor
+HOST = ''    # IP do Servidor (em branco = atual)
 PORT = 5000  # Porta do Servidor
 
 #Variavel para controle dos pinos GPIO (relês)
