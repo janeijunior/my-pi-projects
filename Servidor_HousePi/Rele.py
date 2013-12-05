@@ -1,3 +1,5 @@
+import Servidor
+
 class Rele(object):
     
     #construtor
