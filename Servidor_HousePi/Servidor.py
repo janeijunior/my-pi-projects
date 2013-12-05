@@ -47,7 +47,6 @@ def ConfigurarSensoresAlarme():
     GPIO.setup(24,GPIO.IN) #GPIO5 
     GPIO.setup(25,GPIO.IN) #GPIO6 
     GPIO.setup(4,GPIO.IN)  #GPIO7 
-    
 
 def PegarXMLStatusReles():
     doc = xml.dom.minidom.Document()
