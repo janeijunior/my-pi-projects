@@ -2,7 +2,6 @@ import thread
 import threading
 import time
 import RPi.GPIO as GPIO 
-import Adafruit_MCP230xx
 import EnviaEmail
 import Servidor
 
