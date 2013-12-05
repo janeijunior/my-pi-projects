@@ -27,8 +27,11 @@ cursor = db.cursor()
 #for row in cursor.fetchall():
 #   print " ",row[0]," ",row[1]
 
-def getMcp():
+def getMCP():
     return mcp
+
+def getGPIO():
+    return GPIO
 
 def ConfigurarReles():
     print "Configurando reles..."
