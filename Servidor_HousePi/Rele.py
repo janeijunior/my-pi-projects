@@ -18,3 +18,10 @@ class Rele(object):
     @property
     def getNome(self):
         return self.nome
+    
+    @property
+    def setNome(self, nome):
+        return self.nome
+    
+    
+    
