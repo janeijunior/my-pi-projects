@@ -22,7 +22,7 @@ db = MySQLdb.connect(host="localhost", user="root", passwd="batistello", db="hou
 # Posiciona o cursor
 cursor = db.cursor()
 
-cursor.execute("SELECT * FROM seudb.suatabela")
+cursor.execute("SELECT * FROM Usuario")
 
 numrows = int(cursor.rowcount)
 
