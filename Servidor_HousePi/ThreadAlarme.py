@@ -6,7 +6,7 @@ import EnviaEmail
 import Servidor
 
 class ThreadAlarme(threading.Thread):
-    def __init__(self, threadID, name, counter):
+    def __init__(self, threadID, name, counter, aMcp):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.name = name
