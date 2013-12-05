@@ -33,7 +33,6 @@ def ConfigurarSensoresAlarme():
     GPIO.setup(25,GPIO.IN) #GPIO6 
     GPIO.setup(4,GPIO.IN)  #GPIO7 
     
-    mcp.config(10, mcp.OUTPUT) #Sirene Alarme
 
 def PegarXMLStatusReles():
     doc = xml.dom.minidom.Document()
