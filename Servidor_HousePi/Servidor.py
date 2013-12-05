@@ -22,6 +22,7 @@ con = MySQLdb.connect(user='root', db='housepi')
 
 #Cursor da conexão com o banco
 c = con.cursor()
+    c.execute("INSERT INTO Usuario VALUES (Id, 'Login', 'Senha')"%(1, 'admin', 'admin'))
 
 def ConfigurarReles():
     print "Configurando reles..."
