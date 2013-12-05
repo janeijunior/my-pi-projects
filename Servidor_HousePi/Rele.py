@@ -25,7 +25,7 @@ class Rele(object):
     
     @property
     def setStatus(self, status):
-        return self.status
+        self.status = status
     
     @property
     def setNome(self, nome):
