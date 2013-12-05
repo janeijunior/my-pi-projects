@@ -10,14 +10,14 @@ import xml.dom.minidom
 import ThreadAlarme
 
 HOST = ''    # IP do Servidor
-PORT = 5000  # Porta do Servidor
+PORT = 5001  # Porta do Servidor
 
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
 def ConfigurarReles():
     print "Configurando reles..."
     
-    for i in range(0, 10):
+    for i in range(0, 15):
         mcp.config(i, mcp.OUTPUT)
 
 def ConfigurarSensoresAlarme():
