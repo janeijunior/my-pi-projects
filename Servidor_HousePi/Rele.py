@@ -31,6 +31,10 @@ class Rele(object):
     def setNome(self, nome):
         self.nome = nome
     
+    #funcoes
+    def ligar(self):
+        mcp.output(self.numero, 1)
+    
     #destrutor
     def __done__(self):
     
