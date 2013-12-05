@@ -31,5 +31,8 @@ class Rele(object):
     def setNome(self, nome):
         self.nome = nome
     
+    #destrutor
+    def __done__(self):
+    
     
     
