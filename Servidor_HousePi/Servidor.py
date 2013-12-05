@@ -22,12 +22,10 @@ db = MySQLdb.connect(host="localhost", user="root", passwd="batistello", db="hou
 # Posiciona o cursor
 cursor = db.cursor()
 
-cursor.execute("SELECT * FROM usuario")
-
-numrows = int(cursor.rowcount)
-
-for row in cursor.fetchall():
-   print " ",row[0]," ",row[1]
+#cursor.execute("SELECT * FROM usuario")
+#numrows = int(cursor.rowcount)
+#for row in cursor.fetchall():
+#   print " ",row[0]," ",row[1]
 
 def ConfigurarReles():
     print "Configurando reles..."
