@@ -24,7 +24,7 @@ class Rele(object):
         self.numero = numero
     
     @property
-    def getStatus(self):
+    def setStatus(self):
         return self.status
     
     @property
