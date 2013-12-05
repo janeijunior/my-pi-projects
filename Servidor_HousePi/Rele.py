@@ -8,7 +8,6 @@ class Rele(object):
     def get_velocidade(self):
         return self.alcance / self.tempo
     
-    
     @property
     def numero(self):
         return self.numero
