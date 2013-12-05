@@ -20,6 +20,14 @@ class Rele(object):
         return self.nome
     
     @property
+    def setNumero(self, numero):
+        self.numero = numero
+    
+    @property
+    def getStatus(self):
+        return self.status
+    
+    @property
     def setNome(self, nome):
         return self.nome
     
