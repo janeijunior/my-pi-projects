@@ -6,7 +6,7 @@ import Adafruit_MCP230xx
 import EnviaEmail
 import Servidor
 
-#mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16
+mcp = Servidor.getMCP()
 
 class ThreadAlarme(threading.Thread):
     def __init__(self, threadID, name, counter):
@@ -16,12 +16,9 @@ class ThreadAlarme(threading.Thread):
         self.counter = counter
         self.__stop_thread_event = threading.Event()
     def stop(self):
-        global mcp
         mcp.output(10, 0)
         self.__stop_thread_event.set()
-    def run(self):        
-        global mcp
-        
+    def run(self):            
         while not self.__stop_thread_event.isSet(): 
             input0 = GPIO.input(17) 
             input1 = GPIO.input(18) 
