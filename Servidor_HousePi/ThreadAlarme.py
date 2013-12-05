@@ -16,7 +16,7 @@ class ThreadAlarme(threading.Thread):
         self.counter = counter
         self.__stop_thread_event = threading.Event()
     def stop(self):
-        self.mcp.output(10, 0)
+        mcp.output(10, 0)
         self.__stop_thread_event.set()
     def run(self):            
         while not self.__stop_thread_event.isSet(): 
