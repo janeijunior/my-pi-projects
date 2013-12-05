@@ -35,7 +35,7 @@ class ThreadAlarme(threading.Thread):
                 print("Sendor 0 Violado!")
                 #mcp.output(10, 1)
                 #time.sleep(5) 
-                #mcp.output(10, 0)
+                mcp.output(10, 0)
                 EnviaEmail.EnviarEmail()
                 
             if (input1 == 1): 
