@@ -53,5 +53,5 @@ class ThreadAlarme(threading.Thread):
             time.sleep(0.05)
     
     @property
-    def setMcp():
+    def setMcp(self, aMcp):
         self.mcp = aMcp
