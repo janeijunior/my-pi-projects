@@ -17,7 +17,7 @@ PORT = 5000  # Porta do Servidor
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
 #Conexao com o banco de dados MySQL
-db = MySQLdb.connect(host="localhost", user="root", passwd="", db="housepi")
+db = MySQLdb.connect(host="localhost", user="root", passwd="batistello", db="housepi")
 
 # Posiciona o cursor
 cursor = db.cursor()
