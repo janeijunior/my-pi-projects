@@ -16,12 +16,18 @@ PORT = 5000  # Porta do Servidor
 #Variavel para controle dos pinos GPIO (reles)
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
-#Variavel de conexao com o banco de dados MySQL
-con = MySQLdb.connect(host='localhost', user='root', passwd='', db='housepi')
+#Conexao com o banco de dados MySQL
+db = MySQLdb.connect(host="localhost", user="root", passwd="", db="housepi")
 
-#Cursor da conexao com o banco
-c = con.cursor()
-c.execute("INSERT INTO Usuario VALUES (Id, 'Login', 'Senha')"%(1, 'admin', 'admin'))
+# Posiciona o cursor
+cursor = db.cursor()
+
+cursor.execute("SELECT * FROM seudb.suatabela")
+
+numrows = int(cursor.rowcount)
+
+for row in cursor.fetchall():
+   print " ",row[0]," ",row[1]
 
 def ConfigurarReles():
     print "Configurando reles..."
