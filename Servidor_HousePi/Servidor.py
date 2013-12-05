@@ -29,6 +29,7 @@ cursor = db.cursor()
 
 #array de reles
 
+
 def ConfigurarReles():
     print "Configurando reles..."
     
