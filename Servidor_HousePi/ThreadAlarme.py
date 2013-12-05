@@ -5,17 +5,16 @@ import RPi.GPIO as GPIO
 import EnviaEmail
 import Servidor
 
-mcp = Servidor.getMCP()
-
 class ThreadAlarme(threading.Thread):
-    def __init__(self, threadID, name, counter):
+    def __init__(self, threadID, name, counter, aMcp):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.name = name
         self.counter = counter
         self.__stop_thread_event = threading.Event()
+        self.mcp = aMcp
     def stop(self):
-        mcp.output(10, 0)
+        self.mcp.output(10, 0)
         self.__stop_thread_event.set()
     def run(self):            
         while not self.__stop_thread_event.isSet(): 
@@ -32,9 +31,9 @@ class ThreadAlarme(threading.Thread):
                 print("sensor 0 Normal")
             else:
                 print("Sendor 0 Violado!")
-                #mcp.output(10, 1)
+                #self.mcp.output(10, 1)
                 #time.sleep(5) 
-                mcp.output(10, 0)
+                self.mcp.output(10, 0)
                 EnviaEmail.EnviarEmail()
                 
             if (input1 == 1): 
