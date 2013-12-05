@@ -24,6 +24,7 @@ def ConfigurarReles():
 def ConfigurarSensoresAlarme():
     print "Configurando sendores do alarme..."
 
+    #Configura os pinos dos sensores de alarme para modo leitura
     GPIO.setmode(GPIO.BCM) 
     GPIO.setup(17,GPIO.IN) #GPIO0 
     GPIO.setup(18,GPIO.IN) #GPIO1 
