@@ -35,6 +35,9 @@ class Rele(object):
     def ligar(self):
         mcp.output(self.numero, 1)
     
+    def desligar(self):
+        mcp.output(self.numero, 0)
+    
     #destrutor
     def __done__(self):
     
