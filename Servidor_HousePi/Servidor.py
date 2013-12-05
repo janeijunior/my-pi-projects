@@ -27,7 +27,7 @@ c.execute("INSERT INTO Usuario VALUES (Id, 'Login', 'Senha')"%(1, 'admin', 'admi
 def ConfigurarReles():
     print "Configurando reles..."
     
-    #Configura todos os pinos necessários para o envio de comandos 
+    #Configura todos os pinos necessarios para o envio de comandos 
     for i in range(0, 15):
         mcp.config(i, mcp.OUTPUT)
 
