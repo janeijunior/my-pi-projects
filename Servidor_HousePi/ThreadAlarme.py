@@ -18,6 +18,8 @@ class ThreadAlarme(threading.Thread):
         self.name = 'ThreadAlarme'
         self.counter = 1
         self.tempoDisparo = tempoDisparo
+        self.usarSirene = usarSirene
+        self.enviarEmail = enviarEmail
         self.__stop_thread_event = threading.Event()
     def stop(self):
         mcp.output(10, 0)
