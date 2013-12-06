@@ -22,6 +22,7 @@ class ThreadAlarme(threading.Thread):
         listaSensores = [];
         
         
+        
         while not self.__stop_thread_event.isSet(): 
             input0 = GPIO.input(17) 
             input1 = GPIO.input(18) 
