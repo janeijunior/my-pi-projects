@@ -28,7 +28,7 @@ class ThreadAlarme(threading.Thread):
         
         listaSensores = [];
         
-        listaSensores.insert(0, SensorAlarme.SensorAlarme(numero = 17, ativo = True, nome = "Casa 0")) #GPIO 0 
+        listaSensores.insert(0, SensorAlarme.SensorAlarme(numero = 17, ativo =  True, nome = "Casa 0")) #GPIO 0 
         listaSensores.insert(1, SensorAlarme.SensorAlarme(numero = 18, ativo = False, nome = "Casa 1")) #GPIO 1
         listaSensores.insert(2, SensorAlarme.SensorAlarme(numero = 27, ativo = False, nome = "Casa 2")) #GPIO 2
         listaSensores.insert(3, SensorAlarme.SensorAlarme(numero = 22, ativo = False, nome = "Casa 3")) #GPIO 3
