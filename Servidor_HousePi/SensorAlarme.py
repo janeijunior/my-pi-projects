@@ -42,7 +42,7 @@ class SensorAlarme(object):
         GPIO.setup(self.numero, GPIO.IN)
         
     def lerStatus(self):
-        GPIO.input(numero)
+        GPIO.input(self.numero)
     
             
     #destrutor
