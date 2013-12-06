@@ -91,8 +91,7 @@ def conectado(con, cliente):
             #print "Mensagem recebida -> " + msg.strip()
         
             
-            if comando[2] == "l" and comando[3] == "0":
-                
+            if comando[2] == "l" and comando[3] == "0":                
                 rele0.ligar();
             elif comando[2] == "l" and comando[3] == "1":
                 mcp.output(1, 1)
