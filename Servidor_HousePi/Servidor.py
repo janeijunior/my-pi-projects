@@ -90,7 +90,8 @@ def conectado(con, cliente):
         
             
             if comando[2] == "l" and comando[3] == "0":
-                mcp.output(0, 1)
+                rele0 = rele(0, 0, 'Rele 1')
+                rele0.ligar();
             elif comando[2] == "l" and comando[3] == "1":
                 mcp.output(1, 1)
             elif comando[2] == "l" and comando[3] == "2":
