@@ -23,25 +23,19 @@ class ThreadAlarme(threading.Thread):
         
         listaSensores = [];
         
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1)) #GPIO 0 
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 18, ativo = 0)) #GPIO 1
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 27, ativo = 0)) #GPIO 2
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 22, ativo = 0)) #GPIO 3
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 23, ativo = 0)) #GPIO 4
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 24, ativo = 0)) #GPIO 5
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 25, ativo = 0)) #GPIO 6
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero =  5, ativo = 0))  #GPIO 7
+        listaSensores.insert( , SensorAlarme.SensorAlarme(numero = 17, ativo = 1)) #GPIO 0 
+        listaSensores.insert( , SensorAlarme.SensorAlarme(numero = 18, ativo = 0)) #GPIO 1
+        listaSensores.insert( , SensorAlarme.SensorAlarme(numero = 27, ativo = 0)) #GPIO 2
+        listaSensores.insert( , SensorAlarme.SensorAlarme(numero = 22, ativo = 0)) #GPIO 3
+        listaSensores.insert( , SensorAlarme.SensorAlarme(numero = 23, ativo = 0)) #GPIO 4
+        listaSensores.insert( , SensorAlarme.SensorAlarme(numero = 24, ativo = 0)) #GPIO 5
+        listaSensores.insert( , SensorAlarme.SensorAlarme(numero = 25, ativo = 0)) #GPIO 6
+        listaSensores.insert( , SensorAlarme.SensorAlarme(numero =  5, ativo = 0))  #GPIO 7
                 
         
         while not self.__stop_thread_event.isSet(): 
-            input0 = GPIO.input(17) 
-            input1 = GPIO.input(18) 
-            input2 = GPIO.input(27) 
-            input3 = GPIO.input(22) 
-            input4 = GPIO.input(23) 
-            input5 = GPIO.input(24) 
-            input6 = GPIO.input(25) 
-            input7 = GPIO.input(4)
+
+            for i in range(0, 15): 
             
             if (input0 == 1): 
                 print("sensor 0 Normal")
