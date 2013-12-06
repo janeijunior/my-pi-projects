@@ -41,7 +41,7 @@ class ThreadAlarme(threading.Thread):
         
         while not self.__stop_thread_event.isSet(): 
             for i in range(0, 8): 
-                if (listaSensores[i].getAtivo) and (listaSensores[i].lerStatus() == 0):
+                if (listaSensores[i].getAtivo == 1) and (listaSensores[i].lerStatus() == 0):
                     print("Sensor: " + str(i) + " - " + listaSensores[i].getNome + " violado.")
                     
                     if self.usarSirene() == 1:
