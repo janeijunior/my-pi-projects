@@ -33,7 +33,7 @@ class Rele(object):
     
     @property
     def setAtivo(self, ativo):
-        self.nome = nome
+        self.ativo = ativo
     
     #funcoes
     def configurar(self):
