@@ -91,7 +91,7 @@ def conectado(con, cliente):
         
             
             if comando[2] == "l" and int(comando[3]) < 10:                
-                listaReles[0].ligar()
+                listaReles[int(comando[3])].ligar()
             elif comando[2] == "l" and comando[3] == "p":
                 listaReles[10].ligar()
             elif comando[2] == "l" and comando[3] == "a": # Liga o Alarme
