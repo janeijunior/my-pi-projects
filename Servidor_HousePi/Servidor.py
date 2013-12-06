@@ -41,7 +41,7 @@ def ConfigurarReles():
     #Configura todos os pinos necessarios para o envio de comandos 
     for i in range(0, 15):
         rele = Rele.Rele(numero = i, status = 0, nome = 'Rele 1')
-        rele.configurar();
+        rele.configurar()
         
         listaReles.insert(i, rele)
 
