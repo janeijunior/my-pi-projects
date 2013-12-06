@@ -34,7 +34,7 @@ for arquivo in arquivos:
 
 listaReles = [];
 
-def ConfigurarReles():
+def configurarReles():
     print "Configurando reles..."
     
     #Configura todos os pinos necessarios para o envio de comandos 
@@ -43,7 +43,7 @@ def ConfigurarReles():
         listaReles.insert(i, rele)
 
 
-def ConfigurarSensoresAlarme():
+def iniciarAlarme():
     print "Configurando sendores do alarme..."
 
     #Configura os pinos dos sensores de alarme para modo leitura
