@@ -12,7 +12,7 @@ import MySQLdb
 import Rele
 
 HOST = ''    # IP do Servidor (em branco = atual)
-PORT = 5001  # Porta do Servidor
+PORT = 5000  # Porta do Servidor
 
 #Conexao com o banco de dados MySQL
 db = MySQLdb.connect(host="localhost", user="root", passwd="batistello", db="housepi")
