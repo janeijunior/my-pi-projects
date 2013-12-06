@@ -39,25 +39,8 @@ class ThreadAlarme(threading.Thread):
             for i in range(0, 7): 
                 if listaSensores[i].verificaDisparo():
                     print("Sensor " + str(i) + " violado!")
-                
-                #mcp.output(10, 1)
-                #time.sleep(5) 
-                #mcp.output(10, 0)
-                EnviaEmail.EnviarEmail()
-                
-            if (input1 == 1): 
-                print("sensor1") 
-            if (input2 == 1): 
-                print("sensor2") 
-            if (input3 == 1): 
-                print("sensor3") 
-            if (input4 == 1):
-                print("sensor4") 
-            if (input5 == 1): 
-                print("sensor5") 
-            if (input6 == 1): 
-                print("sensor6") 
-            if (input7 == 1): 
-                print("sensor7")
-            
+                    rele.ligar()
+                    EnviaEmail.EnviarEmail()
+                    time.sleep(5)
+                    rele.desligar()             
             time.sleep(0.05)
