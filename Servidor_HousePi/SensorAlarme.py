@@ -8,7 +8,6 @@ class SensorAlarme(object):
     def __init__(self, numero, ativo):
         self.numero = numero
         self.ativo = ativo
-        
         self.configurar()
             
     #propriedades
