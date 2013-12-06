@@ -94,7 +94,7 @@ def conectado(con, cliente):
         
             
             if comando[2] == "l" and comando[3] == "0":                
-                rele0.ligar();
+                listaReles[0].ligar();
             elif comando[2] == "l" and comando[3] == "1":
                 mcp.output(1, 1)
             elif comando[2] == "l" and comando[3] == "2":
