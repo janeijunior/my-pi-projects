@@ -29,6 +29,8 @@ cursor = db.cursor()
 
 arquivos = os.listdir(os.path.expanduser('/home/pi/HousePi/Musicas/'))
 
+print arquivos
+
 
 def ConfigurarReles():
     print "Configurando reles..."
