@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import thread
 import threading
 import time
