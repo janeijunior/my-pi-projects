@@ -90,7 +90,7 @@ def conectado(con, cliente):
             #print "Mensagem recebida -> " + msg.strip()
         
             
-            if comando[2] == "l" and int(comando[3]) < 10:                
+            if comando[2] == "l" and is_int(comando[3]) and int(comando[3]) < 10:                
                 listaReles[int(comando[3])].ligar()
             elif comando[2] == "l" and comando[3] == "p":
                 listaReles[10].ligar()
