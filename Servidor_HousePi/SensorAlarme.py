@@ -3,9 +3,8 @@ import RPi.GPIO as GPIO
 class Rele(object):
     
     #construtor
-    def __init__(self, numero, status, nome):
+    def __init__(self, numero, nome):
         self.numero = numero
-        self.status = status
         self.ativo = ativo
         
         configurar()
