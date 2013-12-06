@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import Adafruit_MCP230xx
 
 #Variavel para controle dos pinos GPIO (reles)
