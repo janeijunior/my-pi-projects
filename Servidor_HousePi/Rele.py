@@ -1,4 +1,4 @@
-import Servidor
+import Adafruit_MCP230xx
 
 class Rele(object):
     
