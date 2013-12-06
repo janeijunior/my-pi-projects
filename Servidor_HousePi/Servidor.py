@@ -40,7 +40,7 @@ def configurarReles():
     #Configura todos os pinos necessarios para o envio de comandos 
     for i in range(0, 15):
         rele = Rele.Rele(numero = i, status = 0, nome = 'Rele ' + str(i))        
-        global listaReles.insert(i, rele)
+        listaReles.insert(i, rele)
 
 
 def ativarAlarme():
