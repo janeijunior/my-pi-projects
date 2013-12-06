@@ -44,10 +44,10 @@ def configurarReles():
 
 
 def ativarAlarme():
-    print "Ativando alarme..."
+    print "Alarme ativado."
 
 def desativarAlarme():
-    
+    print "Alarme desativado."
 
 def PegarXMLStatusReles():
     doc = xml.dom.minidom.Document()
