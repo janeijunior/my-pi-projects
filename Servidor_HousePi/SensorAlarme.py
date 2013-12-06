@@ -21,6 +21,10 @@ class SensorAlarme(object):
         return self.ativo
     
     @property
+    def getNome(self):
+        return self.nome
+        
+    @property
     def setNumero(self, numero):
         self.numero = numero
 
