@@ -43,9 +43,11 @@ def configurarReles():
         listaReles.insert(i, rele)
 
 
-def iniciarAlarme():
+def ativarAlarme():
     print "Ativando alarme..."
 
+def desativarAlarme():
+    
 
 def PegarXMLStatusReles():
     doc = xml.dom.minidom.Document()
