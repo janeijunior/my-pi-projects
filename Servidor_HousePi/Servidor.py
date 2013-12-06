@@ -124,8 +124,7 @@ orig = (HOST, PORT)
 tcp.bind(orig)
 tcp.listen(1)
 
-ConfigurarReles()
-ConfigurarSensoresAlarme()
+configurarReles()
 
 print "Aguardando conexoes..."
 
