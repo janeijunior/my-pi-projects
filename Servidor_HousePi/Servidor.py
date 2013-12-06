@@ -43,7 +43,7 @@ def ConfigurarReles():
         rele = Rele.Rele(numero = i, status = 0, nome = 'Rele 1')
         rele.configurar();
         
-        listaReles[i] = rele;
+        listaReles.insert(i, rele)
 
 
 def ConfigurarSensoresAlarme():
