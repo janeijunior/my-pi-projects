@@ -9,7 +9,7 @@ import commands
 import xml.dom.minidom
 import ThreadAlarme
 import MySQLdb
-import Rele from Rele
+import Rele
 
 HOST = ''    # IP do Servidor (em branco = atual)
 PORT = 5001  # Porta do Servidor
