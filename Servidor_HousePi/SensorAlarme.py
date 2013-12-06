@@ -1,7 +1,5 @@
 import RPi.GPIO as GPIO 
 
-#Variavel para controle dos pinos GPIO (sensores)
-
 class Rele(object):
     
     #construtor
@@ -10,6 +8,7 @@ class Rele(object):
         self.status = status
         self.nome = nome
         
+        configurar()
     #propriedades
     @property
     def getNumero(self):
