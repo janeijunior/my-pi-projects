@@ -37,7 +37,7 @@ class SensorAlarme(object):
     def verificaDisparo(self):
         if self.Ativo and (lerStatus <> 1):
             return True
-        else
+        else:
             return False
             
     #destrutor
