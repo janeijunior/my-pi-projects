@@ -42,9 +42,9 @@ class ThreadAlarme(threading.Thread):
             for i in range(0, 7): 
                 if listaSensores[i].getAtivo == 1:
                     if listaSensores[i].lerStatus() == 1:
-                        print("Sensor: " + str(i) + " - " + listaSensores[i].getNome + " normal")
+                        print("Sensor: " + str(i) + " - " + listaSensores[i].getNome + " normal.")
                     else:
-                        print("Sensor: " + str(i) + " - " + listaSensores[i].getNome + " violado!")
+                        print("Sensor: " + str(i) + " - " + listaSensores[i].getNome + " violado.")
                         #rele.ligar()
                         #rele.desligar()
                         #EnviaEmail.EnviarEmail()
