@@ -44,15 +44,15 @@ class ThreadAlarme(threading.Thread):
                 if (listaSensores[i].getAtivo == 1) and (listaSensores[i].lerStatus() == 0):
                     print("Sensor: " + str(i) + " - " + listaSensores[i].getNome + " violado.")
                     
-                    if self.usarSirene() == 1:
+                    if self.usarSirene == 1:
                         rele.ligar()
                     
-                    if self.enviarEmail() == 1:
+                    if self.enviarEmail == 1:
                         EnviaEmail.enviarEmail()
                     
                     time.sleep(self.tempoDisparo)
                     
-                    if self.usarSirene() == 1:
+                    if self.usarSirene == 1:
                         rele.desligar() 
                         
             time.sleep(0.05)
