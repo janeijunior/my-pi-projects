@@ -44,6 +44,3 @@ class Rele(object):
     
     #destrutor
     def __done__(self):
-    
-    
-    
