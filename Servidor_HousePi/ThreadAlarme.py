@@ -47,7 +47,7 @@ class ThreadAlarme(threading.Thread):
                     if self.usarSirene() == True:
                         rele.ligar()
                     
-                    if self.enviarEmail()  == True:
+                    if self.enviarEmail() == True:
                         EnviaEmail.enviarEmail()
                     
                     time.sleep(self.tempoDisparo)
