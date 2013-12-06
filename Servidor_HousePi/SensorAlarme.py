@@ -46,7 +46,7 @@ class SensorAlarme(object):
     
     def verificaDisparo(self):
         if (self.ativo == 1) and (self.lerStatus == 1):
-            return True
+            return False
         else:
             return False
             
