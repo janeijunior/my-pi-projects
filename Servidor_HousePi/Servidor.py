@@ -2,7 +2,6 @@ import socket
 import thread
 import threading
 import time
-import Adafruit_MCP230xx
 import RPi.GPIO as GPIO 
 import os
 import commands
@@ -13,9 +12,6 @@ import Rele
 
 HOST = ''    # IP do Servidor (em branco = atual)
 PORT = 5000  # Porta do Servidor
-
-#Variavel para controle dos pinos GPIO (reles)
-mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
 #Conexao com o banco de dados MySQL
 db = MySQLdb.connect(host="localhost", user="root", passwd="batistello", db="housepi")
