@@ -42,7 +42,6 @@ class ThreadAlarme(threading.Thread):
                 if (listaSensores[i].getAtivo == 1) and (listaSensores[i].lerStatus() == 0):
                     print("Sensor: " + str(i) + " - " + listaSensores[i].getNome + " violado.")
                     rele.ligar()
-                    rele.desligar()
                     #EnviaEmail.EnviarEmail()
                     time.sleep(self.tempoDisparo)
                     rele.desligar() 
