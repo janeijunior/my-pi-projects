@@ -17,7 +17,11 @@ class ThreadAlarme(threading.Thread):
     def stop(self):
         mcp.output(10, 0)
         self.__stop_thread_event.set()
-    def run(self):            
+    def run(self):
+        
+        listaSensores = [];
+        
+        
         while not self.__stop_thread_event.isSet(): 
             input0 = GPIO.input(17) 
             input1 = GPIO.input(18) 
