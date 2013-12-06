@@ -96,27 +96,27 @@ def conectado(con, cliente):
         
             
             if comando[2] == "l" and comando[3] == "0":                
-                listaReles[0].ligar();
+                listaReles[0].ligar()
             elif comando[2] == "l" and comando[3] == "1":
-                mcp.output(1, 1)
+                listaReles[1].ligar()
             elif comando[2] == "l" and comando[3] == "2":
-                mcp.output(2, 1)
+                listaReles[2].ligar()
             elif comando[2] == "l" and comando[3] == "3":
-                mcp.output(3, 1)
+                listaReles[3].ligar()
             elif comando[2] == "l" and comando[3] == "4":
-                mcp.output(4, 1)
+                listaReles[4].ligar()
             elif comando[2] == "l" and comando[3] == "5":
-                mcp.output(5, 1)
+                listaReles[5].ligar()
             elif comando[2] == "l" and comando[3] == "6":
-                mcp.output(6, 1)
+                listaReles[6].ligar()
             elif comando[2] == "l" and comando[3] == "7":
-                mcp.output(7, 1)
+                listaReles[7].ligar()
             elif comando[2] == "l" and comando[3] == "8":
-                mcp.output(8, 1)
+                listaReles[8].ligar()
             elif comando[2] == "l" and comando[3] == "9":
-                mcp.output(9, 1)
+                listaReles[9].ligar()
             elif comando[2] == "l" and comando[3] == "p":
-                mcp.output(10, 1)
+                listaReles[10].ligar()
             elif comando[2] == "l" and comando[3] == "a": # Liga o Alarme
                 threadalarme = ThreadAlarme.ThreadAlarme(1, "Thread", 1)
                 con.sendall("Alarme Ligado")
@@ -126,27 +126,27 @@ def conectado(con, cliente):
             elif comando[2] == "l" and comando[3] == "r":
                 os.system('mplayer http://p.mm.uol.com.br/metropolitana_alta')            
             elif comando[2] == "d" and comando[3] == "0":
-                listaReles[0].desligar();
+                listaReles[0].desligar()
             elif comando[2] == "d" and comando[3] == "1":
-                mcp.output(1, 0)
+                listaReles[1].desligar()
             elif comando[2] == "d" and comando[3] == "2":
-                mcp.output(2, 0)
+                listaReles[2].desligar()
             elif comando[2] == "d" and comando[3] == "3":
-                mcp.output(3, 0)
+                listaReles[3].desligar()
             elif comando[2] == "d" and comando[3] == "4":
-                mcp.output(4, 0)
+                listaReles[4].desligar()
             elif comando[2] == "d" and comando[3] == "5":
-                mcp.output(5, 0)
+                listaReles[5].desligar()
             elif comando[2] == "d" and comando[3] == "6":
-                mcp.output(6, 0)
+                listaReles[6].desligar()
             elif comando[2] == "d" and comando[3] == "7":
-                mcp.output(7, 0)
+                listaReles[7].desligar()
             elif comando[2] == "d" and comando[3] == "8":
-                mcp.output(8, 0)
+                listaReles[8].desligar()
             elif comando[2] == "d" and comando[3] == "9":
-                mcp.output(9, 0)
+                listaReles[9].desligar()
             elif comando[2] == "d" and comando[3] == "p": 
-                mcp.output(10, 0)
+                listaReles[10].desligar()
             elif comando[2] == "d" and comando[3] == "a": # Desliga o alarme
                 threadalarme.stop()
             elif comando[2] == "d" and comando[3] == "c":
