@@ -11,7 +11,7 @@ import ThreadAlarme
 import MySQLdb
 
 HOST = ''    # IP do Servidor (em branco = atual)
-PORT = 5000  # Porta do Servidor
+PORT = 5001  # Porta do Servidor
 
 #Variavel para controle dos pinos GPIO (reles)
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
@@ -27,8 +27,8 @@ cursor = db.cursor()
 #for row in cursor.fetchall():
 #   print " ",row[0]," ",row[1]
 
-def getMCP():
-    return mcp
+arquivos = os.listdir(os.path.expanduser('/home/pi/HousePi/Musicas/'))
+
 
 def ConfigurarReles():
     print "Configurando reles..."
