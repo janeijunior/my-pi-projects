@@ -35,4 +35,4 @@ def enviarEmail():
     except Exception, e:
         print "Erro: ",e
     else:
-        print "Enviado!"
+        print "E-mail Enviado!"
