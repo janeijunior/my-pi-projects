@@ -44,7 +44,6 @@ def configurarReles():
 
 def ativarAlarme():
     threadAlarme = ThreadAlarme.ThreadAlarme(tempoDisparo = 1)
-
     threadAlarme.start() 
     print "Alarme ativado."
 
