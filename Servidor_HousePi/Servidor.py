@@ -49,7 +49,7 @@ def ativarAlarme():
     print "Alarme ativado."
 
 def desativarAlarme():
-    threadAlarme.stop()
+    global threadAlarme.stop()
     print "Alarme desativado."
 
 def PegarXMLStatusReles():
