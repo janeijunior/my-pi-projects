@@ -74,10 +74,6 @@ def PegarXMLStatusReles():
 
 def conectado(con, cliente):
     print 'Conectado: ', cliente
-
-    rele0 = Rele.Rele(0, 0, 'Rele 1')
-    
-    listaReles = [rele0];
     
     while True:
         msg = con.recv(1024)
