@@ -40,7 +40,7 @@ class SensorAlarme(object):
         GPIO.setup(self.numero, GPIO.IN)
         
     def lerStatus(self):
-        mcp.output(self.numero, 1)
+        GPIO.input(numero)
     
     #destrutor
     #def __done__(self):
