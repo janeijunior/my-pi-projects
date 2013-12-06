@@ -6,9 +6,10 @@ class Rele(object):
     def __init__(self, numero, status, nome):
         self.numero = numero
         self.status = status
-        self.nome = nome
+        self.ativo = ativo
         
         configurar()
+        
     #propriedades
     @property
     def getNumero(self):
@@ -19,8 +20,8 @@ class Rele(object):
         return self.status
     
     @property
-    def getNome(self):
-        return self.nome
+    def getAtivo(self):
+        return self.ativo
     
     @property
     def setNumero(self, numero):
