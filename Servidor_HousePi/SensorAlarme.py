@@ -37,6 +37,7 @@ class SensorAlarme(object):
     #funcoes
     def configurar(self):
         GPIO.setmode(GPIO.BCM) 
+        GPIO.setup(self.numero, GPIO.IN)
         
     def lerStatus(self):
         mcp.output(self.numero, 1)
