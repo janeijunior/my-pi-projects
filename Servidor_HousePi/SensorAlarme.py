@@ -35,10 +35,10 @@ class SensorAlarme(object):
         GPIO.input(numero)
     
     def verificaDisparo(self):
-        if self.Ativo and lerStatus <> 1:
+        if self.Ativo and (lerStatus <> 1):
             return True
         else
-          return False
+            return False
             
     #destrutor
     #def __done__(self):
