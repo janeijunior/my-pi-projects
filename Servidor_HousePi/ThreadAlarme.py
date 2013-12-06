@@ -44,7 +44,7 @@ class ThreadAlarme(threading.Thread):
                     print("Sensor: " + str(i) + " - " + listaSensores[i].getNome + " violado!")
                     #rele.ligar()
                     #rele.desligar()
-                    EnviaEmail.EnviarEmail()
+                    #EnviaEmail.EnviarEmail()
                     #time.sleep(5)
                     #rele.desligar() 
                     
