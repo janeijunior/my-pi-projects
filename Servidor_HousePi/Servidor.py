@@ -4,11 +4,9 @@ import socket
 import thread
 import threading
 import time
-import RPi.GPIO as GPIO 
 import os
 import commands
 import xml.dom.minidom
-import ThreadAlarme
 import MySQLdb
 import Rele
 
