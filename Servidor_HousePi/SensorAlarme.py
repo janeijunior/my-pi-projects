@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 class SensorAlarme(object):
     
     #construtor
-    def __init__(self, numero, nome):
+    def __init__(self, numero, ativo):
         self.numero = numero
         self.ativo = ativo
             
