@@ -25,14 +25,10 @@ class SensorAlarme(object):
     @property
     def setNumero(self, numero):
         self.numero = numero
-    
-    @property
-    def setStatus(self, status):
-        self.status = status
-    
+
     @property
     def setAtivo(self, ativo):
-        self.ativo = ativo
+        self.ativo = ativo 
     
     #funcoes
     def configurar(self):
@@ -42,5 +38,7 @@ class SensorAlarme(object):
     def lerStatus(self):
         GPIO.input(numero)
     
+    def verificaDisparo(self):
+        if self.Ativo and 
     #destrutor
     #def __done__(self):
