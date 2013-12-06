@@ -79,7 +79,7 @@ def conectado(con, cliente):
             elif comando[2] == "l" and comando[3] == "p":
                 listaReles[10].ligar()
             elif comando[2] == "l" and comando[3] == "a": # Liga o Alarme
-                threadAlarme = ThreadAlarme.ThreadAlarme(tempoDisparo = 0.5, enviarEmail = 0, usarSirene = 1)
+                threadAlarme = ThreadAlarme.ThreadAlarme(tempoDisparo = 5, enviarEmail = 1, usarSirene = 0)
                 threadAlarme.start() 
                 print "Alarme ativado."
             elif comando[2] == "l" and comando[3] == "c":
