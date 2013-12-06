@@ -124,7 +124,7 @@ def conectado(con, cliente):
             elif comando[2] == "l" and comando[3] == "r":
                 os.system('mplayer http://p.mm.uol.com.br/metropolitana_alta')            
             elif comando[2] == "d" and comando[3] == "0":
-                rele0.desligar();
+                listaReles[0].desligar();
             elif comando[2] == "d" and comando[3] == "1":
                 mcp.output(1, 0)
             elif comando[2] == "d" and comando[3] == "2":
