@@ -39,9 +39,10 @@ class ThreadAlarme(threading.Thread):
             for i in range(0, 7): 
                 if listaSensores[i].verificaDisparo():
                     print("Sensor numero: " + str(i) + " / " + listaSensores[i].nome + " violado!")
-                    rele.ligar()
+                    #rele.ligar()
+                    #rele.desligar()
                     EnviaEmail.EnviarEmail()
-                    time.sleep(5)
-                    rele.desligar() 
+                    #time.sleep(5)
+                    #rele.desligar() 
                     
             time.sleep(0.05)
