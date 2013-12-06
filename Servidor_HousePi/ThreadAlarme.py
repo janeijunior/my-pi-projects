@@ -24,6 +24,14 @@ class ThreadAlarme(threading.Thread):
         listaSensores = [];
         
         listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1))
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1))
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1))
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1))
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1))
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1))
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1))
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1))
+                
         
         while not self.__stop_thread_event.isSet(): 
             input0 = GPIO.input(17) 
