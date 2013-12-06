@@ -12,7 +12,8 @@ class Rele(object):
         self.numero = numero
         self.status = status
         self.nome = nome
-        
+
+        configurar()
     #propriedades
     @property
     def getNumero(self):
