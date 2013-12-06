@@ -36,11 +36,8 @@ class ThreadAlarme(threading.Thread):
         while not self.__stop_thread_event.isSet(): 
 
             for i in range(0, 7): 
-            
-            if (input0 == 1): 
-                print("sensor 0 Normal")
-            else:
-                print("Sendor 0 Violado!")
+                if listaSensores[i].verificaDisparo():
+                    print("Sensor " + str(i) + " violado!")
                 #mcp.output(10, 1)
                 #time.sleep(5) 
                 #mcp.output(10, 0)
