@@ -91,7 +91,8 @@ def conectado(con, cliente):
             elif comando[2] == "d" and comando[3] == "p": 
                 listaReles[10].desligar()
             elif comando[2] == "d" and comando[3] == "a": # Desliga o alarme
-                desativarAlarme()
+                threadAlarme.stop()
+    print "Alarme desativado."
             elif comando[2] == "d" and comando[3] == "c":
                 os.system('mjpg-streamer/mjpg-streamer.sh stop') 
             elif comando[2] == "s" and comando[3] == "t":
