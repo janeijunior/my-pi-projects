@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO 
 
-class Rele(object):
+class SensorAlarme(object):
     
     #construtor
     def __init__(self, numero, nome):
