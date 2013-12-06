@@ -32,6 +32,10 @@ class SensorAlarme(object):
     def setAtivo(self, ativo):
         self.ativo = ativo 
     
+    @property
+    def setNome(self, nome):
+        self.nome = nome
+    
     #funcoes
     def configurar(self):
         GPIO.setmode(GPIO.BCM) 
