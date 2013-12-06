@@ -32,7 +32,6 @@ for arquivo in arquivos:
    print arquivo
 
 listaReles = [];
-threadAlarme = ThreadAlarme.ThreadAlarme(tempoDisparo = 1)
     
 def configurarReles():
     print "Configurando reles..."
@@ -44,6 +43,8 @@ def configurarReles():
 
 
 def ativarAlarme():
+    threadAlarme = ThreadAlarme.ThreadAlarme(tempoDisparo = 1)
+
     threadAlarme.start() 
     print "Alarme ativado."
 
