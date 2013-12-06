@@ -27,9 +27,11 @@ cursor = db.cursor()
 #for row in cursor.fetchall():
 #   print " ",row[0]," ",row[1]
 
+#Le os arquivos da pasta passada como parametro
 arquivos = os.listdir(os.path.expanduser('/home/pi/HousePi/Musicas/'))
 
-print arquivos
+for file in dirs:
+   print file
 
 
 def ConfigurarReles():
