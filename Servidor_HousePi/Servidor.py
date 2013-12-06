@@ -44,9 +44,13 @@ def configurarReles():
 
 
 def ativarAlarme():
+    
+    
     print "Alarme ativado."
 
 def desativarAlarme():
+    
+    
     print "Alarme desativado."
 
 def PegarXMLStatusReles():
