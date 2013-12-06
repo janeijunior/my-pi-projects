@@ -23,7 +23,7 @@ class ThreadAlarme(threading.Thread):
         
         listaSensores = [];
         
-        sensor = SensorAlarme.SensorAlarme(numero = 17, ativo = True)    
+        sensor = SensorAlarme.SensorAlarme(numero = 17, ativo = 1)    
         listaSensores.insert(0, sensor)
         
         while not self.__stop_thread_event.isSet(): 
