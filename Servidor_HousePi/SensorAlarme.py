@@ -37,8 +37,8 @@ class Rele(object):
     
     #funcoes
     def configurar(self):
-        mcp.config(self.numero, mcp.OUTPUT)
-    
+        GPIO.setmode(GPIO.BCM) 
+        
     def ligar(self):
         mcp.output(self.numero, 1)
     
