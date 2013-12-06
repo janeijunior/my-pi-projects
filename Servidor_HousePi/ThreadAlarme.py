@@ -12,8 +12,8 @@ mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 class ThreadAlarme(threading.Thread):
     def __init__(self, threadID, name, counter, tempoDisparo):
         threading.Thread.__init__(self)
-        self.threadID = threadID
-        self.name = name
+        self.threadID = 1
+        self.name = 'ThreadAlarme'
         self.counter = counter
         self.__stop_thread_event = threading.Event()
     def stop(self):
