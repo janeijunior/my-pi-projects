@@ -77,6 +77,8 @@ def conectado(con, cliente):
 
     rele0 = Rele.Rele(0, 0, 'Rele 1')
     
+    listaReles = [rele0];
+    
     while True:
         msg = con.recv(1024)
         comando = msg.strip() 
