@@ -7,6 +7,7 @@ import time
 import os
 import commands
 import xml.dom.minidom
+import ThreadAlarme
 import MySQLdb
 import Rele
 
