@@ -104,24 +104,6 @@ def conectado(con, cliente):
                 os.system('mplayer http://p.mm.uol.com.br/metropolitana_alta')            
             elif comando[2] == "d" and int(comando[3]) < 10:
                 listaReles[0].desligar()
-            elif comando[2] == "d" and comando[3] == "1":
-                listaReles[1].desligar()
-            elif comando[2] == "d" and comando[3] == "2":
-                listaReles[2].desligar()
-            elif comando[2] == "d" and comando[3] == "3":
-                listaReles[3].desligar()
-            elif comando[2] == "d" and comando[3] == "4":
-                listaReles[4].desligar()
-            elif comando[2] == "d" and comando[3] == "5":
-                listaReles[5].desligar()
-            elif comando[2] == "d" and comando[3] == "6":
-                listaReles[6].desligar()
-            elif comando[2] == "d" and comando[3] == "7":
-                listaReles[7].desligar()
-            elif comando[2] == "d" and comando[3] == "8":
-                listaReles[8].desligar()
-            elif comando[2] == "d" and comando[3] == "9":
-                listaReles[9].desligar()
             elif comando[2] == "d" and comando[3] == "p": 
                 listaReles[10].desligar()
             elif comando[2] == "d" and comando[3] == "a": # Desliga o alarme
