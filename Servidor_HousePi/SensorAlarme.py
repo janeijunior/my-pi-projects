@@ -9,7 +9,7 @@ class SensorAlarme(object):
         self.numero = numero
         self.ativo = ativo
         
-        configurar()
+        self.configurar()
             
     #propriedades
     @property
