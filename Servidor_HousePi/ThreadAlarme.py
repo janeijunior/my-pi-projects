@@ -21,7 +21,7 @@ class ThreadAlarme(threading.Thread):
         
         listaSensores = [];
         
-        sensor = SensorAlarme.SensorAlarme(numero = i, status = 0, nome = 'Rele ' + str(i))
+        sensor = SensorAlarme.SensorAlarme(numero = , ativo = True)
         rele.configurar()
         
         listaReles.insert(i, rele)
