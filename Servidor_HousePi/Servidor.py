@@ -45,9 +45,7 @@ def configurarReles():
 
 
 def ativarAlarme():
-   
-   con.sendall("Alarme Ligado")
-   threadalarme.start() 
+   threadAlarme.start() 
    print "Alarme ativado."
 
 def desativarAlarme():
