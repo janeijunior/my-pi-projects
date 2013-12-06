@@ -102,7 +102,7 @@ def conectado(con, cliente):
                 os.system('mjpg-streamer/mjpg-streamer.sh start')
             elif comando[2] == "l" and comando[3] == "r":
                 os.system('mplayer http://p.mm.uol.com.br/metropolitana_alta')            
-            elif comando[2] == "d" and int(comando[3]) < 10:
+            elif comando[2] == "d" and is_int(comando[3]) and int(comando[3]) < 10:
                 listaReles[int(comando[3])].desligar()
             elif comando[2] == "d" and comando[3] == "p": 
                 listaReles[10].desligar()
