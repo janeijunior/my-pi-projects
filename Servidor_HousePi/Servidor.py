@@ -33,7 +33,7 @@ for arquivo in arquivos:
    print arquivo
 
 listaReles = [];
-threadAlarme = ThreadAlarme.ThreadAlarme()
+threadAlarme = ThreadAlarme.ThreadAlarme(tempoDisparo = 1)
 
 def configurarReles():
     print "Configurando reles..."
