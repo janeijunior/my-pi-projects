@@ -32,7 +32,7 @@ for arquivo in arquivos:
    print arquivo
 
 listaReles = [];
-threadAlarme
+threadAlarme = ''
 
 def configurarReles():
     print "Configurando reles..."
