@@ -13,10 +13,6 @@ class SensorAlarme(object):
     @property
     def getNumero(self):
         return self.numero
-        
-    @property
-    def getStatus(self):
-        return self.status
     
     @property
     def getAtivo(self):
