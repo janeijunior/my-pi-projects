@@ -27,11 +27,10 @@ cursor = db.cursor()
 #Le os arquivos da pasta passada como parametro
 arquivos = os.listdir(os.path.expanduser('/home/pi/HousePi/Musicas/'))
 
-listaReles = [];
-
 for arquivo in arquivos:
    print arquivo
 
+listaReles = [];
 
 def ConfigurarReles():
     print "Configurando reles..."
