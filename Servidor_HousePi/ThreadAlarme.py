@@ -42,5 +42,6 @@ class ThreadAlarme(threading.Thread):
                     rele.ligar()
                     EnviaEmail.EnviarEmail()
                     time.sleep(5)
-                    rele.desligar()             
+                    rele.desligar() 
+                    
             time.sleep(0.05)
