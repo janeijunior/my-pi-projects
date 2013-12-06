@@ -40,16 +40,16 @@ def configurarReles():
     #Configura todos os pinos necessarios para o envio de comandos 
     for i in range(0, 15):
         rele = Rele.Rele(numero = i, status = 0, nome = 'Rele ' + str(i))        
-        listaReles.insert(i, rele)
+        global listaReles.insert(i, rele)
 
 
 def ativarAlarme():
-    threadAlarme = ThreadAlarme.ThreadAlarme(tempoDisparo = 1)
-    threadAlarme.start() 
+    global threadAlarme = ThreadAlarme.ThreadAlarme(tempoDisparo = 1)
+    global threadAlarme.start() 
     print "Alarme ativado."
 
 def desativarAlarme():
-    threadAlarme.stop()
+    global threadAlarme.stop()
     print "Alarme desativado."
 
 def PegarXMLStatusReles():
