@@ -32,7 +32,7 @@ class Rele(object):
         self.status = status
     
     @property
-    def setNome(self, nome):
+    def setAtivo(self, ativo):
         self.nome = nome
     
     #funcoes
