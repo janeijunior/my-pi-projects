@@ -24,13 +24,13 @@ class ThreadAlarme(threading.Thread):
         listaSensores = [];
         
         listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1)) #GPIO 0 
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 18, ativo = 1)) #GPIO 1
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 27, ativo = 1)) #GPIO 2
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 22, ativo = 1)) #GPIO 3
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 23, ativo = 1)) #GPIO 4
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 24, ativo = 1)) #GPIO 5
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 25, ativo = 1)) #GPIO 6
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 5, ativo = 1))  #GPIO 7
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 18, ativo = 0)) #GPIO 1
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 27, ativo = 0)) #GPIO 2
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 22, ativo = 0)) #GPIO 3
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 23, ativo = 0)) #GPIO 4
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 24, ativo = 0)) #GPIO 5
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 25, ativo = 0)) #GPIO 6
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero =  5, ativo = 0))  #GPIO 7
                 
         
         while not self.__stop_thread_event.isSet(): 
