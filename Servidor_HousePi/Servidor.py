@@ -41,14 +41,6 @@ def configurarReles():
         rele = Rele.Rele(numero = i, status = 0, nome = 'Rele ' + str(i))        
         listaReles.insert(i, rele)
 
-
-def ativarAlarme():
-    
-
-def desativarAlarme():
-    threadAlarme.stop()
-    print "Alarme desativado."
-
 def PegarXMLStatusReles():
     doc = xml.dom.minidom.Document()
     root = doc.createElement('Status')
