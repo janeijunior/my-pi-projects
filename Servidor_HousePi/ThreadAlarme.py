@@ -24,13 +24,13 @@ class ThreadAlarme(threading.Thread):
         listaSensores = [];
         
         listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1))
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1))
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1))
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1))
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1))
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1))
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1))
-        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 17, ativo = 1))
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 18, ativo = 1))
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 27, ativo = 1))
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 22, ativo = 1))
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 23, ativo = 1))
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 24, ativo = 1))
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 25, ativo = 1))
+        listaSensores.insert(SensorAlarme.SensorAlarme(numero = 5, ativo = 1))
                 
         
         while not self.__stop_thread_event.isSet(): 
