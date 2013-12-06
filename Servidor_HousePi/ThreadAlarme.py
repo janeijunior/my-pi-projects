@@ -35,7 +35,7 @@ class ThreadAlarme(threading.Thread):
         
         while not self.__stop_thread_event.isSet(): 
 
-            for i in range(0, 15): 
+            for i in range(0, 7): 
             
             if (input0 == 1): 
                 print("sensor 0 Normal")
