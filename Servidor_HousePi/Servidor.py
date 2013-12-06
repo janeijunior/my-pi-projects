@@ -75,6 +75,8 @@ def PegarXMLStatusReles():
 def conectado(con, cliente):
     print 'Conectado: ', cliente
 
+    rele0 = Rele.Rele(0, 0, 'Rele 1')
+    
     while True:
         msg = con.recv(1024)
         comando = msg.strip() 
@@ -90,7 +92,7 @@ def conectado(con, cliente):
         
             
             if comando[2] == "l" and comando[3] == "0":
-                rele0 = Rele.Rele(0, 0, 'Rele 1')
+                
                 rele0.ligar();
             elif comando[2] == "l" and comando[3] == "1":
                 mcp.output(1, 1)
