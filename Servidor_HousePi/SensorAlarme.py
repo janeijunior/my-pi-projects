@@ -6,9 +6,7 @@ class SensorAlarme(object):
     def __init__(self, numero, nome):
         self.numero = numero
         self.ativo = ativo
-        
-        configurar()
-        
+            
     #propriedades
     @property
     def getNumero(self):
