@@ -43,4 +43,4 @@ class Rele(object):
         mcp.output(self.numero, 0)
     
     #destrutor
-    def __done__(self):
+    #def __done__(self):
