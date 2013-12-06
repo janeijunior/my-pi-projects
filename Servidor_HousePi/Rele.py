@@ -36,6 +36,9 @@ class Rele(object):
         self.nome = nome
     
     #funcoes
+    def configurar(self):
+        mcp.config(self.numero, mcp.OUTPUT)
+    
     def ligar(self):
         mcp.output(self.numero, 1)
     
