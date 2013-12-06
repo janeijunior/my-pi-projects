@@ -44,12 +44,12 @@ def configurarReles():
 
 
 def ativarAlarme():
-    global threadAlarme = ThreadAlarme.ThreadAlarme(tempoDisparo = 1)
+    threadAlarme = ThreadAlarme.ThreadAlarme(tempoDisparo = 1)
     threadAlarme.start() 
     print "Alarme ativado."
 
 def desativarAlarme():
-    global threadAlarme.stop()
+    threadAlarme.stop()
     print "Alarme desativado."
 
 def PegarXMLStatusReles():
