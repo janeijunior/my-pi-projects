@@ -15,6 +15,7 @@ class SensorAlarme(object):
         self.configurar()
             
     #funcoes
+    #funcao para configurar o sensor
     def configurar(self):
         GPIO.setmode(GPIO.BCM) 
         GPIO.setup(self.numero, GPIO.IN)
