@@ -11,7 +11,7 @@ import ThreadAlarme
 import MySQLdb
 import Rele
 
-HOST = ''    # IP do Servidor (em branco = ip do sistema)
+HOST = ''    # IP do Servidor (em branco = IP do sistema)
 PORT = 5000  # Porta do Servidor
 
 #Conexao com o banco de dados MySQL
