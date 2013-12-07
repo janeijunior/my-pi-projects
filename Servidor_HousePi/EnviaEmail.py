@@ -17,8 +17,7 @@ def enviarEmail():
     servidor = 'smtp.gmail.com'
     porta = 587
     senha = '#brit267930ney#'
-    conteudo = 'E-mail enviado automaticamento pelo aplicativo House Pi\n' +
-               'Data e hora do dispado: ' + unicode(datetime.datetime.now())
+    conteudo = 'E-mail enviado automaticamento pelo aplicativo House Pi - Data e hora do dispado: ' + unicode(datetime.datetime.now())
     
     print 'Enviando e-mail\n'
     try:
