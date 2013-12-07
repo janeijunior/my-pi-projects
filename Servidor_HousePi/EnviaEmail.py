@@ -4,6 +4,7 @@ import cgi, cgitb
 import smtplib
 import sys
 import commands
+from datetime import datetime
 
 from email.MIMEText import MIMEText
 
@@ -16,7 +17,8 @@ def enviarEmail():
     servidor = 'smtp.gmail.com'
     porta = 587
     senha = '#brit267930ney#'
-    conteudo = 'E-mail enviado automaticamento pelo aplicativo House Pi'
+    conteudo = 'E-mail enviado automaticamento pelo aplicativo House Pi\n' +
+               'Data e hora do dispado: ' + unicode(datetime.datetime.now())
     
     print 'Enviando e-mail\n'
     try:
