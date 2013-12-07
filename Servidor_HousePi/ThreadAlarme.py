@@ -44,8 +44,11 @@ class ThreadAlarme(threading.Thread):
                 
         rele = Rele.Rele(numero = 10, status = 0, nome = 'Sirene')
         
+        #executa enquanto o alarme estiver ativo
         while not self.__stop_thread_event.isSet(): 
-            for i in range(0, 8): 
+            #percorre os sensores
+            for i in range(0, 8):
+                #le os status dos sensores ativos
                 if (listaSensores[i].ativo == 1) and (listaSensores[i].lerStatus() == 0):
                     print("Sensor: " + str(i) + " - " + listaSensores[i].nome + " violado.")
                     
