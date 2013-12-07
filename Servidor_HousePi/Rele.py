@@ -2,7 +2,7 @@
 
 import Adafruit_MCP230xx
 
-#Variavel para controle dos pinos GPIO (reles)
+#variavel para controle dos pinos GPIO (reles)
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
 class Rele(object):
@@ -10,7 +10,7 @@ class Rele(object):
     #construtor
     def __init__(self, numero, status, nome):
         
-        #Atributos publicos da classe
+        #atributos publicos da classe
         self.numero = numero
         self.status = status
         self.nome   = nome
