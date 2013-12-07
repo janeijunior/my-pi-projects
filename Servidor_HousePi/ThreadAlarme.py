@@ -9,6 +9,7 @@ import Adafruit_MCP230xx
 import Rele
 import SensorAlarme
 
+#variavel para acionamento da sirene
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
 
 class ThreadAlarme(threading.Thread):
