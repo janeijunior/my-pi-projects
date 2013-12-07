@@ -4,7 +4,7 @@ import cgi, cgitb
 import smtplib
 import sys
 import commands
-from datetime import datetime
+import datetime
 
 from email.MIMEText import MIMEText
 
