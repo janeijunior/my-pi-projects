@@ -26,6 +26,7 @@ class Rele(object):
         mcp.output(self.numero, 1)
         self.status = 1
     
+    #metodo para desligar o rele
     def desligar(self):
         mcp.output(self.numero, 0)
         self.status = 0
