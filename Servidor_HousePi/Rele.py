@@ -53,4 +53,5 @@ class Rele(object):
         self.setStatus(0)
     
     #destrutor
-    #def __done__(self):
+    def __done__(self):
+        self.desligar()
