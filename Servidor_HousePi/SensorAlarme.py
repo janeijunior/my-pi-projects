@@ -9,8 +9,8 @@ class SensorAlarme(object):
         
         #atributos publicos da classe
         self.numero = numero
-        self.ativo = ativo
-        self.nome = nome
+        self.ativo  = ativo
+        self.nome   = nome
         
         self.configurar()
             
