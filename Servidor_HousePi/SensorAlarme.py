@@ -20,7 +20,7 @@ class SensorAlarme(object):
         GPIO.setmode(GPIO.BCM) 
         GPIO.setup(self.numero, GPIO.IN)
     
-    #funcao para ler o status do sensor
+    #funcao para ler o status do sensor (1 = normal e 0 = violado)
     def lerStatus(self):
         return GPIO.input(self.numero)
     
