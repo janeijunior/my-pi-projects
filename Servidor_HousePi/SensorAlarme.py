@@ -22,6 +22,5 @@ class SensorAlarme(object):
     def lerStatus(self):
         return GPIO.input(self.numero)
     
-            
     #destrutor
     #def __done__(self):
