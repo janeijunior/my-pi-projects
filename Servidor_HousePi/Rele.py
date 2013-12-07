@@ -18,25 +18,27 @@ class Rele(object):
     #propriedades
     def getNumero(self):
         return self._numero
-        
-    def getStatus(self):
-        return self._status
-    
-    def getNome(self):
-        return self._nome
-    
+
     def setNumero(self, numero):
         self._numero = numero
     
+    numero = property(fget = getNumero, fset = setNumero)
+        
+    def getStatus(self):
+        return self._status
+
     def setStatus(self, status):
         self._status = status
     
+    status = property(fget = getStatus, fset = setStatus)
+    
+    def getNome(self):
+        return self._nome
+        
     def setNome(self, nome):
         self._nome = nome
     
-    numero  = property(fget = getNumero, fset = setNumero)
-    status  = property(fget = getStatus, fset = setStatus)
-    nome    = property(fget = getNome, fset = setNome)
+    nome = property(fget = getNome, fset = setNome)
     
     #funcoes
     def configurar(self):
