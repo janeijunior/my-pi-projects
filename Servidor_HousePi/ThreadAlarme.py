@@ -28,6 +28,7 @@ class ThreadAlarme(threading.Thread):
     def stop(self):
         mcp.output(10, 0)
         self.__stop_thread_event.set()
+        
     def run(self):
         
         listaSensores = [];
