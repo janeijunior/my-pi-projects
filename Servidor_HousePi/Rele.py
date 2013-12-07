@@ -9,47 +9,46 @@ class Rele(object):
     
     #construtor
     def __init__(self, numero, status, nome):
-        self.numero = numero
-        self.status = status
-        self.nome = nome
+        self._numero = numero
+        self._status = status
+        self._nome = nome
+        
         self.configurar()
         
     #propriedades
-    @property
     def getNumero(self):
-        return self.numero
+        return self._numero
         
-    @property
     def getStatus(self):
-        return self.status
+        return self._status
     
-    @property
     def getNome(self):
-        return self.nome
+        return self._nome
     
-    @property
     def setNumero(self, numero):
-        self.numero = numero
+        self._numero = numero
     
-    @property
     def setStatus(self, status):
-        self.status = status
+        self._status = status
     
-    @property
     def setNome(self, nome):
-        self.nome = nome
+        self._nome = nome
+    
+    numero  = property(fget = getNumero, fset = setNumero)
+    status  = property(fget = getStatus, fset = setStatus)
+    nome    = property(fget = getNome, fset = setNome)
     
     #funcoes
     def configurar(self):
-        mcp.config(self.numero, mcp.OUTPUT)
+        mcp.config(self.getNumero, mcp.OUTPUT)
     
     def ligar(self):
-        mcp.output(self.numero, 1)
-        self.status = 1
+        mcp.output(self.getNumero, 1)
+        self.setStatus(1)
     
     def desligar(self):
-        mcp.output(self.numero, 0)
-        self.status = 0
+        mcp.output(self.getNumero, 0)
+        self.setStatus(0)
     
     #destrutor
     #def __done__(self):
