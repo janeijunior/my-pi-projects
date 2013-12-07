@@ -11,6 +11,7 @@ class SensorAlarme(object):
         self.numero = numero
         self.ativo = ativo
         self.nome = nome
+        
         self.configurar()
             
     #propriedades
