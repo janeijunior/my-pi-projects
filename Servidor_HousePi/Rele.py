@@ -19,15 +19,15 @@ class Rele(object):
             
     #funcoes
     def configurar(self):
-        mcp.config(self.getNumero, mcp.OUTPUT)
+        mcp.config(self.numero, mcp.OUTPUT)
     
     def ligar(self):
-        mcp.output(self.getNumero, 1)
-        self.setStatus(1)
+        mcp.output(self.numero, 1)
+        self.status = 1
     
     def desligar(self):
-        mcp.output(self.getNumero, 0)
-        self.setStatus(0)
+        mcp.output(self.numero, 0)
+        self.status = 0
     
     #destrutor
     def __done__(self):
