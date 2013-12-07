@@ -13,7 +13,7 @@ class Rele(object):
         #Atributos publicos da classe
         self.numero = numero
         self.status = status
-        self.nome = nome
+        self.nome   = nome
         
         self.configurar()
             
