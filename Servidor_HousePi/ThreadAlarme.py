@@ -57,6 +57,7 @@ class ThreadAlarme(threading.Thread):
                     if self.usarSirene == 1:
                         rele.ligar()
                     
+                    #se estiver configurado envia o e-mail
                     if self.enviarEmail == 1:
                         EnviaEmail.enviarEmail()
                     
