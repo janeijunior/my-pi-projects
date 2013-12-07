@@ -21,6 +21,7 @@ class Rele(object):
     def configurar(self):
         mcp.config(self.numero, mcp.OUTPUT)
     
+    #metodo para ligar o rele
     def ligar(self):
         mcp.output(self.numero, 1)
         self.status = 1
