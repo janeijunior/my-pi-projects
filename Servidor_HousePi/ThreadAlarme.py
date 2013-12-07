@@ -50,6 +50,7 @@ class ThreadAlarme(threading.Thread):
             for i in range(0, 8):
                 #le os status dos sensores ativos
                 if (listaSensores[i].ativo == 1) and (listaSensores[i].lerStatus() == 0):
+                    #se estiver violado mostra msg na tela
                     print("Sensor: " + str(i) + " - " + listaSensores[i].nome + " violado.")
                     
                     if self.usarSirene == 1:
