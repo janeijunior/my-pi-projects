@@ -18,16 +18,16 @@ class Rele(object):
         self.configurar()
             
     #funcoes
-    #metodo para configurar o rele para uso
+    #funcao para configurar o rele para uso
     def configurar(self):
         mcp.config(self.numero, mcp.OUTPUT)
     
-    #metodo para ligar o rele
+    #funcao para ligar o rele
     def ligar(self):
         mcp.output(self.numero, 1)
         self.status = 1
     
-    #metodo para desligar o rele
+    #funcao para desligar o rele
     def desligar(self):
         mcp.output(self.numero, 0)
         self.status = 0
