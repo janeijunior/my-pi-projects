@@ -18,7 +18,6 @@ class Rele(object):
         self.configurar()
             
     #funcoes
-    
     #metodo para configurar o rele para uso
     def configurar(self):
         mcp.config(self.numero, mcp.OUTPUT)
