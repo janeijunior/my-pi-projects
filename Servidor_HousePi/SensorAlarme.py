@@ -6,6 +6,8 @@ class SensorAlarme(object):
     
     #construtor
     def __init__(self, numero, ativo, nome):
+        
+        #atributos publicos da classe
         self.numero = numero
         self.ativo = ativo
         self.nome = nome
