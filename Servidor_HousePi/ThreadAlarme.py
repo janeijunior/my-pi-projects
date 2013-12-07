@@ -19,6 +19,7 @@ class ThreadAlarme(threading.Thread):
         self.counter = 1
         self.__stop_thread_event = threading.Event()
         
+        #atributos
         self.tempoDisparo = tempoDisparo
         self.usarSirene = usarSirene
         self.enviarEmail = enviarEmail
