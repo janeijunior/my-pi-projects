@@ -61,6 +61,7 @@ class ThreadAlarme(threading.Thread):
                     if self.enviarEmail == 1:
                         EnviaEmail.enviarEmail()
                     
+                    #aguarda o tempo configurado ate iniciar a proxima leitura
                     time.sleep(self.tempoDisparo)
                     
                     if self.usarSirene == 1:
