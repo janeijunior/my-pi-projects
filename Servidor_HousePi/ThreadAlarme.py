@@ -64,6 +64,7 @@ class ThreadAlarme(threading.Thread):
                     #aguarda o tempo configurado ate iniciar a proxima leitura
                     time.sleep(self.tempoDisparo)
                     
+                    #desliga a sirene se necessario
                     if self.usarSirene == 1:
                         rele.desligar() 
                         
