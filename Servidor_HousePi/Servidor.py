@@ -57,6 +57,26 @@ def PegarXMLStatusReles():
     
     return doc
 
+#funcao para envio de dados
+def enviar(self, msg):
+    totalenviado = 0
+    while totalenviado < MSGLEN:
+        sent = self.sock.send(msg[totalenviado:])
+        if sent == 0:
+            raise RuntimeError("Erro na conexao")
+        totalenviado = totalenviado + sent
+
+#funcao para receber dados
+def receber(self):
+    msg = ''
+    while len(msg) < MSGLEN:
+        chunk = self.sock.recv(MSGLEN-len(msg))
+        if chunk == '':
+            raise RuntimeError("Erro na conexao")
+        msg = msg + chunk
+    return msg
+
+#funcao que monitora o recebimento de comandos pelo socket
 def conectado(con, cliente):
     print 'Conectado: ', cliente
     
