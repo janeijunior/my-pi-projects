@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-import socket
 import thread
 import threading
 import time
@@ -110,10 +109,9 @@ def conectado(con, cliente):
     con.close()
     thread.exit()
 
-tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
 orig = (HOST, PORT)
 
+tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp.bind(orig)
 tcp.listen(1)
 
