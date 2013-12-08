@@ -1,5 +1,5 @@
 class Conexao:
-    #classe de conexão com as funções de envio e recibimento de dados por socket
+    #classe de conexao com as funcaes de envio e recibimento de dados por socket
     
     #construtor
     def __init__(self, sock=None):
