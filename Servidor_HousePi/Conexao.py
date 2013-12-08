@@ -20,7 +20,8 @@ class Conexao:
             if sent == 0:
                 raise RuntimeError("Erro na conexao")
             totalenviado = totalenviado + sent
-
+    
+    #funcao para receber dados
     def receber(self):
         msg = ''
         while len(msg) < MSGLEN:
