@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-import socket
 import thread
 import threading
 import time
@@ -58,31 +57,11 @@ def PegarXMLStatusReles():
     
     return doc
 
-#funcao para envio de dados
-def enviarDados(con, msg):
-    totalenviado = 0
-    while totalenviado < socket.MSGLEN:
-        sent = con.sock.send(msg[totalenviado:])
-        if sent == 0:
-            raise RuntimeError("Erro na conexao")
-        totalenviado = totalenviado + sent
-
-#funcao para receber dados
-def receberDados(con):
-    msg = ''
-    while len(msg) < socket.MSGLEN:
-        chunk = con.sock.recv(socket.MSGLEN-len(msg))
-        if chunk == '':
-            raise RuntimeError("Erro na conexao")
-        msg = msg + chunk
-    return msg
-
-#funcao que monitora o recebimento de comandos pelo socket
 def conectado(con, cliente):
     print 'Conectado: ', cliente
     
     while True:
-        msg = receberDados(con)
+        msg = con.recv(1024)
         comando = msg.strip() 
      
         if not msg: 
@@ -122,8 +101,9 @@ def conectado(con, cliente):
                       
                 print doc.toprettyxml()
             
+                con.send(str(doc))
             
-            enviarDados(con, comando)
+            con.send(comando)
 
     print 'Finalizando conexao do cliente', cliente
     con.close()
