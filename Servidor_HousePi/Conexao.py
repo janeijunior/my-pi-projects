@@ -8,10 +8,11 @@ class Conexao:
         else:
             self.sock = sock
 
-    #função para conectar
+    #funcao para conectar
     def conectar(self, host, porta):
         self.sock.connect((host, porta))
 
+    #funcao para envio de dados
     def enviar(self, msg):
         totalenviado = 0
         while totalenviado < MSGLEN:
