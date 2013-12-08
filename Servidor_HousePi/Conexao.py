@@ -8,6 +8,7 @@ class Conexao:
         else:
             self.sock = sock
 
+    #função para conectar
     def conectar(self, host, porta):
         self.sock.connect((host, porta))
 
