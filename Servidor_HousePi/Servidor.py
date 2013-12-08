@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import socket
 import thread
 import threading
 import time
