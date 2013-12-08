@@ -81,7 +81,7 @@ def conectado(con, cliente):
     print 'Conectado: ', cliente
     
     while True:
-        msg = con.recv(1024)
+        msg = receberDados(con)
         comando = msg.strip() 
      
         if not msg: 
@@ -121,9 +121,8 @@ def conectado(con, cliente):
                       
                 print doc.toprettyxml()
             
-                con.send(str(doc))
             
-            con.send(comando)
+            enviarDados(con, comando)
 
     print 'Finalizando conexao do cliente', cliente
     con.close()
