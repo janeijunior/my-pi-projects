@@ -1,6 +1,7 @@
 class Conexao:
     #classe de conexão com as funções de envio e recibimento de dados por socket
     
+    #construtor
     def __init__(self, sock=None):
         if sock is None:
             self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
