@@ -1,3 +1,7 @@
+#!/usr/bin/python
+
+import socket
+
 class Conexao:
     #classe de conexao com as funcaes de envio e recibimento de dados por socket
     
