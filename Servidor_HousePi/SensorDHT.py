@@ -7,7 +7,7 @@ import time
 import datetime
 
 def lerSensor():
-    return = subprocess.check_output(["./Adafruit_DHT", "2302", "4"]);
+    return subprocess.check_output(["./Adafruit_DHT", "2302", "4"]);
 
 output  = lerSensor(); 
 matches = re.search("Temp =\s+([0-9.]+)", output)
