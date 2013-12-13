@@ -26,8 +26,8 @@ if (not matches):
   output  = lerSensor();     
   matches = re.search("Hum =\s+([0-9.]+)", output)  
   
-humidity = float(matches.group(1))
+hum = float(matches.group(1))
 
 print "Temperatura: %.1f C" % temp
-print "Humidade:    %.1f %%" % humidity
+print "Humidade:    %.1f %%" % hum
 
