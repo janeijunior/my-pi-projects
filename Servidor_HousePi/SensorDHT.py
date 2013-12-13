@@ -6,7 +6,7 @@ import sys
 import time
 import datetime
 
-def lerSensor:
+def lerSensor():
     return = subprocess.check_output(["./Adafruit_DHT", "2302", "4"]);
 
 output  = lerSensor(); 
