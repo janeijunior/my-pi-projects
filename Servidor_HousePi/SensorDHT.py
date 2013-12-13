@@ -46,7 +46,7 @@ while(True):
   matches = re.search("Temp =\s+([0-9.]+)", output)
   if (not matches):
       time.sleep(3)
-        continue
+      continue
   temp = float(matches.group(1))
   
   # search for humidity printout
