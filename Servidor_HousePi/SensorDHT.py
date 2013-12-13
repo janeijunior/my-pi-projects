@@ -21,6 +21,6 @@ if (not matches):
   
 humidity = float(matches.group(1))
 
-print "Temperature: %.1f C" % temp
-print "Humidity:    %.1f %%" % humidity
+print "Temperatura: %.1f C" % temp
+print "Humidade:    %.1f %%" % humidity
 
