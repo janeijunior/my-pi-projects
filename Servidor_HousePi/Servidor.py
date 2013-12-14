@@ -72,7 +72,7 @@ def conectado(con, cliente):
                   
         
         if len(comando) > 0:
-            print "Mensagem recebida -> " + msg.strip()
+            #print "Mensagem recebida -> " + msg.strip()
         
             
             if comando[2] == "l" and str.isdigit(comando[3]):
