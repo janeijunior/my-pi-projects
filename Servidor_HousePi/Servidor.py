@@ -77,7 +77,32 @@ def conectado(con, cliente):
             
             if comando[0] == "l" and str.isdigit(comando[1]) and int(comando[1]) < 10:
                 listaReles[int(comando[3])].ligar()
-          
+            elif comando[2] == "l" and comando[3] == "p":
+                listaReles[10].ligar()
+            elif comando[2] == "l" and comando[3] == "a": # Liga o Alarme
+                threadAlarme = ThreadAlarme.ThreadAlarme(tempoDisparo = 5, enviarEmail = 1, usarSirene = 0)
+                threadAlarme.start() 
+                print "Alarme ativado."
+            elif comando[2] == "l" and comando[3] == "c":
+                os.system('mjpg-streamer/mjpg-streamer.sh start')
+            elif comando[2] == "l" and comando[3] == "r":
+                os.system('mplayer http://p.mm.uol.com.br/metropolitana_alta')            
+            elif comando[2] == "d" and str.isdigit(comando[3]) and int(comando[3]) < 10:
+                listaReles[int(comando[3])].desligar()
+            elif comando[2] == "d" and comando[3] == "p": 
+                listaReles[10].desligar()
+            elif comando[2] == "d" and comando[3] == "a": # Desliga o alarme
+                threadAlarme.stop()
+                print "Alarme desativado."
+            elif comando[2] == "d" and comando[3] == "c":
+                os.system('mjpg-streamer/mjpg-streamer.sh stop') 
+            elif comando[2] == "s" and comando[3] == "t":
+                      
+                doc = PegarXMLStatusReles()
+                      
+                print doc.toprettyxml()
+            
+                con.send(str(doc))
             
             #con.send(comando)
 
