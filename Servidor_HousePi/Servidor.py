@@ -72,10 +72,10 @@ def conectado(con, cliente):
                   
         
         if len(comando) > 0:
-            #print "Mensagem recebida -> " + msg.strip()
+            print "Mensagem recebida -> " + msg.strip()
         
             
-         
+            
             
             #con.send(comando)
 
