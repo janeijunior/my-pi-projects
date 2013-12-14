@@ -71,7 +71,7 @@ def conectado(con, cliente):
         print cliente, "Comando recebido: " + comando
                   
         
-        if (len(comando) > 0) and (comando[2] == "l"):
+        if len(comando) > 0:
             #print "Mensagem recebida -> " + msg.strip()
         
             
