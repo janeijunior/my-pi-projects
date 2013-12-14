@@ -75,8 +75,9 @@ def conectado(con, cliente):
             #print "Mensagem recebida -> " + msg.strip()
         
             
-            if comando[2] == "l" and str.isdigit(comando[3]) and int(comando[3]) < 10:                
-                listaReles[int(comando[3])].ligar()
+            if comando[2] == "l" and str.isdigit(comando[3]):
+                if int(comando[3]) < 10:
+                    listaReles[int(comando[3])].ligar()
             elif comando[2] == "l" and comando[3] == "p":
                 listaReles[10].ligar()
             elif comando[2] == "l" and comando[3] == "a": # Liga o Alarme
