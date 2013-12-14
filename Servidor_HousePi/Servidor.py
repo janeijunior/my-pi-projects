@@ -75,9 +75,9 @@ def conectado(con, cliente):
             #print "Mensagem recebida -> " + msg.strip()
         
             
-            if comando[2] == "l" and str.isdigit(comando[3]) and int(comando[3]) < 10:                
-                listaReles[int(comando[3])].ligar()
-            elif comando[2] == "l" and comando[3] == "p":
+            #if comando[2] == "l" and str.isdigit(comando[3]) and int(comando[3]) < 10:                
+            #    listaReles[int(comando[3])].ligar()
+            if comando[2] == "l" and comando[3] == "p":
                 listaReles[10].ligar()
             elif comando[2] == "l" and comando[3] == "a": # Liga o Alarme
                 threadAlarme = ThreadAlarme.ThreadAlarme(tempoDisparo = 5, enviarEmail = 1, usarSirene = 0)
@@ -104,7 +104,7 @@ def conectado(con, cliente):
             
                 con.send(str(doc))
             
-            con.send(comando)
+            #con.send(comando)
 
     print 'Finalizando conexao do cliente', cliente
     con.close()
