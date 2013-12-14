@@ -72,10 +72,12 @@ def conectado(con, cliente):
                   
         
         if len(comando) > 0:
-            print "Mensagem recebida -> " + msg.strip()
+            #print "Mensagem recebida -> " + msg.strip()
         
             
-            
+            if comando[0] == "l" and str.isdigit(comando[1]) and int(comando[1]) < 10:
+                listaReles[int(comando[3])].ligar()
+          
             
             #con.send(comando)
 
