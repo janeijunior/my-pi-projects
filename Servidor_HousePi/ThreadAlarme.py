@@ -4,46 +4,54 @@ import thread
 import threading
 import time
 import RPi.GPIO as GPIO 
-import EnviaEmail
-import Adafruit_MCP230xx
+import EnviarEmail
 import Rele
 import SensorAlarme
-
-#variavel para acionamento da sirene
-mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
+import MySQLdb
 
 class ThreadAlarme(threading.Thread):
-    def __init__(self, tempoDisparo, usarSirene, enviarEmail):
+    def __init__(self, conBanco):
         threading.Thread.__init__(self)
-        self.threadID = 1
         self.name = 'ThreadAlarme'
-        self.counter = 1
         self.__stop_thread_event = threading.Event()
         
         #atributos
-        self.tempoDisparo = tempoDisparo
-        self.usarSirene = usarSirene
-        self.enviarEmail = enviarEmail
+        self.conBanco = conBanco
+        
+        cursor = self.conBanco.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute("select * from ConfiguracaoAlarme")
+    
+        row = cursor.fetchone()
+        
+        self.tempoDisparo = row["TempoDisparo"]
+        self.usarSirene   = row["UsarSirene"]
+        self.enviarEmail  = row["EnviarEmail"]
+        self.remetente    = row["Remetente"]
+        self.destinatario = row["Destinatario"]
+        self.servidorSMTP = row["ServidorSMTP"]
+        self.portaSMTP    = row["PortaSMTP"]
+        self.senha        = row["Senha"]
         
     def stop(self):
-        mcp.output(10, 0)
+        self.sirene.desligar()
         self.__stop_thread_event.set()
         
     def run(self):
         
         listaSensores = [];
         
-        #insere os sendores na lista passando seus atributos
-        listaSensores.insert(0, SensorAlarme.SensorAlarme(numero = 17, ativo = 1, nome = "Casa 0")) #GPIO 0 
-        listaSensores.insert(1, SensorAlarme.SensorAlarme(numero = 18, ativo = 0, nome = "Casa 1")) #GPIO 1
-        listaSensores.insert(2, SensorAlarme.SensorAlarme(numero = 27, ativo = 0, nome = "Casa 2")) #GPIO 2
-        listaSensores.insert(3, SensorAlarme.SensorAlarme(numero = 22, ativo = 0, nome = "Casa 3")) #GPIO 3
-        listaSensores.insert(4, SensorAlarme.SensorAlarme(numero = 23, ativo = 0, nome = "Casa 4")) #GPIO 4
-        listaSensores.insert(5, SensorAlarme.SensorAlarme(numero = 24, ativo = 0, nome = "Casa 5")) #GPIO 5
-        listaSensores.insert(6, SensorAlarme.SensorAlarme(numero = 25, ativo = 0, nome = "Casa 6")) #GPIO 6
-        listaSensores.insert(7, SensorAlarme.SensorAlarme(numero =  4, ativo = 0, nome = "Casa 7")) #GPIO 7
-                
-        rele = Rele.Rele(numero = 10, status = 0, nome = 'Sirene')
+        #insere os sensores na lista passando seus atributos recuperados do banco
+        cursor = self.conBanco.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute("select * from SensorAlarme")
+
+        rows = cursor.fetchall()
+
+        for row in rows:
+          sensor = SensorAlarme.SensorAlarme(id = row["Id"], numeroGPIO = row["NumeroGPIO"], ativo = row["Ativo"], nome = row["Nome"])        
+          listaSensores.insert(row["Id"] - 1 , sensor)
+        
+        #rele da sirene
+        self.sirene = Rele.Rele(id = 10, numeroGPIO = 10, status = 0, nome = 'Sirene')
         
         #executa enquanto o alarme estiver ativo
         while not self.__stop_thread_event.isSet(): 
@@ -56,17 +64,20 @@ class ThreadAlarme(threading.Thread):
                     
                     #se estiver configurado dispara a sirene
                     if self.usarSirene == 1:
-                        rele.ligar()
+                        self.sirene.ligar()
                     
                     #se estiver configurado envia o e-mail
                     if self.enviarEmail == 1:
-                        EnviaEmail.enviarEmail()
+                        email = EnviarEmail.EnviarEmail(remetente = self.remetente, senha = self.senha, 
+                                                       destinatario = self.destinatario, servidorSMTP = self.servidorSMTP,
+                                                       portaSMTP = self.portaSMTP, nomeSensor = listaSensores[i].nome)
+                        email.start() 
                     
                     #aguarda o tempo configurado ate iniciar a proxima leitura
                     time.sleep(self.tempoDisparo)
                     
                     #desliga a sirene se necessario
                     if self.usarSirene == 1:
-                        rele.desligar() 
+                        self.sirene.desligar() 
                         
             time.sleep(0.05)
