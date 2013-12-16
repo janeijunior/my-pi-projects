@@ -11,7 +11,6 @@ import commands
 import ThreadAlarme
 import MySQLdb
 import Rele
-import Conexao
 import signal
 import sys
 import SensorDHT
