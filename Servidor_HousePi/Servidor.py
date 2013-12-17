@@ -85,14 +85,17 @@ def controlarRele(root):
         
 #le o sensor de temperatura e humidade e envia os resultados
 def enviarTemperaturaHumidade():    
-    resultado = SensorDHT.lerTemperaturaHumidade()    
-    root = Element("TemperaturaHumidade")
-    dados = Element("Dados", Temperatura=resultado[0], Humidade=resultado[1])
-    root.append(dados)
-    
-    xmlstr = ET.tostring(root) + "\n"   
-    con.send(xmlstr)    
-
+    try:
+        resultado = SensorDHT.lerTemperaturaHumidade()    
+        root = Element("TemperaturaHumidade")
+        dados = Element("Dados", Temperatura=resultado[0], Humidade=resultado[1])
+        root.append(dados)
+        
+        xmlstr = ET.tostring(root) + "\n"   
+        con.send(xmlstr)    
+    except:
+        print "Erro ao obter a temperatura e humidade."
+        
 #liga ou desliga o alarme
 def controlarAlarme(root):
     acao = root.find("Acao").text
