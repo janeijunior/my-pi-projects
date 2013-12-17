@@ -98,8 +98,8 @@ def controlarAlarme(root):
     acao = root.find("Acao").text
     
     if acao == "Ligar":
-        threadAlarme = ThreadAlarme.ThreadAlarme(conBanco = conBanco, sirene = listaReles[SIRENE])
-        threadAlarme.start() 
+        global threadAlarme = ThreadAlarme.ThreadAlarme(conBanco = conBanco, sirene = listaReles[SIRENE])
+        global threadAlarme.start() 
         print "Alarme ativado."
     else:
         threadAlarme.stop()
