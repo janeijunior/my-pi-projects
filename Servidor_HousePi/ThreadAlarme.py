@@ -17,8 +17,6 @@ class ThreadAlarme(threading.Thread):
         
         #atributos
         self.conBanco = conBanco
-        
-        #rele da sirene
         self.sirene = Rele.Rele(id = 10, numeroGPIO = 10, status = 0, nome = 'Sirene')
         
         cursor = self.conBanco.cursor(MySQLdb.cursors.DictCursor)
