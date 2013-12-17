@@ -10,14 +10,14 @@ import SensorAlarme
 import MySQLdb
 
 class ThreadAlarme(threading.Thread):
-    def __init__(self, conBanco):
+    def __init__(self, conBanco, sirene):
         threading.Thread.__init__(self)
         self.name = 'ThreadAlarme'
         self.__stop_thread_event = threading.Event()
         
         #atributos
         self.conBanco = conBanco
-        self.sirene = Rele.Rele(id = 10, numeroGPIO = 10, status = 0, nome = 'Sirene')
+        self.sirene = sirene
         
         cursor = self.conBanco.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("select * from ConfiguracaoAlarme")
