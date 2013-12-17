@@ -89,6 +89,13 @@ def enviarTemperaturaHumidade():
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)    
 
+#liga ou desliga o alarme
+def controlarAlarme(root):
+    
+#liga ou desliga a funcao panico do alarme
+def controlarFuncaoPanico(root):
+    
+
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
     while True:
