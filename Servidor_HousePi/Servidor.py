@@ -19,6 +19,7 @@ HOST = ''    # IP do Servidor (em branco = IP do sistema)
 PORT = 5000  # Porta do Servidor
 SIRENE = 10
 
+#variavel para controle do alarme
 theadAlarme = None
 
 orig = (HOST, PORT)
