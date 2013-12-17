@@ -154,6 +154,9 @@ def conectado(con, cliente):
 
 configurarReles()
 
+#inicia a transmisao do video/webcam
+os.system('mjpg-streamer/mjpg-streamer.sh start')
+
 print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
 
 #para fechar o programa
