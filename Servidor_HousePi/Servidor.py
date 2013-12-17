@@ -19,6 +19,8 @@ HOST = ''    # IP do Servidor (em branco = IP do sistema)
 PORT = 5000  # Porta do Servidor
 SIRENE = 10
 
+theadAlarme = None
+
 orig = (HOST, PORT)
 
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
