@@ -142,7 +142,6 @@ def conectado(con, cliente):
                 controlarAlarme(root)
             elif root.tag == "Panico":
                 controlarFuncaoPanico(root)           
-            
 
     print 'Finalizando conexao do cliente', cliente
     con.close()
