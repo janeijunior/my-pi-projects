@@ -50,9 +50,6 @@ class ThreadAlarme(threading.Thread):
           sensor = SensorAlarme.SensorAlarme(id = row["Id"], numeroGPIO = row["NumeroGPIO"], ativo = row["Ativo"], nome = row["Nome"])        
           listaSensores.insert(row["Id"] - 1 , sensor)
         
-        #rele da sirene
-        self.sirene = Rele.Rele(id = 10, numeroGPIO = 10, status = 0, nome = 'Sirene')
-        
         #executa enquanto o alarme estiver ativo
         while not self.__stop_thread_event.isSet(): 
             #percorre os sensores
