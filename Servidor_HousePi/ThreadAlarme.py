@@ -48,7 +48,7 @@ class ThreadAlarme(threading.Thread):
 
         for row in rows:
           sensor = SensorAlarme.SensorAlarme(id = row["Id"], numeroGPIO = row["NumeroGPIO"], ativo = row["Ativo"], nome = row["Nome"])        
-          listaSensores.insert(row["Id"] - 1 , sensor)
+          listaSensores.insert(int(row["Id"]) - 1 , sensor)
         
         #executa enquanto o alarme estiver ativo
         while not self.__stop_thread_event.isSet(): 
