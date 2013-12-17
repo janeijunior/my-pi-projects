@@ -20,7 +20,7 @@ PORT = 5000  # Porta do Servidor
 SIRENE = 10
 
 #variavel para controle do alarme
-theadAlarme = None
+threadAlarme = None
 
 orig = (HOST, PORT)
 
@@ -98,7 +98,7 @@ def controlarAlarme(root):
     acao = root.find("Acao").text
     
     if acao == "Ligar":
-        threadAlarme = ThreadAlarme.ThreadAlarme(conBanco = conBanco)
+        threadAlarme = ThreadAlarme.ThreadAlarme(conBanco = conBanco, sirene = listaReles[SIRENE])
         threadAlarme.start() 
         print "Alarme ativado."
     else:
