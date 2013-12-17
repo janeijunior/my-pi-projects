@@ -97,12 +97,14 @@ def enviarTemperaturaHumidade():
 def controlarAlarme(root):
     acao = root.find("Acao").text
     
+    global threadAlarme
+    
     if acao == "Ligar":
-        global threadAlarme = ThreadAlarme.ThreadAlarme(conBanco = conBanco, sirene = listaReles[SIRENE])
-        global threadAlarme.start() 
+        threadAlarme = ThreadAlarme.ThreadAlarme(conBanco = conBanco, sirene = listaReles[SIRENE])
+        threadAlarme.start() 
         print "Alarme ativado."
     else:
-        global threadAlarme.stop()
+        threadAlarme.stop()
         print "Alarme desativado."
         
     
