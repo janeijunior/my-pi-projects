@@ -114,8 +114,7 @@ def conectado(con, cliente):
             elif root.tag == "Alarme":
                 controlarAlarme(root)
             elif root.tag == "Panico":
-                controlarFuncaoPanico(root)
-            
+                controlarFuncaoPanico(root)           
             
             
             #if comando[2] == "l" and str.isdigit(comando[3]) and int(comando[3]) < 10:
@@ -160,6 +159,7 @@ print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
 #para fechar o programa
 def signal_handler(signal, frame):
     print "\nEncerrando aplicativo..."
+    os.system('mjpg-streamer/mjpg-streamer.sh stop')
     tcp.close;
     sys.exit(0)
     
