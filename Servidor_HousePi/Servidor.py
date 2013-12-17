@@ -94,7 +94,7 @@ def controlarAlarme(root):
     
 #liga ou desliga a funcao panico do alarme
 def controlarFuncaoPanico(root):
-    
+    listaReles[10].ligar()
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
