@@ -95,6 +95,16 @@ def enviarTemperaturaHumidade():
 
 #liga ou desliga o alarme
 def controlarAlarme(root):
+    acao = root.find("Acao").text
+    
+    if acao == "Ligar":
+        threadAlarme = ThreadAlarme.ThreadAlarme(conBanco = conBanco)
+        threadAlarme.start() 
+        print "Alarme ativado."
+    else:
+        threadAlarme.stop()
+        print "Alarme desativado."
+        
     
 #liga ou desliga a funcao panico do alarme
 def controlarFuncaoPanico(root):
