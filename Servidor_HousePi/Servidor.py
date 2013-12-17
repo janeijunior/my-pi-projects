@@ -91,6 +91,8 @@ def enviarTemperaturaHumidade():
         dados = Element("Dados", Temperatura=resultado[0], Humidade=resultado[1])
         root.append(dados)
         
+        print "Temperatura: ", resultado[0], " Humidade: ", resultado[1]
+        
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)    
     except:
