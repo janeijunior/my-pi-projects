@@ -5,7 +5,6 @@ import threading
 import time
 import RPi.GPIO as GPIO 
 import EnviarEmail
-import Rele
 import SensorAlarme
 import MySQLdb
 
