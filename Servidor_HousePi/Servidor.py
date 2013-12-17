@@ -143,37 +143,6 @@ def conectado(con, cliente):
             elif root.tag == "Panico":
                 controlarFuncaoPanico(root)           
             
-            
-            #if comando[2] == "l" and str.isdigit(comando[3]) and int(comando[3]) < 10:
-            #    listaReles[int(comando[3])].ligar()
-            #elif comando[2] == "l" and comando[3] == "p":
-            #    listaReles[10].ligar()
-            #elif comando[2] == "l" and comando[3] == "a": # Liga o Alarme
-            #    threadAlarme = ThreadAlarme.ThreadAlarme(conBanco = conBanco)
-            #    threadAlarme.start() 
-            #    print "Alarme ativado."
-            #elif comando[2] == "l" and comando[3] == "c":
-            #    os.system('mjpg-streamer/mjpg-streamer.sh start')
-            #elif comando[2] == "l" and comando[3] == "r":
-            #    os.system('mplayer http://p.mm.uol.com.br/metropolitana_alta')            
-            #elif comando[2] == "d" and str.isdigit(comando[3]) and int(comando[3]) < 10:
-            #    listaReles[int(comando[3])].desligar()
-            #elif comando[2] == "d" and comando[3] == "p": 
-            #    listaReles[10].desligar()
-            #elif comando[2] == "d" and comando[3] == "a": # Desliga o alarme
-            #    threadAlarme.stop()
-            #    print "Alarme desativado."
-            #elif comando[2] == "d" and comando[3] == "c":
-            #    os.system('mjpg-streamer/mjpg-streamer.sh stop') 
-            #elif comando[2] == "s" and comando[3] == "t":
-            #          
-            #    doc = PegarXMLStatusReles()
-            #          
-            #    print doc.toprettyxml()
-            #    
-            #    con.send(str(doc))
-            
-            #con.send(comando)
 
     print 'Finalizando conexao do cliente', cliente
     con.close()
