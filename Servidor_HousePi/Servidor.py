@@ -102,7 +102,7 @@ def controlarAlarme(root):
         global threadAlarme.start() 
         print "Alarme ativado."
     else:
-        threadAlarme.stop()
+        global threadAlarme.stop()
         print "Alarme desativado."
         
     
