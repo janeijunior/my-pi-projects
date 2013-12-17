@@ -97,9 +97,9 @@ def controlarFuncaoPanico(root):
     acao = root.find("Acao").text
     
     if acao == "Ligar":
-        listaReles[10].ligar()
+        listaReles[RELE_SIRENE].ligar()
     else:
-        listaReles[10].desligar()
+        listaReles[RELE_SIRENE].desligar()
 
 
 #cliente conectado, verifica os comandos recebidos
