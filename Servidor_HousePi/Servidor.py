@@ -111,6 +111,11 @@ def conectado(con, cliente):
                 controlarRele(root)
             elif root.tag == "Temperatura":
                 enviarTemperaturaHumidade()
+            elif root.tag == "Alarme":
+                controlarAlarme(root)
+            elif root.tag == "Panico":
+                controlarFuncaoPanico(root)
+            
             
             
             #if comando[2] == "l" and str.isdigit(comando[3]) and int(comando[3]) < 10:
