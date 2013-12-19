@@ -165,7 +165,7 @@ print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
 def signal_handler(signal, frame):
     print "\nEncerrando aplicativo..."
     listaReles[12].desligar()
-    os.system('mjpg-streamer/mjpg-streamer.sh stop')
+    #os.system('mjpg-streamer/mjpg-streamer.sh stop')
     tcp.close;
     sys.exit(0)
     
