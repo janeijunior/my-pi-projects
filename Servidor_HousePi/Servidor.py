@@ -137,20 +137,24 @@ def conectado(con, cliente):
                   
         
         if len(comando) > 0:
-            #root = XML recebido/elemento principal
-            root = ET.fromstring(comando)
-        
-            if root.tag == "Logar":
-                efetuarLogin(root = root)
-            elif root.tag == "Rele":
-                controlarRele(root)
-            elif root.tag == "Temperatura":
-                enviarTemperaturaHumidade()
-            elif root.tag == "Alarme":
-                controlarAlarme(root)
-            elif root.tag == "Panico":
-                controlarFuncaoPanico(root)           
-
+            try
+                #root = XML recebido/elemento principal
+                root = ET.fromstring(comando)
+            
+                if root.tag == "Logar":
+                    efetuarLogin(root = root)
+                elif root.tag == "Rele":
+                    controlarRele(root)
+                elif root.tag == "Temperatura":
+                    enviarTemperaturaHumidade()
+                elif root.tag == "Alarme":
+                    controlarAlarme(root)
+                elif root.tag == "Panico":
+                    controlarFuncaoPanico(root)           
+            except:
+                print "Erro"
+                con.send("Erro\n")
+                
     print 'Finalizando conexao do cliente', cliente
     con.close()
     thread.exit()
