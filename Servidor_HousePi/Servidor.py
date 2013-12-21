@@ -137,7 +137,7 @@ def conectado(con, cliente):
                   
         
         if len(comando) > 0:
-            try
+            try:
                 #root = XML recebido/elemento principal
                 root = ET.fromstring(comando)
             
