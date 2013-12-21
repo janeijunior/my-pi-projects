@@ -97,6 +97,7 @@ def enviarTemperaturaHumidade():
         con.send(xmlstr)    
     except:
         print "Erro ao obter a temperatura e humidade."
+        con.send("Erro")
         
 #liga ou desliga o alarme
 def controlarAlarme(root):
