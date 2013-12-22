@@ -127,8 +127,8 @@ def controlarFuncaoPanico(root):
 def enviarConfiguracaoStatus():
     root = Element("Reles")
     
-    dados = Element("Dados", Temperatura=resultado[0], Humidade=resultado[1])
-    root.append(dados)
+    for i in range(1, 10):
+        root.append(Element("Rele" + str(i), Temperatura=listaReles[i].status))
         
     
     xmlstr = ET.tostring(root) + "\n"   
