@@ -125,7 +125,14 @@ def controlarFuncaoPanico(root):
 
 #funcao que envia as configuracoes dos reles e status
 def enviarConfiguracaoStatus():
+    root = Element("Reles")
     
+    dados = Element("Dados", Temperatura=resultado[0], Humidade=resultado[1])
+    root.append(dados)
+        
+    
+    xmlstr = ET.tostring(root) + "\n"   
+    con.send(xmlstr)
 
 
 #cliente conectado, verifica os comandos recebidos
