@@ -131,6 +131,9 @@ def enviarConfiguracaoStatus():
         root.append(Element("Rele" + str(i), Temperatura=listaReles[i].status))
     
     xmlstr = ET.tostring(root) + "\n"   
+    
+    print xmlstr
+    
     con.send(xmlstr)
 
 
