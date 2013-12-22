@@ -127,6 +127,8 @@ def controlarFuncaoPanico(root):
 def enviarConfiguracaoStatus():
     root = Element("Reles")
     
+    print "Entrou"
+    
     for i in range(1, 10):
         root.append(Element("Rele" + str(i), Temperatura=listaReles[i].status))
     
