@@ -133,7 +133,6 @@ def enviarConfiguracaoStatus():
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
 
-
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
     while True:
