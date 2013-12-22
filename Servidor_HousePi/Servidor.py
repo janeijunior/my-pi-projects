@@ -16,7 +16,7 @@ import sys
 import SensorDHT
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
-PORT = 5000  # Porta do Servidor
+PORT = 5001  # Porta do Servidor
 SIRENE = 10
 
 #variavel para controle do alarme
@@ -126,8 +126,6 @@ def controlarFuncaoPanico(root):
 #funcao que envia as configuracoes dos reles e status
 def enviarConfiguracaoStatus():
     root = Element("Reles")
-    
-    print "Entrou"
     
     for i in range(1, 10):
         root.append(Element("Rele" + str(i), Temperatura=listaReles[i].status))
