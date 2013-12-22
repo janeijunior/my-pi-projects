@@ -151,6 +151,8 @@ def conectado(con, cliente):
                     controlarAlarme(root)
                 elif root.tag == "Panico":
                     controlarFuncaoPanico(root)           
+                elif root.tag == "StatusRele":
+                    enviarConfiguracaoStatus()
             except:
                 print "Erro"
                 con.send("Erro\n")
