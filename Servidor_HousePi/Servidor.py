@@ -123,6 +123,10 @@ def controlarFuncaoPanico(root):
     else:
         listaReles[SIRENE].desligar()
 
+#funcao que envia as configuracoes dos reles e status
+def enviarConfiguracaoStatus():
+    
+
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
