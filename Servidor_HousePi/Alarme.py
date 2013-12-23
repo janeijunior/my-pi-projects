@@ -40,7 +40,9 @@ class Alarme(object):
         
     #funcao para desligar o panico do alarme
     def desligarPanicoAlarme(self):
-        self.sirene.desligar()
+        if self.getStatusAlarme() <> 1
+            self.sirene.desligar()
+        
         self.panicoAlarmeLigado = False
         
     #destrutor
