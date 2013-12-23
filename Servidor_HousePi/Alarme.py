@@ -11,7 +11,7 @@ class Alarme(object):
     def __init__(self, sirene):
         
         #atributos publicos da classe
-        self.status = 
+        self.statusAlarme = NORMAL
         self.alarmeLigado = False
         self.panicoLigado = False    
         self.sirene = sirene
