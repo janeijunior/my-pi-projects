@@ -9,7 +9,7 @@ import SensorAlarme
 import MySQLdb
 
 class ThreadAlarme(threading.Thread):
-    def __init__(self, conBanco, sirene, tempoDisparo, usarSirene, enviarEmail, remetente, destinatario, servidorSMTP, portaSMTP, senha):
+    def __init__(self, conBanco, sirene):
         threading.Thread.__init__(self)
         self.name = 'ThreadAlarme'
         self.__stop_thread_event = threading.Event()
@@ -26,14 +26,14 @@ class ThreadAlarme(threading.Thread):
     
         row = cursor.fetchone()
         
-        self.tempoDisparo = tempoDisparo
-        self.usarSirene   = usarSirene
-        self.enviarEmail  = enviarEmail
-        self.remetente    = remetente
-        self.destinatario = destinatario
-        self.servidorSMTP = servidorSMTP
-        self.portaSMTP    = portaSMTP
-        self.senha        = senha
+        self.tempoDisparo = row["TempoDisparo"]
+        self.usarSirene   = row["UsarSirene"]
+        self.enviarEmail  = row["EnviarEmail"]
+        self.remetente    = row["Remetente"]
+        self.destinatario = row["Destinatario"]
+        self.servidorSMTP = row["ServidorSMTP"]
+        self.portaSMTP    = row["PortaSMTP"]
+        self.senha        = row["Senha"]
     
     def stop(self):
         self.sirene.desligar()
