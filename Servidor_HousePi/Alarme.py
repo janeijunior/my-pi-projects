@@ -17,7 +17,7 @@ class Rele(object):
         
     #funcao para desligar o alarme
     def desligarAlarme(self):
-        self.alarmeLigado = True
+        self.alarmeLigado = False
         
     #funcao para ligar o panico do alarme
     def ligarPanicoAlarme(self):
