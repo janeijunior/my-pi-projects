@@ -31,9 +31,9 @@ class ThreadAlarme(threading.Thread):
         self.enviarEmail  = enviarEmail
         self.remetente    = remetente
         self.destinatario = destinatario
-        self.servidorSMTP = row["ServidorSMTP"]
-        self.portaSMTP    = row["PortaSMTP"]
-        self.senha        = row["Senha"]
+        self.servidorSMTP = servidorSMTP
+        self.portaSMTP    = portaSMTP
+        self.senha        = senha
     
     def stop(self):
         self.sirene.desligar()
