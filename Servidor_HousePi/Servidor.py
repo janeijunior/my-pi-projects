@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# coding: latin-1 
+#coding: latin-1 
 
 from xml.etree.ElementTree import Element
 import xml.etree.ElementTree as ET
