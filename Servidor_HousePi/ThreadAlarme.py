@@ -40,7 +40,6 @@ class ThreadAlarme(threading.Thread):
     def stop(self):
         self.sirene.desligar()
         self.__stop_thread_event.set()
-        self.status = NORMAL
         
         if self.usarSirene == 1:
             self.sirene.ligar()
@@ -50,7 +49,8 @@ class ThreadAlarme(threading.Thread):
             self.sirene.ligar()
             time.sleep(0.2)
             self.sirene.desligar()
-            
+        
+        self.status = NORMAL
         
     def run(self):
         #insere os sensores na lista passando seus atributos recuperados do banco
