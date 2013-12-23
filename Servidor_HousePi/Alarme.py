@@ -29,7 +29,7 @@ class Alarme(object):
     def getStatusAlarme():
         try:
             return self.threadAlarme.status
-        except
+        except:
             return 0
             print "Erro ao ler status"
         
