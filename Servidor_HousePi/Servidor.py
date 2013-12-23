@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#coding: latin-1 
+#coding: utf-8 
 
 from xml.etree.ElementTree import Element
 import xml.etree.ElementTree as ET
@@ -55,7 +55,7 @@ def configurarReles():
 
     listaReles[12].ligar()
 
-#funcao para validar o usuario e a senha, se nao estiverem certos desconecta!
+#função para validar o usuario e a senha, se nao estiverem certos desconecta!
 def efetuarLogin(root):
     cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute("select Usuario, Senha from Configuracao")
