@@ -18,7 +18,8 @@ class ThreadAlarme(threading.Thread):
         self.__stop_thread_event = threading.Event()
         
         #atributos
-        self.conBanco = conBanco
+        self.conBanco = conBanco 
+        
         self.sirene = sirene
         self.ligado = False
         self.status = NORMAL
@@ -43,24 +44,26 @@ class ThreadAlarme(threading.Thread):
         
         listaSensores = [];
         
-        cursor = self.conBanco.cursor()
+        conBanco = MySQLdb.connect(host="localhost", user="root", passwd="batistello", db="HousePi")
+
+        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("select * from ConfiguracaoAlarme")
     
         row = cursor.fetchall()
         
-        self.tempoDisparo = int(row["TempoDisparo"])
-        self.usarSirene   = int(row["UsarSirene"])
-        self.enviarEmail  = int(row["EnviarEmail"])
+        self.tempoDisparo = row["TempoDisparo"]
+        self.usarSirene   = row["UsarSirene"]
+        self.enviarEmail  = row["EnviarEmail"]
         self.remetente    = row["Remetente"]
         self.destinatario = row["Destinatario"]
         self.servidorSMTP = row["ServidorSMTP"]
-        self.portaSMTP    = int(row["PortaSMTP"])
+        self.portaSMTP    = row["PortaSMTP"]
         self.senha        = row["Senha"]
         
         print row["UsarSirene"]
         
         #insere os sensores na lista passando seus atributos recuperados do banco
-        cursor = self.conBanco.cursor(MySQLdb.cursors.DictCursor)
+        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("select * from SensorAlarme")
 
         rows = cursor.fetchall()
