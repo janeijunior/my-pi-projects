@@ -7,6 +7,7 @@ import RPi.GPIO as GPIO
 import EnviarEmail
 import SensorAlarme
 import MySQLdb
+import Servidor
 
 NORMAL = 0
 DISPARADO = 1
@@ -18,6 +19,7 @@ class ThreadAlarme(threading.Thread):
         self.__stop_thread_event = threading.Event()
         
         #atributos
+        
         self.conBanco = conBanco 
         
         self.sirene = sirene
