@@ -58,8 +58,10 @@ def configurarReles():
 #inicializa o alarme
 def configurarAlarme():
     global alarme
+    
+    
     alarme = Alarme.Alarme()
-
+    
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
 def efetuarLogin(root):
     cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
