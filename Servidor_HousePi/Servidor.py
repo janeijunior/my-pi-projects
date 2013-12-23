@@ -20,9 +20,6 @@ HOST = ''    # IP do Servidor (em branco = IP do sistema)
 PORT = 5000  # Porta do Servidor
 SIRENE = 10
 
-#variavel para controle do alarme
-threadAlarme = ThreadAlarme.ThreadAlarme(conBanco = conBanco, sirene = listaReles[SIRENE])
-
 orig = (HOST, PORT)
 
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -31,6 +28,9 @@ tcp.listen(1)
 
 #Conexao com o banco de dados MySQL
 conBanco = MySQLdb.connect(host="localhost", user="root", passwd="batistello", db="HousePi")
+
+#variavel para controle do alarme
+threadAlarme = ThreadAlarme.ThreadAlarme(conBanco = conBanco, sirene = listaReles[SIRENE])
 
 #Le os arquivos da pasta passada como parametro
 arquivos = os.listdir(os.path.expanduser('/home/pi/HousePi/Musicas/'))
