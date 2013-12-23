@@ -52,7 +52,8 @@ class ThreadAlarme(threading.Thread):
         
         if self.usarSirene == 1:
             self.sirene.ligar()
-            time.sleep(0.05)
+            time.sleep(0.3)
+            self.sirene.desligar()
         
         #executa enquanto o alarme estiver ativo
         while not self.__stop_thread_event.isSet(): 
