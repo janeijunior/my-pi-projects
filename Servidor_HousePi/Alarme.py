@@ -9,7 +9,7 @@ DISPARADO = 1
 class Alarme(object):
     
     #construtor
-    def __init__(self):
+    def __init__(self, sirene):
         
         #atributos publicos da classe
         self.status = 
