@@ -80,6 +80,7 @@ def configurarAlarme():
     
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
 def efetuarLogin(root):
+    conBanco = conectarBanco()
     cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute("select Usuario, Senha from Configuracao")
     
@@ -87,6 +88,8 @@ def efetuarLogin(root):
     
     usuario = root.find("Usuario").text
     senha = root.find("Senha").text
+    
+    conBanco.close()
     
     if row["Usuario"] == usuario and row["Senha"]  == senha:
         print "Conectado: ", cliente
