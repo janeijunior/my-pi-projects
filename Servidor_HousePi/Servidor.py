@@ -74,7 +74,9 @@ def configurarReles():
 def configurarAlarme():
     global alarme
     
+    conBanco = conectarBanco()
     alarme = Alarme.Alarme(listaReles[SIRENE], conBanco)
+    conBanco.close()
     
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
 def efetuarLogin(root):
