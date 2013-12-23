@@ -24,7 +24,6 @@ class ThreadAlarme(threading.Thread):
         self.ligado = False
         self.status = NORMAL
         
-        
         listaSensores = [];
         
         cursor = self.conBanco.cursor(MySQLdb.cursors.DictCursor)
