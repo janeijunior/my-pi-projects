@@ -39,6 +39,8 @@ class ThreadAlarme(threading.Thread):
         self.portaSMTP    = row["PortaSMTP"]
         self.senha        = row["Senha"]
     
+        conBanco.close()
+        
     def stop(self):
         self.sirene.desligar()
         self.__stop_thread_event.set()
