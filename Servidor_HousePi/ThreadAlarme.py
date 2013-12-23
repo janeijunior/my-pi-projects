@@ -20,7 +20,7 @@ class ThreadAlarme(threading.Thread):
         
         #atributos
         
-        conBanco = Funcoes.ConectarBanco() 
+        conBanco = Funcoes.conectarBanco() 
         
         self.sirene = sirene
         self.status = NORMAL
