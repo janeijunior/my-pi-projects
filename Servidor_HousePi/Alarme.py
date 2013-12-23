@@ -8,7 +8,8 @@ class Rele(object):
         #atributos publicos da classe
         self.status = 
         self.alarmeLigado = False
-        self.panicoLigado = False    
+        self.panicoLigado = False
+        self.threadAlarme = 
             
     #funcoes
     #funcao para ligar o alarme
