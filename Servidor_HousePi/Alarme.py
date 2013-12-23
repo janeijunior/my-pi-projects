@@ -15,7 +15,7 @@ class Alarme(object):
     #funcoes
     #funcao para ligar o alarme
     def ligarAlarme(self):
-        self.threadAlarme = ThreadAlarme.ThreadAlarme(self.sirene)
+        self.threadAlarme = ThreadAlarme.ThreadAlarme(self.sirene, self.conBanco)
         self.threadAlarme.start() 
         self.alarmeLigado = True
         
