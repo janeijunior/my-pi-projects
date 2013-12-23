@@ -18,14 +18,14 @@ class Alarme(object):
     #funcoes
     #funcao para ligar o alarme
     def ligarAlarme(self):
-        self.alarmeLigado = True
         self.threadAlarme = ThreadAlarme.ThreadAlarme(sirene = listaReles[SIRENE])
         self.threadAlarme.start() 
+        self.alarmeLigado = True
         
     #funcao para desligar o alarme
     def desligarAlarme(self):
-        self.alarmeLigado = False
         self.threadAlarme.stop()
+        self.alarmeLigado = False
         
     #funcao para ligar o panico do alarme
     def ligarPanicoAlarme(self):
