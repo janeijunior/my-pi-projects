@@ -39,8 +39,7 @@ class ThreadAlarme(threading.Thread):
         self.servidorSMTP = row["ServidorSMTP"]
         self.portaSMTP    = row["PortaSMTP"]
         self.senha        = row["Senha"]
-        
-        
+    
     def stop(self):
         self.sirene.desligar()
         self.__stop_thread_event.set()
