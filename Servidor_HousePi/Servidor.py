@@ -150,7 +150,7 @@ def enviarConfiguracaoStatus():
 def enviarConfiguracaoStatus():
     root = Element("Alarme")
     
-    root.append(Element("SensorAlarme", Status=str(threadAlarme.status), Ligado=str(threadAlarme.ligado)))
+    root.append(Element("SensorAlarme", Status=str(threadAlarme.status), Ligado=str(int(threadAlarme.ligado))))
     root.append(Element("PanicoAlarme", Ligado=str(int(panicoLigado))))
     
     xmlstr = ET.tostring(root) + "\n"   
