@@ -9,7 +9,7 @@ def conectarBanco():
 
     try:
         conBanco = MySQLdb.connect(HOST, USER, PASSWD)
-	    conBanco.select_db(BANCO)
+        conBanco.select_db(BANCO)
     except MySQLdb.Error, e:
         print "Não foi possivel conectar ao banco de dados.", e
 
