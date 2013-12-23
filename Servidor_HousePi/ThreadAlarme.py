@@ -25,7 +25,7 @@ class ThreadAlarme(threading.Thread):
         self.sirene = sirene
         self.status = NORMAL
         
-        cursor = self.conBanco.cursor(MySQLdb.cursors.DictCursor)
+        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("select * from ConfiguracaoAlarme")
     
         row = cursor.fetchone()
