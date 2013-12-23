@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#coding: utf-8 
+#-*- coding: utf-8 -*-
 
 from xml.etree.ElementTree import Element
 import xml.etree.ElementTree as ET
@@ -131,7 +131,7 @@ def enviarConfiguracaoStatus():
     for i in range(0, 10):
         root.append(Element("Rele" + str(i), Status=str(listaReles[i].status), Nome=listaReles[i].nome))
     
-    xmlstr = ET.tostring(root) + "\n"   
+    xmlstr = ET.tostring(root, encoding="utf-8") + "\n"   
     print xmlstr
     con.send(xmlstr)
 
