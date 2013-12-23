@@ -32,7 +32,7 @@ class EnviarEmail(threading.Thread):
         Sensor: {nomeSensor}  
         Data e hora do dispado: {dataHora}
         -----------------------------------------------------------
-        E-mail enviado automaticamento pelo aplicativo House Pi'''.format(nomeSensor = self.nomeSensor, dataHora =  datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+        E-mail enviado automaticamento pelo sistema House Pi'''.format(nomeSensor = self.nomeSensor, dataHora =  datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         
         print 'Enviando e-mail\n'
         try:
