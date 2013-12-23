@@ -21,7 +21,7 @@ class ThreadAlarme(threading.Thread):
         self.conBanco = conBanco
         self.sirene = sirene
         self.ligado = False
-        self.status = 0
+        self.status = NORMAL
         
     def stop(self):
         self.sirene.desligar()
