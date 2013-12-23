@@ -30,7 +30,7 @@ tcp.listen(1)
 conBanco = MySQLdb.connect(host="localhost", user="root", passwd="batistello", db="HousePi")
 
 #variavel para controle do alarme
-alarme = Alarme.Alarme()
+alarme = None
 
 #Le os arquivos da pasta passada como parametro
 arquivos = os.listdir(os.path.expanduser('/home/pi/HousePi/Musicas/'))
@@ -54,6 +54,12 @@ def configurarReles():
         listaReles.insert(row["Id"], rele)
 
     listaReles[12].ligar()
+
+#inicializa o alarme
+def configurarAlarme():
+    global alarme
+    
+    alarme = Alarme.Alarme(listaReles[SIRENE])
     
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
 def efetuarLogin(root):
