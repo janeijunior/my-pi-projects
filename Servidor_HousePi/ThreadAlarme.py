@@ -8,9 +8,6 @@ import EnviarEmail
 import SensorAlarme
 import MySQLdb
 
-NORMAL = 0
-DISPARADO = 1
-
 class ThreadAlarme(threading.Thread):
     def __init__(self, conBanco, sirene):
         threading.Thread.__init__(self)
