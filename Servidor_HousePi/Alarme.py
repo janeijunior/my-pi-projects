@@ -10,7 +10,7 @@ class Alarme(object):
         #atributos publicos da classe
         self.statusAlarme = NORMAL
         self.alarmeLigado = False
-        self.panicoLigado = False    
+        self.panicoAlarmeLigado = False    
         self.sirene = sirene
         
     #funcoes
