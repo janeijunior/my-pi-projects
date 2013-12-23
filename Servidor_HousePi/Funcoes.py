@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 #funcao para conectar no banco de dados
 def conectarBanco():
     HOST   = "localhost"
