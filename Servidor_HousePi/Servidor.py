@@ -151,13 +151,10 @@ def enviarConfiguracaoStatusRele():
 def enviarConfiguracaoStatusAlarme():
     root = Element("Alarme")
     
-    global panicoLigado
+    global panicoAlarme
     
-    print str(threadAlarme.status)
-    print str(int(threadAlarme.ligado))
-    print str(panicoLigado)
     root.append(Element("SensorAlarme", Status=str(threadAlarme.status), Ligado=str(int(threadAlarme.ligado))))
-    root.append(Element("PanicoAlarme", Ligado=str(panicoLigado)))
+    root.append(Element("PanicoAlarme", Ligado=str(int(panicoAlarme))))
     
     xmlstr = ET.tostring(root) + "\n"   
     print xmlstr
