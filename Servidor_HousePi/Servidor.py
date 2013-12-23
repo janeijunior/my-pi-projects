@@ -152,7 +152,6 @@ def enviarConfiguracaoStatusAlarme():
     root.append(Element("PanicoAlarme", Ligado=str(int(alarme.panicoAlarmeLigado))))
     
     xmlstr = ET.tostring(root) + "\n"   
-    print xmlstr
     con.send(xmlstr)
 
 #cliente conectado, verifica os comandos recebidos
