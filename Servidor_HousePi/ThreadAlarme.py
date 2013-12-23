@@ -67,8 +67,6 @@ class ThreadAlarme(threading.Thread):
             time.sleep(0.2)
             self.sirene.desligar()
         
-        self.ligado = True
-        
         #executa enquanto o alarme estiver ativo
         while not self.__stop_thread_event.isSet(): 
             #percorre os sensores
