@@ -128,7 +128,7 @@ def enviarConfiguracaoStatus():
     root = Element("Reles")
     
     for i in range(0, 10):
-        root.append(Element("Rele" + str(i), Status=str(listaReles[i].status), str(Nome=listaReles[i].nome)))
+        root.append(Element("Rele" + str(i), Status=str(listaReles[i].status), Nome=str(listaReles[i].nome)))
     
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
