@@ -26,9 +26,6 @@ tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp.bind(orig)
 tcp.listen(1)
 
-#Conexao com o banco de dados MySQL
-conBanco = MySQLdb.connect(host="localhost", user="root", passwd="batistello", db="HousePi")
-
 #variavel para controle do alarme
 alarme = None
 
@@ -42,7 +39,22 @@ listaReles = [];
 
 #funcao para conectar no banco de dados
 def conectarBanco():
-    
+    HOST = "localhost"
+    USER = "root"
+	PASSWD = "batistello"
+	BANCO = "HousePi"
+
+	try:
+		conecta = MySQLdb.connect(HOST, USER, PASSWD)
+		conecta.select_db(BANCO)
+    except MySQLdb.Error, e:
+        print "Erro: O banco especificado nao foi encontrado.", e
+		menu = raw_input()
+		os.system("clear")
+		opcaoUsuario()		
+
+	return conecta
+
 
 #Configura todos os pinos necessarios para o envio de comandos 
 def configurarReles():
