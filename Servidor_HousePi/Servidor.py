@@ -41,6 +41,9 @@ for arquivo in arquivos:
 
 listaReles = [];
 
+ def remover_acentos(txt, codif='utf-8'):
+    return normalize('NFKD', txt.decode(codif)).encode('ASCII','ignore')
+
 def configurarReles():
     #Configura todos os pinos necessarios para o envio de comandos 
     print "Configurando reles..."
