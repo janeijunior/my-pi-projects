@@ -15,6 +15,7 @@ import Rele
 import signal
 import sys
 import SensorDHT
+import Funcoes
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
 PORT = 5001  # Porta do Servidor
@@ -41,7 +42,7 @@ listaReles = [];
 def configurarReles():
     print "Configurando reles..."
 
-    conBanco = conectarBanco()
+    conBanco = Funcoes.conectarBanco()
     cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute("select * from Rele")
 
@@ -63,7 +64,7 @@ def configurarAlarme():
     
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
 def efetuarLogin(root):
-    conBanco = conectarBanco()
+    conBanco = Funcoes.conectarBanco()
     cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute("select Usuario, Senha from Configuracao")
     
