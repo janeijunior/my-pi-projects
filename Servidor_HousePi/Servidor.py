@@ -39,10 +39,10 @@ listaReles = [];
 
 #funcao para conectar no banco de dados
 def conectarBanco():
-    HOST = "localhost"
-    USER = "root"
+    HOST   = "localhost"
+    USER   = "root"
 	PASSWD = "batistello"
-	BANCO = "HousePi"
+	BANCO  = "HousePi"
 
 	try:
 		conBanco = MySQLdb.connect(HOST, USER, PASSWD)
