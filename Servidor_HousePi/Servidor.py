@@ -1,7 +1,6 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from unicodedata import normalize
 import xml.etree.ElementTree as ET
 import socket
 import thread
@@ -129,6 +128,7 @@ def enviarConfiguracaoStatus():
     root = Element("Reles")
     
     for i in range(0, 10):
+        print listaReles[i].nome
         root.append(Element("Rele" + str(i), Status=str(listaReles[i].status), Nome=listaReles[i].nome))
     
     xmlstr = ET.tostring(root) + "\n"   
