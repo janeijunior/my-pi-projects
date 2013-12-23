@@ -25,7 +25,7 @@ class Alarme(object):
         self.alarmeLigado = False
     
     #funcao para ler o status do alarme
-    def getStatusAlarme():
+    def getStatusAlarme(self):
         try:
             return self.threadAlarme.status
         except:
