@@ -21,9 +21,11 @@ class Rele(object):
         
     #funcao para ligar o panico do alarme
     def ligarPanicoAlarme(self):
+        self.panicoLigado = True
         
     #funcao para desligar o panico do alarme
     def desligarPanicoAlarme(self):
+        self.panicoLigado = False
     
     #destrutor
     def __done__(self):
