@@ -40,8 +40,8 @@ for arquivo in arquivos:
 
 listaReles = [];
 
+#Configura todos os pinos necessarios para o envio de comandos 
 def configurarReles():
-    #Configura todos os pinos necessarios para o envio de comandos 
     print "Configurando reles..."
 
     cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
@@ -55,6 +55,7 @@ def configurarReles():
 
     listaReles[12].ligar()
 
+#inicializa o alarme
 def configurarAlarme():
     global threadAlarme
     threadAlarme = ThreadAlarme.ThreadAlarme(conBanco = conBanco, sirene = listaReles[SIRENE])
