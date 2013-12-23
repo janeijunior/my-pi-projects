@@ -23,5 +23,6 @@ class Rele(object):
     def desligarPanicoAlarme(self):
     
     #destrutor
-    #def __done__(self):
-    #    self.desligar()
+    def __done__(self):
+        self.desligarPanicoAlarme()
+        self.desligarAlarme()
