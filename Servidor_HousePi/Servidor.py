@@ -40,6 +40,10 @@ for arquivo in arquivos:
 
 listaReles = [];
 
+#funcao para conectar no banco de dados
+def conectarBanco():
+    
+
 #Configura todos os pinos necessarios para o envio de comandos 
 def configurarReles():
     print "Configurando reles..."
