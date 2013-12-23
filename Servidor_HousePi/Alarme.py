@@ -36,6 +36,7 @@ class Alarme(object):
     #funcao para desligar o panico do alarme
     def desligarPanicoAlarme(self):
         self.panicoLigado = False
+        self.sirene.desligar()
     
     #destrutor
     def __done__(self):
