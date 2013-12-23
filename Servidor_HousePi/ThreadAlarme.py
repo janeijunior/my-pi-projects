@@ -18,6 +18,14 @@ class ThreadAlarme(threading.Thread):
         self.conBanco = conBanco
         self.sirene = sirene
         
+    def stop(self):
+        self.sirene.desligar()
+        self.__stop_thread_event.set()
+        
+    def run(self):
+        
+        listaSensores = [];
+        
         cursor = self.conBanco.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("select * from ConfiguracaoAlarme")
     
@@ -31,14 +39,6 @@ class ThreadAlarme(threading.Thread):
         self.servidorSMTP = row["ServidorSMTP"]
         self.portaSMTP    = row["PortaSMTP"]
         self.senha        = row["Senha"]
-        
-    def stop(self):
-        self.sirene.desligar()
-        self.__stop_thread_event.set()
-        
-    def run(self):
-        
-        listaSensores = [];
         
         #insere os sensores na lista passando seus atributos recuperados do banco
         cursor = self.conBanco.cursor(MySQLdb.cursors.DictCursor)
