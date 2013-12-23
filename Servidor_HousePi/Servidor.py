@@ -1,7 +1,6 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from xml.etree.ElementTree import Element
 from unicodedata import normalize
 import xml.etree.ElementTree as ET
 import socket
