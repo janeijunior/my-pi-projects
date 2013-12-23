@@ -17,7 +17,7 @@ import sys
 import SensorDHT
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
-PORT = 5000  # Porta do Servidor
+PORT =   # Porta do Servidor
 SIRENE = 10
 
 orig = (HOST, PORT)
