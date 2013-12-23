@@ -14,8 +14,7 @@ class Alarme(object):
         #atributos publicos da classe
         self.status = 
         self.alarmeLigado = False
-        self.panicoLigado = False
-            
+        self.panicoLigado = False    
     #funcoes
     #funcao para ligar o alarme
     def ligarAlarme(self):
