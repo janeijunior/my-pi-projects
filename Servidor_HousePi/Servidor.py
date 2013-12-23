@@ -10,6 +10,7 @@ import time
 import os
 import commands
 import Alarme
+import MySQLdb
 import Rele
 import signal
 import sys
