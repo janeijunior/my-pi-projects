@@ -24,6 +24,24 @@ class ThreadAlarme(threading.Thread):
         self.ligado = False
         self.status = NORMAL
         
+        
+        listaSensores = [];
+        
+        cursor = self.conBanco.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute("select * from ConfiguracaoAlarme")
+    
+        row = cursor.fetcone()
+        
+        self.tempoDisparo = row["TempoDisparo"]
+        self.usarSirene   = row["UsarSirene"]
+        self.enviarEmail  = row["EnviarEmail"]
+        self.remetente    = row["Remetente"]
+        self.destinatario = row["Destinatario"]
+        self.servidorSMTP = row["ServidorSMTP"]
+        self.portaSMTP    = row["PortaSMTP"]
+        self.senha        = row["Senha"]
+        
+        
     def stop(self):
         self.sirene.desligar()
         self.__stop_thread_event.set()
