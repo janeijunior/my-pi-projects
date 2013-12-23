@@ -107,7 +107,6 @@ def controlarAlarme(root):
     global threadAlarme
     
     if acao == "Ligar":
-        threadAlarme = ThreadAlarme.ThreadAlarme(conBanco = conBanco, sirene = listaReles[SIRENE])
         threadAlarme.start() 
         print "Alarme ativado."
     else:
