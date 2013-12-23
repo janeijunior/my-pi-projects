@@ -12,7 +12,7 @@ NORMAL = 0
 DISPARADO = 1
 
 class ThreadAlarme(threading.Thread):
-    def __init__(self, conBanco, sirene):
+    def __init__(self, sirene):
         threading.Thread.__init__(self)
         self.name = 'ThreadAlarme'
         self.__stop_thread_event = threading.Event()
