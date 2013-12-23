@@ -9,7 +9,7 @@ class Alarme(object):
         self.status = 
         self.alarmeLigado = False
         self.panicoLigado = False
-        self.threadAlarme = ThreadAlarme.ThreadAlarme(conBanco = conBanco, sirene = listaReles[SIRENE]) 
+        self.threadAlarme = ThreadAlarme.ThreadAlarme(sirene = listaReles[SIRENE]) 
             
     #funcoes
     #funcao para ligar o alarme
