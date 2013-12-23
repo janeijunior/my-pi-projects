@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 class Alarme(object):
+    SIRENE = 10
     
     #construtor
     def __init__(self):
