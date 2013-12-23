@@ -42,6 +42,9 @@ class ThreadAlarme(threading.Thread):
         self.__stop_thread_event.set()
         
         if self.usarSirene == 1:
+            if self.status == DISPARADO:
+                time.sleep(0.5)    
+            
             self.sirene.ligar()
             time.sleep(0.2)
             self.sirene.desligar()
