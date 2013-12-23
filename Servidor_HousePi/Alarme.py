@@ -14,6 +14,8 @@ class Alarme(object):
         self.status = 
         self.alarmeLigado = False
         self.panicoLigado = False    
+        self.sirene = sirene
+        
     #funcoes
     #funcao para ligar o alarme
     def ligarAlarme(self):
