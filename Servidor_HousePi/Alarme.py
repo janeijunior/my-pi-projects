@@ -24,6 +24,13 @@ class Alarme(object):
     def desligarAlarme(self):
         self.threadAlarme.stop()
         self.alarmeLigado = False
+    
+    #funcao para ler o status do alarme
+    def getStatusAlarme():
+        try:
+            
+        except
+          print "Erro ao ler status"
         
     #funcao para ligar o panico do alarme
     def ligarPanicoAlarme(self):
