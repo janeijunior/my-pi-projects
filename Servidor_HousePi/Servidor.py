@@ -179,6 +179,9 @@ def conectado(con, cliente):
     con.close()
     thread.exit()
 
+configurarReles()
+configurarAlarme()
+
 #inicia a transmisao do video/webcam
 os.system('mjpg-streamer/mjpg-streamer.sh start')
 
