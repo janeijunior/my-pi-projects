@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-class Rele(object):
+class Alarme(object):
     
     #construtor
     def __init__(self):
