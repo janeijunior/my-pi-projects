@@ -2,7 +2,6 @@
 
 import ThreadAlarme
 
-SIRENE = 10
 NORMAL = 0
 DISPARADO = 1
 
