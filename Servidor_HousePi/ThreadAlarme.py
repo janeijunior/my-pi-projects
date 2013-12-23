@@ -22,6 +22,17 @@ class ThreadAlarme(threading.Thread):
         self.sirene.desligar()
         self.__stop_thread_event.set()
         
+        if self.usarSirene == 1:
+            self.sirene.ligar()
+            time.sleep(0.1)
+            self.sirene.desligar()
+            self.sirene.ligar()
+            time.sleep(0.1)
+            self.sirene.desligar()
+            self.sirene.ligar()
+            time.sleep(0.1)
+            self.sirene.desligar()
+        
     def run(self):
         
         listaSensores = [];
