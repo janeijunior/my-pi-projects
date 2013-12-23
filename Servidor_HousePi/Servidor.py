@@ -45,8 +45,8 @@ def conectarBanco():
 	BANCO = "HousePi"
 
 	try:
-		conecta = MySQLdb.connect(HOST, USER, PASSWD)
-		conecta.select_db(BANCO)
+		conBanco = MySQLdb.connect(HOST, USER, PASSWD)
+		conBanco.select_db(BANCO)
     except MySQLdb.Error, e:
         print "Erro: O banco especificado nao foi encontrado.", e
 		menu = raw_input()
