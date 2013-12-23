@@ -111,7 +111,7 @@ def controlarAlarme(root):
     
     global threadAlarme
     
-    if (acao == "Ligar") and not threadAlarme.ligado():
+    if (acao == "Ligar") and (!threadAlarme.ligado()):
         configurarAlarme()
         threadAlarme.start() 
         print "Alarme ativado."
