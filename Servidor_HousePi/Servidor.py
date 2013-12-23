@@ -187,6 +187,7 @@ def conectado(con, cliente):
                 elif root.tag == "StatusRele":
                     enviarConfiguracaoStatus()
                 elif root.tag == "StatusAlarme":
+                    
             except:
                 print "Erro"
                 con.send("Erro\n")
