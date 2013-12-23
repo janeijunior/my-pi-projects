@@ -2,9 +2,6 @@
 
 import ThreadAlarme
 
-NORMAL = 0
-DISPARADO = 1
-
 class Alarme(object):
     
     #construtor
