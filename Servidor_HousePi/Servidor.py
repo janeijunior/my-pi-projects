@@ -41,6 +41,7 @@ listaReles = [];
 def conectarBanco():
     HOST   = "localhost"
     USER   = "root"
+    BANCO  = "HousePi"
 
 	try:
 		conBanco = MySQLdb.connect(HOST, USER, PASSWD)
