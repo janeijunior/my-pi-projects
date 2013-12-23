@@ -19,7 +19,7 @@ class Rele(object):
     #funcao para ligar o panico do alarme
     def ligarPanicoAlarme(self):
         
-    #funcao para desligar o panico alarme
+    #funcao para desligar o panico do alarme
     def desligarPanicoAlarme(self):
     
     #destrutor
