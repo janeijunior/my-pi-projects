@@ -18,7 +18,6 @@ class ThreadAlarme(threading.Thread):
         self.conBanco = conBanco 
         
         self.sirene = sirene
-        self.ligado = False
         self.status = NORMAL
         
         cursor = self.conBanco.cursor(MySQLdb.cursors.DictCursor)
