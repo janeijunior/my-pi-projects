@@ -3,7 +3,7 @@
 class Rele(object):
     
     #construtor
-    def __init__(self, id, numeroGPIO, status, nome):
+    def __init__(self):
         
         #atributos publicos da classe
         self.status = 
