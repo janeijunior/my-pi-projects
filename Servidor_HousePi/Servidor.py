@@ -111,7 +111,7 @@ def controlarAlarme(root):
     global alarme
     
     if acao == "Ligar":
-        if alarme.ligado == False:
+        if alarme.alarmeLigado == False:
             alarme.ligarAlarme() 
             print "Alarme ativado."
     else:
