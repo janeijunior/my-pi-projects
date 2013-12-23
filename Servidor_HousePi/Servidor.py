@@ -9,7 +9,7 @@ import threading
 import time
 import os
 import commands
-import ThreadAlarme
+import Alarme
 import MySQLdb
 import Rele
 import signal
