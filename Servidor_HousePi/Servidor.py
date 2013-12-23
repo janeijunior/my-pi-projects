@@ -41,6 +41,7 @@ listaReles = [];
 def conectarBanco():
     HOST   = "localhost"
     USER   = "root"
+    PASSWD = "batistello"
     BANCO  = "HousePi"
 
 	try:
