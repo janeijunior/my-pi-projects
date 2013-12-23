@@ -21,14 +21,11 @@ class Alarme(object):
         self.alarmeLigado = True
         self.threadAlarme = ThreadAlarme.ThreadAlarme(sirene = listaReles[SIRENE])
         self.threadAlarme.start() 
-    else:
-        threadAlarme.stop()
-        print "Alarme desativado."
-    
         
     #funcao para desligar o alarme
     def desligarAlarme(self):
         self.alarmeLigado = False
+        self.threadAlarme.stop()
         
     #funcao para ligar o panico do alarme
     def ligarPanicoAlarme(self):
