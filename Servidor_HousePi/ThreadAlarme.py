@@ -61,7 +61,8 @@ class ThreadAlarme(threading.Thread):
         #insere os sensores na lista passando seus atributos recuperados do banco
         listaSensores = [];
         
-        cursor = self.conBanco.cursor(MySQLdb.cursors.DictCursor)
+        conBanco = Servidor.ConectarBanco()
+        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("select * from SensorAlarme")
 
         rows = cursor.fetchall()
