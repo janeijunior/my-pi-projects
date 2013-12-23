@@ -24,11 +24,11 @@ class ThreadAlarme(threading.Thread):
         
         if self.usarSirene == 1:
             self.sirene.ligar()
-            time.sleep(0.15)
+            time.sleep(0.1)
             self.sirene.desligar()
             time.sleep(0.4)
             self.sirene.ligar()
-            time.sleep(0.15)
+            time.sleep(0.1)
             self.sirene.desligar()
             
         
