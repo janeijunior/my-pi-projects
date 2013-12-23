@@ -136,7 +136,7 @@ def enviarConfiguracaoStatus():
 
 #funcao que envia o status do alarme
 def enviarConfiguracaoStatus():
-    root = Element("Reles")
+    root = Element("Alarme")
     
     for i in range(0, 10):
         root.append(Element("Rele" + str(i), Status=str(listaReles[i].status), Nome=listaReles[i].nome))
