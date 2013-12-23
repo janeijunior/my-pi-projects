@@ -28,7 +28,7 @@ class Alarme(object):
     #funcao para ler o status do alarme
     def getStatusAlarme():
         try:
-            self.threadAlarme.status
+            return self.threadAlarme.status
         except
           print "Erro ao ler status"
         
