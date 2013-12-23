@@ -138,7 +138,7 @@ def controlarFuncaoPanico(root):
         panicoAlarme = False
 
 #funcao que envia as configuracoes dos reles e status
-def enviarConfiguracaoStatus():
+def enviarConfiguracaoStatusRele():
     root = Element("Reles")
     
     for i in range(0, 10):
