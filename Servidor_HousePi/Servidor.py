@@ -21,7 +21,7 @@ PORT = 5000  # Porta do Servidor
 SIRENE = 10
 
 #variavel para controle do alarme
-threadAlarme = None
+threadAlarme = ThreadAlarme.ThreadAlarme(conBanco = conBanco, sirene = listaReles[SIRENE])
 
 orig = (HOST, PORT)
 
