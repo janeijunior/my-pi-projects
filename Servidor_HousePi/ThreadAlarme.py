@@ -7,7 +7,7 @@ import RPi.GPIO as GPIO
 import EnviarEmail
 import SensorAlarme
 import MySQLdb
-import Servidor
+import Funcoes
 
 NORMAL = 0
 DISPARADO = 1
