@@ -132,6 +132,7 @@ def enviarConfiguracaoStatus():
         root.append(Element("Rele" + str(i), Status=str(listaReles[i].status), Nome=listaReles[i].nome))
     
     xmlstr = ET.tostring(root, encoding='iso-8859-1') + "\n"   
+    print xmlstr
     con.send(xmlstr)
 
 #cliente conectado, verifica os comandos recebidos
