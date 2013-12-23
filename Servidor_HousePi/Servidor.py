@@ -108,7 +108,7 @@ def enviarTemperaturaHumidade():
 def controlarAlarme(root):
     acao = root.find("Acao").text
     
-    global threadAlarme
+    global alarme
     
     if acao == "Ligar":
         if threadAlarme.ligado == False:
