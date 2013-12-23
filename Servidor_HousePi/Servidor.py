@@ -55,6 +55,12 @@ def configurarReles():
 
     listaReles[12].ligar()
 
+def configurarAlarme():
+    
+    global threadAlarme
+    
+    threadAlarme = ThreadAlarme.ThreadAlarme(conBanco = conBanco, sirene = listaReles[SIRENE])
+
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
 def efetuarLogin(root):
     cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
