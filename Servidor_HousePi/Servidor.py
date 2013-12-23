@@ -111,9 +111,8 @@ def controlarAlarme(root):
     global alarme
     
     if acao == "Ligar":
-        if threadAlarme.ligado == False:
-            configurarAlarme()
-            threadAlarme.start() 
+        if alarme.ligado == False:
+            alarme.ligar() 
             print "Alarme ativado."
     else:
         threadAlarme.stop()
