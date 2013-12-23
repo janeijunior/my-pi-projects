@@ -29,7 +29,7 @@ tcp.listen(1)
 conBanco = MySQLdb.connect(host="localhost", user="root", passwd="batistello", db="HousePi")
 
 #variavel para controle do alarme
-threadAlarme = None
+alarme = Alarme.Alarme()
 
 #variavel para controle da funcao panico do alarme
 panicoAlarme = False
