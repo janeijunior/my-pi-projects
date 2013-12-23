@@ -112,10 +112,10 @@ def controlarAlarme(root):
     
     if acao == "Ligar":
         if alarme.ligado == False:
-            alarme.ligar() 
+            alarme.ligarAlarme() 
             print "Alarme ativado."
     else:
-        threadAlarme.stop()
+        threadAlarme.desligarAlarme()
         print "Alarme desativado."
         
     
