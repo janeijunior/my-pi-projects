@@ -32,7 +32,7 @@ conBanco = MySQLdb.connect(host="localhost", user="root", passwd="batistello", d
 #variavel para controle do alarme
 threadAlarme = None
 
-#variavel para controle da funcao panico do alar,e
+#variavel para controle da funcao panico do alarme
 
 #Le os arquivos da pasta passada como parametro
 arquivos = os.listdir(os.path.expanduser('/home/pi/HousePi/Musicas/'))
