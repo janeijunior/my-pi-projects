@@ -37,7 +37,6 @@ class ThreadAlarme(threading.Thread):
     def stop(self):
         self.sirene.desligar()
         self.__stop_thread_event.set()
-        self.ligado = False
         self.status = NORMAL
         
         if self.usarSirene == 1:
