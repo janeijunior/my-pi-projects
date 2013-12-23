@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
 SIRENE = 10
+NORMAL = 0
+DISPARADO = 1
 
 class Alarme(object):
     
