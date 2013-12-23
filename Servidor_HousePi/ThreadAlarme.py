@@ -26,11 +26,11 @@ class ThreadAlarme(threading.Thread):
     
         row = cursor.fetchone()
         
-        self.tempoDisparo = row["TempoDisparo"]
-        self.usarSirene   = row["UsarSirene"]
-        self.enviarEmail  = row["EnviarEmail"]
-        self.remetente    = row["Remetente"]
-        self.destinatario = row["Destinatario"]
+        self.tempoDisparo = tempoDisparo
+        self.usarSirene   = usarSirene
+        self.enviarEmail  = enviarEmail
+        self.remetente    = remetente
+        self.destinatario = destinatario
         self.servidorSMTP = row["ServidorSMTP"]
         self.portaSMTP    = row["PortaSMTP"]
         self.senha        = row["Senha"]
