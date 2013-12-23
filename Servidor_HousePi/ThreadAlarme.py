@@ -58,8 +58,6 @@ class ThreadAlarme(threading.Thread):
         self.portaSMTP    = row["PortaSMTP"]
         self.senha        = row["Senha"]
         
-        print row["UsarSirene"]
-        
         #insere os sensores na lista passando seus atributos recuperados do banco
         cursor = self.conBanco.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("select * from SensorAlarme")
