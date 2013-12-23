@@ -5,7 +5,7 @@ import ThreadAlarme
 class Alarme(object):
     
     #construtor
-    def __init__(self, sirene):
+    def __init__(self, sirene, conBanco):
         
         #atributos publicos da classe
         self.alarmeLigado = False
