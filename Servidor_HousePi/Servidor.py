@@ -53,7 +53,7 @@ def conectarBanco():
 		os.system("clear")
 		opcaoUsuario()		
 
-	return conecta
+	return conBanco
 
 #Configura todos os pinos necessarios para o envio de comandos 
 def configurarReles():
