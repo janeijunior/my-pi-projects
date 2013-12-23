@@ -44,9 +44,7 @@ class ThreadAlarme(threading.Thread):
         
         listaSensores = [];
         
-        conBanco = MySQLdb.connect(host="localhost", user="root", passwd="batistello", db="HousePi")
-
-        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+        cursor = self.conBanco.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("select * from ConfiguracaoAlarme")
     
         row = cursor.fetcone()
