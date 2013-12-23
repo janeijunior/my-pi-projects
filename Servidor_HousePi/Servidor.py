@@ -55,7 +55,6 @@ def conectarBanco():
 
 	return conecta
 
-
 #Configura todos os pinos necessarios para o envio de comandos 
 def configurarReles():
     print "Configurando reles..."
