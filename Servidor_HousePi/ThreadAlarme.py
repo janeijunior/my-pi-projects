@@ -17,6 +17,8 @@ class ThreadAlarme(threading.Thread):
         #atributos
         self.conBanco = conBanco
         self.sirene = sirene
+        self.ligado = False
+        self.status = 0
         
     def stop(self):
         self.sirene.desligar()
