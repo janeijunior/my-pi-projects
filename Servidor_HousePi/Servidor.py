@@ -148,7 +148,7 @@ def enviarConfiguracaoStatus():
     con.send(xmlstr)
 
 #funcao que envia o status do alarme
-def enviarConfiguracaoStatus():
+def enviarConfiguracaoStatusAlarme():
     root = Element("Alarme")
     
     root.append(Element("SensorAlarme", Status=str(threadAlarme.status), Ligado=str(int(threadAlarme.ligado))))
