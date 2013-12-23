@@ -36,12 +36,12 @@ class Alarme(object):
     #funcao para ligar o panico do alarme
     def ligarPanicoAlarme(self):
         self.sirene.ligar()
-        self.panicoLigado = True
+        self.panicoAlarmeLigado = True
         
     #funcao para desligar o panico do alarme
     def desligarPanicoAlarme(self):
         self.sirene.desligar()
-        self.panicoLigado = False
+        self.panicoAlarmeLigado = False
         
     #destrutor
     def __done__(self):
