@@ -127,10 +127,14 @@ def controlarAlarme(root):
 def controlarFuncaoPanico(root):
     acao = root.find("Acao").text
     
+    global panicoAlarme
+    
     if acao == "Ligar":
         listaReles[SIRENE].ligar()
+        panicoAlarme = True
     else:
         listaReles[SIRENE].desligar()
+        panicoAlarme = False
 
 #funcao que envia as configuracoes dos reles e status
 def enviarConfiguracaoStatus():
