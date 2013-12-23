@@ -49,7 +49,7 @@ class ThreadAlarme(threading.Thread):
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("select * from ConfiguracaoAlarme")
     
-        row = cursor.fetchall()
+        row = cursor.fetcone()
         
         self.tempoDisparo = row["TempoDisparo"]
         self.usarSirene   = row["UsarSirene"]
