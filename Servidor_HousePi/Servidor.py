@@ -115,7 +115,7 @@ def controlarAlarme(root):
             alarme.ligarAlarme() 
             print "Alarme ativado."
     else:
-        threadAlarme.desligarAlarme()
+        alarme.desligarAlarme()
         print "Alarme desativado."
         
     
