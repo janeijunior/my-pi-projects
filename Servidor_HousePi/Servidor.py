@@ -30,7 +30,7 @@ tcp.listen(1)
 conBanco = MySQLdb.connect(host="localhost", user="root", passwd="batistello", db="HousePi")
 
 #variavel para controle do alarme
-threadAlarme = ThreadAlarme.ThreadAlarme(conBanco = conBanco, sirene = listaReles[SIRENE])
+threadAlarme = None
 
 #Le os arquivos da pasta passada como parametro
 arquivos = os.listdir(os.path.expanduser('/home/pi/HousePi/Musicas/'))
