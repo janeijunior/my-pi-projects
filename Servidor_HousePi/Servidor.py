@@ -29,7 +29,7 @@ tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp.bind(orig)
 tcp.listen(1)
 
-#Conexao com o banco de dados MySQL
+#Conexão com o banco de dados MySQL
 conBanco = MySQLdb.connect(host="localhost", user="root", passwd="batistello", db="HousePi")
 
 #Le os arquivos da pasta passada como parametro
