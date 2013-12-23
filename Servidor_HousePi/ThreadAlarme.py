@@ -46,7 +46,7 @@ class ThreadAlarme(threading.Thread):
         cursor = self.conBanco.cursor()
         cursor.execute("select * from ConfiguracaoAlarme")
     
-        row = cursor.fetchone()
+        row = cursor.fetchall()
         
         self.tempoDisparo = int(row["TempoDisparo"])
         self.usarSirene   = int(row["UsarSirene"])
