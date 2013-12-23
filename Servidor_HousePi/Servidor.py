@@ -132,7 +132,6 @@ def enviarConfiguracaoStatus():
         root.append(Element("Rele" + str(i), Status=str(listaReles[i].status), Nome=listaReles[i].nome))
     
     xmlstr = ET.tostring(root) + "\n"   
-    print xmlstr
     con.send(xmlstr)
 
 #cliente conectado, verifica os comandos recebidos
