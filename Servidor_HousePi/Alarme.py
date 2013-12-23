@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 import ThreadAlarme
-import Servidor
 
 class Alarme(object):
     
