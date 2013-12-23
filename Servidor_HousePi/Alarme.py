@@ -21,6 +21,11 @@ class Alarme(object):
     #funcao para ligar o alarme
     def ligarAlarme(self):
         self.alarmeLigado = True
+        self.threadAlarme.start() 
+    else:
+        threadAlarme.stop()
+        print "Alarme desativado."
+    
         
     #funcao para desligar o alarme
     def desligarAlarme(self):
