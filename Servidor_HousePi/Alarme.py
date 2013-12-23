@@ -12,17 +12,15 @@ class Rele(object):
     #funcoes
     #funcao para ligar o alarme
     def ligarAlarme(self):
-        mcp.config(self.numeroGPIO, mcp.OUTPUT)
-    
-    #funcao para ligar o rele
-    def ligar(self):
-        mcp.output(self.numeroGPIO, LIGAR)
-        self.status = STATUS_LIGADO
-    
-    #funcao para desligar o rele
-    def desligar(self):
-        mcp.output(self.numeroGPIO, DESLIGAR)
-        self.status = STATUS_DESLIGADO
+        
+    #funcao para desligar o alarme
+    def desligarAlarme(self):
+        
+    #funcao para ligar o panico do alarme
+    def ligarPanicoAlarme(self):
+        
+    #funcao para desligar o alarme
+    def desligarAlarme(self):
     
     #destrutor
     #def __done__(self):
