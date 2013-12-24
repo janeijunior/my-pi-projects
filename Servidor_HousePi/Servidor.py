@@ -18,7 +18,7 @@ import SensorDHT
 import Funcoes
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
-PORT = 5000  # Porta do Servidor
+PORT = 5002  # Porta do Servidor
 SIRENE = 10
 
 orig = (HOST, PORT)
@@ -209,7 +209,6 @@ print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
 def signal_handler(signal, frame):
     print "\nEncerrando aplicativo..."
     listaReles[12].desligar()
-    conBanco.close()
     os.system('mjpg-streamer/mjpg-streamer.sh stop')
     tcp.close;
     sys.exit(0)
