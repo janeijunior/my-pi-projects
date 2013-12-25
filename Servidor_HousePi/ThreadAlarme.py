@@ -26,18 +26,18 @@ class ThreadAlarme(threading.Thread):
         self.status = NORMAL
         
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("select * from ConfiguracaoAlarme")
+        cursor.execute("select * from Configuracao")
     
         row = cursor.fetchone()
         
-        self.tempoDisparo = row["TempoDisparo"]
-        self.usarSirene   = row["UsarSirene"]
-        self.enviarEmail  = row["EnviarEmail"]
-        self.remetente    = row["Remetente"]
-        self.destinatario = row["Destinatario"]
+        self.tempoDisparo = row["TempoDisparoAlarme"]
+        self.usarSirene   = row["UsarSireneAlarme"]
+        self.enviarEmail  = row["EnviarEmailAlarme"]
+        self.remetente    = row["RemetenteEmail"]
+        self.destinatario = row["DestinatarioEmail"]
         self.servidorSMTP = row["ServidorSMTP"]
         self.portaSMTP    = row["PortaSMTP"]
-        self.senha        = row["Senha"]
+        self.senha        = row["SenhaEmail"]
     
         conBanco.close()
         
