@@ -20,7 +20,7 @@ class Agendamento(object):
         
     #funcao para desativar o agendamento no banco de dados
     def desativarBanco(self): 
-     
+    
     #destrutor
     #def __done__(self):
         
