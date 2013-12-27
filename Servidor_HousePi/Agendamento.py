@@ -39,7 +39,7 @@ class Agendamento(object):
             return False
             
     #funcao para desativar o agendamento no banco de dados
-    def desativarRegistroBanco(self): 
+    #def desativarRegistroBanco(self): 
     
     #destrutor
     #def __done__(self):
