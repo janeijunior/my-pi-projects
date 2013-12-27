@@ -160,7 +160,11 @@ def enviarConfiguracaoStatusAlarme():
     
 def gravarAgendamento(root):
     agendamento = Agendamento.Agendamento()
-    agendamento.gravar
+    
+    if agendamento.gravarRegistroBanco:
+        con.send("Ok")
+    else:
+        con.send("Erro")
     
 
 #cliente conectado, verifica os comandos recebidos
