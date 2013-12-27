@@ -195,9 +195,6 @@ conBanco = Funcoes.conectarBanco()
     
     conBanco.close()
 
-    
-        root.append(Element("Rele" + str(i), Status=str(listaReles[i].status), Nome=listaReles[i].nome))
-    
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
 
