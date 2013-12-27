@@ -180,7 +180,7 @@ def gravarAgendamento(root):
 def enviarAgendamento():
     root = Element("Agendamento")
 
-    conBanco = Funcoes.conectarBanco():
+    conBanco = Funcoes.conectarBanco()
     cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute("select * from Agendamento where Ativo = 1")
 
