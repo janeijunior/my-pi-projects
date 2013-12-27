@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import Funcoes
+import MySQLdb
 
 class Agendamento(object):
     
