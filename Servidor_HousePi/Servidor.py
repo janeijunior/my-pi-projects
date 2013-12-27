@@ -159,7 +159,8 @@ def enviarConfiguracaoStatusAlarme():
     con.send(xmlstr)
     
 def gravarAgendamento(root):
-    print "Gravar agendamento"
+    agendamento = Agendamento.Agendamento()
+    agendamento.gravar
     
 
 #cliente conectado, verifica os comandos recebidos
