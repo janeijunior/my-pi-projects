@@ -29,6 +29,8 @@ class Agendamento(object):
             else:
                 sql = "insert into Agendamento (IdRele, DataHoraInicial, DataHoraFinal, EhAlarme) values ({idRele}, {dataInicial}, {dataFinal}, 0)".format(idRele = self.rele.id, dataInicial = self.dataHoraInicial, dataFinal = self.dataHoraFinal)
         
+            print sql
+        
             cursor.execute(sql)
             conBanco.commit()
             return True
