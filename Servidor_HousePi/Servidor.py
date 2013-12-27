@@ -182,7 +182,7 @@ def enviarAgendamento():
 
 conBanco = Funcoes.conectarBanco()
     cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute("select * from Agendamento")
+    cursor.execute("select * from Agendamento where Ativo = 1")
 
     rows = cursor.fetchall()
 
