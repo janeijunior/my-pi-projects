@@ -23,8 +23,10 @@ class Agendamento(object):
         conBanco = Funcoes.conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
         
-        sql = "insert"
-        
+        if self.rele == None:
+            sql = "insert into Agendamento (DataHoraInicial, DataHoraFinal, EhAlarme) values ({dataInicial}, {dataFinal}, 1)".format(nomeSensor = self.nomeSensor)
+        else:
+            
         
     #funcao para desativar o agendamento no banco de dados
     def desativarRegistroBanco(self): 
