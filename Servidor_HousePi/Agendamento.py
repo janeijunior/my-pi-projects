@@ -8,8 +8,8 @@ class Agendamento(object):
         #atributos publicos da classe
         self.codigo = codigo
         self.nome = nome    
-        self.dataHoraInicio = dataHoraInicio
-        self.dataHoraFim = dataHoraFim
+        self.dataHoraInicial = dataHoraInicial
+        self.dataHoraFinal = dataHoraFinal
         self.alarme = alarme
         self.rele = rele
         self.ativo = ativo
