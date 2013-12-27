@@ -35,6 +35,7 @@ class Agendamento(object):
         except:
             conBanco.rollback()
             return False
+            
     #funcao para desativar o agendamento no banco de dados
     def desativarRegistroBanco(self): 
     
