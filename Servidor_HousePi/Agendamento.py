@@ -35,9 +35,12 @@ class Agendamento(object):
         
             cursor.execute(sql)
             conBanco.commit()
+            conBanco.close()
+            
             return True
         except:
             conBanco.rollback()
+            conBanco.close()
             return False
             
     #funcao para desativar o agendamento no banco de dados
