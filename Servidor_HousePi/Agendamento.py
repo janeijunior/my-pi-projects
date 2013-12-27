@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import Funcao
+import Funcoes
 
 class Agendamento(object):
     
