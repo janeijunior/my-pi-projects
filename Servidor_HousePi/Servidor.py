@@ -176,6 +176,8 @@ def gravarAgendamento(root):
         con.send("Ok")
     else:
         con.send("Erro")
+
+def enviarAgendamento():
     
 
 #cliente conectado, verifica os comandos recebidos
