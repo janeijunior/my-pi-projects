@@ -166,11 +166,11 @@ def gravarAgendamento(root):
     if root.find("Equipamento").text == "-1":
         agendamento = Agendamento.Agendamento(codigo = 0, nome = root.find("Nome").text, dataHoraInicial = 
                                               root.find("DataHoraInicial").text, dataHoraFinal = root.find("dataHoraFinal").text,
-                                              cAlarme = alarme, None, 1)
+                                              alarme = alarme, rele = None, ativo = 1)
     else:
         agendamento = Agendamento.Agendamento(codigo = 0, nome = root.find("Nome").text, dataHoraInicial = 
                                               root.find("DataHoraInicial").text, dataHoraFinal = root.find("dataHoraFinal").text,
-                                              alarme = Nome, rele = listaReles[int(root.find("Equipamento").text)], 1)        
+                                              alarme = Nome, rele = listaReles[int(root.find("Equipamento").text)], ativo = 1)        
     
     if agendamento.gravarRegistroBanco:
         con.send("Ok")
