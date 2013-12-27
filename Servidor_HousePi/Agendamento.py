@@ -16,10 +16,10 @@ class Agendamento(object):
         
     #funcoes
     #funcao para gravar um novo agendamento no banco de dados
-    def gravarAgendamento(self):
+    def gravarBanco(self):
         
     #funcao para desativar o agendamento no banco de dados
-    def desativarAgendamento(self): 
+    def desativarBanco(self): 
      
     #destrutor
     #def __done__(self):
