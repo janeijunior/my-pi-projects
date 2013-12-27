@@ -189,7 +189,8 @@ conBanco = Funcoes.conectarBanco()
     for row in rows:
         rele = Rele.Rele(id = row["Id"], numeroGPIO = row["NumeroGPIO"], status = row["Status"], nome = row["Nome"])        
         listaReles.insert(row["Id"], rele)
-        root.append(Element("Agendamento" + str(row["Id"]), Id=str(row["Id"]), DataHoraInicial=str(row["DataHoraInicial"]), DataHoraInicial=str(row["DataHoraFinal"]))
+        root.append(Element("Agendamento" + str(row["Id"]), Id=str(row["Id"]), Nome=str(row["Nome"]), 
+                            DataHoraInicial=str(row["DataHoraInicial"]), DataHoraInicial=str(row["DataHoraFinal"]))
     
     conBanco.close()
 
