@@ -178,7 +178,14 @@ def gravarAgendamento(root):
         con.send("Erro")
 
 def enviarAgendamento():
+    root = Element("Agendamento")
     
+    for i in range(0, 10):
+        root.append(Element("Rele" + str(i), Status=str(listaReles[i].status), Nome=listaReles[i].nome))
+    
+    xmlstr = ET.tostring(root) + "\n"   
+    con.send(xmlstr)
+
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
