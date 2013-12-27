@@ -179,8 +179,20 @@ def gravarAgendamento(root):
 
 def enviarAgendamento():
     root = Element("Agendamento")
+
+conBanco = Funcoes.conectarBanco()
+    cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute("select * from Agendamento")
+
+    rows = cursor.fetchall()
+
+    for row in rows:
+        rele = Rele.Rele(id = row["Id"], numeroGPIO = row["NumeroGPIO"], status = row["Status"], nome = row["Nome"])        
+        listaReles.insert(row["Id"], rele)
     
-    for i in range(0, 10):
+    conBanco.close()
+
+    
         root.append(Element("Rele" + str(i), Status=str(listaReles[i].status), Nome=listaReles[i].nome))
     
     xmlstr = ET.tostring(root) + "\n"   
