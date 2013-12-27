@@ -20,6 +20,12 @@ class Agendamento(object):
     #funcao para gravar um novo agendamento no banco de dados
     def gravarRegistroBanco(self):
         
+        conBanco = Funcoes.conectarBanco()
+        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+        
+        sql = "insert"
+        
+        
     #funcao para desativar o agendamento no banco de dados
     def desativarRegistroBanco(self): 
     
