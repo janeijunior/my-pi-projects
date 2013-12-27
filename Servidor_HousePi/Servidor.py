@@ -159,7 +159,17 @@ def enviarConfiguracaoStatusAlarme():
     con.send(xmlstr)
     
 def gravarAgendamento(root):
-    agendamento = Agendamento.Agendamento(codigo = 0, nome = root.find("Nome").text, dataHoraInicial = root.find("DataHoraInicial").text, dataHoraFinal = root.find("dataHoraFinal").text)
+    
+    global alarme
+    
+    if root.find("Equipamento").text == "-1":
+        agendamento = Agendamento.Agendamento(codigo = 0, nome = root.find("Nome").text, dataHoraInicial = 
+                                              root.find("DataHoraInicial").text, dataHoraFinal = root.find("dataHoraFinal").text,
+                                              alarme = alarme, None, 1)
+    else:
+        agendamento = Agendamento.Agendamento(codigo = 0, nome = root.find("Nome").text, dataHoraInicial = 
+                                              root.find("DataHoraInicial").text, dataHoraFinal = root.find("dataHoraFinal").text,
+                                              alarme = Nome, rele = listaRele[int(root.find("Equipamento").text)], 1)        
     
     if agendamento.gravarRegistroBanco:
         con.send("Ok")
