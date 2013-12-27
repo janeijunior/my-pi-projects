@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+import Funcao
+
 class Agendamento(object):
     
     #construtor
