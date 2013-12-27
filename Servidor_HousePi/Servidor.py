@@ -170,7 +170,7 @@ def gravarAgendamento(root):
     else:
         agendamento = Agendamento.Agendamento(codigo = 0, nome = root.find("Nome").text, dataHoraInicial = 
                                               root.find("DataHoraInicial").text, dataHoraFinal = root.find("DataHoraFinal").text,
-                                              alarme = Nome, rele = listaReles[int(root.find("Equipamento").text)], ativo = 1)        
+                                              alarme = None, rele = listaReles[int(root.find("Equipamento").text)], ativo = 1)        
     
     if agendamento.gravarRegistroBanco():
         con.send("Ok")
