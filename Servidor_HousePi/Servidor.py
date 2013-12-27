@@ -160,6 +160,7 @@ def enviarConfiguracaoStatusAlarme():
     
 def gravarAgendamento(root):
     
+    
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
