@@ -191,7 +191,7 @@ def enviarAgendamento():
         listaReles.insert(row["Id"], rele)
         root.append(Element("Agendamento" + str(row["Id"]), Id=str(row["Id"]), Nome=str(row["Nome"]), 
                             DataHoraInicial=str(row["DataHoraInicial"]), DataHoraInicial=str(row["DataHoraFinal"]),
-                            EhAlarme=str(row["EhAlarme"]), IdRele=str(row["IdRele"]))
+                            EhAlarme=str(row["EhAlarme"]), IdRele=str(row["IdRele"])))
     
     conBanco.close()
 
