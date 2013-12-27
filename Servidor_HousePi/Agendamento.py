@@ -24,7 +24,7 @@ class Agendamento(object):
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
         
         if self.rele == None:
-            sql = "insert into Agendamento (DataHoraInicial, DataHoraFinal, EhAlarme) values ({dataInicial}, {dataFinal}, 1)".format(nomeSensor = self.nomeSensor)
+            sql = "insert into Agendamento (DataHoraInicial, DataHoraFinal, EhAlarme) values ({dataInicial}, {dataFinal}, 1)".format(dataInicial = self.dataHoraInicial, dataFinal = self.dataHoraFinal)
         else:
             
         
