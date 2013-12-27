@@ -5,7 +5,7 @@ import Funcao
 class Agendamento(object):
     
     #construtor
-    def __init__(self, codigo, nome, dataHoraInicial, dataHoraFinal, alarme, rele, ativo):
+    def __init__(self, codigo, nome, dataHoraInicial, dataHoraFinal, cAlarme, rele, ativo):
         
         #atributos publicos da classe
         self.codigo = codigo
