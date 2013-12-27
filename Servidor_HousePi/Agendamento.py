@@ -3,7 +3,7 @@
 class Agendamento(object):
     
     #construtor
-    def __init__(self, codigo, nome, dataHoraInicio, dataHoraFim, alarme, rele, ativo):
+    def __init__(self, codigo, nome, dataHoraInicial, dataHoraFinal, alarme, rele, ativo):
         
         #atributos publicos da classe
         self.codigo = codigo
