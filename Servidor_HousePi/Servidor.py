@@ -19,7 +19,7 @@ import Funcoes
 import Agendamento
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
-PORT = 5000  # Porta do Servidor
+PORT = 5001  # Porta do Servidor
 SIRENE = 10
 
 orig = (HOST, PORT)
@@ -172,7 +172,7 @@ def gravarAgendamento(root):
                                               root.find("DataHoraInicial").text, dataHoraFinal = root.find("DataHoraFinal").text,
                                               alarme = Nome, rele = listaReles[int(root.find("Equipamento").text)], ativo = 1)        
     
-    if agendamento.gravarRegistroBanco:
+    if agendamento.gravarRegistroBanco():
         con.send("Ok")
     else:
         con.send("Erro")
