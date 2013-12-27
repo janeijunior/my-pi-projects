@@ -12,7 +12,7 @@ class Agendamento(object):
         self.nome = nome    
         self.dataHoraInicial = dataHoraInicial
         self.dataHoraFinal = dataHoraFinal
-        self.alarme = alarme
+        self.alarme = cAlarme
         self.rele = rele
         self.ativo = ativo
         
