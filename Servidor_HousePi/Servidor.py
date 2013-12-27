@@ -211,6 +211,8 @@ def conectado(con, cliente):
                 enviarConfiguracaoStatusAlarme()   
             elif root.tag == "GravarAgendamento":
                 gravarAgendamento(root)
+            elif root.tag == "EnviarAgendamento":
+                enviarAgendamento()
             #except:
             #    print "Erro"
             #    con.send("Erro\n")
