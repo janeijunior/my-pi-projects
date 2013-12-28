@@ -34,7 +34,9 @@ class ThreadAgendamento(threading.Thread):
             
             for agendamento in self.listaAgendamento
                 
+                #data e hora para ligar
                 ligar = agendamento.
+                
                 if  
                         
             time.sleep(0.05)
