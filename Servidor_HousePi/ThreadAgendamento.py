@@ -6,7 +6,6 @@ import threading
 import time
 import MySQLdb
 import Funcoes
-import jinja2
 
 ATIVO = 1
 DESATIVADO = 0
