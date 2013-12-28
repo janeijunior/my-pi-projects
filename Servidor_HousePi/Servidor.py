@@ -63,7 +63,11 @@ def configurarAlarme():
     global alarme
     
     alarme = Alarme.Alarme(sirene=listaReles[SIRENE])
+
+#inicializar thread do agendamento
+def iniciarAgendamento():
     
+
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
 def efetuarLogin(root):
     conBanco = Funcoes.conectarBanco()
