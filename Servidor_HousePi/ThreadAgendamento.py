@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 from datetime import date, datetime
-import jinja2
 import thread
 import threading
 import time
