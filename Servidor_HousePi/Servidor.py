@@ -33,6 +33,7 @@ tcp.listen(1)
 alarme = None
 
 #variavel para controle do agendamento
+agendamento = None
 
 #Le os arquivos da pasta passada como parametro
 arquivos = os.listdir(os.path.expanduser('/home/pi/HousePi/Musicas/'))
