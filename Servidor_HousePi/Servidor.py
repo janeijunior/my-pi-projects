@@ -87,10 +87,15 @@ def carregarListaAgendamento():
     rows = cursor.fetchall()
 
     for row in rows:
-
-        codigo, nome, dataHoraInicial, dataHoraFinal, alarme, rele, ativo):
-
-        agendamento = Agendamento.Agendamento(codigo = row["Id"], nome = row["Nome"], dataHoraInicial = row["DataHoraInicial"], dataHoraFinal = row["DataHoraFinal"], alarme = None, rele = None, ativo = row["Ativo"])        
+        if int(row["EhAlarme"]) == 1:
+            agendamento = Agendamento.Agendamento(codigo = row["Id"], nome = row["Nome"], 
+                          dataHoraInicial = row["DataHoraInicial"], dataHoraFinal = row["DataHoraFinal"], 
+                          alarme = None, rele = None, ativo = row["Ativo"])        
+        else:
+            agendamento = Agendamento.Agendamento(codigo = row["Id"], nome = row["Nome"], 
+                          dataHoraInicial = row["DataHoraInicial"], dataHoraFinal = row["DataHoraFinal"], 
+                          alarme = None, rele = None, ativo = row["Ativo"])                
+            
         listaAgendamento.insert(row["Id"], agendamento)
     
     conBanco.close()
