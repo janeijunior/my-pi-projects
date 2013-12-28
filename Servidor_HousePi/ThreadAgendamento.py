@@ -35,10 +35,10 @@ class ThreadAgendamento(threading.Thread):
             for agendamento in self.listaAgendamento
                 
                 #data e hora para ligar
-                ligar = agendamento.
+                dtligar = parser.parse(agendamento.dataHoraInicial)
                 
                 #data e hora para desligar
-                desligar = 
+                dtdesligar = 
                 
                 if  
                         
