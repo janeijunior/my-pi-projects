@@ -57,4 +57,4 @@ class ThreadAgendamento(threading.Thread):
                     else:
                         agendamento.alarme.desligarAlarme()
                                         
-            time.sleep(0.05)
+            time.sleep(0.2)
