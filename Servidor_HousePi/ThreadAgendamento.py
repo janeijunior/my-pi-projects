@@ -5,7 +5,7 @@ import threading
 import time
 import MySQLdb
 import Funcoes
-import datetime
+from datetime import date, datetime
 import parser
 
 ATIVO = 1
