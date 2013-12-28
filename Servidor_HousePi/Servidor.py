@@ -70,11 +70,11 @@ def configurarAlarme():
 
 #inicializar thread do agendamento
 def iniciarAgendamento():
-    global agendamento
+    global threadAgendamento
     global listaAgendamento
     
-    agendamento = ThreadAgendamento.ThreadAgendamento(listaAgendamento)
-    agendamento.start() 
+    threadAgendamento = ThreadAgendamento.ThreadAgendamento(listaAgendamento)
+    threadAgendamento.start() 
         
 
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
