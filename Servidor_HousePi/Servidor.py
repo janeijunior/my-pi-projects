@@ -33,7 +33,7 @@ tcp.listen(1)
 alarme = None
 
 #variavel para controle do agendamento
-agendamento = None
+threadAgendamento = None
 listaAgendamento = None
 
 #Le os arquivos da pasta passada como parametro
