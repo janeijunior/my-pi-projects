@@ -32,7 +32,7 @@ class ThreadAgendamento(threading.Thread):
             #data e hora atual
             atual = datetime.now().toordinal()
             
-            for agendamento in self.listaAgendamento
+            for agendamento in self.listaAgendamento:
                 
                 #data e hora para ligar
                 dtLigar = parser.parse(agendamento.dataHoraInicial)
