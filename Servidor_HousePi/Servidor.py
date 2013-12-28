@@ -34,7 +34,7 @@ alarme = None
 
 #variavel para controle do agendamento
 threadAgendamento = None
-listaAgendamento = None
+listaAgendamento = []
 
 #Le os arquivos da pasta passada como parametro
 arquivos = os.listdir(os.path.expanduser('/home/pi/HousePi/Musicas/'))
