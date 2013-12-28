@@ -1,13 +1,11 @@
 #!/usr/bin/python
 
 from datetime import date, datetime
-import parser
 import thread
 import threading
 import time
 import MySQLdb
 import Funcoes
-import datetime
 
 ATIVO = 1
 DESATIVADO = 0
@@ -35,11 +33,11 @@ class ThreadAgendamento(threading.Thread):
             
             for agendamento in self.listaAgendamento:
                 #data e hora para ligar
-                dtLigar = parser.parse(agendamento.dataHoraInicial)
+                dtLigar = datetime.strptime(agendamento.dataHoraInicial, '%Y-%m/%d %h:%M:%S')
                 ligar = dtLigar.toordinal()
                 
                 #data e hora para desligar
-                dtDesligar = parser.parse(agendamento.dataHoraFinal)
+                dtDesligar = datetime.strptime(agendamento.dataHoraFinal, '%Y-%m/%d %h:%M:%S')
                 desligar = dtDesligar.toordinal()
                 
                 if (atual == ligar) and (atual < desligar):
