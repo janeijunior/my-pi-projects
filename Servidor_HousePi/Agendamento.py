@@ -20,8 +20,6 @@ class Agendamento(object):
     #funcoes
     #funcao para gravar um novo agendamento no banco de dados
     def gravarRegistroBanco(self):
-    
-
         try:
             conBanco = Funcoes.conectarBanco()
             cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
@@ -43,8 +41,27 @@ class Agendamento(object):
             conBanco.close()
             return False
             
-    #funcao para desativar o agendamento no banco de dados
-    #def desativarRegistroBanco(self): 
+    #funcao para remover o agendamento no banco de dados
+    def removerRegistroBanco(self, idRegistro): 
+        try:
+            conBanco = Funcoes.conectarBanco()
+            cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+            
+            sql = "delete from Agendamento where Id = {idRegistro}".format(idRegistro = idRegistro)
+        
+            print sql
+        
+            cursor.execute(sql)
+            conBanco.commit()
+            conBanco.close()
+            
+            return True
+        except:
+            conBanco.rollback()
+            conBanco.close()
+            return False
+    
+    
     
     #destrutor
     #def __done__(self):
