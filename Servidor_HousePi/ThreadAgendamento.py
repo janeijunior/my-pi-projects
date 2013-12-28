@@ -1,11 +1,12 @@
 #!/usr/bin/python
 
+from datetime import date, datetime
 import thread
 import threading
 import time
 import MySQLdb
 import Funcoes
-from datetime import date, datetime
+import datetime
 import parser
 
 ATIVO = 1
