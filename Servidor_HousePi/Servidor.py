@@ -78,7 +78,20 @@ def iniciarAgendamento():
         
 #carregar lista de agendamentos
 def carregarListaAgendamento():
+    print "Carregando agendamentos..."
+
+    conBanco = Funcoes.conectarBanco()
+    cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute("select * from Rele")
+
+    rows = cursor.fetchall()
+
+    for row in rows:
+        rele = Rele.Rele(id = row["Id"], numeroGPIO = row["NumeroGPIO"], status = row["Status"], nome = row["Nome"])        
+        listaReles.insert(row["Id"], rele)
     
+    conBanco.close()
+
     
         
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
