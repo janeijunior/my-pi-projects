@@ -30,7 +30,7 @@ class ThreadAgendamento(threading.Thread):
         while not self.__stop_thread_event.isSet(): 
             
             #data e hora atual
-            atual = datetime.now().strftime("%Y%m%d") 
+            atual = datetime.now().toordinal()
             
             for agendamento in self.listaAgendamento
                 
