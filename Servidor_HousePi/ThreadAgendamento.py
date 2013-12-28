@@ -49,9 +49,8 @@ class ThreadAgendamento(threading.Thread):
                         agendamento.alarme.ligar()
                 elif (atual = desligar) and (atual > ligar):
                     if agendamento.alarme == None:
-                        agendamento.rele.ligar()    
+                        agendamento.rele.desligar()    
                     else
-                        agendamento.alarme.ligar()
-                    
-                        
+                        agendamento.alarme.desligar()
+                                        
             time.sleep(0.05)
