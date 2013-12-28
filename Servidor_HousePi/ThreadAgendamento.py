@@ -43,7 +43,10 @@ class ThreadAgendamento(threading.Thread):
                 desligar = dtDesligar.toordinal()
                 
                 if (atual = ligar) and (atual < desligar):
-                    
+                    if agendamento.alarme == None:
+                        agendamento.rele.ligar()    
+                    else
+                        agendamento.rele.desligar()
                 elif (atual = desligar) and (atual > ligar):
                     
                         
