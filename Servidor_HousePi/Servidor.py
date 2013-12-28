@@ -203,9 +203,9 @@ def enviarAgendamento():
 
 def removerAgendamento(root):
     agendamento = Agendamento.Agendamento(codigo = root.find("Id"), nome = "", dataHoraInicial = "", dataHoraFinal = "",
-                                              alarme = None, rele = None, ativo = 0)        
+                                          alarme = None, rele = None, ativo = 0)        
     
-    if agendamento.gravarRegistroBanco():
+    if agendamento.removerRegistroBanco():
         con.send("Ok\n")
     else:
         con.send("Erro\n")
