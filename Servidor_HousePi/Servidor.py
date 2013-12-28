@@ -34,6 +34,7 @@ alarme = None
 
 #variavel para controle do agendamento
 agendamento = None
+listaAgendamento = None
 
 #Le os arquivos da pasta passada como parametro
 arquivos = os.listdir(os.path.expanduser('/home/pi/HousePi/Musicas/'))
@@ -69,7 +70,12 @@ def configurarAlarme():
 
 #inicializar thread do agendamento
 def iniciarAgendamento():
-    global agendamento    
+    global agendamento
+    
+    agendamento = ThreadAgendamento.ThreadAgendamento(;[´[)
+    self.threadAlarme = ThreadAlarme.ThreadAlarme(sirene=self.sirene)
+        self.threadAlarme.start() 
+        
 
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
 def efetuarLogin(root):
