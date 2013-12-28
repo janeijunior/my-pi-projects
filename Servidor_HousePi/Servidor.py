@@ -187,9 +187,12 @@ def enviarAgendamento():
     rows = cursor.fetchall()
 
     for row in rows:
-        root.append(Element("Agendamento" + str(row["Id"]), Id=str(row["Id"]), Nome=str(row["Nome"]), 
+        if int(row["EhAlarme"]) == 1:
+        
+        else:
+            root.append(Element("Agendamento" + str(row["Id"]), Id=str(row["Id"]), Nome=str(row["Nome"]), 
                             DataHoraInicial=str(row["DataHoraInicial"]), DataHoraFinal=str(row["DataHoraFinal"]),
-                            EhAlarme=str(row["EhAlarme"]), IdRele=str(row["IdRele"]), NomeRele=""))
+                            EhAlarme=str(row["EhAlarme"]), IdRele=str(row["IdRele"]), NomeRele=str(listaReles[int(row["IdRele"])])))
     
     conBanco.close()
 
