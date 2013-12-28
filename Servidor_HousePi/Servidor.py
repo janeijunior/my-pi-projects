@@ -298,6 +298,7 @@ def conectado(con, cliente):
 configurarReles()
 configurarAlarme()
 carregarListaAgendamento()
+iniciarAgendamento()
 
 #inicia a transmisao do video/webcam
 os.system('mjpg-streamer/mjpg-streamer.sh start')
