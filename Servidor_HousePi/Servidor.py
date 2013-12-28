@@ -69,7 +69,7 @@ def configurarAlarme():
 
 #inicializar thread do agendamento
 def iniciarAgendamento():
-    
+    global agendamento    
 
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
 def efetuarLogin(root):
