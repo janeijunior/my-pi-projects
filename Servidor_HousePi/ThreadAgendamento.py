@@ -1,13 +1,13 @@
 #!/usr/bin/python
 
 from datetime import date, datetime
+from dateutil import parser
 import thread
 import threading
 import time
 import MySQLdb
 import Funcoes
 import datetime
-import parser
 
 ATIVO = 1
 DESATIVADO = 0
