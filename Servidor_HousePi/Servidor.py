@@ -17,6 +17,7 @@ import sys
 import SensorDHT
 import Funcoes
 import Agendamento
+import ThreadAgendamento
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
 PORT = 5000  # Porta do Servidor
