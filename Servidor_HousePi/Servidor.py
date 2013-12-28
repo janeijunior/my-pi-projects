@@ -87,8 +87,8 @@ def carregarListaAgendamento():
     rows = cursor.fetchall()
 
     for row in rows:
-        rele = Rele.Rele(id = row["Id"], numeroGPIO = row["NumeroGPIO"], status = row["Status"], nome = row["Nome"])        
-        listaReles.insert(row["Id"], rele)
+        agendamento = Agendamento.Agendamento(id = row["Id"], numeroGPIO = row["NumeroGPIO"], status = row["Status"], nome = row["Nome"])        
+        listaAgendamento.insert(row["Id"], agendamento)
     
     conBanco.close()
 
