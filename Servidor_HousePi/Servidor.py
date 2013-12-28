@@ -99,7 +99,6 @@ def carregarListaAgendamento():
         listaAgendamento.insert(row["Id"], agendamento)
     
     conBanco.close()
-
     
         
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
