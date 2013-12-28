@@ -28,6 +28,7 @@ class ThreadAgendamento(threading.Thread):
         #executa enquanto nao setar o evento
         while not self.__stop_thread_event.isSet(): 
             
+            #data e hora atual
             atual = datetime.now().toordinal() 
             
             for agendamento in self.listaAgendamento
