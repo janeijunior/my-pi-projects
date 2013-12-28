@@ -6,6 +6,7 @@ import time
 import MySQLdb
 import Funcoes
 import datetime
+from dateutil import parser
 
 ATIVO = 1
 DESATIVADO = 0
