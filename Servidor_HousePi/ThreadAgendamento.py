@@ -38,6 +38,7 @@ class ThreadAgendamento(threading.Thread):
                 ligar = agendamento.
                 
                 #data e hora para desligar
+                desligar = 
                 
                 if  
                         
