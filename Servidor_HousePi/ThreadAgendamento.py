@@ -31,7 +31,7 @@ class ThreadAgendamento(threading.Thread):
         while not self.__stop_thread_event.isSet(): 
             
             #data e hora atual
-            atual = datetime.today().toordinal()
+            atual = date.today().toordinal()
             
             for agendamento in self.listaAgendamento:
                 #data e hora para ligar
