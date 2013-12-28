@@ -82,7 +82,7 @@ def carregarListaAgendamento():
 
     conBanco = Funcoes.conectarBanco()
     cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute("select * from Rele")
+    cursor.execute("select * from Agendamento")
 
     rows = cursor.fetchall()
 
