@@ -202,6 +202,13 @@ def enviarAgendamento():
     con.send(xmlstr)
 
 def removerAgendamento(root):
+    agendamento = Agendamento.Agendamento(codigo = root.find("Id"), nome = "", dataHoraInicial = "", dataHoraFinal = "",
+                                              alarme = None, rele = None, ativo = 0)        
+    
+    if agendamento.gravarRegistroBanco():
+        con.send("Ok\n")
+    else:
+        con.send("Erro\n")
     
 
 
