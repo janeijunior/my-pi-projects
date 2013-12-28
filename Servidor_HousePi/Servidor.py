@@ -19,7 +19,7 @@ import Funcoes
 import Agendamento
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
-PORT = 5000  # Porta do Servidor
+PORT = 5001  # Porta do Servidor
 SIRENE = 10
 
 orig = (HOST, PORT)
@@ -189,7 +189,7 @@ def enviarAgendamento():
     for row in rows:
         root.append(Element("Agendamento" + str(row["Id"]), Id=str(row["Id"]), Nome=str(row["Nome"]), 
                             DataHoraInicial=str(row["DataHoraInicial"]), DataHoraFinal=str(row["DataHoraFinal"]),
-                            EhAlarme=str(row["EhAlarme"]), IdRele=str(row["IdRele"]), NomeRele=listaReles[int(row["IdRele"])].nome))
+                            EhAlarme=str(row["EhAlarme"]), IdRele=str(row["IdRele"]), NomeRele=str(listaReles[int(row["IdRele"])].nome)))
     
     conBanco.close()
 
