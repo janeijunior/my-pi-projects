@@ -28,8 +28,6 @@ class ThreadAgendamento(threading.Thread):
         #executa enquanto nao setar o evento
         while not self.__stop_thread_event.isSet(): 
             
-            print "Comparando..."
-            
             #data e hora atual
             atual = date.today().toordinal()
             
