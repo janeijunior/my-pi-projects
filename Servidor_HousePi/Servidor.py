@@ -172,10 +172,10 @@ def gravarAgendamento(root):
                                               root.find("DataHoraInicial").text, dataHoraFinal = root.find("DataHoraFinal").text,
                                               alarme = None, rele = listaReles[int(root.find("Equipamento").text)], ativo = 1)        
     
-    agendamento.gravarRegistroBanco()
-    #   con.send("Ok")
-    #else:
-    #    con.send("Erro")
+    if agendamento.gravarRegistroBanco():
+        con.send("Ok")
+    else:
+        con.send("Erro")
 
 def enviarAgendamento():
     root = Element("Agendamento")
