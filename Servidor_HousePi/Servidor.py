@@ -189,7 +189,7 @@ def enviarAgendamento():
     for row in rows:
         root.append(Element("Agendamento" + str(row["Id"]), Id=str(row["Id"]), Nome=str(row["Nome"]), 
                             DataHoraInicial=str(row["DataHoraInicial"]), DataHoraFinal=str(row["DataHoraFinal"]),
-                            EhAlarme=str(row["EhAlarme"]), IdRele=str(row["IdRele"]), NomeRele=str(listaReles[int(row["IdRele"])].nome)))
+                            EhAlarme=str(row["EhAlarme"]), IdRele=str(row["IdRele"]), NomeRele=""))
     
     conBanco.close()
 
