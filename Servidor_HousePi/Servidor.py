@@ -201,6 +201,9 @@ def enviarAgendamento():
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
 
+def removerAgendamento(root):
+    
+
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
