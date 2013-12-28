@@ -81,6 +81,9 @@ def carregarListaAgendamento():
     print "Carregando agendamentos..."
 
     global alarme
+    global listaAgendamento
+    
+    listaAgendamento = []
 
     conBanco = Funcoes.conectarBanco()
     cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
