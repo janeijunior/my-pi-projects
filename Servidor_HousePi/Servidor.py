@@ -78,6 +78,8 @@ def iniciarAgendamento():
         
 #carregar lista de agendamentos
 def carregarListaAgendamento():
+    
+    
         
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
 def efetuarLogin(root):
