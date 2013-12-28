@@ -209,8 +209,6 @@ def removerAgendamento(root):
         con.send("Ok\n")
     else:
         con.send("Erro\n")
-    
-
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
