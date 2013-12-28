@@ -237,6 +237,8 @@ def conectado(con, cliente):
                 gravarAgendamento(root)
             elif root.tag == "EnviarAgendamento":
                 enviarAgendamento()
+            elif root.tag == "RemoverAgendamento":
+                removerAgendamento(root)
             #except:
             #    print "Erro"
             #    con.send("Erro\n")
