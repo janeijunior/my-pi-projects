@@ -16,6 +16,8 @@ class ThreadAgendamento(threading.Thread):
         self.name = 'ThreadAgendamento'
         self.__stop_thread_event = threading.Event()
         
+        #atributos
+        self.listaAgendamento = listaAgendamento
                 
     def stop(self):
         self.__stop_thread_event.set()
