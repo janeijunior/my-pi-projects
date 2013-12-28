@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 from datetime import date, datetime
-from dateutil import parser
+import parser
 import thread
 import threading
 import time
