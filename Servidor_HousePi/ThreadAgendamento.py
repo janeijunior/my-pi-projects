@@ -38,7 +38,7 @@ class ThreadAgendamento(threading.Thread):
                 dtligar = parser.parse(agendamento.dataHoraInicial)
                 
                 #data e hora para desligar
-                dtdesligar = 
+                dtdesligar = parser.parse(agendamento.dataHoraFinal)
                 
                 if  
                         
