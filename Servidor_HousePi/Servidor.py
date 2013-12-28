@@ -202,7 +202,7 @@ def enviarAgendamento():
     con.send(xmlstr)
 
 def removerAgendamento(root):
-    agendamento = Agendamento.Agendamento(codigo = int(root.find("Id")), nome = "", dataHoraInicial = "", dataHoraFinal = "",
+    agendamento = Agendamento.Agendamento(codigo = int(root.find("Id").text), nome = "", dataHoraInicial = "", dataHoraFinal = "",
                                           alarme = None, rele = None, ativo = 0)        
     
     if agendamento.removerRegistroBanco():
