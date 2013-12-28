@@ -217,6 +217,13 @@ def gravarAgendamento(root):
     
     if agendamento.gravarRegistroBanco():
         con.send("Ok\n")
+        
+        carregarListaAgendamento()
+        
+        global threadAgendamento
+        global listaAgendamento
+        
+        threadAgendamento.listaAgendamento = listaAgendamento
     else:
         con.send("Erro\n")
 
@@ -250,6 +257,13 @@ def removerAgendamento(root):
     
     if agendamento.removerRegistroBanco():
         con.send("Ok\n")
+        
+        carregarListaAgendamento()
+        
+        global threadAgendamento
+        global listaAgendamento
+        
+        threadAgendamento.listaAgendamento = listaAgendamento
     else:
         con.send("Erro\n")
 
