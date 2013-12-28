@@ -5,12 +5,13 @@ import threading
 import time
 import MySQLdb
 import Funcoes
+import datetime
 
 ATIVO = 1
 DESATIVADO = 0
 
 class ThreadAgendamento(threading.Thread):
-    def __init__(self, sirene):
+    def __init__(self, listaAgendamento):
         threading.Thread.__init__(self)
         self.name = 'ThreadAgendamento'
         self.__stop_thread_event = threading.Event()
