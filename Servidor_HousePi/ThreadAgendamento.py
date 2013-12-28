@@ -36,6 +36,7 @@ class ThreadAgendamento(threading.Thread):
                 
                 #data e hora para ligar
                 dtLigar = parser.parse(agendamento.dataHoraInicial)
+                ligar = dtLigar.toordinal()
                 
                 #data e hora para desligar
                 dtDesligar = parser.parse(agendamento.dataHoraFinal)
