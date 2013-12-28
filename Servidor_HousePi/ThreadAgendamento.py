@@ -42,6 +42,9 @@ class ThreadAgendamento(threading.Thread):
                 dtDesligar = parser.parse(agendamento.dataHoraFinal)
                 desligar = dtDesligar.toordinal()
                 
-                if  
+                if (atual = ligar) and (atual < desligar):
+                    
+                elif (atual = desligar) and (atual > ligar):
+                    
                         
             time.sleep(0.05)
