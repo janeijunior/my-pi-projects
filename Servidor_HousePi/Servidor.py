@@ -255,7 +255,7 @@ def removerAgendamento(root):
     global threadAgendamento
     global listaAgendamento
     
-    if listaAgendamento[int(root.find("Id").text)].removerRegistroBanco():
+    if agendamento.removerRegistroBanco():
         con.send("Ok\n")
         
         #atualiza a lista de agendamentos
