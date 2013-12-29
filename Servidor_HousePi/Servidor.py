@@ -235,10 +235,10 @@ def gravarAgendamento(root):
 def enviarAgendamento():
     root = Element("EnviarAgendamento")
     
-    global listaAgendamento
-    
     #atualiza a lista de agendamentos
     carregarListaAgendamento()
+    
+    global listaAgendamento
     
     for agendamento in listaAgendamento:
         if agendamento.alarme == None:
