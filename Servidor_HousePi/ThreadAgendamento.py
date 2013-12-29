@@ -33,11 +33,11 @@ class ThreadAgendamento(threading.Thread):
             
             for agendamento in self.listaAgendamento:
                 #data e hora para ligar
-                ligar = datetime.strptime(str(agendamento.dataHoraInicial), '%Y-%m-%d %H:%M:%S')
+                ligar = date(datetime.strptime(str(agendamento.dataHoraInicial), '%Y-%m-%d %H:%M:%S'))
                 #ligar = dtLigar.toordinal()
                 
                 #data e hora para desligar
-                desligar = datetime.strptime(str(agendamento.dataHoraFinal), '%Y-%m-%d %H:%M:%S')
+                desligar = date(datetime.strptime(str(agendamento.dataHoraFinal), '%Y-%m-%d %H:%M:%S'))
                 #desligar = dtDesligar.toordinal()
                 
                 print "Data atual: ", str(atual)
