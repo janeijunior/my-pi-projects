@@ -201,7 +201,8 @@ def enviarConfiguracaoStatusAlarme():
     
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
-    
+
+#funcao que insere um novo agendamento no banco de dados e alualiza a lista de agendamentos
 def gravarAgendamento(root):
     
     global alarme
