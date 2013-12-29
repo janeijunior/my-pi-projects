@@ -75,7 +75,7 @@ class Agendamento(object):
             conBanco.commit()
             conBanco.close()
             
-            agendamento.ativo = 0
+            self.ativo = 0
             
             return True
         except:
