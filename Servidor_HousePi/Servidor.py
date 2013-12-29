@@ -255,16 +255,18 @@ def removerAgendamento(root):
     global threadAgendamento
     global listaAgendamento
     
-    if agendamento.removerRegistroBanco():
-        con.send("Ok\n")
-        
-        #atualiza a lista de agendamentos
-        carregarListaAgendamento()
-        
-        #passa a nova lista de agendamentos para a thread
-        threadAgendamento.listaAgendamento = listaAgendamento
-    else:
-        con.send("Erro\n")
+    for agendamento in listaAgendamento:
+        if agendamento.id == int(root.find("Id").text):
+            if agendamento.removerRegistroBanco():
+                con.send("Ok\n")
+                
+                #atualiza a lista de agendamentos
+                carregarListaAgendamento()
+                
+                #passa a nova lista de agendamentos para a thread
+                threadAgendamento.listaAgendamento = listaAgendamento
+            else:
+                con.send("Erro\n")
 
 #funcao para renomear os reles atraves da aba de configuracoes
 def renomearRele(root):
