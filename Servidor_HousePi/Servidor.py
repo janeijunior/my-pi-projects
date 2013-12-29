@@ -259,6 +259,7 @@ def removerAgendamento(root):
     if agendamento.removerRegistroBanco():
         con.send("Ok\n")
         
+        #atualiza a lista de agendamentos
         carregarListaAgendamento()
         
         global threadAgendamento
