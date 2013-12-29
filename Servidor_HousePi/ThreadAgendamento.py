@@ -40,9 +40,9 @@ class ThreadAgendamento(threading.Thread):
                 dtDesligar = datetime.strptime(str(agendamento.dataHoraFinal), "%Y-%m-%d %H:%M:%S")
                 desligar = dtDesligar.strftime("%Y%m%d%H%M%S")
                 
-                print "Data atual: ", str(atual)
-                print "Data ligar: ", str(ligar)
-                print "Data desligar: ", str(desligar)
+                #print "Data atual: ", str(atual)
+                #print "Data ligar: ", str(ligar)
+                #print "Data desligar: ", str(desligar)
                 
                 if (atual == ligar) and (atual < desligar):
                     if agendamento.alarme == None:
