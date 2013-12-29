@@ -304,6 +304,8 @@ def conectado(con, cliente):
                 enviarAgendamento()
             elif root.tag == "RemoverAgendamento":
                 removerAgendamento(root)
+            elif root.tag == "RenomearRele":
+                renomearRele(root)
             #except:
             #    print "Erro"
             #    con.send("Erro\n")
