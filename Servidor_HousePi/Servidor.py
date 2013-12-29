@@ -207,6 +207,7 @@ def gravarAgendamento(root):
     
     global alarme
     
+    #se for alarme = -1
     if root.find("Equipamento").text == "-1":
         agendamento = Agendamento.Agendamento(codigo = 0, nome = root.find("Nome").text, dataHoraInicial = 
                                               root.find("DataHoraInicial").text, dataHoraFinal = root.find("DataHoraFinal").text,
