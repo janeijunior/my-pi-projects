@@ -29,16 +29,16 @@ class ThreadAgendamento(threading.Thread):
         while not self.__stop_thread_event.isSet(): 
             
             #data e hora atual
-            atual = date.today()
+            atual = date.today().strftime("%Y%m%d %H:%M:%S")
             
             for agendamento in self.listaAgendamento:
                 #data e hora para ligar
-                ligar = date(datetime.strptime(str(agendamento.dataHoraInicial), '%Y-%m-%d %H:%M:%S'))
-                #ligar = dtLigar.toordinal()
+                dtLigar = datetime.strptime(str(agendamento.dataHoraInicial), "%Y-%m-%d %H:%M:%S")
+                ligar = dtLigar.strftime("%Y%m%d %H:%M:%S")
                 
                 #data e hora para desligar
-                desligar = date(datetime.strptime(str(agendamento.dataHoraFinal), '%Y-%m-%d %H:%M:%S'))
-                #desligar = dtDesligar.toordinal()
+                dtDesligar = datetime.strptime(str(agendamento.dataHoraFinal), "%Y-%m-%d %H:%M:%S")
+                desligar = dtDesligar.strftime("%Y%m%d %H:%M:%S")
                 
                 print "Data atual: ", str(atual)
                 print "Data ligar: ", str(ligar)
