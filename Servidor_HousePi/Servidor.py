@@ -265,6 +265,7 @@ def removerAgendamento(root):
         global threadAgendamento
         global listaAgendamento
         
+        #passa a nova lista de agendamentos para a thread
         threadAgendamento.listaAgendamento = listaAgendamento
     else:
         con.send("Erro\n")
