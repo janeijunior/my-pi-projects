@@ -167,6 +167,8 @@ def controlarAlarme(root):
     else:
         alarme.desligarAlarme()
         print "Alarme desativado."
+    
+    send("Ok\n")
         
     
 #liga ou desliga a funcao panico do alarme
