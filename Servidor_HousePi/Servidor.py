@@ -183,13 +183,15 @@ def controlarFuncaoPanico(root):
         alarme.ligarPanicoAlarme()
     else:
         alarme.desligarPanicoAlarme()
-        
+    
+    con.send("Ok\n")
+    
 #funcao que envia as configuracoes dos reles e status
 def enviarConfiguracaoStatusRele():
     root = Element("Reles")
     
-    for i in range(0, 10):
-        root.append(Element("Rele" + str(i), Status=str(listaReles[i].status), Nome=listaReles[i].nome))
+    for rele in listaReles:
+        root.append(Element("Rele" + str(rele.id), Status=str(rele.status), Nome=rele.nome))
     
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
@@ -277,9 +279,39 @@ def removerAgendamento(root):
             else:
                 con.send("Erro\n")
 
+#funcao para alterar o usuario e a senha
+def alterarUsuarioSenha(root):
+    try:
+        usuario = root.find("Usuario").text
+        senha = root.find("Senha").text
+        
+        conBanco = Funcoes.conectarBanco()
+        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+        
+        sql = "update Configuracao set Usuario = '{novoUsuario}', Senha = '{novaSenha}'".format(novoUsuario = usuario, novaSenha = senha)
+        print sql
+        
+        cursor.execute(sql)
+        conBanco.commit()
+        conBanco.close()
+        con.send("Ok\n")
+    except:
+        conBanco.rollback()
+        conBanco.close()
+        con.send("Erro\n")
+            
 #funcao para renomear os reles atraves da aba de configuracoes
 def renomearRele(root):
-    print "teste"
+    try:
+        global listaReles
+        
+        for child in root:
+            listaReles[int(child.get("Id"))].nome = str(child.get("Nome")) 
+            listaReles[int(child.get("Id"))].gravarNomeBanco();
+        
+        con.send("Ok\n")
+    except:
+        con.send("Erro\n")
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
@@ -318,6 +350,8 @@ def conectado(con, cliente):
                 enviarAgendamento()
             elif root.tag == "RemoverAgendamento":
                 removerAgendamento(root)
+            elif root.tag == "AlterarUsuarioSenha":
+                alterarUsuarioSenha(root)
             elif root.tag == "RenomearRele":
                 renomearRele(root)
             #except:

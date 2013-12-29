@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import Adafruit_MCP230xx
+import Funcoes
 
 #variavel para controle dos pinos GPIO (reles)
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
@@ -39,6 +40,25 @@ class Rele(object):
         mcp.output(self.numeroGPIO, DESLIGAR)
         self.status = STATUS_DESLIGADO
     
+    #funcao para gravar o novo nome do rele
+    def gravarNomeBanco(self):
+        try:
+            conBanco = Funcoes.conectarBanco()
+            cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+            
+            sql = "update Rele set Nome = '{nomeRele}' where Id = {idRele}".format(nomeRele = self.nome, idRele = self.id)
+            print sql
+            
+            cursor.execute(sql)
+            conBanco.commit()
+            conBanco.close()
+            
+            return True
+        except:
+            conBanco.rollback()
+            conBanco.close()
+            return False
+            
     #destrutor
     #def __done__(self):
     #    self.desligar()
