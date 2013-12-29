@@ -1,4 +1,4 @@
-#!/usr/bin/python
+f#!/usr/bin/python
 #-*- coding: utf-8 -*-
 
 from xml.etree.ElementTree import Element
@@ -93,11 +93,11 @@ def carregarListaAgendamento():
 
     for row in rows:
         if int(row["EhAlarme"]) == 1:
-            agendamento = Agendamento.Agendamento(codigo = row["Id"], nome = row["Nome"], 
+            agendamento = Agendamento.Agendamento(id = row["Id"], nome = row["Nome"], 
                           dataHoraInicial = row["DataHoraInicial"], dataHoraFinal = row["DataHoraFinal"], 
                           alarme = alarme, rele = None, ativo = int(row["Ativo"]))        
         else:
-            agendamento = Agendamento.Agendamento(codigo = row["Id"], nome = row["Nome"], 
+            agendamento = Agendamento.Agendamento(id = row["Id"], nome = row["Nome"], 
                           dataHoraInicial = row["DataHoraInicial"], dataHoraFinal = row["DataHoraFinal"], 
                           alarme = None, rele = listaReles[int(row["IdRele"])], ativo = row["Ativo"])                
             
@@ -209,11 +209,11 @@ def gravarAgendamento(root):
     
     #se for alarme = -1
     if root.find("Equipamento").text == "-1":
-        agendamento = Agendamento.Agendamento(codigo = 0, nome = root.find("Nome").text, dataHoraInicial = 
+        agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text, dataHoraInicial = 
                                               root.find("DataHoraInicial").text, dataHoraFinal = root.find("DataHoraFinal").text,
                                               alarme = alarme, rele = None, ativo = 1)
     else:
-        agendamento = Agendamento.Agendamento(codigo = 0, nome = root.find("Nome").text, dataHoraInicial = 
+        agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text, dataHoraInicial = 
                                               root.find("DataHoraInicial").text, dataHoraFinal = root.find("DataHoraFinal").text,
                                               alarme = None, rele = listaReles[int(root.find("Equipamento").text)], ativo = 1)        
     
@@ -239,11 +239,11 @@ def enviarAgendamento():
     
     for agendamento in listaAgendamento:
         if agendamento.alarme == None:
-            root.append(Element("Agendamento" + str(agendamento.codigo), Id=str(agendamento.codigo), Nome=agendamento.nome, 
+            root.append(Element("Agendamento" + str(agendamento.id), Id=str(agendamento.id), Nome=agendamento.nome, 
                                 DataHoraInicial=str(agendamento.dataHoraInicial), DataHoraFinal=str(agendamento.dataHoraFinal),
                                 EhAlarme="0", IdRele=str(agendamento.rele.id), NomeRele=agendamento.rele.nome))   
         else:
-            root.append(Element("Agendamento" + str(agendamento.codigo), Id=str(agendamento.codigo), Nome=agendamento.nome, 
+            root.append(Element("Agendamento" + str(agendamento.id), Id=str(agendamento.id), Nome=agendamento.nome, 
                                 DataHoraInicial=str(agendamento.dataHoraInicial), DataHoraFinal=str(agendamento.dataHoraFinal),
                                 EhAlarme="1"))
     
