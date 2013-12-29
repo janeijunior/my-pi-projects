@@ -134,8 +134,7 @@ def controlarRele(root):
     numero = root.find("Numero").text
     
     if acao == "Ligar":
-        if listaReles[int(numero)] == 0:
-            listaReles[int(numero)].ligar()
+        listaReles[int(numero)].ligar()
     else:
         listaReles[int(numero)].desligar()
     
