@@ -6,10 +6,10 @@ import MySQLdb
 class Agendamento(object):
     
     #construtor
-    def __init__(self, codigo, nome, dataHoraInicial, dataHoraFinal, alarme, rele, ativo):
+    def __init__(self, id, nome, dataHoraInicial, dataHoraFinal, alarme, rele, ativo):
         
         #atributos publicos da classe
-        self.codigo = codigo
+        self.id = id
         self.nome = nome    
         self.dataHoraInicial = dataHoraInicial
         self.dataHoraFinal = dataHoraFinal
@@ -47,7 +47,7 @@ class Agendamento(object):
             conBanco = Funcoes.conectarBanco()
             cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
             
-            sql = "delete from Agendamento where Id = {idRegistro}".format(idRegistro = self.codigo)
+            sql = "delete from Agendamento where Id = {idRegistro}".format(idRegistro = self.id)
         
             print sql
         
@@ -67,7 +67,7 @@ class Agendamento(object):
             conBanco = Funcoes.conectarBanco()
             cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
             
-            sql = "update Agendamento set Ativo = 0 where Id = {idRegistro}".format(idRegistro = self.codigo)
+            sql = "update Agendamento set Ativo = 0 where Id = {idRegistro}".format(idRegistro = self.id)
         
             print sql
         
