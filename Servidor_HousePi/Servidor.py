@@ -227,6 +227,7 @@ def gravarAgendamento(root):
     else:
         con.send("Erro\n")
 
+#funcao que retorna os agendamentos do servidor para o aplicativo movel
 def enviarAgendamento():
     root = Element("Agendamento")
 
