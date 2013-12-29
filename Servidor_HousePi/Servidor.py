@@ -269,7 +269,7 @@ def removerAgendamento(root):
 
 #funcao para renomear os reles atraves da aba de configuracoes
 def renomearRele(root):
-    
+    print "teste"
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
