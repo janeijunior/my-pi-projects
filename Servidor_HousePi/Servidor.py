@@ -237,6 +237,9 @@ def enviarAgendamento():
     
     global listaAgendamento
     
+    #atualiza a lista de agendamentos
+    carregarListaAgendamento()
+    
     for agendamento in listaAgendamento:
         if agendamento.alarme == None:
             root.append(Element("Agendamento" + str(agendamento.id), Id=str(agendamento.id), Nome=agendamento.nome, 
