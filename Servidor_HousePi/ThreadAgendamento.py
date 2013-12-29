@@ -56,9 +56,9 @@ class ThreadAgendamento(threading.Thread):
                         if agendamento.alarme == None:
                             if agendamento.rele.status == 1:
                                 agendamento.rele.desligar()
-                            agendamento.desativar()
+                            agendamento.desativarRegistroBanco()
                         else:
                             if agendamento.alarme.alarmeLigado == True:
                                 agendamento.alarme.desligarAlarme()
-                            agendamento.desativar()
+                            agendamento.desativarRegistroBanco()
             time.sleep(0.2)
