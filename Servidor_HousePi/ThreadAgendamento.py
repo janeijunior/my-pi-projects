@@ -32,32 +32,33 @@ class ThreadAgendamento(threading.Thread):
             atual = datetime.now().strftime("%Y%m%d%H%M%S")
             
             for agendamento in self.listaAgendamento:
-                #data e hora para ligar
-                dtLigar = datetime.strptime(str(agendamento.dataHoraInicial), "%Y-%m-%d %H:%M:%S")
-                ligar = dtLigar.strftime("%Y%m%d%H%M%S")
-                
-                #data e hora para desligar
-                dtDesligar = datetime.strptime(str(agendamento.dataHoraFinal), "%Y-%m-%d %H:%M:%S")
-                desligar = dtDesligar.strftime("%Y%m%d%H%M%S")
-                
-                #print "Data atual: ", str(atual)
-                #print "Data ligar: ", str(ligar)
-                #print "Data desligar: ", str(desligar)
-                
-                if (atual == ligar) and (atual < desligar):
-                    if agendamento.alarme == None:
-                        if agendamento.rele.status == 0:
-                            agendamento.rele.ligar()    
-                    else:
-                        if agendamento.alarme.alarmeLigado == False:
-                            agendamento.alarme.ligarAlarme()
-                elif (atual == desligar) and (atual > ligar):
-                    if agendamento.alarme == None:
-                        if agendamento.rele.status == 1:
-                            agendamento.rele.desligar()
-                        agendamento.desativar()
-                    else:
-                        if agendamento.alarme.alarmeLigado == True:
-                            agendamento.alarme.desligarAlarme()
-                        agendamento.desativar()
+                if agendamento.ativo == 1:
+                    #data e hora para ligar
+                    dtLigar = datetime.strptime(str(agendamento.dataHoraInicial), "%Y-%m-%d %H:%M:%S")
+                    ligar = dtLigar.strftime("%Y%m%d%H%M%S")
+                    
+                    #data e hora para desligar
+                    dtDesligar = datetime.strptime(str(agendamento.dataHoraFinal), "%Y-%m-%d %H:%M:%S")
+                    desligar = dtDesligar.strftime("%Y%m%d%H%M%S")
+                    
+                    #print "Data atual: ", str(atual)
+                    #print "Data ligar: ", str(ligar)
+                    #print "Data desligar: ", str(desligar)
+                    
+                    if (atual == ligar) and (atual < desligar):
+                        if agendamento.alarme == None:
+                            if agendamento.rele.status == 0:
+                                agendamento.rele.ligar()    
+                        else:
+                            if agendamento.alarme.alarmeLigado == False:
+                                agendamento.alarme.ligarAlarme()
+                    elif (atual == desligar) and (atual > ligar):
+                        if agendamento.alarme == None:
+                            if agendamento.rele.status == 1:
+                                agendamento.rele.desligar()
+                            agendamento.desativar()
+                        else:
+                            if agendamento.alarme.alarmeLigado == True:
+                                agendamento.alarme.desligarAlarme()
+                            agendamento.desativar()
             time.sleep(0.2)
