@@ -81,8 +81,6 @@ class Agendamento(object):
             conBanco.close()
             return False
     
-    
-    
     #destrutor
     #def __done__(self):
         
