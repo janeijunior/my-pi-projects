@@ -226,6 +226,7 @@ def gravarAgendamento(root):
         global threadAgendamento
         global listaAgendamento
         
+        #passa a nova lista para a thread
         threadAgendamento.listaAgendamento = listaAgendamento
     else:
         con.send("Erro\n")
