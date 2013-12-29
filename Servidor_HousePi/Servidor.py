@@ -220,6 +220,7 @@ def gravarAgendamento(root):
     if agendamento.gravarRegistroBanco():
         con.send("Ok\n")
         
+        #carrega os novos agendamentos
         carregarListaAgendamento()
         
         global threadAgendamento
