@@ -233,15 +233,9 @@ def gravarAgendamento(root):
 
 #funcao que retorna os agendamentos do servidor para o aplicativo movel
 def enviarAgendamento():
-    root = Element("Agendamento")
-
-    conBanco = Funcoes.conectarBanco()
-    cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute("select * from Agendamento where Ativo = 1")
-
-    rows = cursor.fetchall()
-
-    for row in rows:
+    global listaAgendamento
+    
+    for agendamento in listaAgendamento:
         if int(row["EhAlarme"]) == 1:
             root.append(Element("Agendamento" + str(row["Id"]), Id=str(row["Id"]), Nome=str(row["Nome"]), 
                                 DataHoraInicial=str(row["DataHoraInicial"]), DataHoraFinal=str(row["DataHoraFinal"]),
