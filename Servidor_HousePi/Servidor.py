@@ -251,6 +251,7 @@ def enviarAgendamento():
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
 
+#funcao que remove o agendamento da lita e do banco de dados conforme solicitado
 def removerAgendamento(root):
     agendamento = Agendamento.Agendamento(codigo = int(root.find("Id").text), nome = "", dataHoraInicial = "", dataHoraFinal = "",
                                           alarme = None, rele = None, ativo = 0)        
@@ -266,6 +267,10 @@ def removerAgendamento(root):
         threadAgendamento.listaAgendamento = listaAgendamento
     else:
         con.send("Erro\n")
+
+#funcao para renomear os reles atraves da aba de configuracoes
+def renomearRele(root):
+    
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
