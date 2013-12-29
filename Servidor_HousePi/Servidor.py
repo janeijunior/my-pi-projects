@@ -137,6 +137,8 @@ def controlarRele(root):
         listaReles[int(numero)].ligar()
     else:
         listaReles[int(numero)].desligar()
+    
+    send("Ok\n")
         
 #le o sensor de temperatura e humidade e envia os resultados
 def enviarTemperaturaHumidade():    
