@@ -265,7 +265,7 @@ def removerAgendamento(root):
                 
                 #passa a nova lista de agendamentos para a thread
                 threadAgendamento.listaAgendamento = listaAgendamento
-                
+            
                 break
             else:
                 con.send("Erro\n")
