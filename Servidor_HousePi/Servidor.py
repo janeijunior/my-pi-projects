@@ -40,7 +40,7 @@ listaAgendamento = []
 arquivos = os.listdir(os.path.expanduser('/home/pi/HousePi/Musicas/'))
 
 for arquivo in arquivos:
-   print arquivo
+   print arquivo.encode('utf-8')
 
 listaReles = [];
 
