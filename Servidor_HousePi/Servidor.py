@@ -237,13 +237,13 @@ def enviarAgendamento():
     
     for agendamento in listaAgendamento:
         if agendamento.alarme == None:
-            root.append(Element("Agendamento" + str(row["Id"]), Id=str(row["Id"]), Nome=str(row["Nome"]), 
-                                DataHoraInicial=str(row["DataHoraInicial"]), DataHoraFinal=str(row["DataHoraFinal"]),
-                                EhAlarme=str(row["EhAlarme"]), IdRele=str(row["IdRele"]), NomeRele=str(listaReles[int(row["IdRele"])].nome)))   
+            root.append(Element("Agendamento" + str(agendamento.codigo), Id=str(agendamento.codigo), Nome=agendamento.nome, 
+                                DataHoraInicial=str(agendamento.dataHoraInicial)), DataHoraFinal=str(agendamento.dataHoraFinal)),
+                                EhAlarme=str(0), IdRele=str(agendamento.rele.id), NomeRele=listaReles[int(row["IdRele"])].nome))   
         else:
-            root.append(Element("Agendamento" + str(row["Id"]), Id=str(row["Id"]), Nome=str(row["Nome"]), 
-                                DataHoraInicial=str(row["DataHoraInicial"]), DataHoraFinal=str(row["DataHoraFinal"]),
-                                EhAlarme=str(row["EhAlarme"])))
+            root.append(Element("Agendamento" + str(agendamento.codigo), Id=str(agendamento.codigo), Nome=agendamento.nome, 
+                                DataHoraInicial=str(agendamento.dataHoraInicial)), DataHoraFinal=str(agendamento.dataHoraFinal)),
+                                EhAlarme=str(1)))
     
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
