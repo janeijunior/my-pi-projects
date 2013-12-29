@@ -250,17 +250,14 @@ def enviarAgendamento():
 
 #funcao que remove o agendamento da lita e do banco de dados conforme solicitado
 def removerAgendamento(root):
-    agendamento = Agendamento.Agendamento(codigo = int(root.find("Id").text), nome = "", dataHoraInicial = "", dataHoraFinal = "",
-                                          alarme = None, rele = None, ativo = 0)        
+    global threadAgendamento
+    global listaAgendamento
     
-    if agendamento.removerRegistroBanco():
+    if listaAgendamento[int(root.find("Id").text)].removerRegistroBanco():
         con.send("Ok\n")
         
         #atualiza a lista de agendamentos
         carregarListaAgendamento()
-        
-        global threadAgendamento
-        global listaAgendamento
         
         #passa a nova lista de agendamentos para a thread
         threadAgendamento.listaAgendamento = listaAgendamento
