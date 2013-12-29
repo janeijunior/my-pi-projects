@@ -233,6 +233,8 @@ def gravarAgendamento(root):
 
 #funcao que retorna os agendamentos do servidor para o aplicativo movel
 def enviarAgendamento():
+    root = Element("EnviarAgendamento")
+    
     global listaAgendamento
     
     for agendamento in listaAgendamento:
