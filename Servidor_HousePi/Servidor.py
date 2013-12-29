@@ -239,11 +239,11 @@ def enviarAgendamento():
         if agendamento.alarme == None:
             root.append(Element("Agendamento" + str(agendamento.codigo), Id=str(agendamento.codigo), Nome=agendamento.nome, 
                                 DataHoraInicial=str(agendamento.dataHoraInicial)), DataHoraFinal=str(agendamento.dataHoraFinal)),
-                                EhAlarme=str(0), IdRele=str(agendamento.rele.id), NomeRele=listaReles[int(row["IdRele"])].nome))   
+                                EhAlarme="0", IdRele=str(agendamento.rele.id), NomeRele=listaReles[int(row["IdRele"])].nome))   
         else:
             root.append(Element("Agendamento" + str(agendamento.codigo), Id=str(agendamento.codigo), Nome=agendamento.nome, 
                                 DataHoraInicial=str(agendamento.dataHoraInicial)), DataHoraFinal=str(agendamento.dataHoraFinal)),
-                                EhAlarme=str(1)))
+                                EhAlarme="1"))
     
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
