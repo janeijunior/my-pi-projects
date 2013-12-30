@@ -20,7 +20,7 @@ import Agendamento
 import ThreadAgendamento
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
-PORT = 5000  # Porta do Servidor
+PORT = 5001  # Porta do Servidor
 SIRENE = 10
 
 orig = (HOST, PORT)
@@ -353,17 +353,21 @@ def enviarConfiguracaoEmail():
     
     root = Element("EnviarAgendamento")
     
-    usuario = Element("Usuario").text = row["RemetenteEmail"]
-    senha = Element("Senha").text = row["SenhaEmail"]  
-    destinatario = Element("Destinatario").text = row["DestinatarioEmail"]
-    servidor = Element("Servidor").text = row["ServidorSMTP"]
-    porta = Element("Porta").text = str(row["PortaSMTP"])
+    dados = Element("Dados")
     
-    root.append(usuario)
-    root.append(senha)
-    root.append(destinatario)
-    root.append(servidor)
-    root.append(porta)
+    usuario = Element("Usuario")
+    senha = Element("Senha")  
+    destinatario = Element("Destinatario")
+    servidor = Element("Servidor")
+    porta = Element("Porta")
+    
+    dados.append(usuario)
+    dados.append(senha)
+    dados.append(destinatario)
+    dados.append(servidor)
+    dados.append(porta)
+    
+    root.append(dados)
     
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
