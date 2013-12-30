@@ -354,6 +354,8 @@ def conectado(con, cliente):
                 alterarUsuarioSenha(root)
             elif root.tag == "RenomearRele":
                 renomearRele(root)
+            elif root.tag == "AlterarConfiguracaoEmail":
+                alterarConfiguracaoEmail(root)
             #except:
             #    print "Erro"
             #    con.send("Erro\n")
