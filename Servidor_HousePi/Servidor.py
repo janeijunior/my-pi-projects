@@ -301,7 +301,7 @@ def alterarUsuarioSenha(root):
         con.send("Erro\n")
             
 #funcao para renomear os reles atraves da aba de configuracoes
-def renomearRele(root):
+def alterarConfiguracaoRele(root):
     try:
         global listaReles
         
