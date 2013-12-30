@@ -379,7 +379,7 @@ def enviarConfiguracaoAlarme():
         
 #funcao para gravar as novas configuracoes do alarme
 def alterarConfiguracaoAlarme(root):
-    print ""
+    print "Não implementado"
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
