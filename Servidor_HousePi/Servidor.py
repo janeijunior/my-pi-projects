@@ -325,7 +325,13 @@ def alterarConfiguracaoEmail(root):
         conBanco = Funcoes.conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
         
-        sql = "update Configuracao set Usuario = '{novoUsuario}', Senha = '{novaSenha}'".format(novoUsuario = usuario, novaSenha = senha)
+        sql = '''update Configuracao 
+                    set RemetenteEmail = '{novoUsuario}', 
+                        SenhaEmail = '{novaSenha}',
+                        DestinatarioEmail = '{novoDestinatario}',
+                        ServidorSMTP = '{novoServidor}',
+                        PortaSMTP = {novaPorta}'''.format(usuario = usuario, senha = senha, destinatario = destinatario,
+                                                      servidor = servidor, porta = porta)
         print sql
         
         cursor.execute(sql)
