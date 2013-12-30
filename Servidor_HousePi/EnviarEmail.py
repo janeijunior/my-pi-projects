@@ -11,7 +11,7 @@ import threading
 from email.MIMEText import MIMEText
 
 class EnviarEmail(threading.Thread):
-    def __init__(self, remetente, senha, destinatario, servidorSMTP, portaSMTP, nomeSensor):
+    def __init__(self, remetente, senha, destinatario, servidorSMTP, portaSMTP, nomeSensor, idSensor):
         threading.Thread.__init__(self)
         self.name = 'ThreadEnviaEmail' 
         
