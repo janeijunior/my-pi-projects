@@ -47,29 +47,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mostrar Senha" />
-
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/RelativeLayout1"
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/linearLayout1"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/linearLayout1"
+        android:gravity="bottom"
         android:orientation="vertical" >
 
         <Button
             android:id="@+id/btnSalvarConfGeral"
+            style="@style/ButtonText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:text="Salvar" 
-            android:background="@drawable/btn_blue" 
-            style="@style/ButtonText"/>
-
-    </RelativeLayout>
+            android:background="@drawable/btn_blue"
+            android:text="Salvar" />
+    </LinearLayout>
 
 </RelativeLayout>

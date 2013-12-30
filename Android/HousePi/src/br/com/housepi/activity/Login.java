@@ -60,19 +60,19 @@ public class Login extends Activity {
 				switch (msg.arg1) {
 				case ERRO_CONEXAO:
 					dialog.dismiss();  
-		              AlertDialog.Builder builder = new AlertDialog.Builder(context);  
-		              builder.setMessage(msgErro);  
-		              builder.setCancelable(false);  
-		              builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {  
-		                  @Override  
-		                  public void onClick(DialogInterface dialog, int which) {  
-		                      dialog.dismiss();  
-		                  }  
-		              });  
-		                
-		              AlertDialog alert = builder.create();  
-		              alert.show(); 
-		              break;
+					AlertDialog.Builder builder = new AlertDialog.Builder(context);  
+					builder.setMessage(msgErro);  
+					builder.setCancelable(false);  
+					builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {  
+	                @Override  
+	                public void onClick(DialogInterface dialog, int which) {  
+	                    dialog.dismiss();  
+	                	}  
+					});  
+	                
+					AlertDialog alert = builder.create();  
+					alert.show(); 
+					break;
 				}
 			}
 		};
