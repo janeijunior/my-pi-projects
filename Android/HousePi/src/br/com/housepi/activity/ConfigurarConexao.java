@@ -16,7 +16,7 @@ public class ConfigurarConexao extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.configurar_conexao);
+		setContentView(R.layout.configuracao_conexao);
 	
 		edtHost = (EditText) findViewById(R.id.edtHost);
 		edtPorta = (EditText) findViewById(R.id.edtPorta);
