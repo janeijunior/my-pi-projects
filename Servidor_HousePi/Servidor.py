@@ -363,6 +363,14 @@ def enviarConfiguracaoEmail():
     con.send(xmlstr)
     conBanco.close()
 
+#funcao para enviar as configuracoes atuais do alarme
+def enviarConfiguracaoAlarme():
+    print ""
+
+#funcao para gravar as novas configuracoes do alarme
+def alterarConfiguracaoAlarme(root):
+    print ""
+
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
     while True:
