@@ -28,7 +28,7 @@ class EnviarEmail(threading.Thread):
         
         assunto  = 'Alarme disparado!'
         
-        conteudo = '''       O alarme de sua residencia esta disparo.
+        conteudo = '''       O alarme de sua residencia esta disparado.
         -----------------------------------------------------------
         Sensor: {idSensor} - {nomeSensor}  
         Data e hora do dispado: {dataHora}
