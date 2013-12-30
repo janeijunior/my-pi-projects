@@ -386,7 +386,30 @@ def enviarConfiguracaoAlarme():
         
 #funcao para gravar as novas configuracoes do alarme
 def alterarConfiguracaoAlarme(root):
-    print "Não implementad"
+    try:
+        conBanco = Funcoes.conectarBanco()
+        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+        
+        sql = '''update Configuracao 
+                    set TempoDisparoAlarme = {tempo}, 
+                        UsarSireneAlarme = {usarSirene},
+                        EnviarEmailAlarme = {usarEmail}'''.format(tempo = int(root.find("TempoDisparo").text), usarSirene = int(root.find("UsarSirene").text), usarEmail = int(root.find("UsarEmail").text))
+        print sql
+        
+        cursor.execute(sql)
+        
+        sensores = root.find("Sensores")
+        
+        for child in sensores:
+            sql = '''update SensorAlarme set Nome = '{novoNome}', Ativo = {ativo} where Id = {idSensor}'''.format(novoNome = , ativo = , idSensor = )
+        
+        conBanco.commit()
+        conBanco.close()
+        con.send("Ok\n")
+    except:
+        conBanco.rollback()
+        conBanco.close()
+        con.send("Erro\n")
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
