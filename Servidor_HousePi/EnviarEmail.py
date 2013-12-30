@@ -21,6 +21,7 @@ class EnviarEmail(threading.Thread):
         self.servidorSMTP = servidorSMTP
         self.portaSMTP = portaSMTP
         self.nomeSensor = nomeSensor
+        self.idSensor = idSensor
     
     def run(self):
         form = cgi.FieldStorage()
@@ -32,7 +33,7 @@ class EnviarEmail(threading.Thread):
         Sensor: {idSensor} - {nomeSensor}  
         Data e hora do dispado: {dataHora}
         -----------------------------------------------------------
-        E-mail enviado automaticamento pelo sistema House Pi'''.format(nomeSensor = self.nomeSensor, dataHora =  datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+        E-mail enviado automaticamento pelo sistema House Pi'''.format(idSensor = int(self.id), nomeSensor = self.nomeSensor, dataHora =  datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         
         print 'Enviando e-mail\n'
         try:
