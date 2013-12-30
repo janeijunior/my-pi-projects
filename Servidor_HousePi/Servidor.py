@@ -352,24 +352,14 @@ def enviarConfiguracaoEmail():
     row = cursor.fetchone()
     
     root = Element("EnviarAgendamento")
-    
-    dados = Element("Dados")
-    
-    usuario = Element("Usuario")
-    senha = Element("Senha")  
-    destinatario = Element("Destinatario")
-    servidor = Element("Servidor")
-    porta = Element("Porta")
-    
-    dados.append(usuario)
-    dados.append(senha)
-    dados.append(destinatario)
-    dados.append(servidor)
-    dados.append(porta)
-    
+    dados = Element("Dados", Usuario = row["RemetenteEmail"], Senha = row["SenhaEmail"], Destinatario = row["DestinatarioEmail"],
+                             Servidor = ["ServidorSMTP"], Porta = ["PortaSMTP"])
     root.append(dados)
     
     xmlstr = ET.tostring(root) + "\n"   
+    
+    print xmlstr
+    
     con.send(xmlstr)
     conBanco.close()
 
