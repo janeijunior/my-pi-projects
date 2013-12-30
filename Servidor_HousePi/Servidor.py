@@ -377,7 +377,6 @@ def enviarConfiguracaoAlarme():
     con.send(xmlstr)
     conBanco.close()
         
-
 #funcao para gravar as novas configuracoes do alarme
 def alterarConfiguracaoAlarme(root):
     print ""
