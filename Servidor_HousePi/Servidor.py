@@ -402,6 +402,8 @@ def alterarConfiguracaoAlarme(root):
         
         for child in sensores:
             sql = '''update SensorAlarme set Nome = '{novoNome}', Ativo = {ativo} where Id = {idSensor}'''.format(novoNome = , ativo = , idSensor = )
+            print sql
+            cursor.execute(sql)
         
         conBanco.commit()
         conBanco.close()
