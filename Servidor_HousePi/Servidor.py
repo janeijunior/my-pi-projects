@@ -352,8 +352,11 @@ def enviarConfiguracaoEmail():
     row = cursor.fetchone()
     
     root = Element("EnviarAgendamento")
-    
-    
+    root.append(Element("Usuario").text = row["RemetenteEmail"])    
+    root.append(Element("Senha").text = row["SenhaEmail"])
+    root.append(Element("Destinatario").text = row["DestinatarioEmail"])
+    root.append(Element("Servidor").text = row["ServidorSMTP"])
+    root.append(Element("Porta").text = str(row["PortaSMTP"]))
     
     
     xmlstr = ET.tostring(root) + "\n"   
