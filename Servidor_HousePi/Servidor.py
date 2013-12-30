@@ -353,7 +353,7 @@ def enviarConfiguracaoEmail():
     
     root = Element("EnviarAgendamento")
     dados = Element("Dados", Usuario = str(row["RemetenteEmail"]), Senha = str(row["SenhaEmail"]), Destinatario = str(row["DestinatarioEmail"]),
-                             Servidor = str(["ServidorSMTP"]), Porta = str(["PortaSMTP"]))
+                             Servidor = str(row["ServidorSMTP"]), Porta = str(row["PortaSMTP"]))
     root.append(dados)
     
     xmlstr = ET.tostring(root) + "\n"   
