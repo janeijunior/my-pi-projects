@@ -395,7 +395,6 @@ def alterarConfiguracaoAlarme(root):
                         UsarSireneAlarme = {usarSirene},
                         EnviarEmailAlarme = {usarEmail}'''.format(tempo = int(root.find("TempoDisparo").text), usarSirene = int(root.find("UsarSirene").text), usarEmail = int(root.find("UsarEmail").text))
         print sql
-        
         cursor.execute(sql)
         
         sensores = root.find("Sensores")
