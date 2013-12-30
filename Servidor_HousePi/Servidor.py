@@ -452,7 +452,7 @@ def conectado(con, cliente):
                 elif root.tag == "AlterarUsuarioSenha":
                     alterarUsuarioSenha(root)
                 elif root.tag == "AlterarConfiguracaoRele":
-                    renomearRele(root)
+                    alterarConfiguracaoRele(root)
                 elif root.tag == "AlterarConfiguracaoEmail":
                     alterarConfiguracaoEmail(root)
                 elif root.tag == "EnviarConfiguracaoEmail":
