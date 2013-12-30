@@ -73,7 +73,7 @@ public class ConfiguracaoRele extends Fragment implements OnClickListener {
 				String mensagem = "";
 				
 				Document doc = new Document();
-				Element root = new Element("RenomearRele");
+				Element root = new Element("AlterarConfiguracaoRele");
 				
 				Element rele;
 				
