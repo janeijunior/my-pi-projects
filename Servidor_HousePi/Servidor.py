@@ -347,7 +347,7 @@ def alterarConfiguracaoEmail(root):
 def enviarConfiguracaoEmail():
     conBanco = Funcoes.conectarBanco()
     cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute("select * Configuracao")
+    cursor.execute("select * from Configuracao")
 
     row = cursor.fetchone()
     
