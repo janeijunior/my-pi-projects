@@ -100,7 +100,7 @@ class ThreadAlarme(threading.Thread):
                     if self.enviarEmail == 1:
                         email = EnviarEmail.EnviarEmail(remetente = self.remetente, senha = self.senha, 
                                                        destinatario = self.destinatario, servidorSMTP = self.servidorSMTP,
-                                                       portaSMTP = self.portaSMTP, nomeSensor = listaSensores[i].nome)
+                                                       portaSMTP = self.portaSMTP, nomeSensor = listaSensores[i].nome, idSensor = listaSensores[i].id)
                         email.start() 
                     
                     #aguarda o tempo configurado ate iniciar a proxima leitura
