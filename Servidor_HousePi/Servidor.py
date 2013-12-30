@@ -352,7 +352,10 @@ def enviarConfiguracaoEmail():
     row = cursor.fetchone()
     
     root = Element("EnviarAgendamento")
-    root.append(Element("Usuario").text = row["RemetenteEmail"])    
+    
+    usuario = Element("Usuario").text = row["RemetenteEmail"]
+    root.append(usuario)
+    
     root.append(Element("Senha").text = row["SenhaEmail"])
     root.append(Element("Destinatario").text = row["DestinatarioEmail"])
     root.append(Element("Servidor").text = row["ServidorSMTP"])
