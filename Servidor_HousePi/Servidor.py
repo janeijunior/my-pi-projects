@@ -312,6 +312,28 @@ def renomearRele(root):
         con.send("Ok\n")
     except:
         con.send("Erro\n")
+        
+#funcao que grava a nova configuracao de email
+def alterarConfiguracaoEmail(root):
+    try:
+        usuario = root.find("Usuario").text
+        senha = root.find("Senha").text
+        
+        conBanco = Funcoes.conectarBanco()
+        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+        
+        sql = "update Configuracao set Usuario = '{novoUsuario}', Senha = '{novaSenha}'".format(novoUsuario = usuario, novaSenha = senha)
+        print sql
+        
+        cursor.execute(sql)
+        conBanco.commit()
+        conBanco.close()
+        con.send("Ok\n")
+    except:
+        conBanco.rollback()
+        conBanco.close()
+        con.send("Erro\n")
+
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
