@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">House Pi</string>
+    <string name="action_settings">Configurações</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_configurar">Configurações</string>
+    <string name="title_activity_menu_principal">House Pi</string>
+    <string name="title_activity_controle_reles">Controle dos Relês</string>
+    <string name="title_activity_controle_alarme">Controle do Alarme</string>
+    <string name="title_activity_controle_agendamento">Agendamentos</string>
+    <string name="title_activity_visualizacao_camera">Câmera de Segurança</string>
+    <string name="title_activity_controle_som_ambiente">Som Ambiente</string>
+    <string name="title_activity_configuracao_geral">Configurações</string>
+    <string name="drawer_open">Abrir Menu</string>
+    <string name="drawer_close">Fechar Menu</string>
+    <string name="title_activity_temperatura_humidade">TemperaturaHumidade</string>
+    <string name="title_section1">GERAL</string>
+    <string name="title_section2">RELÊS</string>
+    <string name="title_section3">ALARME</string>
+    <string name="title_section4">E-MAIL</string>
+    <string name="title_activity_configuracao">Configuracões</string>
+    <string name="title_activity_configuracao_alarme">Configuração do Alarme</string>
+    <string name="title_activity_configuracao_email">Configuração do E-mail</string>
+    <string name="title_activity_configuracao_rele">Configuração dos Relês</string>
+    <string name="titulo_spinner_alarme_rele">Selecione uma opção</string>
+    
+    <style name="ButtonText">
+	    <item name="android:layout_width">fill_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textColor">#ffffff</item>
+	    <item name="android:gravity">center</item>
+	    <item name="android:layout_margin">3dp</item>
+	    <item name="android:textSize">14dp</item>
+	    <item name="android:shadowColor">#000000</item>
+	    <item name="android:shadowDx">1</item>
+	    <item name="android:shadowDy">1</item>
+	    <item name="android:shadowRadius">2</item>
+	</style>
+</resources>
