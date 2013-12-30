@@ -380,7 +380,6 @@ def enviarConfiguracaoAlarme():
          sensores.append(Element("Sensor" + str(row["Id"]), Nome=str(row["Nome"]), Ativo=str(row["Ativo"])))
     
     root.append(sensores)
-    
     xmlstr = ET.tostring(root) + "\n"       
     con.send(xmlstr)
     conBanco.close()
