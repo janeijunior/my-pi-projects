@@ -330,8 +330,8 @@ def alterarConfiguracaoEmail(root):
                         SenhaEmail = '{novaSenha}',
                         DestinatarioEmail = '{novoDestinatario}',
                         ServidorSMTP = '{novoServidor}',
-                        PortaSMTP = {novaPorta}'''.format(usuario = usuario, senha = senha, destinatario = destinatario,
-                                                      servidor = servidor, porta = porta)
+                        PortaSMTP = {novaPorta}'''.format(novoUsuario = usuario, novaSenha = senha, 
+                                                          novoDestinatario = destinatario, novoServidor = servidor, novaPorta = porta)
         print sql
         
         cursor.execute(sql)
