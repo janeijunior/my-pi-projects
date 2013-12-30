@@ -364,14 +364,20 @@ def enviarConfiguracaoEmail():
 def enviarConfiguracaoAlarme():
     conBanco = Funcoes.conectarBanco()
     cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute("select Id, Nome, Ativo from SensorAlarme")
-
-    rows = cursor.fetchall()
-
+    
     root = Element("EnviarConfiguracaoAlarme")
 
+    
+
+    cursor.execute("select Id, Nome, Ativo from SensorAlarme")
+    rows = cursor.fetchall()
+    
+    sensores = Element("Sensores")
+    
     for row in rows:
-         root.append(Element("Sensor" + str(row["Id"]), Nome=str(row["Nome"]), Ativo=str(row["Ativo"])))
+         sensores.append(Element("Sensor" + str(row["Id"]), Nome=str(row["Nome"]), Ativo=str(row["Ativo"])))
+    
+    root.append(sensores)
     
     xmlstr = ET.tostring(root) + "\n"       
     con.send(xmlstr)
@@ -379,7 +385,7 @@ def enviarConfiguracaoAlarme():
         
 #funcao para gravar as novas configuracoes do alarme
 def alterarConfiguracaoAlarme(root):
-    print "Não implementado"
+    print "Não implementad"
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
