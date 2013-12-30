@@ -354,12 +354,16 @@ def enviarConfiguracaoEmail():
     root = Element("EnviarAgendamento")
     
     usuario = Element("Usuario").text = row["RemetenteEmail"]
-    root.append(usuario)
+    senha = Element("Senha").text = row["SenhaEmail"]  
+    destinatario = Element("Destinatario").text = row["DestinatarioEmail"]
+    servidor = Element("Servidor").text = row["ServidorSMTP"]
+    porta = Element("Porta").text = str(row["PortaSMTP"])
     
-    root.append(Element("Senha").text = row["SenhaEmail"])
-    root.append(Element("Destinatario").text = row["DestinatarioEmail"])
-    root.append(Element("Servidor").text = row["ServidorSMTP"])
-    root.append(Element("Porta").text = str(row["PortaSMTP"]))
+    root.append(usuario)
+    root.append(senha)
+    root.append(destinatario)
+    root.append(servidor)
+    root.append(porta)
     
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
