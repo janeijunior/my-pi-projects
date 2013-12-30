@@ -401,7 +401,7 @@ def alterarConfiguracaoAlarme(root):
         sensores = root.find("Sensores")
         
         for child in sensores:
-            sql = '''update SensorAlarme set Nome = '{novoNome}', Ativo = {ativo} where Id = {idSensor}'''.format(novoNome = child.get("Nome"), ativo = int(child.get("Ativo")), idSensor = int(child.get("Id"))
+            sql = '''update SensorAlarme set Nome = '{novoNome}', Ativo = {ativo} where Id = {idSensor}'''.format(novoNome = child.get("Nome"), ativo = int(child.get("Ativo")), idSensor = int(child.get("Id")))
             print sql
             cursor.execute(sql)
         
