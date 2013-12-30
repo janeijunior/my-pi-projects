@@ -367,7 +367,9 @@ def enviarConfiguracaoAlarme():
     
     root = Element("EnviarConfiguracaoAlarme")
 
+    cursor.execute("select EnviarEmailAlarme, UsarSireneAlarme, TempoDisparoAlarme from Configuracao")
     
+    root.append(Element("Geral", TempoDisparo=str(row["TempoDisparoAlarme"]), UsarSirene=str(row["UsarSireneAlarme"]), UsarEmail=str(row["EnviarEmailAlarme"])))
 
     cursor.execute("select Id, Nome, Ativo from SensorAlarme")
     rows = cursor.fetchall()
