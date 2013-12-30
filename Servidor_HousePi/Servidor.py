@@ -358,7 +358,6 @@ def enviarConfiguracaoEmail():
     root.append(Element("Servidor").text = row["ServidorSMTP"])
     root.append(Element("Porta").text = str(row["PortaSMTP"]))
     
-    
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
     conBanco.close()
