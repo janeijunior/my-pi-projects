@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
 public class ConfiguracaoAlarme extends Fragment {
 	
@@ -14,11 +13,9 @@ public class ConfiguracaoAlarme extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		
-		if (container == null) {
-			return null;
-		}
+		View rootView = inflater.inflate(R.layout.configuracao_alarme, container, false);
 
-		return (RelativeLayout) inflater.inflate(R.layout.configuracao_alarme, container, false);
+		return rootView;
 	}
 
 }
