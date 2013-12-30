@@ -356,10 +356,7 @@ def enviarConfiguracaoEmail():
                              Servidor = str(row["ServidorSMTP"]), Porta = str(row["PortaSMTP"]))
     root.append(dados)
     
-    xmlstr = ET.tostring(root) + "\n"   
-    
-    print xmlstr
-    
+    xmlstr = ET.tostring(root) + "\n"       
     con.send(xmlstr)
     conBanco.close()
 
@@ -371,7 +368,12 @@ def enviarConfiguracaoAlarme():
 
     rows = cursor.fetchall()
 
+    root = Element("EnviarConfiguracaoAlarme")
+
     for row in rows:
+         root.append(Element("Sensor" + str(row["Id"]), Nome=str(row["Nome"]), Ativo=str(row["Ativo"])))
+    
+    
         
 
 #funcao para gravar as novas configuracoes do alarme
