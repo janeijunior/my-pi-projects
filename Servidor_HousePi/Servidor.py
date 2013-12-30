@@ -408,6 +408,10 @@ def conectado(con, cliente):
                 alterarConfiguracaoEmail(root)
             elif root.tag == "EnviarConfiguracaoEmail":
                 enviarConfiguracaoEmail()
+            elif root.tag == "EnviarConfiguracaoAlarme":
+                enviarConfiguracaoAlarme()
+            elif root.tag == "AlterarConfiguracaoAlarme":
+                alterarConfiguracaoAlarme(root)
             #except:
             #    print "Erro"
             #    con.send("Erro\n")
