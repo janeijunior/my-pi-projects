@@ -345,8 +345,20 @@ def alterarConfiguracaoEmail(root):
 
 #envia a configuracao atual de email para o solicitante
 def enviarConfiguracaoEmail():
-    print "teste"
+    conBanco = Funcoes.conectarBanco()
+    cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute("select * Configuracao")
 
+    row = cursor.fetchone()
+    
+    root = Element("EnviarAgendamento")
+    
+    
+    
+    
+    xmlstr = ET.tostring(root) + "\n"   
+    con.send(xmlstr)
+    conBanco.close()
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
