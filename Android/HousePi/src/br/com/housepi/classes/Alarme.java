@@ -3,9 +3,6 @@ package br.com.housepi.classes;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-import java.util.Iterator;
-import java.util.List;
-
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -128,19 +125,10 @@ public class Alarme {
 
 			Element retorno = (Element) doc.getRootElement();
 			
-			@SuppressWarnings("rawtypes")
-			List elements = retorno.getChildren();
-			@SuppressWarnings("rawtypes")
-			Iterator j = elements.iterator();
-
-			Element element;
-			
-			element = (Element) j.next();
-			this.setAlarmeLigado(element.getAttribute("Ligado").getIntValue() == 1);
+			this.setAlarmeLigado(retorno.getChild("SensorAlarme").getAttribute("Ligado").getIntValue() == 1);
 			this.getBtnAlarme().setChecked(this.getAlarmeLigado());
 			
-			element = (Element) j.next();
-			this.setPanicoLigado(element.getAttribute("Ligado").getIntValue() == 1);
+			this.setPanicoLigado(retorno.getChild("PanicoAlarme").getAttribute("Ligado").getIntValue() == 1);
 			this.getBtnPanico().setChecked(this.getPanicoLigado());
 			
 		} catch (Exception e) {

@@ -1,8 +1,10 @@
 package br.com.housepi.activity;
 
+import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 
+import org.jdom2.Attribute;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -11,6 +13,7 @@ import org.jdom2.output.XMLOutputter;
 
 import br.com.housepi.R;
 import br.com.housepi.classes.Conexao;
+import br.com.housepi.classes.Funcoes;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -78,10 +81,96 @@ public class ConfiguracaoAlarme extends Fragment implements OnClickListener {
 		return rootView;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onClick(View v) {
 		if (v == btnSalvar) {
-			
+			if (edtTempoDisparo.getText().toString().trim().equals("")) {
+				Funcoes.exibirDialogoInformacao("Atenção", "Informe o tempo de disparo do alarme.", this.getActivity());
+			} else if (edtNomeSensor0.getText().toString().trim().equals("") || edtNomeSensor1.getText().toString().trim().equals("") ||
+					   edtNomeSensor2.getText().toString().trim().equals("") || edtNomeSensor3.getText().toString().trim().equals("") ||
+				       edtNomeSensor4.getText().toString().trim().equals("") || edtNomeSensor5.getText().toString().trim().equals("") ||
+					   edtNomeSensor6.getText().toString().trim().equals("") || edtNomeSensor7.getText().toString().trim().equals("")) {
+				Funcoes.exibirDialogoInformacao("Atenção", "Informe o nome de todos os sensores antes de salvar.", this.getActivity());
+			} else {
+				String mensagem = "";
+				
+				Document doc = new Document();
+				Element root = new Element("AlterarConfiguracaoAlarme");
+				         
+				root.addContent(new Element("TempoDisparo").setText(edtTempoDisparo.getText().toString()));
+				root.addContent(new Element("UsarEmail").setText(cbxUsarEmail.isChecked()?"1":"0"));
+				root.addContent(new Element("UsarSirene").setText(cbxUsarSirene.isChecked()?"1":"0"));
+				
+				Element sensor;
+				Element sensores = new Element("Sensores");
+				
+				sensor = new Element("Sensor");
+				sensor.setAttribute(new Attribute("Id", "0"));
+				sensor.setAttribute(new Attribute("Nome", edtNomeSensor0.getText().toString()));
+				sensor.setAttribute(new Attribute("Ativo", cbxSensor0.isChecked()?"1":"0"));
+				sensores.addContent(sensor);
+				
+				sensor = new Element("Sensor");
+				sensor.setAttribute(new Attribute("Id", "1"));
+				sensor.setAttribute(new Attribute("Nome", edtNomeSensor1.getText().toString()));
+				sensor.setAttribute(new Attribute("Ativo", cbxSensor1.isChecked()?"1":"0"));
+				sensores.addContent(sensor);
+				
+				sensor = new Element("Sensor");
+				sensor.setAttribute(new Attribute("Id", "2"));
+				sensor.setAttribute(new Attribute("Nome", edtNomeSensor2.getText().toString()));
+				sensor.setAttribute(new Attribute("Ativo", cbxSensor2.isChecked()?"1":"0"));
+				sensores.addContent(sensor);
+				
+				sensor = new Element("Sensor");
+				sensor.setAttribute(new Attribute("Id", "3"));
+				sensor.setAttribute(new Attribute("Nome", edtNomeSensor3.getText().toString()));
+				sensor.setAttribute(new Attribute("Ativo", cbxSensor3.isChecked()?"1":"0"));
+				sensores.addContent(sensor);
+				
+				sensor = new Element("Sensor");
+				sensor.setAttribute(new Attribute("Id", "4"));
+				sensor.setAttribute(new Attribute("Nome", edtNomeSensor4.getText().toString()));
+				sensor.setAttribute(new Attribute("Ativo", cbxSensor4.isChecked()?"1":"0"));
+				sensores.addContent(sensor);
+				
+				sensor = new Element("Sensor");
+				sensor.setAttribute(new Attribute("Id", "5"));
+				sensor.setAttribute(new Attribute("Nome", edtNomeSensor5.getText().toString()));
+				sensor.setAttribute(new Attribute("Ativo", cbxSensor5.isChecked()?"1":"0"));
+				sensores.addContent(sensor);
+				
+				sensor = new Element("Sensor");
+				sensor.setAttribute(new Attribute("Id", "6"));
+				sensor.setAttribute(new Attribute("Nome", edtNomeSensor6.getText().toString()));
+				sensor.setAttribute(new Attribute("Ativo", cbxSensor6.isChecked()?"1":"0"));
+				sensores.addContent(sensor);
+				
+				sensor = new Element("Sensor");
+				sensor.setAttribute(new Attribute("Id", "7"));
+				sensor.setAttribute(new Attribute("Nome", edtNomeSensor7.getText().toString()));
+				sensor.setAttribute(new Attribute("Ativo", cbxSensor7.isChecked()?"1":"0"));
+				sensores.addContent(sensor);
+				
+				root.addContent(sensores);
+				doc.setRootElement(root);
+				
+				mensagem = new XMLOutputter().outputString(doc);				
+				Conexao.getConexaoAtual().enviarMensagem(mensagem);
+				
+				try {
+					mensagem = Conexao.getConexaoAtual().getIn().readLine();
+					
+					if (mensagem.equals("Ok")) {
+						Funcoes.msgToastDadosGravados(this.getActivity());
+					} else {
+						Funcoes.msgToastErroGravar(this.getActivity());
+					}
+				} catch (IOException e) {
+					Funcoes.msgToastErroGravar(this.getActivity());
+				}
+			}
 		}		
 	}
 	
