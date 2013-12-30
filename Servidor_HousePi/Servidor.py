@@ -365,7 +365,14 @@ def enviarConfiguracaoEmail():
 
 #funcao para enviar as configuracoes atuais do alarme
 def enviarConfiguracaoAlarme():
-    print ""
+    conBanco = Funcoes.conectarBanco()
+    cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute("select Id, Nome, Ativo from SensorAlarme")
+
+    rows = cursor.fetchall()
+
+    for row in rows:
+        
 
 #funcao para gravar as novas configuracoes do alarme
 def alterarConfiguracaoAlarme(root):
