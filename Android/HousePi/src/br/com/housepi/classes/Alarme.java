@@ -144,7 +144,7 @@ public class Alarme {
 			this.getBtnPanico().setChecked(this.getPanicoLigado());
 			
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 	}
 

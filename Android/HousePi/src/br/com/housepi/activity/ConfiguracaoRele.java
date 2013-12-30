@@ -68,7 +68,7 @@ public class ConfiguracaoRele extends Fragment implements OnClickListener {
 				edtNomeRele4.getText().toString().trim().equals("") || edtNomeRele5.getText().toString().trim().equals("") ||
 				edtNomeRele6.getText().toString().trim().equals("") || edtNomeRele7.getText().toString().trim().equals("") ||
 				edtNomeRele8.getText().toString().trim().equals("") || edtNomeRele9.getText().toString().trim().equals("")) {
-				Funcoes.exibirDialogoInformacao("Atenção", "Preencha todos os campos antes de continuar.", this.getActivity());
+				Funcoes.exibirDialogoInformacao("Atenção", "Preencha todos os campos antes de salvar.", this.getActivity());
 			} else {
 				String mensagem = "";
 				
