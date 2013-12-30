@@ -318,7 +318,10 @@ def alterarConfiguracaoEmail(root):
     try:
         usuario = root.find("Usuario").text
         senha = root.find("Senha").text
-        
+        destinatario = root.find("Destinatario").text
+        servidor = root.find("Servidor").text
+        porta = root.find("Porta").text
+                
         conBanco = Funcoes.conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
         
@@ -333,6 +336,10 @@ def alterarConfiguracaoEmail(root):
         conBanco.rollback()
         conBanco.close()
         con.send("Erro\n")
+
+#envia a configuracao atual de email para o solicitante
+def enviarConfiguracaoEmail():
+    print "teste"
 
 
 #cliente conectado, verifica os comandos recebidos
