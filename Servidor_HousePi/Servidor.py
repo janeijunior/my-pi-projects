@@ -364,12 +364,11 @@ def enviarConfiguracaoEmail():
 def enviarConfiguracaoAlarme():
     conBanco = Funcoes.conectarBanco()
     cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-    
-    root = Element("EnviarConfiguracaoAlarme")
-
+        
     cursor.execute("select EnviarEmailAlarme, UsarSireneAlarme, TempoDisparoAlarme from Configuracao")
     row = cursor.fetchone()
-    
+
+    root = Element("EnviarConfiguracaoAlarme")
     root.append(Element("Geral", TempoDisparo=str(row["TempoDisparoAlarme"]), UsarSirene=str(row["UsarSireneAlarme"]), UsarEmail=str(row["EnviarEmailAlarme"])))
 
     cursor.execute("select Id, Nome, Ativo from SensorAlarme")
