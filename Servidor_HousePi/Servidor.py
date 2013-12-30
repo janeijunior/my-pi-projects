@@ -351,7 +351,7 @@ def enviarConfiguracaoEmail():
 
     row = cursor.fetchone()
     
-    root = Element("EnviarAgendamento")
+    root = Element("EnviarConfiguracaoEmail")
     dados = Element("Dados", Usuario = str(row["RemetenteEmail"]), Senha = str(row["SenhaEmail"]), Destinatario = str(row["DestinatarioEmail"]),
                              Servidor = str(row["ServidorSMTP"]), Porta = str(row["PortaSMTP"]))
     root.append(dados)
