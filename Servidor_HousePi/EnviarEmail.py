@@ -31,7 +31,7 @@ class EnviarEmail(threading.Thread):
         conteudo = '''       O alarme de sua residencia esta disparado.
         -----------------------------------------------------------
         Sensor: {idSensor} - {nomeSensor}  
-        Data e hora do dispado: {dataHora}
+        Data e hora do disparo: {dataHora}
         -----------------------------------------------------------
         E-mail enviado automaticamento pelo sistema House Pi'''.format(idSensor = int(self.idSensor), nomeSensor = self.nomeSensor, dataHora =  datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         
