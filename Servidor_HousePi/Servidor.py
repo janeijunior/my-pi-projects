@@ -425,45 +425,45 @@ def conectado(con, cliente):
                   
         
         if len(comando) > 0:
-            #try:
+            try:
                 #root = XML recebido/elemento principal
-            root = ET.fromstring(comando)
-        
-            if root.tag == "Logar":
-                efetuarLogin(root = root)
-            elif root.tag == "Rele":
-                controlarRele(root)
-            elif root.tag == "Temperatura":
-                enviarTemperaturaHumidade()
-            elif root.tag == "Alarme":
-                controlarAlarme(root)
-            elif root.tag == "Panico":
-                controlarFuncaoPanico(root)           
-            elif root.tag == "StatusRele":
-                enviarConfiguracaoStatusRele()
-            elif root.tag == "StatusAlarme":
-                enviarConfiguracaoStatusAlarme()   
-            elif root.tag == "GravarAgendamento":
-                gravarAgendamento(root)
-            elif root.tag == "EnviarAgendamento":
-                enviarAgendamento()
-            elif root.tag == "RemoverAgendamento":
-                removerAgendamento(root)
-            elif root.tag == "AlterarUsuarioSenha":
-                alterarUsuarioSenha(root)
-            elif root.tag == "AlterarConfiguracaoRele":
-                renomearRele(root)
-            elif root.tag == "AlterarConfiguracaoEmail":
-                alterarConfiguracaoEmail(root)
-            elif root.tag == "EnviarConfiguracaoEmail":
-                enviarConfiguracaoEmail()
-            elif root.tag == "EnviarConfiguracaoAlarme":
-                enviarConfiguracaoAlarme()
-            elif root.tag == "AlterarConfiguracaoAlarme":
-                alterarConfiguracaoAlarme(root)
-            #except:
-            #    print "Erro"
-            #    con.send("Erro\n")
+                root = ET.fromstring(comando)
+            
+                if root.tag == "Logar":
+                    efetuarLogin(root = root)
+                elif root.tag == "Rele":
+                    controlarRele(root)
+                elif root.tag == "Temperatura":
+                    enviarTemperaturaHumidade()
+                elif root.tag == "Alarme":
+                    controlarAlarme(root)
+                elif root.tag == "Panico":
+                    controlarFuncaoPanico(root)           
+                elif root.tag == "StatusRele":
+                    enviarConfiguracaoStatusRele()
+                elif root.tag == "StatusAlarme":
+                    enviarConfiguracaoStatusAlarme()   
+                elif root.tag == "GravarAgendamento":
+                    gravarAgendamento(root)
+                elif root.tag == "EnviarAgendamento":
+                    enviarAgendamento()
+                elif root.tag == "RemoverAgendamento":
+                    removerAgendamento(root)
+                elif root.tag == "AlterarUsuarioSenha":
+                    alterarUsuarioSenha(root)
+                elif root.tag == "AlterarConfiguracaoRele":
+                    renomearRele(root)
+                elif root.tag == "AlterarConfiguracaoEmail":
+                    alterarConfiguracaoEmail(root)
+                elif root.tag == "EnviarConfiguracaoEmail":
+                    enviarConfiguracaoEmail()
+                elif root.tag == "EnviarConfiguracaoAlarme":
+                    enviarConfiguracaoAlarme()
+                elif root.tag == "AlterarConfiguracaoAlarme":
+                    alterarConfiguracaoAlarme(root)
+            except:
+                print "Erro"
+                con.send("Erro\n")
                 
     print 'Finalizando conexao do cliente', cliente
     con.close()
