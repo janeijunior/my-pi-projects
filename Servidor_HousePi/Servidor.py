@@ -447,9 +447,9 @@ def controlarSomAmbiente(root):
     elif comando == "Stop":
         executarComandoMPlayer("stop", "")
     elif comando == "Anterior":
-        executarComandoMPlayer("pt_step " + valor + " 1", "")
+        executarComandoMPlayer("pt_step " + valor, "")
     elif comando == "Proxima":
-        executarComandoMPlayer("pt_step " + valor + " 1", "")
+        executarComandoMPlayer("pt_step " + valor, "")
     elif comando == "Volume":
        executarComandoMPlayer("set_property volume " + valor, "")
     elif comando == "EnviarNomeArquivo":
