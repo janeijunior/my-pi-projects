@@ -36,12 +36,7 @@ alarme = None
 threadAgendamento = None
 listaAgendamento = []
 
-#Le os arquivos da pasta passada como parametro
-arquivos = os.listdir(os.path.expanduser('/home/pi/HousePi/Musicas/'))
-
-for arquivo in arquivos:
-   print arquivo
-
+#lista dos reles
 listaReles = [];
 
 #Configura todos os pinos necessarios para o envio de comandos 
@@ -412,6 +407,22 @@ def alterarConfiguracaoAlarme(root):
         conBanco.close()
         con.send("Erro\n")
 
+#envia a lista de musicas de uma pasta pre determinada
+def enviarListaMusica():
+#Le os arquivos da pasta passada como parametro
+    arquivos = os.listdir(os.path.expanduser('/home/pi/HousePi/Musicas/'))
+
+    root = Element("EnviarListaMusica")
+    
+    i = 1
+    for arquivo in arquivos:
+        root.append(Element(str(i), Nome=str(arquivo)))
+        i++
+    
+    xmlstr = ET.tostring(root) + "\n"       
+    con.send(xmlstr)
+    conBanco.close()
+
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
     while True:
@@ -461,6 +472,8 @@ def conectado(con, cliente):
                     enviarConfiguracaoAlarme()
                 elif root.tag == "AlterarConfiguracaoAlarme":
                     alterarConfiguracaoAlarme(root)
+                elif root.tag == "enviarListaMusica":
+                    enviarListaMusica()
             except:
                 print "Erro"
                 con.send("Erro\n")
