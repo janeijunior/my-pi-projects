@@ -21,7 +21,7 @@ import ThreadAgendamento
 import subprocess
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
-PORT = 5001  # Porta do Servidor
+PORT = 5000  # Porta do Servidor
 SIRENE = 10
 
 orig = (HOST, PORT)
@@ -39,6 +39,8 @@ listaAgendamento = []
 
 #lista dos reles
 listaReles = [];
+
+p = None
 
 #Configura todos os pinos necessarios para o envio de comandos 
 def configurarReles():
@@ -428,6 +430,8 @@ def iniciarSomAmbiente():
 
 #controla o mplayer do linux
 def controlarSomAmbiente(root):
+    global p
+    
     comando = str(root.find("Comando").text)
     valor = str(root.find("Valor").text)
     pipe = '''echo "{comando_valor}" > /home/pi/HousePi/mplayer_control'''
@@ -441,8 +445,7 @@ def controlarSomAmbiente(root):
         cmd = ['mplayer', '-slave', '-quiet', song]
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
     elif comando == "Pause":
-        print perform_command(p, 'get_meta_artist', 'ANS_META_ARTIST')
-        print perform_command(p, 'get_time_pos', 'ANS_TIME_POSITION')
+        print perform_command(p, 'get_file_name', 'ANS_FILENAME')
         #executar = pipe.format(comando_valor = "pause")
     elif comando == "Stop":
         executar = pipe.format(comando_valor = "stop")
@@ -458,6 +461,7 @@ def controlarSomAmbiente(root):
     
 def perform_command(p, cmd, expect):
     import select
+    
     p.stdin.write(cmd + '\n') # there's no need for a \n at the beginning
     while select.select([p.stdout], [], [], 0.05)[0]: # give mplayer time to answer...
         output = p.stdout.readline()
