@@ -455,12 +455,12 @@ def controlarSomAmbiente(root):
         
     #'get_file_name', 'ANS_FILENAME'
     
-def executarComandoMPlayer(p, cmd, expect):
+def executarComandoMPlayer(cmd, retorno):
     p.stdin.write(cmd + '\n') 
     while select.select([p.stdout], [], [], 0.05)[0]: 
         output = p.stdout.readline()
         print("output: {}".format(output.rstrip()))
-        split_output = output.split(expect + '=', 1)
+        split_output = output.split(retorno + '=', 1)
         if len(split_output) == 2 and split_output[0] == '':
             value = split_output[1]
             return value.rstrip()
