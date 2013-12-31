@@ -427,13 +427,18 @@ def iniciarSomAmbiente():
 
 #controla o mplayer do linux
 def controlarSomAmbiente(root):
+    comando = str(root.find("Comando").text)
+    valor = str(root.find("Valor").text)
+
+    executar = ""
+
+    if comando == "Play":
+        if valor == "0":
+            executar = '''find /home/pi/HousePi/Musicas/  -name "*mp3" -o -name "*flac" -type f > ~/playlist
+                          mplayer -slave -input file=/home/pi/HousePi/mplayer_control -playlist ~/playlist </dev/null >/dev/null 2>&1 &'''          
     
-
-
-
-    comando = "mplayer /home/pi/HousePi/Musicas/{arquivo} </dev/null >/dev/null 2>&1 &".format(arquivo = root.text)
-    print comando
-    os.system(comando)
+    print executar
+    os.system(executar)
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
