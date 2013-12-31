@@ -48,7 +48,7 @@ public class ControleAgendamento extends Fragment implements OnClickListener {
 	private TextView lblDataHoraFinal;
 	private EditText edtNome;
 	private Integer identificador;
-	private ListView listaAgendamentos;
+	private ListView listView;
 	private Date dataHoraInicial;
 	private Date dataHoraFinal;
 	private static final ArrayList<HashMap<String,String>> listaVisualizacao = new ArrayList<HashMap<String,String>>(); 
@@ -79,7 +79,7 @@ public class ControleAgendamento extends Fragment implements OnClickListener {
 
 		edtNome = (EditText) rootView.findViewById(R.id.edtNomeAgendamento);
 		
-		listaAgendamentos = (ListView) rootView.findViewById(R.id.listaAgendamentos);
+		listView = (ListView) rootView.findViewById(R.id.listAgendamentos);
 
 		addItensSpinner(rootView);
 
@@ -91,8 +91,8 @@ public class ControleAgendamento extends Fragment implements OnClickListener {
         		new int[] {R.id.lvNome, R.id.lvLigar, R.id.lvDesligar, R.id.lvEquipamento}
         		);
 		
-        listaAgendamentos.setAdapter(adapter);
-		registerForContextMenu(listaAgendamentos);
+		listView.setAdapter(adapter);
+		registerForContextMenu(listView);
         
         carregarAgendamentos(true);
         
@@ -164,7 +164,7 @@ public class ControleAgendamento extends Fragment implements OnClickListener {
 					edtNome.getText().clear();
 					lblDataHoraInicial.setText("Data e Hora");
 					lblDataHoraFinal.setText("Data e Hora");
-					listaAgendamentos.setSelection(0);
+					listView.setSelection(0);
 				} else {
 					Toast.makeText(this.getActivity(), "Não foi possível inserir o agendamento.", Toast.LENGTH_LONG).show();
 				}
@@ -212,7 +212,7 @@ public class ControleAgendamento extends Fragment implements OnClickListener {
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 	    ContextMenuInfo menuInfo) {
-	  if (v.getId()==R.id.listaAgendamentos) {
+	  if (v.getId()==R.id.listAgendamentos) {
 	    //AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
 	    menu.setHeaderTitle("O que deseja fazer?");
 	    

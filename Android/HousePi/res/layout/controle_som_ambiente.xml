@@ -9,9 +9,24 @@
     android:configChanges="orientation"
     tools:context=".ControleSomAmbiente" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Não Implementado!" />
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@+id/listMusica"
+                android:layout_width="fill_parent"
+                android:layout_height="431dp" >
+
+            </ListView>
+
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
