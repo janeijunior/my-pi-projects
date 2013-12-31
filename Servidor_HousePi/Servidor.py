@@ -432,7 +432,7 @@ def iniciarSomAmbiente():
 
 #controla o mplayer do linux
 def controlarSomAmbiente(root):
-    global p
+    global controleMPlayer
     
     comando = str(root.find("Comando").text)
     valor = str(root.find("Valor").text)
@@ -445,9 +445,9 @@ def controlarSomAmbiente(root):
         #              mplayer -slave -input file=/home/pi/HousePi/mplayer_control -playlist ~/playlist </dev/null >/dev/null 2>&1 &'''         
         song = '/home/pi/HousePi/Musicas/Detonautas.mp3'
         cmd = ['mplayer', '-slave', '-quiet', song]
-        p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+        controleMPlayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
     elif comando == "Pause":
-        print perform_command(p, 'get_file_name', 'ANS_FILENAME')
+        print perform_command(controleMPlayer, 'get_file_name', 'ANS_FILENAME')
         #executar = pipe.format(comando_valor = "pause")
     elif comando == "Stop":
         executar = pipe.format(comando_valor = "stop")
