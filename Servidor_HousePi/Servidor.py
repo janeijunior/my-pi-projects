@@ -20,7 +20,7 @@ import Agendamento
 import ThreadAgendamento
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
-PORT = 5000  # Porta do Servidor
+PORT = 5001  # Porta do Servidor
 SIRENE = 10
 
 orig = (HOST, PORT)
@@ -436,7 +436,7 @@ def controlarSomAmbiente(root):
     if comando == "Play":
         if valor == "0":
             executar = '''find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -type f > ~/playlist
-                          mplayer -slave -input file=/home/pi/HousePi/mplayer_control -volume {volumeEx} -playlist ~/playlist </dev/null >/dev/null 2>&1 &'''.format(volumeEx = root.get("Volume"))          
+                          mplayer -slave -input file=/home/pi/HousePi/mplayer_control -playlist ~/playlist </dev/null >/dev/null 2>&1 &'''         
     elif comando == "Pause":
         executar = pipe.format(comando_valor = "pause")
     elif comando == "Stop":
