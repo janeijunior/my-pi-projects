@@ -447,11 +447,11 @@ def controlarSomAmbiente(root):
     elif comando == "Stop":
         executarComandoMPlayer("stop", "")
     elif comando == "Anterior":
-        executarComandoMPlayer"pt_step " + valor, "")
+        executarComandoMPlayer("pt_step " + valor, "")
     elif comando == "Proxima":
-        executarComandoMPlayer"pt_step " + valor, "")
+        executarComandoMPlayer("pt_step " + valor, "")
     elif comando == "Volume":
-       executarComandoMPlayer"set_property volume " + valor, "")
+       executarComandoMPlayer("set_property volume " + valor, "")
         
     #'get_file_name', 'ANS_FILENAME'
     
