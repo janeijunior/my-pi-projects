@@ -458,9 +458,9 @@ def controlarSomAmbiente(root):
 def executarComandoMPlayer(cmd, retorno):
     global mplayer
     
-    p.stdin.write(cmd + '\n') 
-    while select.select([p.stdout], [], [], 0.05)[0]: 
-        output = p.stdout.readline()
+    mplayer.stdin.write(cmd + '\n') 
+    while select.select([mplayer.stdout], [], [], 0.05)[0]: 
+        output = mplayer.stdout.readline()
         print("output: {}".format(output.rstrip()))
         split_output = output.split(retorno + '=', 1)
         if len(split_output) == 2 and split_output[0] == '':
