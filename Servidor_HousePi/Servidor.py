@@ -437,6 +437,14 @@ def controlarSomAmbiente(root):
         if valor == "0":
             executar = '''find /home/pi/HousePi/Musicas/  -name "*mp3" -o -name "*flac" -type f > ~/playlist
                           mplayer -slave -input file=/home/pi/HousePi/mplayer_control -playlist ~/playlist </dev/null >/dev/null 2>&1 &'''          
+    elif comando == "Pause":
+        executar = pipe.format(comando_valor = "pause")
+    elif comando == "Stop":
+        executar = pipe.format(comando_valor = "stop")
+    elif comando == "Anterior":
+        executar = pipe.format(comando_valor = "pt_step " + valor)
+    elif comando == "Proxima":
+        executar = pipe.format(comando_valor = "pt_step " + valor)
     elif comando == "Volume":
         executar = pipe.format(comando_valor = "set_property volume " + valor)
     
