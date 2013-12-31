@@ -413,11 +413,9 @@ def enviarListaMusica():
     arquivos = os.listdir(os.path.expanduser('/home/pi/HousePi/Musicas/'))
 
     root = Element("EnviarListaMusica")
-    
-    i = 1
+
     for arquivo in arquivos:
-        root.append(Element(str(i), Nome=str(arquivo)))
-        i = i + 1
+        root.append(Element("Musicas", Nome=str(arquivo)))
     
     xmlstr = ET.tostring(root) + "\n"  
     con.send(xmlstr)
