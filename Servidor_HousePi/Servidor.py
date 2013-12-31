@@ -420,6 +420,7 @@ def enviarListaMusica():
     xmlstr = ET.tostring(root) + "\n"  
     con.send(xmlstr)
 
+#remove e cria um novo arquivo de pipe para controle do mplayer
 def iniciarSomAmbiente():
     os.system("rm /home/pi/HousePi/mplayer_control")
     os.system("mkfifo /home/pi/HousePi/mplayer_control")
