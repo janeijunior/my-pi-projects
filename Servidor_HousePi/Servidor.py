@@ -437,8 +437,8 @@ def controlarSomAmbiente(root):
     if comando == "Play":
         #executar = '''find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -type f > ~/playlist
         #              mplayer -slave -input file=/home/pi/HousePi/mplayer_control -playlist ~/playlist </dev/null >/dev/null 2>&1 &'''         
-        #os.system('''find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -type f > ~/playlist''')
-        cmd = ['mplayer', '-slave', '-input', 'file=/home/pi/HousePi/mplayer_control', '/home/pi/HousePi/Musicas/Detonautas.mp3']
+        song = '/home/pi/HousePi/Musicas/Detonautas.mp3'
+        cmd = ['mplayer', '-slave', '-quiet', song]
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
     elif comando == "Pause":
         executar = pipe.format(comando_valor = "pause")
@@ -451,8 +451,8 @@ def controlarSomAmbiente(root):
     elif comando == "Volume":
         executar = pipe.format(comando_valor = "set_property volume " + valor)
     
-   #print executar
-   #os.system(executar)
+    #print executar
+    #os.system(executar)
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
@@ -507,8 +507,8 @@ def conectado(con, cliente):
                     enviarListaMusica()
                 elif root.tag == "ControlarSomAmbiente":
                     controlarSomAmbiente(root)
-            except Exception as e:
-                print "Erro: ", e
+            except:
+                print "Erro"
                 con.send("Erro\n")
                 
     print 'Finalizando conexao do cliente', cliente
