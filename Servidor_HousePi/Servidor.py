@@ -443,8 +443,8 @@ def controlarSomAmbiente(root):
     if comando == "Play":
         #executar = '''find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -type f > ~/playlist
         #              mplayer -slave -input file=/home/pi/HousePi/mplayer_control -playlist ~/playlist </dev/null >/dev/null 2>&1 &'''         
-        song = '-playlist <(find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -type f)'
-        cmd = ['mplayer', '-slave', '-quiet', song]
+        os.system('find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -type f > /home/pi/HousePi/playlist')
+        cmd = ['mplayer', '-slave', '-quiet', '-playlist', '/home/pi/HousePi/playlist']
         controleMPlayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
     elif comando == "Pause":
         print perform_command(controleMPlayer, 'get_file_name', 'ANS_FILENAME')
