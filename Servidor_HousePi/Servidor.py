@@ -437,18 +437,16 @@ def controlarSomAmbiente(root):
     comando = str(root.find("Comando").text)
     valor = str(root.find("Valor").text)
     pipe = '''echo "{comando_valor}" > /home/pi/HousePi/mplayer_control'''
-    
-    executar = ""
 
     if comando == "Play":
         os.system('find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -type f > /home/pi/HousePi/playlist')
         cmd = ['mplayer', '-slave', '-quiet', '-playlist', '/home/pi/HousePi/playlist']
         mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
     elif comando == "Pause":
-        print perform_command(mplayer, 'get_file_name', 'ANS_FILENAME')
-        #executar = pipe.format(comando_valor = "pause")
+        #print perform_command(mplayer, 'get_file_name', 'ANS_FILENAME')
+        executarComandoMPlayer(mplayer, "pause", "")
     elif comando == "Stop":
-        executar = pipe.format(comando_valor = "stop")
+        executarComandoMPlayer(mplayer, "stop", "")
     elif comando == "Anterior":
         executar = pipe.format(comando_valor = "pt_step " + valor)
     elif comando == "Proxima":
@@ -456,18 +454,13 @@ def controlarSomAmbiente(root):
     elif comando == "Volume":
         executar = pipe.format(comando_valor = "set_property volume " + valor)
     
-    #print executar
-    #os.system(executar)
-    
-def perform_command(p, cmd, expect):
-    
-    
-    p.stdin.write(cmd + '\n') # there's no need for a \n at the beginning
-    while select.select([p.stdout], [], [], 0.05)[0]: # give mplayer time to answer...
+def executarComandoMPlayer(p, cmd, expect):
+    p.stdin.write(cmd + '\n') 
+    while select.select([p.stdout], [], [], 0.05)[0]: 
         output = p.stdout.readline()
         print("output: {}".format(output.rstrip()))
         split_output = output.split(expect + '=', 1)
-        if len(split_output) == 2 and split_output[0] == '': # we have found it
+        if len(split_output) == 2 and split_output[0] == '':
             value = split_output[1]
             return value.rstrip()
 
