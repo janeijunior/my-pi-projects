@@ -417,7 +417,7 @@ def enviarListaMusica():
     i = 1
     for arquivo in arquivos:
         root.append(Element(str(i), Nome=str(arquivo)))
-        i++
+        i = i + 1
     
     xmlstr = ET.tostring(root) + "\n"  
     print xmlstr
