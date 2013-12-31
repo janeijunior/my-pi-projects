@@ -420,9 +420,7 @@ def enviarListaMusica():
         i = i + 1
     
     xmlstr = ET.tostring(root) + "\n"  
-    print xmlstr
     con.send(xmlstr)
-    conBanco.close()
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
