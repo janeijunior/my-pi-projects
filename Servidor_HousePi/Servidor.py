@@ -42,7 +42,7 @@ listaAgendamento = []
 listaReles = [];
 
 #variavel para controle do subprocesso do mplayer do linux
-controleMPlayer = None
+mplayer = None
 
 #Configura todos os pinos necessarios para o envio de comandos 
 def configurarReles():
@@ -432,7 +432,7 @@ def iniciarSomAmbiente():
 
 #controla o mplayer do linux
 def controlarSomAmbiente(root):
-    global controleMPlayer
+    global mplayer
     
     comando = str(root.find("Comando").text)
     valor = str(root.find("Valor").text)
@@ -441,13 +441,11 @@ def controlarSomAmbiente(root):
     executar = ""
 
     if comando == "Play":
-        #executar = '''find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -type f > ~/playlist
-        #              mplayer -slave -input file=/home/pi/HousePi/mplayer_control -playlist ~/playlist </dev/null >/dev/null 2>&1 &'''         
         os.system('find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -type f > /home/pi/HousePi/playlist')
         cmd = ['mplayer', '-slave', '-quiet', '-playlist', '/home/pi/HousePi/playlist']
-        controleMPlayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+        mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
     elif comando == "Pause":
-        print perform_command(controleMPlayer, 'get_file_name', 'ANS_FILENAME')
+        print perform_command(mplayer, 'get_file_name', 'ANS_FILENAME')
         #executar = pipe.format(comando_valor = "pause")
     elif comando == "Stop":
         executar = pipe.format(comando_valor = "stop")
