@@ -507,8 +507,8 @@ def conectado(con, cliente):
                     enviarListaMusica()
                 elif root.tag == "ControlarSomAmbiente":
                     controlarSomAmbiente(root)
-            except:
-                print "Erro"
+            except Exception as e: :
+                print "Erro: ", e
                 con.send("Erro\n")
                 
     print 'Finalizando conexao do cliente', cliente
