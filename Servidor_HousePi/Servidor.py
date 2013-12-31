@@ -456,6 +456,8 @@ def controlarSomAmbiente(root):
     #'get_file_name', 'ANS_FILENAME'
     
 def executarComandoMPlayer(cmd, retorno):
+    global mplayer
+    
     p.stdin.write(cmd + '\n') 
     while select.select([p.stdout], [], [], 0.05)[0]: 
         output = p.stdout.readline()
