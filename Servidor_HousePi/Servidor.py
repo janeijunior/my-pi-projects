@@ -473,7 +473,7 @@ def conectado(con, cliente):
                     enviarConfiguracaoAlarme()
                 elif root.tag == "AlterarConfiguracaoAlarme":
                     alterarConfiguracaoAlarme(root)
-                elif root.tag == "enviarListaMusica":
+                elif root.tag == "EnviarListaMusica":
                     enviarListaMusica()
             except:
                 print "Erro"
