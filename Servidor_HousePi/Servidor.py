@@ -20,7 +20,7 @@ import Agendamento
 import ThreadAgendamento
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
-PORT = 5000  # Porta do Servidor
+PORT = 5001  # Porta do Servidor
 SIRENE = 10
 
 orig = (HOST, PORT)
@@ -422,7 +422,7 @@ def enviarListaMusica():
 
 #executa a musica solicitada
 def executarMusica(root):
-    comando = "mplayer /home/pi/HousePi/Musicas/{arquivo} </dev/null >/dev/null 2>&1 &".formart(arquivo = root.text)
+    comando = "mplayer /home/pi/HousePi/Musicas/{arquivo} </dev/null >/dev/null 2>&1 &".format(arquivo = root.text)
     print comando
     os.system(comando)
     
