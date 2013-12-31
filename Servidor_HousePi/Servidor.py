@@ -420,8 +420,16 @@ def enviarListaMusica():
     xmlstr = ET.tostring(root) + "\n"  
     con.send(xmlstr)
 
+def iniciarSomAmbiente():
+    os.system("rm /home/pi/HousePi/mplayer_control")
+    os.system("mkfifo /home/pi/HousePi/mplayer_control")
+
 #controla o mplayer do linux
 def controlarSomAmbiente(root):
+    
+
+
+
     comando = "mplayer /home/pi/HousePi/Musicas/{arquivo} </dev/null >/dev/null 2>&1 &".format(arquivo = root.text)
     print comando
     os.system(comando)
