@@ -455,7 +455,7 @@ def controlarSomAmbiente(root):
     elif comando == "EnviarNomeArquivo":
         con.send(executarComandoMPlayer("get_file_name", "ANS_FILENAME") + "\n")
 
-#executa um comando no subprocesso do mplayer e devolve o resultado se houver
+#executa um comando no subprocesso do mplayer e devolve o resultado
 def executarComandoMPlayer(cmd, retorno):
     global mplayer
     
