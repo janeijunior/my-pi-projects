@@ -443,16 +443,17 @@ def controlarSomAmbiente(root):
         cmd = ['mplayer', '-slave', '-quiet', '-playlist', '/home/pi/HousePi/playlist']
         mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
     elif comando == "Pause":
-        #print perform_command(mplayer, 'get_file_name', 'ANS_FILENAME')
-        executarComandoMPlayer(mplayer, "pause", "")
+        executarComandoMPlayer("pause", "")
     elif comando == "Stop":
-        executarComandoMPlayer(mplayer, "stop", "")
+        executarComandoMPlayer("stop", "")
     elif comando == "Anterior":
-        executar = pipe.format(comando_valor = "pt_step " + valor)
+        executarComandoMPlayer"pt_step " + valor, "")
     elif comando == "Proxima":
-        executar = pipe.format(comando_valor = "pt_step " + valor)
+        executarComandoMPlayer"pt_step " + valor, "")
     elif comando == "Volume":
-        executar = pipe.format(comando_valor = "set_property volume " + valor)
+       executarComandoMPlayer"set_property volume " + valor, "")
+        
+    #'get_file_name', 'ANS_FILENAME'
     
 def executarComandoMPlayer(p, cmd, expect):
     p.stdin.write(cmd + '\n') 
