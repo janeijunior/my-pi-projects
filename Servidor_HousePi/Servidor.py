@@ -19,6 +19,7 @@ import Funcoes
 import Agendamento
 import ThreadAgendamento
 import subprocess
+import select
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
 PORT = 5000  # Porta do Servidor
@@ -40,7 +41,8 @@ listaAgendamento = []
 #lista dos reles
 listaReles = [];
 
-p = None
+#variavel para controle do subprocesso do mplayer do linux
+controleMPlayer = None
 
 #Configura todos os pinos necessarios para o envio de comandos 
 def configurarReles():
@@ -460,7 +462,7 @@ def controlarSomAmbiente(root):
     #os.system(executar)
     
 def perform_command(p, cmd, expect):
-    import select
+    
     
     p.stdin.write(cmd + '\n') # there's no need for a \n at the beginning
     while select.select([p.stdout], [], [], 0.05)[0]: # give mplayer time to answer...
