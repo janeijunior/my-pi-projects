@@ -500,6 +500,7 @@ configurarReles()
 configurarAlarme()
 carregarListaAgendamento()
 iniciarAgendamento()
+iniciarSomAmbiente()
 
 #inicia a transmisao do video/webcam
 os.system('mjpg-streamer/mjpg-streamer.sh start')
