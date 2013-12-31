@@ -419,7 +419,8 @@ def enviarListaMusica():
         root.append(Element(str(i), Nome=str(arquivo)))
         i++
     
-    xmlstr = ET.tostring(root) + "\n"       
+    xmlstr = ET.tostring(root) + "\n"  
+    print xmlstr
     con.send(xmlstr)
     conBanco.close()
 
