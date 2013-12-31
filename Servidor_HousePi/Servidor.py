@@ -420,8 +420,8 @@ def enviarListaMusica():
     xmlstr = ET.tostring(root) + "\n"  
     con.send(xmlstr)
 
-#executa a musica solicitada
-def executarMusica(root):
+#controla o mplayer do linux
+def controlarSomAmbiente(root):
     comando = "mplayer /home/pi/HousePi/Musicas/{arquivo} </dev/null >/dev/null 2>&1 &".format(arquivo = root.text)
     print comando
     os.system(comando)
@@ -477,8 +477,8 @@ def conectado(con, cliente):
                     alterarConfiguracaoAlarme(root)
                 elif root.tag == "EnviarListaMusica":
                     enviarListaMusica()
-                elif root.tag == "ExecutarMusica":
-                    executarMusica(root)
+                elif root.tag == "ControlarSomAmbiente":
+                    controlarSomAmbiente(root)
             except:
                 print "Erro"
                 con.send("Erro\n")
