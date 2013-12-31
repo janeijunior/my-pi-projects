@@ -421,9 +421,7 @@ def enviarListaMusica():
     con.send(xmlstr)
 
 #executa a musica solicitada
-def executarMusica(root):
-    print root.text
-    
+def executarMusica(root):   
     os.system("mplayer {arquivo} </dev/null >/dev/null 2>&1 & ".formart(arquivo = "/home/pi/HousePi/Musicas/" + root.text))
     
 
