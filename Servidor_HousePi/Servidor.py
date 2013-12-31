@@ -409,7 +409,7 @@ def alterarConfiguracaoAlarme(root):
 
 #envia a lista de musicas de uma pasta pre determinada
 def enviarListaMusica():
-#Le os arquivos da pasta passada como parametro
+    #Le os arquivos da pasta passada como parametro
     arquivos = os.listdir(os.path.expanduser('/home/pi/HousePi/Musicas/'))
 
     root = Element("EnviarListaMusica")
@@ -419,6 +419,11 @@ def enviarListaMusica():
     
     xmlstr = ET.tostring(root) + "\n"  
     con.send(xmlstr)
+
+#executa a musica solicitada
+def executarMusica(root):
+    os.system("mplayer {arquivo} </dev/null >/dev/null 2>&1 & ".formart(arquivo = "/home/pi/HousePi/Musicas/" + root.text))
+    
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
@@ -471,6 +476,8 @@ def conectado(con, cliente):
                     alterarConfiguracaoAlarme(root)
                 elif root.tag == "EnviarListaMusica":
                     enviarListaMusica()
+                elif root.tag == "ExecutarMusica":
+                    executarMusica(root)
             except:
                 print "Erro"
                 con.send("Erro\n")
