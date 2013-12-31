@@ -21,7 +21,7 @@ import ThreadAgendamento
 import subprocess
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
-PORT = 5000  # Porta do Servidor
+PORT = 5001  # Porta do Servidor
 SIRENE = 10
 
 orig = (HOST, PORT)
@@ -441,7 +441,9 @@ def controlarSomAmbiente(root):
         cmd = ['mplayer', '-slave', '-quiet', song]
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
     elif comando == "Pause":
-        executar = pipe.format(comando_valor = "pause")
+        print perform_command(p, 'get_meta_artist', 'ANS_META_ARTIST')
+        print perform_command(p, 'get_time_pos', 'ANS_TIME_POSITION')
+        #executar = pipe.format(comando_valor = "pause")
     elif comando == "Stop":
         executar = pipe.format(comando_valor = "stop")
     elif comando == "Anterior":
@@ -453,6 +455,17 @@ def controlarSomAmbiente(root):
     
     #print executar
     #os.system(executar)
+    
+def perform_command(p, cmd, expect):
+    import select
+    p.stdin.write(cmd + '\n') # there's no need for a \n at the beginning
+    while select.select([p.stdout], [], [], 0.05)[0]: # give mplayer time to answer...
+        output = p.stdout.readline()
+        print("output: {}".format(output.rstrip()))
+        split_output = output.split(expect + '=', 1)
+        if len(split_output) == 2 and split_output[0] == '': # we have found it
+            value = split_output[1]
+            return value.rstrip()
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
@@ -507,8 +520,8 @@ def conectado(con, cliente):
                     enviarListaMusica()
                 elif root.tag == "ControlarSomAmbiente":
                     controlarSomAmbiente(root)
-            except:
-                print "Erro"
+            except Exception as e: 
+                print "Erro: ", e
                 con.send("Erro\n")
                 
     print 'Finalizando conexao do cliente', cliente
