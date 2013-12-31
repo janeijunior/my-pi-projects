@@ -425,7 +425,6 @@ def executarMusica(root):
     comando = "mplayer /home/pi/HousePi/Musicas/{arquivo} </dev/null >/dev/null 2>&1 &".format(arquivo = root.text)
     print comando
     os.system(comando)
-    
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
