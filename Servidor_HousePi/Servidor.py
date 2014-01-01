@@ -420,8 +420,7 @@ def enviarListaMusica():
     root = Element("EnviarListaMusica")
 
     for arquivo in arquivos:
-        root.append(Element("Musicas", Nome=str(arquivo)))
-        
+        root.append(Element("Musicas", Nome=str(Funcoes.removerAcentos(arquivo))))
     
     xmlstr = ET.tostring(root) + "\n"  
     con.send(xmlstr)
@@ -446,7 +445,7 @@ def controlarSomAmbiente(root):
     elif comando == "Volume":
        executarComandoMPlayer("set_property volume " + valor, "")
     elif comando == "EnviarNomeArquivo":
-        con.send(str(executarComandoMPlayer("get_file_name", "ANS_FILENAME")) + "\n")
+        con.send(str(Funcoes.removerAcentos(executarComandoMPlayer("get_file_name", "ANS_FILENAME"))) + "\n")
 
 #executa um comando no subprocesso do mplayer e devolve o resultado
 def executarComandoMPlayer(cmd, retorno):
