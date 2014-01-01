@@ -421,9 +421,9 @@ def enviarListaMusica():
 
     for arquivo in arquivos:
         root.append(Element("Musicas", Nome=str(arquivo)))
+        
     
-    xmlstr = ET.tostring(root, encoding='iso-8859-1', pretty_print=True) + "\n"  
-    print xmlstr
+    xmlstr = ET.tostring(root) + "\n"  
     con.send(xmlstr)
 
 #controla o mplayer do linux
