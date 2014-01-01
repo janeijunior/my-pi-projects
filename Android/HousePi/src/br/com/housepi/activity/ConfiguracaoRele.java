@@ -79,52 +79,52 @@ public class ConfiguracaoRele extends Fragment implements OnClickListener {
 				
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "0"));
-				rele.setAttribute(new Attribute("Nome", edtNomeRele0.getText().toString()));
+				rele.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeRele0.getText().toString())));
 				root.addContent(rele);
 				
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "1"));
-				rele.setAttribute(new Attribute("Nome", edtNomeRele1.getText().toString()));
+				rele.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeRele1.getText().toString())));
 				root.addContent(rele);
 
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "2"));
-				rele.setAttribute(new Attribute("Nome", edtNomeRele2.getText().toString()));
+				rele.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeRele2.getText().toString())));
 				root.addContent(rele);
 
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "3"));
-				rele.setAttribute(new Attribute("Nome", edtNomeRele3.getText().toString()));
+				rele.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeRele3.getText().toString())));
 				root.addContent(rele);
 
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "4"));
-				rele.setAttribute(new Attribute("Nome", edtNomeRele4.getText().toString()));
+				rele.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeRele4.getText().toString())));
 				root.addContent(rele);
 
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "5"));
-				rele.setAttribute(new Attribute("Nome", edtNomeRele5.getText().toString()));
+				rele.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeRele5.getText().toString())));
 				root.addContent(rele);
 
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "6"));
-				rele.setAttribute(new Attribute("Nome", edtNomeRele6.getText().toString()));
+				rele.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeRele6.getText().toString())));
 				root.addContent(rele);
 
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "7"));
-				rele.setAttribute(new Attribute("Nome", edtNomeRele7.getText().toString()));
+				rele.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeRele7.getText().toString())));
 				root.addContent(rele);
 
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "8"));
-				rele.setAttribute(new Attribute("Nome", edtNomeRele8.getText().toString()));
+				rele.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeRele8.getText().toString())));
 				root.addContent(rele);
 
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "9"));
-				rele.setAttribute(new Attribute("Nome", edtNomeRele9.getText().toString()));
+				rele.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeRele9.getText().toString())));
 				root.addContent(rele);
 				
 				doc.setRootElement(root);
