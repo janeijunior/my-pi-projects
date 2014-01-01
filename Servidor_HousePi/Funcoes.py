@@ -16,3 +16,6 @@ def conectarBanco():
         print "Nao foi possivel conectar ao banco de dados.", e
 
     return conBanco
+
+def removerAcentos(txt, codif='utf-8'):
+    return normalize('NFKD', txt.decode(codif)).encode('ASCII','ignore')
