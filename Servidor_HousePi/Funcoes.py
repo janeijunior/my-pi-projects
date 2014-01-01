@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import MySQLdb
+from unicodedata import normalize
 
 #funcao para conectar no banco de dados
 def conectarBanco():
