@@ -20,4 +20,4 @@ def conectarBanco():
 
 #remove caracteres invalidos
 def removerAcentos(txt, codif='utf-8'):
-    return normalize('NFKD', txt.decode(codif)).encode('ASCII','ignore')
+    return normalize('NFKD', txt).encode('ASCII','ignore').decode('ASCII')
