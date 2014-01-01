@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#-*- coding: utf-8 -*-
+#-*- coding: ISO-8859-1 -*-
 
 from xml.etree.ElementTree import Element
 import xml.etree.ElementTree as ET
@@ -22,7 +22,7 @@ import subprocess
 import select
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
-PORT = 5000  # Porta do Servidor
+PORT = 5001  # Porta do Servidor
 SIRENE = 10
 
 orig = (HOST, PORT)
@@ -422,7 +422,8 @@ def enviarListaMusica():
     for arquivo in arquivos:
         root.append(Element("Musicas", Nome=str(arquivo)))
     
-    xmlstr = ET.tostring(root) + "\n"  
+    xmlstr = ET.tostring(root, encoding='iso-8859-1', pretty_print=True) + "\n"  
+    print xmlstr
     con.send(xmlstr)
 
 #controla o mplayer do linux
