@@ -110,7 +110,8 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 		//String musica = musicas.get(info.position).toString();	  
 		
 		String atual = enviarComandoResposta("EnviarNomeArquivo", "0");
-		Integer indiceAtual = musicas.indexOf(atual.replaceAll("'", ""));		
+		atual = atual.substring(1, atual.length() -1);
+		Integer indiceAtual = musicas.indexOf(atual);		
 		
 		Integer valor = info.position - indiceAtual;
 		

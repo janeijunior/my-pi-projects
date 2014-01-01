@@ -1,5 +1,6 @@
 package br.com.housepi.classes;
 
+import java.text.Normalizer;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -13,7 +14,7 @@ import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
 
-@SuppressLint("SimpleDateFormat")
+@SuppressLint({ "SimpleDateFormat", "NewApi" })
 public class Funcoes {
 	private static final String dataBanco = "yyyy-MM-dd HH:mm:ss";
 	private static final String dataLocal = "dd/MM/yyyy HH:mm:ss";	
@@ -72,4 +73,10 @@ public class Funcoes {
 	public static void msgToastErroGravar(Context classe) {
 		Toast.makeText(classe, "Não foi possível gravar os dados no servidor.", Toast.LENGTH_LONG).show();
 	}
+	
+	public static String removerAcentos(String str) {  
+		str = Normalizer.normalize(str, Normalizer.Form.NFD);
+		str = str.replaceAll("[^\\p{ASCII}]", "");
+		return str;
+	}  
 }

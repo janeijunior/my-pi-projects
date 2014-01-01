@@ -148,9 +148,9 @@ public class ControleAgendamento extends Fragment implements OnClickListener {
 				Agendamento agendamento;
 				
 				if (spinner.getSelectedItemPosition() == 0) {
-					agendamento = new Agendamento(edtNome.getText().toString().trim(), dataHoraInicial, dataHoraFinal, new Alarme());
+					agendamento = new Agendamento(Funcoes.removerAcentos(edtNome.getText().toString().trim()), dataHoraInicial, dataHoraFinal, new Alarme());
 				} else {
-					agendamento = new Agendamento(edtNome.getText().toString().trim(), dataHoraInicial, dataHoraFinal, new Rele(spinner.getSelectedItemPosition() - 1));
+					agendamento = new Agendamento(Funcoes.removerAcentos(edtNome.getText().toString().trim()), dataHoraInicial, dataHoraFinal, new Rele(spinner.getSelectedItemPosition() - 1));
 				}
 				
 				if (agendamento.gravarAgendamento()) {
