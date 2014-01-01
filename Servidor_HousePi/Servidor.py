@@ -425,19 +425,13 @@ def enviarListaMusica():
     xmlstr = ET.tostring(root) + "\n"  
     con.send(xmlstr)
 
-#remove e cria um novo arquivo de pipe para controle do mplayer
-def iniciarSomAmbiente():
-    os.system("rm /home/pi/HousePi/mplayer_control")
-    os.system("mkfifo /home/pi/HousePi/mplayer_control")
-
 #controla o mplayer do linux
 def controlarSomAmbiente(root):
     global mplayer
     
     comando = str(root.find("Comando").text)
     valor = str(root.find("Valor").text)
-    pipe = '''echo "{comando_valor}" > /home/pi/HousePi/mplayer_control'''
-
+    
     if comando == "Play":
         os.system('find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -type f > /home/pi/HousePi/playlist')
         cmd = ['mplayer', '-slave', '-quiet', '-playlist', '/home/pi/HousePi/playlist']
@@ -531,7 +525,6 @@ configurarReles()
 configurarAlarme()
 carregarListaAgendamento()
 iniciarAgendamento()
-iniciarSomAmbiente()
 
 #inicia a transmisao do video/webcam
 os.system('mjpg-streamer/mjpg-streamer.sh start')
