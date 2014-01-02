@@ -423,7 +423,7 @@ def enviarListaMusica():
     root = Element("EnviarListaMusica")
 
     for linha in arquivo:
-        root.append(Element("Musicas", Nome=str(Funcoes.removerAcentos(linha[len(PLAYLIST):len(linha)]))))
+        root.append(Element("Musicas", Nome=str(Funcoes.removerAcentos(linha[len(PLAYLIST):len(linha) -2]))))
     
     arquivo.close()
     
