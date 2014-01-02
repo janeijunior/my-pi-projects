@@ -22,9 +22,9 @@ import subprocess
 import select
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
-PORT = 5000  # Porta do Servidor
-SIRENE = 10
-PLAYLIST = "/home/pi/HousePi/playlist"
+PORT = 5001  # Porta do Servidor
+SIRENE = 10  # Numero GPIO da sirene
+PLAYLIST = "/home/pi/HousePi/playlist" # Diretorio onde encontra-se a playlist de musicas
 
 orig = (HOST, PORT)
 
