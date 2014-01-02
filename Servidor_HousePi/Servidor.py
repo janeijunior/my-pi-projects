@@ -414,13 +414,15 @@ def alterarConfiguracaoAlarme(root):
 
 #envia a lista de musicas de uma pasta pre determinada
 def enviarListaMusica():
-    #Le os arquivos da pasta passada como parametro
-    arquivos = os.listdir(os.path.expanduser('/home/pi/HousePi/Musicas/'))
+    playlist = 'find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -o -name "*m4a" -o -name "*wma" -type f > /home/pi/HousePi/playlist'
+    os.system(playlist)
+    
+    arquivo = open("/home/pi/HousePi/playlist")
 
     root = Element("EnviarListaMusica")
 
-    for arquivo in arquivos:
-        root.append(Element("Musicas", Nome=str(Funcoes.removerAcentos(arquivo))))
+    for linha in arquivo:
+        root.append(Element("Musicas", Nome=str(Funcoes.removerAcentos(linha))))
     
     xmlstr = ET.tostring(root) + "\n"  
     con.send(xmlstr)
@@ -431,14 +433,12 @@ def controlarSomAmbiente(root):
     
     comando = str(root.find("Comando").text)
     valor = str(root.find("Valor").text)
-    playlist = 'find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -o -name "*m4a" -o -name "*wma" -type f > /home/pi/HousePi/playlist'
     
     
     if comando == "Play":
         try:
             print executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
         except:
-            os.system(playlist)
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', '/home/pi/HousePi/playlist']
             mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
     elif comando == "Pause":
@@ -449,7 +449,6 @@ def controlarSomAmbiente(root):
         try:         
             executarComandoMPlayer("pt_step " + valor, "")
         except:
-            os.system(playlist)
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', '/home/pi/HousePi/playlist']
             mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)    
             executarComandoMPlayer("pt_step " + str(int(valor) - 1), "")
