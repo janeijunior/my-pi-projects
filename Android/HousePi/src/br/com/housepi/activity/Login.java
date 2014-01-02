@@ -128,7 +128,6 @@ public class Login extends Activity {
 		super.onDestroy();
 	}
 	
-	@SuppressWarnings("deprecation")
 	private void conectarServidor() {
 		try {
 			
@@ -139,7 +138,7 @@ public class Login extends Activity {
 			conexao.conectar();
 
 			try {
-				Conexao.getConexaoAtual().iniciar(handler);
+				Conexao.getConexaoAtual().iniciar();
 			} catch (Exception e) {
 				msgErro = "Não foi possível comunicar com o servidor.";
 				Message msg = new Message();
@@ -164,7 +163,7 @@ public class Login extends Activity {
 			
 			mensagem = new XMLOutputter().outputString(doc);				
 			Conexao.getConexaoAtual().enviarMensagem(mensagem);
-			mensagem = Conexao.getConexaoAtual().getIn().readLine();  
+			mensagem = Conexao.getConexaoAtual().receberRetorno();  
 			
 			if (mensagem.equals("Logado")) {
 				Funcoes.salvarDadosComponente("edtUsuario", edtUsuario.getText().toString(), this);

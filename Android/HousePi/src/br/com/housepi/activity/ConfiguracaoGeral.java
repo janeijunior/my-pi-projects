@@ -1,6 +1,5 @@
 package br.com.housepi.activity;
 
-import java.io.IOException;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.output.XMLOutputter;
@@ -45,7 +44,6 @@ public class ConfiguracaoGeral extends Fragment implements OnClickListener {
 		return rootView;
 	}
 	
-	@SuppressWarnings("deprecation")
 	@Override
     public void onClick(View view) {
 		if (view == cbxMostrarSenha) {
@@ -78,17 +76,13 @@ public class ConfiguracaoGeral extends Fragment implements OnClickListener {
 				mensagem = new XMLOutputter().outputString(doc);				
 				Conexao.getConexaoAtual().enviarMensagem(mensagem);
 				
-				try {
-					mensagem = Conexao.getConexaoAtual().getIn().readLine();
-					
-					if (mensagem.equals("Ok")) {
-						Funcoes.msgToastDadosGravados(this.getActivity());
-					} else {
-						Funcoes.msgToastErroGravar(this.getActivity());
-					}
-				} catch (IOException e) {
+				mensagem = Conexao.getConexaoAtual().receberRetorno();
+				
+				if (mensagem.equals("Ok")) {
+					Funcoes.msgToastDadosGravados(this.getActivity());
+				} else {
 					Funcoes.msgToastErroGravar(this.getActivity());
-				} 
+				}
 			}
 		}
 	}

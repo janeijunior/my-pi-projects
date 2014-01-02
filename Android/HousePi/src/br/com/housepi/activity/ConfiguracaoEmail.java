@@ -1,6 +1,5 @@
 package br.com.housepi.activity;
 
-import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import org.jdom2.Document;
@@ -47,8 +46,7 @@ public class ConfiguracaoEmail extends Fragment implements OnClickListener {
 		
 		return rootView;
 	}
-
-	@SuppressWarnings("deprecation")
+	
 	@Override
 	public void onClick(View v) {
 		if (v == btnSalvar) {
@@ -73,22 +71,17 @@ public class ConfiguracaoEmail extends Fragment implements OnClickListener {
 				mensagem = new XMLOutputter().outputString(doc);				
 				Conexao.getConexaoAtual().enviarMensagem(mensagem);
 				
-				try {
-					mensagem = Conexao.getConexaoAtual().getIn().readLine();
-					
-					if (mensagem.equals("Ok")) {
-						Funcoes.msgToastDadosGravados(this.getActivity());
-					} else {
-						Funcoes.msgToastErroGravar(this.getActivity());
-					}
-				} catch (IOException e) {
+				mensagem = Conexao.getConexaoAtual().receberRetorno();
+				
+				if (mensagem.equals("Ok")) {
+					Funcoes.msgToastDadosGravados(this.getActivity());
+				} else {
 					Funcoes.msgToastErroGravar(this.getActivity());
 				}
 			}
 		}
 	}
 	
-	@SuppressWarnings("deprecation")
 	public void getConfiguracaoAtual() {
 		try {		
 			Document doc = new Document();
@@ -99,7 +92,7 @@ public class ConfiguracaoEmail extends Fragment implements OnClickListener {
 	
 			String mensagem = "";
 	
-			mensagem = Conexao.getConexaoAtual().getIn().readLine();
+			mensagem = Conexao.getConexaoAtual().receberRetorno();
 	
 			SAXBuilder builder = new SAXBuilder();
 			Reader in = new StringReader(mensagem);

@@ -62,6 +62,7 @@
             
 
             <Button
+                android:layout_marginTop="10dp"
                 android:id="@+id/btnSalvarConfGeral"
                 style="@style/ButtonText"
                 android:layout_height="wrap_content"

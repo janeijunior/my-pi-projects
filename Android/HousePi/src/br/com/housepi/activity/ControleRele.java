@@ -8,13 +8,15 @@ import br.com.housepi.classes.Funcoes;
 import br.com.housepi.classes.Rele;
 import android.os.Bundle;
 import android.content.Context;
-import android.support.v4.app.Fragment;
+import android.annotation.SuppressLint;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ToggleButton;
 
+@SuppressLint("NewApi")
 public class ControleRele extends Fragment implements OnClickListener {
 	private List<Rele> listaReles = new ArrayList<Rele>();
 

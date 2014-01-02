@@ -37,4 +37,14 @@
 	    <item name="android:shadowDy">1</item>
 	    <item name="android:shadowRadius">2</item>
 	</style>
+	
+    <string-array name="menu_array">
+        <item>Relês</item>
+        <item>Alarme</item>
+        <item>Agendamento</item>
+        <item>Temperatura</item>
+        <item>Câmera</item>
+        <item>Som Ambiente</item>
+    </string-array>
+    
 </resources>

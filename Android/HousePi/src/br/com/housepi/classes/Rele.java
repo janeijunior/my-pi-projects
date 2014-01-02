@@ -1,16 +1,13 @@
 package br.com.housepi.classes;
-import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.Iterator;
 import java.util.List;
-
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.XMLOutputter;
-
 import android.widget.ToggleButton;
 import br.com.housepi.classes.Conexao;
 
@@ -72,7 +69,6 @@ public class Rele {
 		return montarEnviarXMLControle("Desliga");
 	}
 	
-	@SuppressWarnings("deprecation")
 	private Boolean montarEnviarXMLControle(String comando) {
 		Document doc = new Document();
 		Element root = new Element("Rele");
@@ -88,19 +84,13 @@ public class Rele {
 		
 		Conexao.getConexaoAtual().enviarMensagem(new XMLOutputter().outputString(doc));
 		
-		try {
-			if (Conexao.getConexaoAtual().getIn().readLine().equals("Ok")) {
-				return true;
-			} else {
-				return false;
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
+		if (Conexao.receberRetornoStatic().equals("Ok")) {
+			return true;
+		} else {
 			return false;
 		}
 	}
 	
-	@SuppressWarnings("deprecation")
 	public static List<Rele> getConfiguracaoStatus(List<Rele> listaReles) {
 		try {
 			Document doc = new Document();
@@ -114,7 +104,7 @@ public class Rele {
 
 			String mensagem = "";
 
-			mensagem = Conexao.getConexaoAtual().getIn().readLine();
+			mensagem = Conexao.receberRetornoStatic();
 						
 			SAXBuilder builder = new SAXBuilder();
 			Reader in = new StringReader(mensagem);

@@ -1,6 +1,5 @@
 package br.com.housepi.classes;
 
-import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import org.jdom2.Document;
@@ -76,7 +75,6 @@ public class Alarme {
 		return montarEnviarXMLControle("Panico", "Desligar");
 	}
 	
-	@SuppressWarnings("deprecation")
 	private Boolean montarEnviarXMLControle(String funcao, String comando) {
 		Document doc = new Document();
 		Element root = new Element(funcao);
@@ -89,19 +87,13 @@ public class Alarme {
 		doc.setRootElement(root);
 		Conexao.getConexaoAtual().enviarMensagem(new XMLOutputter().outputString(doc));
 		
-		try {
-			if (Conexao.getConexaoAtual().getIn().readLine().equals("Ok")) {
-				return true;
-			} else {
-				return false;
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
+		if (Conexao.getConexaoAtual().receberRetorno().equals("Ok")) {
+			return true;
+		} else {
 			return false;
 		}
 	}
 	
-	@SuppressWarnings("deprecation")
 	public void getConfiguracaoStatus() {
 		try {
 			Document doc = new Document();
@@ -112,7 +104,7 @@ public class Alarme {
 
 			String mensagem = "";
 
-			mensagem = Conexao.getConexaoAtual().getIn().readLine();
+			mensagem = Conexao.getConexaoAtual().receberRetorno();
 
 			SAXBuilder builder = new SAXBuilder();
 			Reader in = new StringReader(mensagem);

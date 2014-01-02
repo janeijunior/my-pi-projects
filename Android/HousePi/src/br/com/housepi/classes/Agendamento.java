@@ -84,7 +84,6 @@ public class Agendamento {
 		this.rele = rele;
 	}
 	
-	@SuppressWarnings("deprecation")
 	public Boolean gravarAgendamento() {
 		Document doc = new Document();
 		Element root = new Element("GravarAgendamento");
@@ -101,20 +100,14 @@ public class Agendamento {
 			
 		doc.setRootElement(root);
 		Conexao.getConexaoAtual().enviarMensagem(new XMLOutputter().outputString(doc));		
-		
-		try {
-			if (Conexao.getConexaoAtual().getIn().readLine().equals("Ok")) {
-				return true;
-			} else {
-				return false;
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
+			
+		if (Conexao.getConexaoAtual().receberRetorno().equals("Ok")) {
+			return true;
+		} else {
 			return false;
-		}		
+		}
 	}
 	
-	@SuppressWarnings("deprecation")
 	public Boolean removerAgendamento() {
 		Document doc = new Document();
 		Element root = new Element("RemoverAgendamento");
@@ -124,19 +117,13 @@ public class Agendamento {
 		doc.setRootElement(root);
 		Conexao.getConexaoAtual().enviarMensagem(new XMLOutputter().outputString(doc));		
 		
-		try {
-			if (Conexao.getConexaoAtual().getIn().readLine().equals("Ok")) {
-				return true;
-			} else {
-				return false;
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
+		if (Conexao.getConexaoAtual().receberRetorno().equals("Ok")) {
+			return true;
+		} else {
 			return false;
-		}		
+		}	
 	}
 	
-	@SuppressWarnings("deprecation")
 	public static List<Agendamento> getAgendamentos(){
 		List<Agendamento> lista = new ArrayList<Agendamento>();
 		String mensagem = "";
@@ -149,7 +136,7 @@ public class Agendamento {
 
 			Conexao.getConexaoAtual().enviarMensagem(new XMLOutputter().outputString(doc));
 
-			mensagem = Conexao.getConexaoAtual().getIn().readLine();
+			mensagem = Conexao.getConexaoAtual().receberRetorno();
 						
 			SAXBuilder builder = new SAXBuilder();
 			Reader in = new StringReader(mensagem);

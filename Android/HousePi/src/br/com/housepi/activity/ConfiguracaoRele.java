@@ -1,6 +1,5 @@
 package br.com.housepi.activity;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +58,6 @@ public class ConfiguracaoRele extends Fragment implements OnClickListener {
 		return rootView;
 	}
 	
-	@SuppressWarnings("deprecation")
 	public void onClick(View view) {
 		if (view == btnSalvar) {
 			
@@ -132,15 +130,11 @@ public class ConfiguracaoRele extends Fragment implements OnClickListener {
 				mensagem = new XMLOutputter().outputString(doc);				
 				Conexao.getConexaoAtual().enviarMensagem(mensagem);
 				
-				try {
-					mensagem = Conexao.getConexaoAtual().getIn().readLine();
-					
-					if (mensagem.equals("Ok")) {
-						Funcoes.msgToastDadosGravados(this.getActivity());
-					} else {
-						Funcoes.msgToastErroGravar(this.getActivity());
-					}
-				} catch (IOException e) {
+				mensagem = Conexao.getConexaoAtual().receberRetorno();
+				
+				if (mensagem.equals("Ok")) {
+					Funcoes.msgToastDadosGravados(this.getActivity());
+				} else {
 					Funcoes.msgToastErroGravar(this.getActivity());
 				} 
 			}

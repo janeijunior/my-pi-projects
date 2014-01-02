@@ -15,7 +15,8 @@ import br.com.housepi.classes.Conexao;
 import br.com.housepi.classes.Funcoes;
 import android.os.Bundle;
 import android.content.Context;
-import android.support.v4.app.Fragment;
+import android.annotation.SuppressLint;
+import android.app.Fragment;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -32,6 +33,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
+@SuppressLint("NewApi")
 public class ControleSomAmbiente extends Fragment implements OnClickListener, OnSeekBarChangeListener {
 	private ListView listView;
 	private TextView lblVolume;
@@ -122,7 +124,6 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 		return true;
 	}
 
-	@SuppressWarnings("deprecation")
 	private void getMusicas() {
 		try {
 			Document doc = new Document();
@@ -134,7 +135,7 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 			String mensagem = "";
 			musicas.clear();
 	
-			mensagem = Conexao.getConexaoAtual().getIn().readLine();
+			mensagem = Conexao.getConexaoAtual().receberRetorno();
 	
 			SAXBuilder builder = new SAXBuilder();
 			Reader in = new StringReader(mensagem);
@@ -217,7 +218,6 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 		Conexao.getConexaoAtual().enviarMensagem(new XMLOutputter().outputString(doc));
 	}
 	
-	@SuppressWarnings("deprecation")
 	private String enviarComandoResposta(String comando, String valor) {
 		try {
 			Document doc = new Document();
@@ -232,7 +232,7 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 			
 			String mensagem = "";
 	
-			mensagem = Conexao.getConexaoAtual().getIn().readLine();
+			mensagem = Conexao.getConexaoAtual().receberRetorno();
 	
 			return mensagem;
 		} catch (Exception e) {

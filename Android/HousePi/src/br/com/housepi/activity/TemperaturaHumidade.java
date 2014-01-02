@@ -3,18 +3,17 @@ package br.com.housepi.activity;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.XMLOutputter;
-
 import br.com.housepi.R;
 import br.com.housepi.classes.Conexao;
 import android.os.Bundle;
 import android.content.Context;
-import android.support.v4.app.Fragment;
+import android.annotation.SuppressLint;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +21,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+@SuppressLint("NewApi")
 public class TemperaturaHumidade extends Fragment implements OnClickListener {
 	private Button btnAtualizar;
 	private TextView lblTemperatura;
@@ -52,8 +52,7 @@ public class TemperaturaHumidade extends Fragment implements OnClickListener {
 			getTemperaturaHumidade();
 		}
 	}
-	
-	@SuppressWarnings("deprecation")
+
 	public void getTemperaturaHumidade() {
 		Document doc = new Document();
 		Element root = new Element("Temperatura");
@@ -64,7 +63,7 @@ public class TemperaturaHumidade extends Fragment implements OnClickListener {
 		try {
 			String mensagem = "";
 			
-			mensagem = Conexao.getConexaoAtual().getIn().readLine();
+			mensagem = Conexao.getConexaoAtual().receberRetorno();
 			
 			if (!mensagem.equals("Erro")){
 			

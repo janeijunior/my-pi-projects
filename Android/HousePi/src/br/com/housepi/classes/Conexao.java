@@ -2,9 +2,8 @@ package br.com.housepi.classes;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.Socket;
-
-import android.os.Handler;
 
 /**
  *@author Rodrigo
@@ -14,16 +13,12 @@ import android.os.Handler;
 public class Conexao {
 
 	private static Conexao conexao;
+	private static DataInputStream in;
 	private int porta;
 	private String host;
-	private  Socket socket;
+	private Socket socket;
 	private Enviar enviar;
 	private DataOutputStream out;
-	private DataInputStream in;
-
-	public DataInputStream getIn() {
-		return in;
-	}
 
 	private Conexao(String host, String porta) {
 		this.host = host;
@@ -46,14 +41,27 @@ public class Conexao {
 		socket.setSoTimeout(10000);
 	}
 
-	public void iniciar(Handler handler) {
-		enviar = new Enviar(out, handler);
-		
+	public void iniciar() {
+		enviar = new Enviar(out);
 		new Thread(enviar).start();
 	}
 
 	public void enviarMensagem(String mensagem) {
 		enviar.setMensagem(mensagem);
+	}
+	
+	@SuppressWarnings("deprecation")
+	public static String receberRetornoStatic() {
+		try {
+			return in.readLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return "Erro";					
+		}
+	}
+	
+	public String receberRetorno() {
+		return receberRetornoStatic();
 	}
 
 	public void disconnect() throws Exception {

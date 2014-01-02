@@ -15,14 +15,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp" >
+            android:layout_height="wrap_content" >
 
             <TextView
                 android:id="@+id/TextView08"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
-                android:text="Relê 1   " />
+                android:text="1:"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtNomeRele0"
@@ -34,14 +34,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp" >
+            android:layout_height="wrap_content" >
 
             <TextView
                 android:id="@+id/TextView07"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
-                android:text="Relê 2   " />
+                android:text="2:"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtNomeRele1"
@@ -53,14 +53,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp" >
+            android:layout_height="wrap_content" >
 
             <TextView
                 android:id="@+id/TextView06"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
-                android:text="Relê 3   " />
+                android:text="3:"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtNomeRele2"
@@ -72,14 +72,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp" >
+            android:layout_height="wrap_content" >
 
             <TextView
                 android:id="@+id/TextView05"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
-                android:text="Relê 4   " />
+                android:text="4:"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtNomeRele3"
@@ -91,14 +91,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp" >
+            android:layout_height="wrap_content" >
 
             <TextView
                 android:id="@+id/TextView04"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
-                android:text="Relê 5   " />
+                android:text="5:"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtNomeRele4"
@@ -110,14 +110,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp" >
+            android:layout_height="wrap_content" >
 
             <TextView
                 android:id="@+id/TextView03"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
-                android:text="Relê 6   " />
+                android:text="6:"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtNomeRele5"
@@ -129,14 +129,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp" >
+            android:layout_height="wrap_content" >
 
             <TextView
                 android:id="@+id/TextView02"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
-                android:text="Relê 7   " />
+                android:text="7:"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtNomeRele6"
@@ -148,14 +148,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp" >
+            android:layout_height="wrap_content" >
 
             <TextView
                 android:id="@+id/TextView01"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
-                android:text="Relê 8   " />
+                android:text="8:"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtNomeRele7"
@@ -167,14 +167,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp" >
+            android:layout_height="wrap_content" >
 
             <TextView
                 android:id="@+id/textView1"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
-                android:text="Relê 9   " />
+                android:text="9:"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtNomeRele8"
@@ -189,14 +189,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp" >
+            android:layout_height="wrap_content" >
 
             <TextView
                 android:id="@+id/TextView09"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
-                android:text="Relê 10" />
+                android:text="10:"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtNomeRele9"
@@ -214,7 +214,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="bottom" >
+            android:layout_marginTop="20dp">
 
             <Button
                 android:id="@+id/btnSalvarConfRele"
