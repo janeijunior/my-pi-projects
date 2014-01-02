@@ -435,9 +435,12 @@ def controlarSomAmbiente(root):
     
     
     if comando == "Play":
-        os.system(playlist)
-        cmd = ['mplayer', '-slave', '-quiet', '-playlist', '/home/pi/HousePi/playlist']
-        mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+        try:
+        
+        except:
+            os.system(playlist)
+            cmd = ['mplayer', '-slave', '-quiet', '-playlist', '/home/pi/HousePi/playlist']
+            mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
     elif comando == "Pause":
         executarComandoMPlayer("pause", "")
     elif comando == "Stop":
