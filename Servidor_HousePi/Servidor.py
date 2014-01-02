@@ -436,7 +436,7 @@ def controlarSomAmbiente(root):
     
     if comando == "Play":
         try:
-        
+            executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
         except:
             os.system(playlist)
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', '/home/pi/HousePi/playlist']
