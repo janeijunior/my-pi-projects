@@ -424,6 +424,8 @@ def enviarListaMusica():
     for linha in arquivo:
         root.append(Element("Musicas", Nome=str(Funcoes.removerAcentos(linha))))
     
+    arquivo.close()
+    
     xmlstr = ET.tostring(root) + "\n"  
     con.send(xmlstr)
 
