@@ -441,7 +441,13 @@ def controlarSomAmbiente(root):
     elif comando == "Stop":
         executarComandoMPlayer("stop", "")
     elif comando == "AnteriorProxima":
-        executarComandoMPlayer("pt_step " + valor, "")
+        try:         
+            executarComandoMPlayer("pt_step " + valor, "")
+        except:
+            os.system('find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -o -name "*m4a" -o -name "*wma" -type f > /home/pi/HousePi/playlist')
+            cmd = ['mplayer', '-slave', '-quiet', '-playlist', '/home/pi/HousePi/playlist']
+            mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)    
+            executarComandoMPlayer("pt_step " + str(int(valor) - 1), "")
     elif comando == "Volume":
        executarComandoMPlayer("set_property volume " + valor, "")
     elif comando == "EnviarNomeArquivo":
