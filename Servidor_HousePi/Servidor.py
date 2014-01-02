@@ -24,6 +24,7 @@ import select
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
 PORT = 5000  # Porta do Servidor
 SIRENE = 10
+PLAYLIST = "/home/pi/HousePi/playlist"
 
 orig = (HOST, PORT)
 
