@@ -442,7 +442,7 @@ def controlarSomAmbiente(root):
         try:
             print executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
         except:
-            cmd = ['mplayer', '-slave', '-quiet', '-playlist', '/home/pi/HousePi/playlist']
+            cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
             mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
     elif comando == "Pause":
         executarComandoMPlayer("pause", "")
@@ -452,7 +452,7 @@ def controlarSomAmbiente(root):
         try:         
             executarComandoMPlayer("pt_step " + valor, "")
         except:
-            cmd = ['mplayer', '-slave', '-quiet', '-playlist', '/home/pi/HousePi/playlist']
+            cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
             mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)    
             executarComandoMPlayer("pt_step " + str(int(valor) - 1), "")
     elif comando == "Volume":
