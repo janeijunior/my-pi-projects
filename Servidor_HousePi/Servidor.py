@@ -588,7 +588,7 @@ def conectado(con, cliente):
                 
     print 'Finalizando conexao do cliente', cliente
     
-    for i in range(0,  len(listaConexoes))
+    for i in range(0,  len(listaConexoes)):
         listaConexoes[i] == cliente
             listaConexoes[i].del
             break
