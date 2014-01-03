@@ -22,7 +22,7 @@ import subprocess
 import select
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
-PORT = 5001  # Porta do Servidor
+PORT = 5002  # Porta do Servidor
 SIRENE = 10  # Numero GPIO da sirene
 PLAYLIST = "/home/pi/HousePi/playlist" # Diretorio onde encontra-se a playlist de musicas
 
@@ -128,8 +128,8 @@ def efetuarLogin(root):
     if row["Usuario"] == usuario and row["Senha"]  == senha:
         print "Conectado: ", cliente
         listaConexoes.insert(len(listaConexoes) + 1, cliente)
-        controlarCamera()
         con.send("Logado\n")
+        controlarCamera()
     else:
         print "Usuario ou senha invalidos."
         con.send("NaoLogado\n")
@@ -588,7 +588,8 @@ def conectado(con, cliente):
                 
     print 'Finalizando conexao do cliente', cliente
     
-    for i in range(0,  len(listaConexoes)):
+    for i in range(-1,  len(listaConexoes)):
+        print listaConexoes[i], cliente
         if listaConexoes[i] == cliente:
             del listaConexoes[i]
             break
