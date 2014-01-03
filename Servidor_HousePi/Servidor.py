@@ -22,7 +22,7 @@ import subprocess
 import select
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
-PORT = 5000  # Porta do Servidor
+PORT = 5002  # Porta do Servidor
 SIRENE = 10  # Numero GPIO da sirene
 PLAYLIST = "/home/pi/HousePi/playlist" # Diretorio onde encontra-se a playlist de musicas
 
@@ -473,6 +473,36 @@ def executarComandoMPlayer(cmd, retorno):
             value = split_output[1]
             return value.rstrip()
 
+#finaliza os processos em execucao para encerrar o aplicativo servidor
+def finalizarProcessos():
+    global alarme
+	alarme.desligarAlarme()
+	alarme.desligarPanicoAlarme()
+	
+    global threadAgendamento
+    threadAgendamento.stop()
+    
+    for rele in listaReles:	
+		rele.desligar()
+	
+	os.system('mjpg-streamer/mjpg-streamer.sh stop')
+
+#funcao para reiniciar ou desligar o servidor conforme solicitado pelo app android
+def reiniciarDesligarServidor(root);
+	acao = root.find("Acao").text
+	
+	finalizarProcessos()
+	
+	if acao == "Reiniciar":
+		command = "/usr/bin/sudo /sbin/shutdown -r now"
+	else:
+		command = "/usr/bin/sudo /sbin/shutdown -h now"
+	
+    import subprocess
+    process = subprocess.Popen(comando.split(), stdout=subprocess.PIPE)
+    output = process.communicate()[0]
+    print output
+
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
     while True:
@@ -547,12 +577,7 @@ print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
 #para fechar o programa
 def signal_handler(signal, frame):
     print "\nEncerrando aplicativo..."
-    
-    global threadAgendamento
-    threadAgendamento.stop()
-    
-    listaReles[12].desligar()
-    os.system('mjpg-streamer/mjpg-streamer.sh stop')
+    finalizarProcessos()
     tcp.close;
     sys.exit(0)
     
