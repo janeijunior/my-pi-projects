@@ -45,6 +45,9 @@ listaReles = [];
 #variavel para controle do subprocesso do mplayer do linux
 mplayer = None
 
+#variavel para controle do servico de stream da camera
+visualizandoCamera = 0
+
 #Configura todos os pinos necessarios para o envio de comandos 
 def configurarReles():
     print "Configurando reles..."
@@ -503,14 +506,28 @@ def reiniciarDesligarServidor(root):
     else:
         os.system("/usr/bin/sudo /sbin/shutdown -h now")
 
+#inicia o servico da camera
+def ligarCamera():
+    
+#para o servico da camera
+def desligarCamera():
+    
+
 #inicia ou para o servico de stream da camera
 def controlarCamera(root):
     acao = root.find("Acao").text
     
+    global visualizandoCamera
+    
     if acao == "Ligar":
-    
+        visualizandoCamera = visualizandoCamera + 1
     else:
+        visualizandoCamera = visualizandoCamera - 1
     
+    if visualizandoCamera < 1:
+        desligarCamera()
+    elif visualizandoCamera > 0:
+        ligarCamera()
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
