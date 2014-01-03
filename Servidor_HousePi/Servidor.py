@@ -476,8 +476,8 @@ def executarComandoMPlayer(cmd, retorno):
 #finaliza os processos em execucao para encerrar o aplicativo servidor
 def finalizarProcessos():
     global alarme
-	alarme.desligarAlarme()
-	alarme.desligarPanicoAlarme()
+    alarme.desligarAlarme()
+    alarme.desligarPanicoAlarme()
 	
     global threadAgendamento
     threadAgendamento.stop()
