@@ -22,7 +22,7 @@ import subprocess
 import select
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
-PORT = 5002  # Porta do Servidor
+PORT = 5001  # Porta do Servidor
 SIRENE = 10  # Numero GPIO da sirene
 PLAYLIST = "/home/pi/HousePi/playlist" # Diretorio onde encontra-se a playlist de musicas
 
@@ -524,7 +524,7 @@ def controlarCamera():
     
     if len(listaConexoes) < 1:
         desligarCamera()
-    elif len(numeroConexoes) > 0:
+    elif len(listaConexoes) > 0:
         ligarCamera()
 
 #cliente conectado, verifica os comandos recebidos
