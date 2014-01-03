@@ -493,6 +493,8 @@ def reiniciarDesligarServidor(root):
 	
 	finalizarProcessos()
 	
+    command = ""
+    
 	if acao == "Reiniciar":
 		command = "/usr/bin/sudo /sbin/shutdown -r now"
 	else:
