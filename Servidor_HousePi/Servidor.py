@@ -496,10 +496,10 @@ def reiniciarDesligarServidor(root):
     con.send("Ok\n")    
     
     if acao == "Reiniciar":
-		os.system("/usr/bin/sudo /sbin/shutdown -r now")
-	else:
-		os.system("/usr/bin/sudo /sbin/shutdown -h now")
-
+        os.system("/usr/bin/sudo /sbin/shutdown -r now")
+    else
+        os.system("/usr/bin/sudo /sbin/shutdown -h now")
+    
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
     while True:
