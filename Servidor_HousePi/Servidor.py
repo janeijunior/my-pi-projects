@@ -46,7 +46,7 @@ listaReles = [];
 mplayer = None
 
 #lista de conexoes ativas
-listaConexoes = None
+listaConexoes = []
 
 #Configura todos os pinos necessarios para o envio de comandos 
 def configurarReles():
