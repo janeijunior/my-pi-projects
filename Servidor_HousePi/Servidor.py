@@ -491,7 +491,7 @@ def finalizarProcessos():
     for rele in listaReles:	
 		rele.desligar()
 	
-    os.system('mjpg-streamer/mjpg-streamer.sh stop')
+    desligarCamera()
 
 #funcao para reiniciar ou desligar o servidor conforme solicitado pelo app android
 def reiniciarDesligarServidor(root):
@@ -508,10 +508,11 @@ def reiniciarDesligarServidor(root):
 
 #inicia o servico da camera
 def ligarCamera():
+    os.system('mjpg-streamer/mjpg-streamer.sh start')
     
 #para o servico da camera
 def desligarCamera():
-    
+    os.system('mjpg-streamer/mjpg-streamer.sh stop')
 
 #inicia ou para o servico de stream da camera
 def controlarCamera(root):
@@ -598,9 +599,6 @@ configurarReles()
 configurarAlarme()
 carregarListaAgendamento()
 iniciarAgendamento()
-
-#inicia a transmisao do video/webcam
-os.system('mjpg-streamer/mjpg-streamer.sh start')
 
 print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
 
