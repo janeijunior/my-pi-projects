@@ -558,6 +558,8 @@ def conectado(con, cliente):
                     controlarSomAmbiente(root)
                 elif root.tag == "ReiniciarDesligar":
                     reiniciarDesligarServidor(root)
+                elif root.tag == "ControlarCamera":
+                    controlarCamera(root)
             except Exception as e: 
                 print "Erro: ", e
                 con.send("Erro\n")
