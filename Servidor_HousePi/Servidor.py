@@ -22,7 +22,7 @@ import subprocess
 import select
 
 HOST = ''    # IP do Servidor (em branco = IP do sistema)
-PORT = 5000  # Porta do Servidor
+PORT = 5001  # Porta do Servidor
 SIRENE = 10  # Numero GPIO da sirene
 PLAYLIST = "/home/pi/HousePi/playlist" # Diretorio onde encontra-se a playlist de musicas
 
@@ -45,8 +45,8 @@ listaReles = [];
 #variavel para controle do subprocesso do mplayer do linux
 mplayer = None
 
-#variavel para controle do servico de stream da camera
-visualizandoCamera = 0
+#lista de conexoes ativas
+listaConexoes = None
 
 #Configura todos os pinos necessarios para o envio de comandos 
 def configurarReles():
@@ -123,8 +123,12 @@ def efetuarLogin(root):
     
     conBanco.close()
     
+    global listaConexoes
+    
     if row["Usuario"] == usuario and row["Senha"]  == senha:
         print "Conectado: ", cliente
+        listaConexoes.insert(cliente)
+        controlarCamera()
         con.send("Logado\n")
     else:
         print "Usuario ou senha invalidos."
@@ -515,19 +519,12 @@ def desligarCamera():
     os.system('mjpg-streamer/mjpg-streamer.sh stop')
 
 #inicia ou para o servico de stream da camera
-def controlarCamera(root):
-    acao = root.find("Acao").text
+def controlarCamera():
+    global listaConexoes
     
-    global visualizandoCamera
-    
-    if acao == "Ligar":
-        visualizandoCamera = visualizandoCamera + 1
-    else:
-        visualizandoCamera = visualizandoCamera - 1
-    
-    if visualizandoCamera < 1:
+    if len(listaConexoes) < 1:
         desligarCamera()
-    elif visualizandoCamera > 0:
+    elif len(numeroConexoes) > 0:
         ligarCamera()
 
 #cliente conectado, verifica os comandos recebidos
@@ -585,13 +582,17 @@ def conectado(con, cliente):
                     controlarSomAmbiente(root)
                 elif root.tag == "ReiniciarDesligar":
                     reiniciarDesligarServidor(root)
-                elif root.tag == "ControlarCamera":
-                    controlarCamera(root)
             except Exception as e: 
                 print "Erro: ", e
                 con.send("Erro\n")
                 
     print 'Finalizando conexao do cliente', cliente
+    
+    for i in range(0,  len(listaConexoes))
+        listaConexoes[i] == cliente
+            listaConexoes[i].del
+            break
+    
     con.close()
     thread.exit()
 
