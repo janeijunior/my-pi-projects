@@ -488,7 +488,7 @@ def finalizarProcessos():
     os.system('mjpg-streamer/mjpg-streamer.sh stop')
 
 #funcao para reiniciar ou desligar o servidor conforme solicitado pelo app android
-def reiniciarDesligarServidor(root);
+def reiniciarDesligarServidor(root):
 	acao = root.find("Acao").text
 	
 	finalizarProcessos()
