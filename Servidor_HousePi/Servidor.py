@@ -492,6 +492,7 @@ def reiniciarDesligarServidor(root):
 	acao = root.find("Acao").text
 	
 	finalizarProcessos()
+    con.send("Ok\n")
     
 	if acao == "Reiniciar":
 		os.system("/usr/bin/sudo /sbin/shutdown -r now")
