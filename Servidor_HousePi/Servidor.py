@@ -590,7 +590,7 @@ def conectado(con, cliente):
     
     for i in range(0,  len(listaConexoes)):
         if listaConexoes[i] == cliente:
-            listaConexoes[i].del
+            del listaConexoes[i]
             break
     
     con.close()
