@@ -485,7 +485,7 @@ def finalizarProcessos():
     for rele in listaReles:	
 		rele.desligar()
 	
-	os.system('mjpg-streamer/mjpg-streamer.sh stop')
+    os.system('mjpg-streamer/mjpg-streamer.sh stop')
 
 #funcao para reiniciar ou desligar o servidor conforme solicitado pelo app android
 def reiniciarDesligarServidor(root);
