@@ -589,9 +589,9 @@ def conectado(con, cliente):
     print 'Finalizando conexao do cliente', cliente
     
     for i in range(-1,  len(listaConexoes)):
-        print listaConexoes[i], cliente
         if listaConexoes[i] == cliente:
             del listaConexoes[i]
+            controlarCamera()
             break
     
     con.close()
