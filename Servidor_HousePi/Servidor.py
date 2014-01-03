@@ -492,15 +492,13 @@ def reiniciarDesligarServidor(root):
 	acao = root.find("Acao").text
 	
 	finalizarProcessos()
-	
-    command = ""
     
 	if acao == "Reiniciar":
 		command = "/usr/bin/sudo /sbin/shutdown -r now"
 	else:
 		command = "/usr/bin/sudo /sbin/shutdown -h now"
     
-    process = subprocess.Popen(comando.split(), stdout=subprocess.PIPE)
+    process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
     output = process.communicate()[0]
     print output
 
