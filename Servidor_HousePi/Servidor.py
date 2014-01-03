@@ -489,13 +489,13 @@ def finalizarProcessos():
 
 #funcao para reiniciar ou desligar o servidor conforme solicitado pelo app android
 def reiniciarDesligarServidor(root):
-	acao = root.find("Acao").text
+    acao = root.find("Acao").text
     
     finalizarProcessos()
     
-    con.send("Ok\n")
+    con.send("Ok\n")    
     
-	if acao == "Reiniciar":
+    if acao == "Reiniciar":
 		os.system("/usr/bin/sudo /sbin/shutdown -r now")
 	else:
 		os.system("/usr/bin/sudo /sbin/shutdown -h now")
