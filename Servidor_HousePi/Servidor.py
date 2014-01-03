@@ -497,7 +497,7 @@ def reiniciarDesligarServidor(root):
     
     if acao == "Reiniciar":
         os.system("/usr/bin/sudo /sbin/shutdown -r now")
-    else
+    else:
         os.system("/usr/bin/sudo /sbin/shutdown -h now")
     
 #cliente conectado, verifica os comandos recebidos
