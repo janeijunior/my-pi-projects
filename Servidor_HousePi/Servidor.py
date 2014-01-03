@@ -498,7 +498,6 @@ def reiniciarDesligarServidor(root):
 	else:
 		command = "/usr/bin/sudo /sbin/shutdown -h now"
 	
-    import subprocess
     process = subprocess.Popen(comando.split(), stdout=subprocess.PIPE)
     output = process.communicate()[0]
     print output
