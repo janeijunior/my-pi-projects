@@ -502,7 +502,16 @@ def reiniciarDesligarServidor(root):
         os.system("/usr/bin/sudo /sbin/shutdown -r now")
     else:
         os.system("/usr/bin/sudo /sbin/shutdown -h now")
+
+#inicia ou para o servico de stream da camera
+def controlarCamera(root):
+    acao = root.find("Acao").text
     
+    if acao == "Ligar":
+    
+    else:
+    
+
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
     while True:
