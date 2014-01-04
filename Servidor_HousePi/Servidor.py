@@ -513,11 +513,11 @@ def reiniciarDesligarServidor(root):
 
 #inicia o servico da camera
 def ligarCamera():
-    os.system(MJPG + " start")
+    os.system("sudo " + MJPG + " start")
     
 #para o servico da camera
 def desligarCamera():
-    os.system(MJPG + " stop")
+    os.system("sudo " + MJPG + " stop")
 
 #inicia ou para o servico de stream da camera
 def controlarCamera():
