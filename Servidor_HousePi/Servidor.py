@@ -588,6 +588,8 @@ def conectado(con, cliente):
                 
     print 'Finalizando conexao do cliente', cliente
     
+    global listaConexoes
+    
     for i in range(-1,  len(listaConexoes)):
         if listaConexoes[i] == cliente:
             del listaConexoes[i]
