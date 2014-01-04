@@ -154,6 +154,7 @@ def enviarTemperaturaHumidade():
     try:
         desligarCamera()
         time.sleep(1)
+        
         resultado = SensorDHT.lerTemperaturaHumidade()    
         root = Element("TemperaturaHumidade")
         dados = Element("Dados", Temperatura=resultado[0], Humidade=resultado[1])
