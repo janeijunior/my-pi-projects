@@ -119,8 +119,8 @@ def efetuarLogin(root):
     
     row = cursor.fetchone()
     
-    usuario = root.find("Usuario").text
-    senha = root.find("Senha").text
+    usuario = root.find("Usuario").text.decode('utf-8')
+    senha = root.find("Senha").text.decode('utf-8')
     
     conBanco.close()
     
