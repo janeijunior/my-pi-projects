@@ -436,8 +436,8 @@ def enviarListaMusica():
     root = Element("EnviarListaMusica")
 
     for linha in arquivo:
-        print Funcoes.converterISO(unicode(linha[len(PLAYLIST):len(linha) -1]))))
-        root.append(Element("Musicas", Nome=Funcoes.converterISO(unicode(linha[len(PLAYLIST):len(linha) -1]))))
+        print linha[len(PLAYLIST):len(linha) -1]
+        root.append(Element("Musicas", Nome=linha[len(PLAYLIST):len(linha) -1]))
     
     arquivo.close()
     
