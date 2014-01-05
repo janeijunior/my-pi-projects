@@ -428,7 +428,7 @@ def alterarConfiguracaoAlarme(root):
 
 #envia a lista de musicas de uma pasta pre determinada
 def enviarListaMusica():
-    playlist = 'find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -o -name "*m4a" -o -name "*wma" -type f > /home/pi/HousePi/playlist'
+    playlist = 'find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -o -name "*m4a" -o -name "*wma" -type f | sort > /home/pi/HousePi/playlist'
     os.system(playlist)
     
     arquivo = open(PLAYLIST)
