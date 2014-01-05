@@ -205,7 +205,7 @@ def enviarConfiguracaoStatusRele():
     root = Element("Reles")
     
     for rele in listaReles:
-        root.append(Element("Rele" + str(rele.id), Status=str(rele.status), Nome=rele.nome))
+        root.append(Element("Rele" + str(rele.id), Status=str(rele.status), Nome=rele.nome.decode('utf-8')))
     
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
