@@ -441,7 +441,7 @@ def enviarListaMusica():
     
     arquivo.close()
     
-    xmlstr = ET.tostring(root, encoding="latin-1", method="xml") + "\n"  
+    xmlstr = ET.tostring(root, encoding="utf-8",) + "\n"  
     con.send(xmlstr)
 
 #controla o mplayer do linux
