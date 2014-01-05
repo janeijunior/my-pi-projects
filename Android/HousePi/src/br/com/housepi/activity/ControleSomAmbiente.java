@@ -88,15 +88,19 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 		listView.setOnItemClickListener(new OnItemClickListener() {
 	        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 	        	String atual = enviarComandoResposta("EnviarNomeArquivo", "0");
-	    		atual = atual.substring(1, atual.length() -1);
-	    		Integer indiceAtual = musicas.indexOf(atual);		
+	    		
+	        	if (!atual.equals("")) {
+	        		atual = atual.substring(1, atual.length() -1);
+	    		}
+	        	
+	        	Integer indiceAtual = musicas.indexOf(atual);		
 	    		
 	    		Integer valor = position - indiceAtual;
 	    		
 	    		if (valor != 0) {
 	    			enviarComando("AnteriorProxima", String.valueOf(valor));
 	    		}
-	            
+	   
 	        }
 	    });
 
@@ -245,8 +249,19 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 			String mensagem = "";
 	
 			mensagem = Conexao.getConexaoAtual().receberRetorno();
+			
+			SAXBuilder builder = new SAXBuilder();
+			Reader in = new StringReader(mensagem);
 	
-			return mensagem;
+			try {
+				doc = builder.build(in);
+			} catch (JDOMException e) {
+				e.printStackTrace();
+			}
+	
+			Element retorno = (Element) doc.getRootElement();
+			
+			return retorno.getChild("Musica").getAttribute("Nome").getValue();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "";
