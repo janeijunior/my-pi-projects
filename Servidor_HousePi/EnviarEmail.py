@@ -31,7 +31,7 @@ class EnviarEmail(threading.Thread):
         separador = "-----------------------------------------------------------\n"
         
         conteudo = "O alarme de sua residencia esta disparado. \n" + separador + "Sensor: {idSensor} - {nomeSensor} \n Data e hora do disparo: {dataHora}\n" + separador + "E-mail enviado automaticamento pelo sistema House Pi"
-        conteudo = conteudo..format(idSensor = int(self.idSensor), nomeSensor = self.nomeSensor, dataHora =  datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+        conteudo = conteudo.format(idSensor = int(self.idSensor), nomeSensor = self.nomeSensor, dataHora =  datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         
         print 'Enviando e-mail\n'
         try:
