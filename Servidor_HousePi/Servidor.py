@@ -21,7 +21,7 @@ import ThreadAgendamento
 import subprocess
 import select
 
-HOST = ''    # IP do Servidor (em branco = IP do sistema)
+HOST = ""    # IP do Servidor (em branco = IP do sistema)
 PORT = 5000  # Porta do Servidor
 SIRENE = 10  # Numero GPIO da sirene
 PLAYLIST = "/home/pi/HousePi/playlist" # Diretorio onde encontra-se a playlist de musicas
@@ -168,6 +168,7 @@ def enviarTemperaturaHumidade():
     except:
         print "Erro ao obter a temperatura e humidade."
         con.send("Erro\n")
+	ligarCamera()
         
 #liga ou desliga o alarme
 def controlarAlarme(root):
