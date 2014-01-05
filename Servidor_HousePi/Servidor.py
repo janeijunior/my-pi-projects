@@ -480,7 +480,6 @@ def controlarSomAmbiente(root):
         xmlstr = ET.tostring(root) + "\n"  
         con.send(xmlstr)
 
-
 #executa um comando no subprocesso do mplayer e devolve o resultado
 def executarComandoMPlayer(cmd, retorno):
     global mplayer
