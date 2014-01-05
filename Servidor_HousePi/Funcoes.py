@@ -28,6 +28,6 @@ def removerAcentos(txt, codif='utf-8'):
 #converte para ISO-8859-1
 def converterISO(txt, codif='utf-8'):
     if  isinstance(txt, unicode):
-        return txt.encode('ISO-8859-1','ignore')
+        return txt.encode('latin-1','ignore')
     else:
-        return txt.decode(codif).encode('ISO-8859-1','ignore')
+        return txt.decode(codif).encode('latin-1','ignore')
