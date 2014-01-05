@@ -296,8 +296,8 @@ def removerAgendamento(root):
 #funcao para alterar o usuario e a senha
 def alterarUsuarioSenha(root):
     try:
-        usuario = root.find("Usuario").text
-        senha = root.find("Senha").text
+        usuario = root.find("Usuario").text.decode('utf-8')
+        senha = root.find("Senha").text.decode('utf-8')
         
         conBanco = Funcoes.conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
@@ -320,7 +320,7 @@ def alterarConfiguracaoRele(root):
         global listaReles
         
         for child in root:
-            listaReles[int(child.get("Id"))].nome = str(child.get("Nome")) 
+            listaReles[int(child.get("Id"))].nome = str(child.get("Nome").decode('utf-8')) 
             listaReles[int(child.get("Id"))].gravarNomeBanco();
         
         con.send("Ok\n")
