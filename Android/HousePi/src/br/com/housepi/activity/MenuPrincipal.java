@@ -46,7 +46,9 @@ public class MenuPrincipal extends Activity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
   
-        int[] image = new int[] {R.drawable.ic_action_settings, R.drawable.ic_action_accounts , R.drawable.ic_action_time, R.drawable.ic_action_view_as_list, R.drawable.ic_action_video,  R.drawable.ic_action_play_over_video};
+        int[] image = new int[] {R.drawable.ic_action_settings, R.drawable.ic_action_accounts , R.drawable.ic_action_time, 
+        		                 R.drawable.ic_action_view_as_list, R.drawable.ic_action_video,  R.drawable.ic_action_play_over_video, 
+        		                 R.drawable.ic_action_about};
         
         ArrayList<HashMap<String,String>> listinfo = new ArrayList<HashMap<String, String>>();
         listinfo.clear();
@@ -167,6 +169,12 @@ public class MenuPrincipal extends Activity {
             break;
         case 5:
         	newFragment = ControleSomAmbiente.newInstance(this);
+            transaction.replace(R.id.content_frame, newFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+            break;
+        case 6:
+        	newFragment = Sobre.newInstance(this);
             transaction.replace(R.id.content_frame, newFragment);
             transaction.addToBackStack(null);
             transaction.commit();

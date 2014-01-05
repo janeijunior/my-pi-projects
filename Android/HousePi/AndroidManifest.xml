@@ -19,7 +19,7 @@
         <activity
             android:name="br.com.housepi.activity.Login"
             android:label="@string/app_name"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -77,6 +77,10 @@
         <activity
             android:name="br.com.housepi.activity.Configuracao"
             android:label="@string/title_activity_configuracao" >
+        </activity>
+        <activity
+            android:name="br.com.housepi.activity.Sobre"
+            android:label="@string/title_activity_sobre" >
         </activity>
     </application>
 
