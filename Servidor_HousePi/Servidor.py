@@ -477,7 +477,6 @@ def controlarSomAmbiente(root):
         root = Element("EnviarNomeArquivo")
 
         root.append(Element("Musica", Nome=nome.decode('utf-8')))
-    
         
 
 #executa um comando no subprocesso do mplayer e devolve o resultado
