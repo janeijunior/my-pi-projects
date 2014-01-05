@@ -436,12 +436,11 @@ def enviarListaMusica():
     root = Element("EnviarListaMusica")
 
     for linha in arquivo:
-        print linha[len(PLAYLIST):len(linha) -1]
         root.append(Element("Musicas", Nome=linha[len(PLAYLIST):len(linha) -1]))
     
     arquivo.close()
     
-    xmlstr = ET.tostring(root, encoding="utf-8",) + "\n"  
+    xmlstr = ET.tostring(root) + "\n"  
     con.send(xmlstr)
 
 #controla o mplayer do linux
