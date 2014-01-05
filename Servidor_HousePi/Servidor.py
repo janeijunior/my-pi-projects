@@ -472,7 +472,7 @@ def controlarSomAmbiente(root):
     elif comando == "Volume":
        executarComandoMPlayer("set_property volume " + valor, "")
     elif comando == "EnviarNomeArquivo":
-        con.send(str((executarComandoMPlayer("get_file_name", "ANS_FILENAME").decode('utf-8'))) + "\n")
+        con.send(executarComandoMPlayer("get_file_name", "ANS_FILENAME") + "\n")
 
 #executa um comando no subprocesso do mplayer e devolve o resultado
 def executarComandoMPlayer(cmd, retorno):
