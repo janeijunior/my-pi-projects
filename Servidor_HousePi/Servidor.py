@@ -119,8 +119,8 @@ def efetuarLogin(root):
     
     row = cursor.fetchone()
     
-    usuario = root.find("Usuario").text.decode('utf-8')
-    senha = root.find("Senha").text.decode('utf-8')
+    usuario = root.find("Usuario").text.encode('utf-8')
+    senha = root.find("Senha").text.encode('utf-8')
     
     conBanco.close()
     
@@ -229,11 +229,11 @@ def gravarAgendamento(root):
     
     #se for alarme = -1
     if root.find("Equipamento").text == "-1":
-        agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text, dataHoraInicial = 
+        agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text.encode('utf-8'), dataHoraInicial = 
                                               root.find("DataHoraInicial").text, dataHoraFinal = root.find("DataHoraFinal").text,
                                               alarme = alarme, rele = None, ativo = 1)
     else:
-        agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text, dataHoraInicial = 
+        agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text.encode('utf-8'), dataHoraInicial = 
                                               root.find("DataHoraInicial").text, dataHoraFinal = root.find("DataHoraFinal").text,
                                               alarme = None, rele = listaReles[int(root.find("Equipamento").text)], ativo = 1)        
     
@@ -296,8 +296,8 @@ def removerAgendamento(root):
 #funcao para alterar o usuario e a senha
 def alterarUsuarioSenha(root):
     try:
-        usuario = root.find("Usuario").text.decode('utf-8')
-        senha = root.find("Senha").text.decode('utf-8')
+        usuario = root.find("Usuario").text.encode('utf-8')
+        senha = root.find("Senha").text.encode('utf-8')
         
         conBanco = Funcoes.conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
@@ -320,7 +320,7 @@ def alterarConfiguracaoRele(root):
         global listaReles
         
         for child in root:
-            listaReles[int(child.get("Id"))].nome = str(child.get("Nome").decode('utf-8')) 
+            listaReles[int(child.get("Id"))].nome = str(child.get("Nome").encode('utf-8')) 
             listaReles[int(child.get("Id"))].gravarNomeBanco();
         
         con.send("Ok\n")
@@ -330,11 +330,11 @@ def alterarConfiguracaoRele(root):
 #funcao que grava a nova configuracao de email
 def alterarConfiguracaoEmail(root):
     try:
-        usuario = root.find("Usuario").text
-        senha = root.find("Senha").text
-        destinatario = root.find("Destinatario").text
-        servidor = root.find("Servidor").text
-        porta = root.find("Porta").text
+        usuario = root.find("Usuario").text.encode('utf-8')
+        senha = root.find("Senha").text.encode('utf-8')
+        destinatario = root.find("Destinatario").text.encode('utf-8')
+        servidor = root.find("Servidor").text.encode('utf-8')
+        porta = root.find("Porta").text.encode('utf-8')
                 
         conBanco = Funcoes.conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
@@ -366,8 +366,8 @@ def enviarConfiguracaoEmail():
     row = cursor.fetchone()
     
     root = Element("EnviarConfiguracaoEmail")
-    dados = Element("Dados", Usuario = str(row["RemetenteEmail"]), Senha = str(row["SenhaEmail"]), Destinatario = str(row["DestinatarioEmail"]),
-                             Servidor = str(row["ServidorSMTP"]), Porta = str(row["PortaSMTP"]))
+    dados = Element("Dados", Usuario = str(row["RemetenteEmail"]).decode('utf-8'), Senha = str(row["SenhaEmail"]).decode('utf-8'), Destinatario = str(row["DestinatarioEmail"]).decode('utf-8'),
+                             Servidor = str(row["ServidorSMTP"]).decode('utf-8'), Porta = str(row["PortaSMTP"]))
     root.append(dados)
     
     xmlstr = ET.tostring(root) + "\n"       
@@ -391,7 +391,7 @@ def enviarConfiguracaoAlarme():
     sensores = Element("Sensores")
     
     for row in rows:
-         sensores.append(Element("Sensor" + str(row["Id"]), Nome=str(row["Nome"]), Ativo=str(row["Ativo"])))
+         sensores.append(Element("Sensor" + str(row["Id"]), Nome=str(row["Nome"]).decode('utf-8'), Ativo=str(row["Ativo"])))
     
     root.append(sensores)
     xmlstr = ET.tostring(root) + "\n"       
@@ -414,7 +414,7 @@ def alterarConfiguracaoAlarme(root):
         sensores = root.find("Sensores")
         
         for child in sensores:
-            sql = '''update SensorAlarme set Nome = '{novoNome}', Ativo = {ativo} where Id = {idSensor}'''.format(novoNome = child.get("Nome"), ativo = int(child.get("Ativo")), idSensor = int(child.get("Id")))
+            sql = '''update SensorAlarme set Nome = '{novoNome}', Ativo = {ativo} where Id = {idSensor}'''.format(novoNome = child.get("Nome").encode('utf-8'), ativo = int(child.get("Ativo")), idSensor = int(child.get("Id")))
             print sql
             cursor.execute(sql)
         
