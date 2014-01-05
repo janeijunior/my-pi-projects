@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#-*- coding: ISO-8859-1 -*-
+#-*- coding: utf-8 -*-
 
 from xml.etree.ElementTree import Element
 import xml.etree.ElementTree as ET
@@ -472,7 +472,7 @@ def controlarSomAmbiente(root):
     elif comando == "Volume":
        executarComandoMPlayer("set_property volume " + valor, "")
     elif comando == "EnviarNomeArquivo":
-        con.send(str(Funcoes.removerAcentos(executarComandoMPlayer("get_file_name", "ANS_FILENAME"))) + "\n")
+        con.send(str((executarComandoMPlayer("get_file_name", "ANS_FILENAME"))) + "\n")
 
 #executa um comando no subprocesso do mplayer e devolve o resultado
 def executarComandoMPlayer(cmd, retorno):
