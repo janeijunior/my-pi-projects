@@ -1,4 +1,5 @@
 #!/usr/bin/python
+#-*- coding: utf-8 -*-
 
 import Adafruit_MCP230xx
 import Funcoes
