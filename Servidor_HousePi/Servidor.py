@@ -474,7 +474,7 @@ def controlarSomAmbiente(root):
     elif comando == "EnviarNomeArquivo":
         nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")
         
-        root = Element("EnviarListaMusica")
+        root = Element("EnviarNomeArquivo")
 
         root.append(Element("Musica", Nome=nome.decode('utf-8')))
     
