@@ -24,3 +24,10 @@ def removerAcentos(txt, codif='utf-8'):
         return normalize('NFKD', txt).encode('ASCII','ignore')
     else:
         return normalize('NFKD', txt.decode(codif)).encode('ASCII','ignore')
+
+#converte para ISO-8859-1
+def converterISO(txt, codif='utf-8'):
+    if  isinstance(txt, unicode):
+        return txt.encode('ISO-8859-1','ignore')
+    else:
+        return txt.decode(codif).encode('ISO-8859-1','ignore')
