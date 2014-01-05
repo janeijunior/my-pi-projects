@@ -57,4 +57,10 @@ public class VisualizacaoCamera extends Fragment {
 			e.printStackTrace();
 		}
 	}
+	
+	@Override
+	public void onPause() {
+		con.disconnect();
+		super.onPause();
+	}
 }

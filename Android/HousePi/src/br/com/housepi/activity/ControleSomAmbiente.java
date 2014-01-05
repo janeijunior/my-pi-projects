@@ -17,15 +17,12 @@ import android.os.Bundle;
 import android.content.Context;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -45,7 +42,7 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 	private SeekBar sbVolume;
 	private ArrayAdapter<String> adapter;
 	private List<String> musicas = new LinkedList<String>();
-	private String[] menuItems = new String[] {"Executar"};
+	//private String[] menuItems = new String[] {"Executar"};
 
 	public static Fragment newInstance(Context context) {
 		ControleSomAmbiente f = new ControleSomAmbiente();
@@ -87,11 +84,26 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 		registerForContextMenu(listView);
 		
 		getMusicas();
+		
+		listView.setOnItemClickListener(new OnItemClickListener() {
+	        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+	        	String atual = enviarComandoResposta("EnviarNomeArquivo", "0");
+	    		atual = atual.substring(1, atual.length() -1);
+	    		Integer indiceAtual = musicas.indexOf(atual);		
+	    		
+	    		Integer valor = position - indiceAtual;
+	    		
+	    		if (valor != 0) {
+	    			enviarComando("AnteriorProxima", String.valueOf(valor));
+	    		}
+	            
+	        }
+	    });
 
 		return rootView;
 	}
 	
-	@Override
+	/*@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 	    ContextMenuInfo menuInfo) {
 	  if (v.getId( )== R.id.listMusica) {
@@ -101,9 +113,9 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 	      menu.add(Menu.NONE, i, i, menuItems[i]);
 	    }
 	  }
-	}
+	}*/
 	
-	@Override
+	/*@Override
 	public boolean onContextItemSelected(MenuItem item) {
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
 		//int menuItemIndex = item.getItemId();
@@ -122,7 +134,7 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 		}
 			
 		return true;
-	}
+	}*/
 
 	private void getMusicas() {
 		try {

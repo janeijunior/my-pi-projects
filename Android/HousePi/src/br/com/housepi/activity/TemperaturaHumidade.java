@@ -10,10 +10,15 @@ import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.XMLOutputter;
 import br.com.housepi.R;
 import br.com.housepi.classes.Conexao;
+import br.com.housepi.classes.Funcoes;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.content.Context;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
+import android.app.ProgressDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +31,9 @@ public class TemperaturaHumidade extends Fragment implements OnClickListener {
 	private Button btnAtualizar;
 	private TextView lblTemperatura;
 	private TextView lblHumidade;
+	private ProgressDialog dialog;
+	private String temperatura;
+	private String humidade;
 	
 	public static Fragment newInstance(Context context) {
 		TemperaturaHumidade f = new TemperaturaHumidade();
@@ -42,17 +50,49 @@ public class TemperaturaHumidade extends Fragment implements OnClickListener {
 		lblTemperatura = (TextView) rootView.findViewById(R.id.lblTemperatura);
 		lblHumidade = (TextView) rootView.findViewById(R.id.lblHumidade);
 		
-		//getTemperaturaHumidade();
+		startThreadGetDados();
 		
 		return rootView;
 	}
 	
 	public void onClick(View view) {
 		if (view == btnAtualizar){  
-			getTemperaturaHumidade();
+			startThreadGetDados();
 		}
 	}
+	
+	@SuppressLint("HandlerLeak")
+	private Handler handler = new Handler() {
+		public void handleMessage(android.os.Message msg) {
+			synchronized (msg) {
+				if (msg.arg1 == 1) {
+					Funcoes.msgToastErroComando(getActivity());
+				} else {
+					if (!temperatura.trim().equals("")) {
+						lblTemperatura.setText(temperatura);
+					}
+					
+					if (!humidade.trim().equals("")) {
+						lblHumidade.setText(humidade);
+					}
+				}
+			}
+		}
+	};
 
+	private void startThreadGetDados() {
+		dialog = ProgressDialog.show(this.getActivity(), "Aguarde", "Obtendo dados..."); 
+        new Thread() {
+            public void run() {
+                try{
+                	getTemperaturaHumidade();
+                } catch (Exception e) {
+                    Log.e("tag", e.getMessage());
+                }
+            }
+        }.start();	
+	}
+	
 	public void getTemperaturaHumidade() {
 		Document doc = new Document();
 		Element root = new Element("Temperatura");
@@ -78,15 +118,22 @@ public class TemperaturaHumidade extends Fragment implements OnClickListener {
 				
 				Element retorno = (Element) doc.getRootElement();
 				
-				lblTemperatura.setText("Temperatura: " + retorno.getChild("Dados").getAttribute("Temperatura").getValue() + " ºC");
-				lblHumidade.setText("Humidade: " + retorno.getChild("Dados").getAttribute("Humidade").getValue() + " %");
+				Message msg = new Message();
+				handler.sendMessage(msg);
+				
+				temperatura = "Temperatura: " + retorno.getChild("Dados").getAttribute("Temperatura").getValue() + " ºC";
+				humidade = "Humidade: " + retorno.getChild("Dados").getAttribute("Humidade").getValue() + " %";
+				dialog.dismiss();
 			} else {
-				lblTemperatura.setText("Erro ao obter Temperatura");
-				lblHumidade.setText("Erro ao obter Humidade");
+				Message msg = new Message();
+				msg.arg1 = 1;
+				handler.sendMessage(msg);
+				
+				dialog.dismiss();
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+			dialog.dismiss();
 		}
 	}
-
 }
