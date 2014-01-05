@@ -52,6 +52,17 @@ public class Login extends Activity {
 		
 		cbxMostrarSenha = (CheckBox) findViewById(R.id.cbxMostrarSenha);
 	}
+	
+	@Override
+	protected void onPostResume() {
+		if (cbxMostrarSenha.isChecked()) {
+			edtSenha.setInputType(InputType.TYPE_CLASS_TEXT);
+		} else {
+			edtSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);	
+		}
+		
+		super.onPostResume();
+	}
 
 	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler() {

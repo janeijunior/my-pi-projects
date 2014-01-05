@@ -1,9 +1,7 @@
 package br.com.housepi.classes;
 
-import java.text.Normalizer;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import br.com.housepi.R;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -30,21 +28,7 @@ public class Funcoes {
 		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(classe);
 		return sharedPreferences.getString(key, value);       
 	}	
-	
-	@SuppressWarnings("deprecation")
-	public static void exibirDialogoInformacao(String titulo, String mensagem, Context classe) {
-		AlertDialog alertDialog = new AlertDialog.Builder(classe).create();
-		alertDialog.setTitle(titulo);
-		alertDialog.setMessage(mensagem);
-		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int which) {
 		
-			}
-		});
-		alertDialog.setIcon(R.drawable.informacao);
-		alertDialog.show();
-	}
-	
 	public static String formatarDataHoraBanco(Date dataHora) {
 		return new SimpleDateFormat(dataBanco).format(dataHora);  
 	}
@@ -62,6 +46,20 @@ public class Funcoes {
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
+	public static void msgDialogoInformacao(String titulo, String mensagem, Context classe) {
+		AlertDialog alertDialog = new AlertDialog.Builder(classe).create();
+		alertDialog.setTitle(titulo);
+		alertDialog.setMessage(mensagem);
+		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+		
+			}
+		});
+		alertDialog.setIcon(R.drawable.informacao);
+		alertDialog.show();
+	}
+	
 	public static void msgToastErroComando(Context classe) {
 		Toast.makeText(classe, "Não foi possível enviar o comando.", Toast.LENGTH_LONG).show();
 	}
@@ -74,9 +72,9 @@ public class Funcoes {
 		Toast.makeText(classe, "Não foi possível gravar os dados no servidor.", Toast.LENGTH_LONG).show();
 	}
 	
-	public static String removerAcentos(String str) {  
+	/*public static String removerAcentos(String str) {  
 		str = Normalizer.normalize(str, Normalizer.Form.NFD);
 		str = str.replaceAll("[^\\p{ASCII}]", "");
 		return str;
-	}  
+	}*/ 
 }

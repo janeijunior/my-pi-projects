@@ -62,6 +62,18 @@ public class ConfiguracaoGeral extends Fragment implements OnClickListener {
 	}
 	
 	@Override
+	public void onResume() {
+		if (cbxMostrarSenha.isChecked()) {
+			edtSenha.setInputType(InputType.TYPE_CLASS_TEXT);
+		} else {
+			edtSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);	
+		}
+		
+		super.onResume();
+	}
+	
+	
+	@Override
     public void onClick(View v) {
 		if (v == cbxMostrarSenha) {
 			if (cbxMostrarSenha.isChecked()) {
@@ -77,9 +89,9 @@ public class ConfiguracaoGeral extends Fragment implements OnClickListener {
 			reiniciarDesligarServidor("Desligar");
 		} else if (v == btnSalvar) {
 			if (edtUsuario.getText().toString().trim().equals("")) {
-				Funcoes.exibirDialogoInformacao("Atenção", "Informe o novo usuário.", this.getActivity());
+				Funcoes.msgDialogoInformacao("Atenção", "Informe o novo usuário.", this.getActivity());
 			} else if (edtSenha.getText().toString().trim().equals("")) {
-				Funcoes.exibirDialogoInformacao("Atenção", "Informe a nova senha.", this.getActivity());
+				Funcoes.msgDialogoInformacao("Atenção", "Informe a nova senha.", this.getActivity());
 			} else {
 				String mensagem = "";
 				

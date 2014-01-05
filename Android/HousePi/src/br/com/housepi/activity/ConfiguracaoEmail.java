@@ -53,7 +53,7 @@ public class ConfiguracaoEmail extends Fragment implements OnClickListener {
 			if (edtUsuario.getText().toString().trim().equals("") || edtSenha.getText().toString().trim().equals("") ||
 				edtDestinatario.getText().toString().trim().equals("") || edtServidor.getText().toString().trim().equals("") ||
 				edtPorta.getText().toString().trim().equals("")) {
-				Funcoes.exibirDialogoInformacao("Atenção", "Preencha todos os campos antes de salvar.", this.getActivity());
+				Funcoes.msgDialogoInformacao("Atenção", "Preencha todos os campos antes de salvar.", this.getActivity());
 			} else {
 				String mensagem = "";
 				

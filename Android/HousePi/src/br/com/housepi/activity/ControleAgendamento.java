@@ -136,20 +136,20 @@ public class ControleAgendamento extends Fragment implements OnClickListener {
 			showDateTimePicker();
 		} else if (view == btnAdicionar) {
 			if (dataHoraInicial == null) {
-				Funcoes.exibirDialogoInformacao("Atenção", "Informe a data e a hora que deseja ligar o equipamento.", this.getActivity());
+				Funcoes.msgDialogoInformacao("Atenção", "Informe a data e a hora que deseja ligar o equipamento.", this.getActivity());
 			} else if (dataHoraFinal == null) {
-				Funcoes.exibirDialogoInformacao("Atenção", "Informe a data e a hora que deseja desligar o equipamento.", this.getActivity());
+				Funcoes.msgDialogoInformacao("Atenção", "Informe a data e a hora que deseja desligar o equipamento.", this.getActivity());
 			} else if (dataHoraInicial.after(dataHoraFinal)) {
-				Funcoes.exibirDialogoInformacao("Atenção", "A data/hora de desligamento deve ser maior que a data/hora de acionamento.", this.getActivity());
+				Funcoes.msgDialogoInformacao("Atenção", "A data/hora de desligamento deve ser maior que a data/hora de acionamento.", this.getActivity());
 			} else if (edtNome.getText().toString().trim().equals("")) {
-				Funcoes.exibirDialogoInformacao("Atenção", "Informe um nome antes de continuar.", this.getActivity());
+				Funcoes.msgDialogoInformacao("Atenção", "Informe um nome antes de continuar.", this.getActivity());
 			} else {
 				Agendamento agendamento;
 				
 				if (spinner.getSelectedItemPosition() == 0) {
-					agendamento = new Agendamento(Funcoes.removerAcentos(edtNome.getText().toString().trim()), dataHoraInicial, dataHoraFinal, new Alarme());
+					agendamento = new Agendamento(edtNome.getText().toString().trim(), dataHoraInicial, dataHoraFinal, new Alarme());
 				} else {
-					agendamento = new Agendamento(Funcoes.removerAcentos(edtNome.getText().toString().trim()), dataHoraInicial, dataHoraFinal, new Rele(spinner.getSelectedItemPosition() - 1));
+					agendamento = new Agendamento(edtNome.getText().toString().trim(), dataHoraInicial, dataHoraFinal, new Rele(spinner.getSelectedItemPosition() - 1));
 				}
 				
 				if (agendamento.gravarAgendamento()) {

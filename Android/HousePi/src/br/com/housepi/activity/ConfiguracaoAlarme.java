@@ -84,12 +84,12 @@ public class ConfiguracaoAlarme extends Fragment implements OnClickListener {
 	public void onClick(View v) {
 		if (v == btnSalvar) {
 			if (edtTempoDisparo.getText().toString().trim().equals("")) {
-				Funcoes.exibirDialogoInformacao("Atenção", "Informe o tempo de disparo do alarme.", this.getActivity());
+				Funcoes.msgDialogoInformacao("Atenção", "Informe o tempo de disparo do alarme.", this.getActivity());
 			} else if (edtNomeSensor0.getText().toString().trim().equals("") || edtNomeSensor1.getText().toString().trim().equals("") ||
 					   edtNomeSensor2.getText().toString().trim().equals("") || edtNomeSensor3.getText().toString().trim().equals("") ||
 				       edtNomeSensor4.getText().toString().trim().equals("") || edtNomeSensor5.getText().toString().trim().equals("") ||
 					   edtNomeSensor6.getText().toString().trim().equals("") || edtNomeSensor7.getText().toString().trim().equals("")) {
-				Funcoes.exibirDialogoInformacao("Atenção", "Informe o nome de todos os sensores antes de salvar.", this.getActivity());
+				Funcoes.msgDialogoInformacao("Atenção", "Informe o nome de todos os sensores antes de salvar.", this.getActivity());
 			} else {
 				String mensagem = "";
 				
@@ -105,49 +105,49 @@ public class ConfiguracaoAlarme extends Fragment implements OnClickListener {
 				
 				sensor = new Element("Sensor");
 				sensor.setAttribute(new Attribute("Id", "0"));
-				sensor.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeSensor0.getText().toString())));
+				sensor.setAttribute(new Attribute("Nome", edtNomeSensor0.getText().toString()));
 				sensor.setAttribute(new Attribute("Ativo", cbxSensor0.isChecked()?"1":"0"));
 				sensores.addContent(sensor);
 				
 				sensor = new Element("Sensor");
 				sensor.setAttribute(new Attribute("Id", "1"));
-				sensor.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeSensor1.getText().toString())));
+				sensor.setAttribute(new Attribute("Nome", edtNomeSensor1.getText().toString()));
 				sensor.setAttribute(new Attribute("Ativo", cbxSensor1.isChecked()?"1":"0"));
 				sensores.addContent(sensor);
 				
 				sensor = new Element("Sensor");
 				sensor.setAttribute(new Attribute("Id", "2"));
-				sensor.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeSensor2.getText().toString())));
+				sensor.setAttribute(new Attribute("Nome", edtNomeSensor2.getText().toString()));
 				sensor.setAttribute(new Attribute("Ativo", cbxSensor2.isChecked()?"1":"0"));
 				sensores.addContent(sensor);
 				
 				sensor = new Element("Sensor");
 				sensor.setAttribute(new Attribute("Id", "3"));
-				sensor.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeSensor3.getText().toString())));
+				sensor.setAttribute(new Attribute("Nome", edtNomeSensor3.getText().toString()));
 				sensor.setAttribute(new Attribute("Ativo", cbxSensor3.isChecked()?"1":"0"));
 				sensores.addContent(sensor);
 				
 				sensor = new Element("Sensor");
 				sensor.setAttribute(new Attribute("Id", "4"));
-				sensor.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeSensor4.getText().toString())));
+				sensor.setAttribute(new Attribute("Nome", edtNomeSensor4.getText().toString()));
 				sensor.setAttribute(new Attribute("Ativo", cbxSensor4.isChecked()?"1":"0"));
 				sensores.addContent(sensor);
 				
 				sensor = new Element("Sensor");
 				sensor.setAttribute(new Attribute("Id", "5"));
-				sensor.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeSensor5.getText().toString())));
+				sensor.setAttribute(new Attribute("Nome", edtNomeSensor5.getText().toString()));
 				sensor.setAttribute(new Attribute("Ativo", cbxSensor5.isChecked()?"1":"0"));
 				sensores.addContent(sensor);
 				
 				sensor = new Element("Sensor");
 				sensor.setAttribute(new Attribute("Id", "6"));
-				sensor.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeSensor6.getText().toString())));
+				sensor.setAttribute(new Attribute("Nome", edtNomeSensor6.getText().toString()));
 				sensor.setAttribute(new Attribute("Ativo", cbxSensor6.isChecked()?"1":"0"));
 				sensores.addContent(sensor);
 				
 				sensor = new Element("Sensor");
 				sensor.setAttribute(new Attribute("Id", "7"));
-				sensor.setAttribute(new Attribute("Nome", Funcoes.removerAcentos(edtNomeSensor7.getText().toString())));
+				sensor.setAttribute(new Attribute("Nome", edtNomeSensor7.getText().toString()));
 				sensor.setAttribute(new Attribute("Ativo", cbxSensor7.isChecked()?"1":"0"));
 				sensores.addContent(sensor);
 				
