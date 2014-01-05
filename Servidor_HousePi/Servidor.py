@@ -264,7 +264,7 @@ def enviarAgendamento():
         if agendamento.alarme == None:
             root.append(Element("Agendamento" + str(agendamento.id), Id=str(agendamento.id), Nome=agendamento.nome, 
                                 DataHoraInicial=str(agendamento.dataHoraInicial), DataHoraFinal=str(agendamento.dataHoraFinal),
-                                EhAlarme="0", IdRele=str(agendamento.rele.id), NomeRele=agendamento.rele.nome))   
+                                EhAlarme="0", IdRele=str(agendamento.rele.id), NomeRele=agendamento.rele.nome.decode('utf-8')))   
         else:
             root.append(Element("Agendamento" + str(agendamento.id), Id=str(agendamento.id), Nome=agendamento.nome, 
                                 DataHoraInicial=str(agendamento.dataHoraInicial), DataHoraFinal=str(agendamento.dataHoraFinal),
