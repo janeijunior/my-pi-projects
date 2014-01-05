@@ -485,7 +485,7 @@ def executarComandoMPlayer(cmd, retorno):
         split_output = output.split(retorno + '=', 1)
         if len(split_output) == 2 and split_output[0] == '':
             value = split_output[1]
-            return value.rstrip()
+            return value.decode('utf-8').rstrip()
 
 #finaliza os processos em execucao para encerrar o aplicativo servidor
 def finalizarProcessos():
