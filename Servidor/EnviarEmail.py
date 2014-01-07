@@ -8,6 +8,7 @@ import commands
 import datetime
 import thread
 import threading
+import Funcoes
 
 from email.MIMEText import MIMEText
 
