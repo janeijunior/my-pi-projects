@@ -29,7 +29,8 @@
                 android:id="@+id/edtUsuarioConf"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:ems="10" >
+                android:ems="10"
+                android:maxLength="60" >
 
                 <requestFocus />
             </EditText>
@@ -46,7 +47,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:maxLength="60" />
 
             <CheckBox
                 android:id="@+id/cbxMostrarSenhaConf"

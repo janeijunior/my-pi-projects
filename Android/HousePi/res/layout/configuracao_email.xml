@@ -24,7 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:maxLength="100" />
 
         <TextView
             android:id="@+id/textView2"
@@ -37,7 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:maxLength="60" />
 
         <TextView
             android:id="@+id/textView3"
@@ -50,7 +52,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:maxLength="500" />
 
         <TextView
             android:id="@+id/textView4"
@@ -62,7 +65,8 @@
             android:id="@+id/edtServidorEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10" />
+            android:ems="10"
+            android:maxLength="100" />
 
         <TextView
             android:id="@+id/textView5"
@@ -76,7 +80,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="right"
-            android:inputType="number" />
+            android:inputType="number"
+            android:maxLength="9" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -91,9 +96,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_blue"
                 android:text="Salvar" />
-
         </LinearLayout>
-
     </LinearLayout>
 
 </ScrollView>

@@ -59,7 +59,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" >
+                    android:inputType="number"
+                    android:maxLength="5" >
 
                     <requestFocus />
                 </EditText>
@@ -93,8 +94,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.73"
                     android:text="Nome do sensor"
-                    android:textAppearance="?android:attr/textAppearanceSmall" 
-                    android:textStyle="bold"/>
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textView4"
@@ -113,21 +114,21 @@
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0:" 
-                    android:textStyle="bold"/>
+                    android:text="0:"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edtNomeSensor0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10" />
+                    android:ems="10"
+                    android:maxLength="60" />
 
                 <CheckBox
                     android:id="@+id/cbxSensor0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -138,21 +139,21 @@
                     android:id="@+id/TextView06"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1:" 
-                    android:textStyle="bold"/>
+                    android:text="1:"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edtNomeSensor1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10" />
+                    android:ems="10"
+                    android:maxLength="60" />
 
                 <CheckBox
                     android:id="@+id/cbxSensor1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -163,16 +164,17 @@
                     android:id="@+id/TextView05"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2:" 
-                    android:textStyle="bold"/>
+                    android:text="2:"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edtNomeSensor2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10" />
-                
+                    android:ems="10"
+                    android:maxLength="60" />
+
                 <CheckBox
                     android:id="@+id/cbxSensor2"
                     android:layout_width="wrap_content"
@@ -187,16 +189,17 @@
                     android:id="@+id/TextView04"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3:" 
-                    android:textStyle="bold"/>
+                    android:text="3:"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edtNomeSensor3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10" />
-                
+                    android:ems="10"
+                    android:maxLength="60" />
+
                 <CheckBox
                     android:id="@+id/cbxSensor3"
                     android:layout_width="wrap_content"
@@ -211,16 +214,17 @@
                     android:id="@+id/TextView03"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4:" 
-                    android:textStyle="bold"/>
+                    android:text="4:"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edtNomeSensor4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10" />
-                
+                    android:ems="10"
+                    android:maxLength="60" />
+
                 <CheckBox
                     android:id="@+id/cbxSensor4"
                     android:layout_width="wrap_content"
@@ -243,8 +247,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10" />
-                
+                    android:ems="10"
+                    android:maxLength="60" />
+
                 <CheckBox
                     android:id="@+id/cbxSensor5"
                     android:layout_width="wrap_content"
@@ -259,16 +264,17 @@
                     android:id="@+id/TextView01"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="6:" 
-                    android:textStyle="bold"/>
+                    android:text="6:"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edtNomeSensor6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10" />
-                
+                    android:ems="10"
+                    android:maxLength="60" />
+
                 <CheckBox
                     android:id="@+id/cbxSensor6"
                     android:layout_width="wrap_content"
@@ -283,16 +289,17 @@
                     android:id="@+id/TextView07"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="7:" 
-                    android:textStyle="bold"/>
+                    android:text="7:"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edtNomeSensor7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10" />
-                
+                    android:ems="10"
+                    android:maxLength="60" />
+
                 <CheckBox
                     android:id="@+id/cbxSensor7"
                     android:layout_width="wrap_content"
@@ -314,7 +321,6 @@
                     android:text="Salvar" />
             </LinearLayout>
         </LinearLayout>
-
     </LinearLayout>
 
 </ScrollView>
