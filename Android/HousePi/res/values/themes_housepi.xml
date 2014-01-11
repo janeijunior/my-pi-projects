@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="HousePi" parent="@style/_HousePi"/>
+
+  <style name="_HousePi" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    <item name="android:editTextStyle">@style/EditTextHousePi</item>
+
+    <item name="android:checkboxStyle">@style/CheckBoxHousePi</item>
+
+    <item name="android:radioButtonStyle">@style/RadioButtonHousePi</item>
+
+    <item name="android:buttonStyle">@style/ButtonHousePi</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtonHousePi</item>
+
+    <item name="android:spinnerStyle">@style/SpinnerHousePi</item>
+
+    <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItemHousePi</item>
+
+    <item name="android:seekBarStyle">@style/SeekBarHousePi</item>
+
+    <item name="android:buttonStyleToggle">@style/ToggleHousePi</item>
+
+  </style>
+
+</resources>

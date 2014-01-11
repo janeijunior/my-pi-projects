@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="EditTextHousePi" parent="android:Widget.EditText">
+	  <item name="android:background">@drawable/housepi_edit_text_holo_light</item>
+	  <item name="android:textColor">#000000</item>
+  </style>
+
+  <style name="CheckBoxHousePi" parent="android:Widget.CompoundButton.CheckBox">
+      <item name="android:button">@drawable/housepi_btn_check_holo_light</item>
+  </style>
+
+  <style name="RadioButtonHousePi" parent="android:Widget.CompoundButton.RadioButton">
+      <item name="android:button">@drawable/housepi_btn_radio_holo_light</item>
+  </style>
+
+  <style name="ButtonHousePi" parent="android:Widget.Button">
+	  <item name="android:background">@drawable/housepi_btn_default_holo_light</item>
+	  <item name="android:minHeight">48dip</item>
+	  <item name="android:minWidth">64dip</item>
+	  <item name="android:textColor">#000000</item>
+  </style>
+
+  <style name="ImageButtonHousePi" parent="android:Widget.ImageButton">
+	  <item name="android:background">@drawable/housepi_btn_default_holo_light</item>
+  </style>
+
+  <style name="SpinnerHousePi" parent="android:Widget.Spinner">
+      <item name="android:background">@drawable/housepi_spinner_background_holo_light</item>
+      <item name="android:dropDownSelector">@drawable/housepi_list_selector_holo_light</item>
+  </style>
+
+  <style name="SpinnerDropDownItemHousePi" parent="android:Widget.DropDownItem.Spinner">
+      <item name="android:checkMark">@drawable/housepi_btn_radio_holo_light</item>
+  </style>
+  <style name="SeekBarHousePi" parent="android:Widget.SeekBar">
+      <item name="android:progressDrawable">@drawable/housepi_scrubber_progress_horizontal_holo_light</item>
+      <item name="android:indeterminateDrawable">@drawable/housepi_scrubber_progress_horizontal_holo_light</item>
+      <item name="android:minHeight">13dip</item>
+      <item name="android:maxHeight">13dip</item>
+      <item name="android:thumb">@drawable/housepi_scrubber_control_selector_holo_light</item>
+      <item name="android:thumbOffset">16dip</item>
+      <item name="android:paddingLeft">16dip</item>
+      <item name="android:paddingRight">16dip</item>
+  </style>
+
+  <style name="ToggleHousePi" parent="android:Widget.Button.Toggle">
+      <item name="android:background">@drawable/housepi_btn_toggle_holo_light</item>
+      <item name="android:minHeight">48dip</item>
+	  <item name="android:textColor">#000000</item>
+  </style>
+
+</resources>
