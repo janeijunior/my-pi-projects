@@ -602,7 +602,7 @@ def conectado(con, cliente):
                 print "Erro: ", e
                 con.send("Erro\n")
                 
-    print 'Finalizando conexao do cliente', cliente
+    print "Finalizando conexao do cliente", cliente
     
     global listaConexoes
     
