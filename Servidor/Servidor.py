@@ -222,7 +222,7 @@ def enviarConfiguracaoStatusAlarme():
         status = "Disparado"
     elif alarme.getStatusAlarme() == 0:
         status = "Normal"
-    else
+    else:
         status = "Desligado"
     
     root.append(Element("SensorAlarme", Status=status, Ligado=str(int(alarme.alarmeLigado))))
