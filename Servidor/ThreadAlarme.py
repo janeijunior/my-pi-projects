@@ -10,6 +10,7 @@ import SensorAlarme
 import MySQLdb
 import Funcoes
 
+DESLIGADO = -1
 NORMAL = 0
 DISPARADO = 1
 
