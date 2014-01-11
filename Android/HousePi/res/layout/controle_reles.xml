@@ -36,8 +36,8 @@
                     android:layout_weight="0.53"
                     android:background="@drawable/togglebutton"
                     android:text="ToggleButton"
-                    android:textOff="Relê 1"
-                    android:textOn="Relê 1" />
+                    android:textOff="Relé 1"
+                    android:textOn="Relé 1" />
 
                 <ToggleButton
                     android:id="@+id/btnRele1"
@@ -47,8 +47,8 @@
                     android:layout_weight="0.53"
                     android:background="@drawable/togglebutton"
                     android:text="ToggleButton"
-                    android:textOff="Relê 2"
-                    android:textOn="Relê 2" />
+                    android:textOff="Relé 2"
+                    android:textOn="Relé 2" />
 
             </TableRow>
 
@@ -65,8 +65,8 @@
                     android:layout_weight="0.53"
                     android:background="@drawable/togglebutton"
                     android:text="ToggleButton"
-                    android:textOff="Relê 3"
-                    android:textOn="Relê 3" />
+                    android:textOff="Relé 3"
+                    android:textOn="Relé 3" />
 
                 <ToggleButton
                     android:id="@+id/btnRele3"
@@ -76,8 +76,8 @@
                     android:layout_weight="0.53"
                     android:background="@drawable/togglebutton"
                     android:text="ToggleButton"
-                    android:textOff="Relê 4"
-                    android:textOn="Relê 4" />
+                    android:textOff="Relé 4"
+                    android:textOn="Relé 4" />
 
             </TableRow>
 
@@ -94,8 +94,8 @@
                     android:layout_weight="0.53"
                     android:background="@drawable/togglebutton"
                     android:text="ToggleButton"
-                    android:textOff="Relê 5"
-                    android:textOn="Relê 5" />
+                    android:textOff="Relé 5"
+                    android:textOn="Relé 5" />
 
                 <ToggleButton
                     android:id="@+id/btnRele5"
@@ -105,8 +105,8 @@
                     android:layout_weight="0.53"
                     android:background="@drawable/togglebutton"
                     android:text="ToggleButton"
-                    android:textOff="Relê 6"
-                    android:textOn="Relê 6" />
+                    android:textOff="Relé 6"
+                    android:textOn="Relé 6" />
 
             </TableRow>
 
@@ -123,8 +123,8 @@
                     android:layout_weight="0.53"
                     android:background="@drawable/togglebutton"
                     android:text="ToggleButton"
-                    android:textOff="Relê 7"
-                    android:textOn="Relê 7" />
+                    android:textOff="Relé 7"
+                    android:textOn="Relé 7" />
 
                 <ToggleButton
                     android:id="@+id/btnRele7"
@@ -134,8 +134,8 @@
                     android:layout_weight="0.53"
                     android:background="@drawable/togglebutton"
                     android:text="ToggleButton"
-                    android:textOff="Relê 8"
-                    android:textOn="Relê 8" />
+                    android:textOff="Relé 8"
+                    android:textOn="Relé 8" />
 
             </TableRow>
 
@@ -152,8 +152,8 @@
                     android:layout_weight="0.53"
                     android:background="@drawable/togglebutton"
                     android:text="ToggleButton"
-                    android:textOff="Relê 9"
-                    android:textOn="Relê 9" />
+                    android:textOff="Relé 9"
+                    android:textOn="Relé 9" />
 
                 <ToggleButton
                     android:id="@+id/btnRele9"
@@ -163,8 +163,8 @@
                     android:layout_weight="0.53"
                     android:background="@drawable/togglebutton"
                     android:text="ToggleButton"
-                    android:textOff="Relê 10"
-                    android:textOn="Relê 10" />
+                    android:textOff="Relé 10"
+                    android:textOn="Relé 10" />
 
             </TableRow>
         </TableLayout>
