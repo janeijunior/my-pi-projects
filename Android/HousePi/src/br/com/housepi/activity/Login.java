@@ -10,12 +10,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.ActionBarActivity;
 import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
@@ -24,8 +24,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-@SuppressLint("NewApi")
-public class Login extends Activity {
+public class Login extends ActionBarActivity {
 	private static final int MENU_CONFIG = 1;
 	private static final int ERRO_CONEXAO = -1;
 	private Context context = this; 

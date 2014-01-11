@@ -109,9 +109,11 @@ public class DateTimePickerDialog extends AlertDialog implements
 		spec.setIndicator("Hora");
 		tabHost.addTab(spec);
 		
-		tabHost.getTabWidget().getChildAt(0).setBackgroundColor(Color.parseColor("#B0E2FF"));
-		tabHost.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#B0E2FF"));
-		
+		if (android.os.Build.VERSION.SDK_INT>=11) {
+			tabHost.getTabWidget().getChildAt(0).setBackgroundColor(Color.parseColor("#B0E2FF"));
+			tabHost.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#B0E2FF"));
+		}
+			
 		this.setView(customView);
 		dpReminder = (DatePicker) customView.findViewById(R.id.dpReminder);
 		tpReminder = (TimePicker) customView.findViewById(R.id.tpReminder);

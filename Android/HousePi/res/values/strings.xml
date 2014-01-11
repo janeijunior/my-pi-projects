@@ -4,7 +4,7 @@
     <string name="app_name">House Pi</string>
     <string name="action_settings">Configurações</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_configurar">Configurações</string>
+    <string name="title_activity_configuracao_conexao">Configurações</string>
     <string name="title_activity_menu_principal">House Pi</string>
     <string name="title_activity_controle_reles">Controle dos Relés</string>
     <string name="title_activity_controle_alarme">Controle do Alarme</string>

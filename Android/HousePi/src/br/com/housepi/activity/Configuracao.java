@@ -6,15 +6,16 @@ import java.util.Vector;
 import br.com.housepi.R;
 import br.com.housepi.classes.ViewPagerAdapter;
 import android.annotation.SuppressLint;
-import android.app.ActionBar;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBar.Tab;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -22,7 +23,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 @SuppressLint("NewApi")
-public class Configuracao extends FragmentActivity implements
+public class Configuracao extends ActionBarActivity implements
 		ActionBar.TabListener {
 	private PagerAdapter mPagerAdapter;
 
@@ -35,7 +36,7 @@ public class Configuracao extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.configuracao);
 
-		final ActionBar actionBar = getActionBar();
+		final ActionBar actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		mSectionsPagerAdapter = new SectionsPagerAdapter(
@@ -82,19 +83,16 @@ public class Configuracao extends FragmentActivity implements
 	}
 
 	@Override
-	public void onTabSelected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
+	public void onTabSelected(Tab tab, FragmentTransaction fragmentTransaction) {
 		mViewPager.setCurrentItem(tab.getPosition());
 	}
 
 	@Override
-	public void onTabUnselected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
+	public void onTabUnselected(Tab tab, FragmentTransaction fragmentTransaction) {
 	}
 
 	@Override
-	public void onTabReselected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
+	public void onTabReselected(Tab tab, FragmentTransaction fragmentTransaction) {
 	}
 
 	public class SectionsPagerAdapter extends FragmentPagerAdapter {
