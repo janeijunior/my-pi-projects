@@ -112,7 +112,7 @@ def carregarListaAgendamento():
     
         
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
-def efetuarLogin(root):
+def efetuarLogin(root, con):
     conBanco = Funcoes.conectarBanco()
     cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute("select Usuario, Senha from Configuracao")
@@ -138,7 +138,7 @@ def efetuarLogin(root):
         thread.exit()
 
 #liga ou desliga os reles/atuadores
-def controlarRele(root):
+def controlarRele(root, con):
     acao = root.find("Acao").text
     numero = root.find("Numero").text
     
@@ -150,7 +150,7 @@ def controlarRele(root):
     con.send("Ok\n")
         
 #le o sensor de temperatura e humidade e envia os resultados
-def enviarTemperaturaHumidade():    
+def enviarTemperaturaHumidade(con):    
     try:
         desligarCamera()
         time.sleep(1)
@@ -171,7 +171,7 @@ def enviarTemperaturaHumidade():
 	ligarCamera()
         
 #liga ou desliga o alarme
-def controlarAlarme(root):
+def controlarAlarme(root, con):
     acao = root.find("Acao").text
     
     global alarme
@@ -188,7 +188,7 @@ def controlarAlarme(root):
         
     
 #liga ou desliga a funcao panico do alarme
-def controlarFuncaoPanico(root):
+def controlarFuncaoPanico(root, con):
     acao = root.find("Acao").text
     
     global alarme
@@ -201,7 +201,7 @@ def controlarFuncaoPanico(root):
     con.send("Ok\n")
     
 #funcao que envia as configuracoes dos reles e status
-def enviarConfiguracaoStatusRele():
+def enviarConfiguracaoStatusRele(con):
     root = Element("Reles")
     
     for rele in listaReles:
@@ -211,7 +211,7 @@ def enviarConfiguracaoStatusRele():
     con.send(xmlstr)
 
 #funcao que envia o status do alarme
-def enviarConfiguracaoStatusAlarme():
+def enviarConfiguracaoStatusAlarme(con):
     root = Element("Alarme")
     
     global alarme
@@ -232,7 +232,7 @@ def enviarConfiguracaoStatusAlarme():
     con.send(xmlstr)
 
 #funcao que insere um novo agendamento no banco de dados e alualiza a lista de agendamentos
-def gravarAgendamento(root):
+def gravarAgendamento(root, con):
     
     global alarme
     
@@ -261,7 +261,7 @@ def gravarAgendamento(root):
         con.send("Erro\n")
 
 #funcao que retorna os agendamentos do servidor para o aplicativo movel
-def enviarAgendamento():
+def enviarAgendamento(con):
     root = Element("EnviarAgendamento")
     
     #atualiza a lista de agendamentos
@@ -283,7 +283,7 @@ def enviarAgendamento():
     con.send(xmlstr)
 
 #funcao que remove o agendamento da lita e do banco de dados conforme solicitado
-def removerAgendamento(root):
+def removerAgendamento(root, con):
     global threadAgendamento
     global listaAgendamento
     
@@ -303,7 +303,7 @@ def removerAgendamento(root):
                 con.send("Erro\n")
 
 #funcao para alterar o usuario e a senha
-def alterarUsuarioSenha(root):
+def alterarUsuarioSenha(root, con):
     try:
         usuario = root.find("Usuario").text.encode('utf-8')
         senha = root.find("Senha").text.encode('utf-8')
@@ -324,7 +324,7 @@ def alterarUsuarioSenha(root):
         con.send("Erro\n")
             
 #funcao para renomear os reles atraves da aba de configuracoes
-def alterarConfiguracaoRele(root):
+def alterarConfiguracaoRele(root, con):
     try:
         global listaReles
         
@@ -337,7 +337,7 @@ def alterarConfiguracaoRele(root):
         con.send("Erro\n")
         
 #funcao que grava a nova configuracao de email
-def alterarConfiguracaoEmail(root):
+def alterarConfiguracaoEmail(root, con):
     try:
         usuario = root.find("Usuario").text.encode('utf-8')
         senha = root.find("Senha").text.encode('utf-8')
@@ -367,7 +367,7 @@ def alterarConfiguracaoEmail(root):
         con.send("Erro\n")
 
 #envia a configuracao atual de email para o solicitante
-def enviarConfiguracaoEmail():
+def enviarConfiguracaoEmail(con):
     conBanco = Funcoes.conectarBanco()
     cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute("select * from Configuracao")
@@ -384,7 +384,7 @@ def enviarConfiguracaoEmail():
     conBanco.close()
 
 #funcao para enviar as configuracoes atuais do alarme
-def enviarConfiguracaoAlarme():
+def enviarConfiguracaoAlarme(con):
     conBanco = Funcoes.conectarBanco()
     cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
         
@@ -408,7 +408,7 @@ def enviarConfiguracaoAlarme():
     conBanco.close()
         
 #funcao para gravar as novas configuracoes do alarme
-def alterarConfiguracaoAlarme(root):
+def alterarConfiguracaoAlarme(root, con):
     try:
         conBanco = Funcoes.conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
@@ -436,7 +436,7 @@ def alterarConfiguracaoAlarme(root):
         con.send("Erro\n")
 
 #envia a lista de musicas de uma pasta pre determinada
-def enviarListaMusica():
+def enviarListaMusica(con):
     playlist = 'find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -o -name "*m4a" -o -name "*wma" -type f | sort > /home/pi/HousePi/playlist'
     os.system(playlist)
     
@@ -454,7 +454,7 @@ def enviarListaMusica():
     con.send(xmlstr)
 
 #controla o mplayer do linux
-def controlarSomAmbiente(root):
+def controlarSomAmbiente(root, con):
     global mplayer
     
     comando = str(root.find("Comando").text)
@@ -523,7 +523,7 @@ def finalizarProcessos():
     desligarCamera()
 
 #funcao para reiniciar ou desligar o servidor conforme solicitado pelo app android
-def reiniciarDesligarServidor(root):
+def reiniciarDesligarServidor(root, con):
     acao = root.find("Acao").text
     
     finalizarProcessos()
@@ -570,43 +570,43 @@ def conectado(con, cliente):
                 root = ET.fromstring(comando)
             
                 if root.tag == "Logar":
-                    efetuarLogin(root = root)
+                    efetuarLogin(root, con)
                 elif root.tag == "Rele":
-                    controlarRele(root)
+                    controlarRele(root, con)
                 elif root.tag == "Temperatura":
-                    enviarTemperaturaHumidade()
+                    enviarTemperaturaHumidade(con)
                 elif root.tag == "Alarme":
-                    controlarAlarme(root)
+                    controlarAlarme(root, con)
                 elif root.tag == "Panico":
-                    controlarFuncaoPanico(root)           
+                    controlarFuncaoPanico(root, con)           
                 elif root.tag == "StatusRele":
-                    enviarConfiguracaoStatusRele()
+                    enviarConfiguracaoStatusRele(con)
                 elif root.tag == "StatusAlarme":
-                    enviarConfiguracaoStatusAlarme()   
+                    enviarConfiguracaoStatusAlarme(con)   
                 elif root.tag == "GravarAgendamento":
-                    gravarAgendamento(root)
+                    gravarAgendamento(root, con)
                 elif root.tag == "EnviarAgendamento":
-                    enviarAgendamento()
+                    enviarAgendamento(con)
                 elif root.tag == "RemoverAgendamento":
-                    removerAgendamento(root)
+                    removerAgendamento(root, con)
                 elif root.tag == "AlterarUsuarioSenha":
-                    alterarUsuarioSenha(root)
+                    alterarUsuarioSenha(root, con)
                 elif root.tag == "AlterarConfiguracaoRele":
-                    alterarConfiguracaoRele(root)
+                    alterarConfiguracaoRele(root, con)
                 elif root.tag == "AlterarConfiguracaoEmail":
-                    alterarConfiguracaoEmail(root)
+                    alterarConfiguracaoEmail(root, con)
                 elif root.tag == "EnviarConfiguracaoEmail":
-                    enviarConfiguracaoEmail()
+                    enviarConfiguracaoEmail(con)
                 elif root.tag == "EnviarConfiguracaoAlarme":
-                    enviarConfiguracaoAlarme()
+                    enviarConfiguracaoAlarme(con)
                 elif root.tag == "AlterarConfiguracaoAlarme":
-                    alterarConfiguracaoAlarme(root)
+                    alterarConfiguracaoAlarme(root, con)
                 elif root.tag == "EnviarListaMusica":
-                    enviarListaMusica()
+                    enviarListaMusica(con)
                 elif root.tag == "ControlarSomAmbiente":
-                    controlarSomAmbiente(root)
+                    controlarSomAmbiente(root, con)
                 elif root.tag == "ReiniciarDesligar":
-                    reiniciarDesligarServidor(root)
+                    reiniciarDesligarServidor(root, con)
             except Exception as e: 
                 print "Erro: ", e
                 con.send("Erro\n")
@@ -641,7 +641,7 @@ def signal_handler(signal, frame):
 signal.signal(signal.SIGINT, signal_handler)
 
 while True:
-   con, cliente = tcp.accept()
-   thread.start_new_thread(conectado, tuple([con, cliente]))
+   conexao, cliente = tcp.accept()
+   thread.start_new_thread(conectado, tuple([conexao, cliente]))
     
 tcp.close()
