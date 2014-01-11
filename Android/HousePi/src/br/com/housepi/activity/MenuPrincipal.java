@@ -89,7 +89,7 @@ public class MenuPrincipal extends ActionBarActivity {
             }
 
             public void onDrawerOpened(View drawerView) {
-            	//getSupportActionBar().setTitle(mDrawerTitle);
+            	getSupportActionBar().setTitle(mTitle); //mDrawerTitle
             	ActivityCompat.invalidateOptionsMenu(MenuPrincipal.this); 
             }
         };
