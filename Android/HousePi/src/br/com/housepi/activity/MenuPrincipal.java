@@ -3,15 +3,16 @@ package br.com.housepi.activity;
 import java.util.ArrayList;
 import java.util.HashMap;
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,8 +22,8 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 import br.com.housepi.R;
 
-@SuppressLint({ "NewApi", "ShowToast" })
-public class MenuPrincipal extends Activity {
+@SuppressLint({"ShowToast" })
+public class MenuPrincipal extends ActionBarActivity {
 	private static final int MENU_CONFIG = 1;
 	
     private DrawerLayout mDrawerLayout;
@@ -37,7 +38,7 @@ public class MenuPrincipal extends Activity {
     private long lastBackPressTime = 0;
     
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {      
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_principal);
 
@@ -68,8 +69,8 @@ public class MenuPrincipal extends Activity {
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);   
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());     
         
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         mDrawerToggle = new ActionBarDrawerToggle(
                 this,                  
@@ -79,13 +80,13 @@ public class MenuPrincipal extends Activity {
                 R.string.drawer_close  
                 ) {
             public void onDrawerClosed(View view) {
-                getActionBar().setTitle(mTitle);
-                invalidateOptionsMenu(); 
+            	getSupportActionBar().setTitle(mTitle);
+            	ActivityCompat.invalidateOptionsMenu(MenuPrincipal.this);
             }
 
             public void onDrawerOpened(View drawerView) {
-                getActionBar().setTitle(mDrawerTitle);
-                invalidateOptionsMenu(); 
+            	getSupportActionBar().setTitle(mDrawerTitle);
+            	ActivityCompat.invalidateOptionsMenu(MenuPrincipal.this); 
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
@@ -134,7 +135,7 @@ public class MenuPrincipal extends Activity {
 
     private void selectItem(int position) {
     	Fragment newFragment;
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         switch (position) {
         case 0:
@@ -204,7 +205,7 @@ public class MenuPrincipal extends Activity {
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
-        getActionBar().setTitle(mTitle);
+        //getActionBar().setTitle(mTitle);
     }
 
     @Override

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 VIDEO_DEV="/dev/video0"
-FRAME_RATE="4"
+FRAME_RATE="5"
 RESOLUTION="320x240"
 PORT="5005"
 YUV="true"
@@ -9,8 +9,22 @@ YUV="true"
 MJPG_STREAMER_DIR="$(dirname $0)"
 MJPG_STREAMER_BIN="mjpg_streamer"
 LOG_FILE="${MJPG_STREAMER_DIR}/mjpg-streamer.log"
-RUNNING_CHECK_INTERVAL="2" # how often to check to make sure the server is running (in seconds)
-HANGING_CHECK_INTERVAL="3" # how often to check to make sure the server is not hanging (in seconds)
+RUNNING_CHECK_INTERVAL="3" # how often to check to make sure the server is running (in seconds)
+HANGING_CHECK_INTERVAL="4" # how often to check to make sure the server is not hanging (in seconds)
+
+function parseAdditionalArguments() {
+    if [ "$2" != "" ]; then
+        PORT=$2
+    fi
+    if [ "$3" != "" ]; then
+        RESOLUTION=$3
+    fi
+    if [ "$4" != "" ]; then
+        FRAME_RATE=$4
+    fi
+
+	echo $PORT $RESOLUTION $FRAME_RATE
+}
 
 function running() {
     if ps aux | grep ${MJPG_STREAMER_BIN} | grep ${VIDEO_DEV} >/dev/null 2>&1; then
@@ -106,11 +120,12 @@ function check_hanging() {
 }
 
 function help() {
-    echo "Usage: $0 [start|stop|restart|status]"
+    echo "Usage: $0 [start|stop|restart|status] [port number] [resolution] [framerate]"
     return 0
 }
 
 if [ "$1" == "start" ]; then
+    parseAdditionalArguments "$@"
     start && exit 0 || exit -1
 
 elif [ "$1" == "stop" ]; then

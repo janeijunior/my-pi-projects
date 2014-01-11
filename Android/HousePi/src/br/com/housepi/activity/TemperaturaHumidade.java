@@ -16,7 +16,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.content.Context;
 import android.annotation.SuppressLint;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.app.ProgressDialog;
 import android.util.Log;
 import android.view.LayoutInflater;

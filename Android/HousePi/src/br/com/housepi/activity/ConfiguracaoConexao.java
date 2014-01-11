@@ -2,13 +2,13 @@ package br.com.housepi.activity;
 
 import br.com.housepi.R;
 import android.os.Bundle;
-import android.app.Activity;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import br.com.housepi.classes.Funcoes;
 
-public class ConfiguracaoConexao extends Activity {
+public class ConfiguracaoConexao extends ActionBarActivity {
 	private EditText edtHost;
 	private EditText edtPorta;
 
