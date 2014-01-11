@@ -216,7 +216,16 @@ def enviarConfiguracaoStatusAlarme():
     
     global alarme
     
-    root.append(Element("SensorAlarme", Status=str(alarme.getStatusAlarme()), Ligado=str(int(alarme.alarmeLigado))))
+    status = ""
+    
+    if alarme.getStatusAlarme() == 1:
+        status = "Disparado"
+    elif alarme.getStatusAlarme() == 0:
+        status = "Normal"
+    else
+        status = "Desligado"
+    
+    root.append(Element("SensorAlarme", Status=status, Ligado=str(int(alarme.alarmeLigado))))
     root.append(Element("PanicoAlarme", Ligado=str(int(alarme.panicoAlarmeLigado))))
     
     xmlstr = ET.tostring(root) + "\n"   
