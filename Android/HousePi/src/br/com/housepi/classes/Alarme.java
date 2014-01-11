@@ -8,23 +8,55 @@ import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.XMLOutputter;
 
+import android.graphics.Color;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 public class Alarme {
 	private Boolean alarmeLigado;
 	private Boolean panicoLigado;
+	private String statusAlarme;
 	private ToggleButton btnAlarme;
 	private ToggleButton btnPanico;
+	private TextView lblStatus;
 	
 	public Alarme() {
 		super();
 		
 	}
-	
-	public Alarme(ToggleButton btnAlarme, ToggleButton btnPanico) {
+
+	public Alarme(ToggleButton btnAlarme, ToggleButton btnPanico,
+			TextView lblStatus) {
 		super();
 		this.btnAlarme = btnAlarme;
 		this.btnPanico = btnPanico;
+		this.lblStatus = lblStatus;
+	}
+
+	public String getStatusAlarme() {
+		return statusAlarme;
+	}
+
+	public void setStatusAlarme(String statusAlarme) {
+		this.statusAlarme = statusAlarme;
+		
+		this.getLblStatus().setText(this.getStatusAlarme());
+		
+		if (this.getStatusAlarme().equals("Normal")) {
+			this.getLblStatus().setTextColor(Color.GREEN);
+		} else if (this.getStatusAlarme().equals("Disparado")) {
+			this.getLblStatus().setTextColor(Color.RED);
+		} else {
+			this.getLblStatus().setTextColor(Color.BLACK);
+		}
+	}
+	
+	public TextView getLblStatus() {
+		return lblStatus;
+	}
+
+	public void setLblStatus(TextView lblStatus) {
+		this.lblStatus = lblStatus;
 	}
 
 	public ToggleButton getBtnAlarme() {
@@ -60,11 +92,23 @@ public class Alarme {
 	}
 
 	public Boolean ligarAlarme() {
-		return montarEnviarXMLControle("Alarme", "Ligar");	
+		Boolean resposta = montarEnviarXMLControle("Alarme", "Ligar");	
+		
+		if (resposta) {
+			this.setStatusAlarme("Normal");
+		} 
+		
+		return resposta;
 	}
 	
 	public Boolean desligarAlarme() {
-		return montarEnviarXMLControle("Alarme", "Desligar");
+		Boolean resposta = montarEnviarXMLControle("Alarme", "Desligar");
+	
+		if (resposta) {
+			this.setStatusAlarme("Desligado");
+		}
+		
+		return resposta;
 	}
 	
 	public Boolean ligarPanico() {
@@ -117,6 +161,8 @@ public class Alarme {
 
 			Element retorno = (Element) doc.getRootElement();
 			
+			this.setStatusAlarme(retorno.getChild("SensorAlarme").getAttribute("Status").getValue());
+										
 			this.setAlarmeLigado(retorno.getChild("SensorAlarme").getAttribute("Ligado").getIntValue() == 1);
 			this.getBtnAlarme().setChecked(this.getAlarmeLigado());
 			

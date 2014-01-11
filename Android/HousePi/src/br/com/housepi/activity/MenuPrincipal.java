@@ -21,16 +21,20 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 import br.com.housepi.R;
+import br.com.housepi.classes.Funcoes;
 
 @SuppressLint({"ShowToast" })
 public class MenuPrincipal extends ActionBarActivity {
-	private static final int MENU_CONFIG = 1;
+	private static final int MENU_ATUALIZAR = 1;
+	private static final int MENU_CONFIG = 2;
+	
+	private Integer posicao;
 	
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
 
-    private CharSequence mDrawerTitle;
+    //private CharSequence mDrawerTitle;
     private CharSequence mTitle;
     private String[] mMenu;
       
@@ -42,7 +46,7 @@ public class MenuPrincipal extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_principal);
 
-        mTitle = mDrawerTitle = getTitle();
+        //mTitle = mDrawerTitle = getTitle();
         mMenu = getResources().getStringArray(R.array.menu_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
@@ -85,20 +89,24 @@ public class MenuPrincipal extends ActionBarActivity {
             }
 
             public void onDrawerOpened(View drawerView) {
-            	getSupportActionBar().setTitle(mDrawerTitle);
+            	//getSupportActionBar().setTitle(mDrawerTitle);
             	ActivityCompat.invalidateOptionsMenu(MenuPrincipal.this); 
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-
+        
         if (savedInstanceState == null) {
             selectItem(0);
         }
+        
+        posicao = Integer.valueOf(Funcoes.carregarDadosComponente("PosicaoMenu", "0", MenuPrincipal.this));
+        setTitle(mMenu[posicao]);
     }
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_principal, menu);
+        menu.add(0, MENU_ATUALIZAR, 0, "Atualizar");
         menu.add(0, MENU_CONFIG, 0, "Configurações");
         
         return super.onCreateOptionsMenu(menu);
@@ -116,11 +124,14 @@ public class MenuPrincipal extends ActionBarActivity {
         }
                
         switch (item.getItemId()) {
-		case MENU_CONFIG:
-			startActivity(new Intent(this, Configuracao.class));
-			break;
-		default:
-			break;
+	        case MENU_ATUALIZAR:
+	        	selectItem(posicao);
+				break;
+	        case MENU_CONFIG:
+				startActivity(new Intent(this, Configuracao.class));
+				break;
+			default:
+				break;
 		}
         
         return super.onOptionsItemSelected(item);
@@ -137,6 +148,8 @@ public class MenuPrincipal extends ActionBarActivity {
     	Fragment newFragment;
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
+        posicao = position;
+        
         switch (position) {
         case 0:
             newFragment = ControleRele.newInstance(this);
@@ -182,6 +195,7 @@ public class MenuPrincipal extends ActionBarActivity {
             break;
         }
         
+        Funcoes.salvarDadosComponente("PosicaoMenu", String.valueOf(position), MenuPrincipal.this);
         mDrawerList.setItemChecked(position, true);
         setTitle(mMenu[position]);
         mDrawerLayout.closeDrawer(mDrawerList); 
@@ -197,6 +211,7 @@ public class MenuPrincipal extends ActionBarActivity {
     		if (toast != null) {
     			toast.cancel();
     		}
+    		Funcoes.salvarDadosComponente("PosicaoMenu", "0", MenuPrincipal.this);
     		finish();
     		System.exit(0);
     	}
@@ -205,7 +220,7 @@ public class MenuPrincipal extends ActionBarActivity {
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
-        //getActionBar().setTitle(mTitle);
+        getSupportActionBar().setTitle(mTitle);
     }
 
     @Override

@@ -119,9 +119,9 @@
                 android:id="@+id/btnAdicionar"
                 style="@style/ButtonText"
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:layout_height="36dp"
                 android:background="@drawable/btn_blue"
-                android:text="Adic." />
+                android:text="Salvar " />
         </LinearLayout>
 
         <LinearLayout

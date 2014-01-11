@@ -7,7 +7,6 @@ import java.net.URL;
 import br.com.housepi.activity.Login;
 import android.content.Context;
 import android.os.Bundle;
-import android.annotation.SuppressLint;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,6 @@ import br.com.housepi.R;
 import br.com.housepi.bibliotecas.MjpegInputStream;
 import br.com.housepi.bibliotecas.MjpegView;
 
-@SuppressLint("NewApi")
 public class VisualizacaoCamera extends Fragment {
 
 	private MjpegView mv;

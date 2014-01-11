@@ -37,7 +37,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-@SuppressLint({ "InlinedApi", "NewApi" })
+@SuppressLint({ "InlinedApi"})
 public class ControleAgendamento extends Fragment implements OnClickListener {
 	private Spinner spinner;
 	private Button btnDefinirInicial;

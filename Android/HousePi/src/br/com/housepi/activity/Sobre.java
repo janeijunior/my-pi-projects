@@ -2,14 +2,12 @@ package br.com.housepi.activity;
 
 import br.com.housepi.R;
 import android.os.Bundle;
-import android.annotation.SuppressLint;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-@SuppressLint("NewApi")
 public class Sobre extends Fragment {
 
 	public static Fragment newInstance(Context context) {

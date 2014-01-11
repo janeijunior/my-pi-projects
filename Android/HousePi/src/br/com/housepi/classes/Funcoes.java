@@ -2,7 +2,6 @@ package br.com.housepi.classes;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import br.com.housepi.R;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -12,7 +11,7 @@ import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
 
-@SuppressLint({ "SimpleDateFormat", "NewApi" })
+@SuppressLint({ "SimpleDateFormat"})
 public class Funcoes {
 	private static final String dataBanco = "yyyy-MM-dd HH:mm:ss";
 	private static final String dataLocal = "dd/MM/yyyy HH:mm:ss";	
@@ -56,7 +55,7 @@ public class Funcoes {
 		
 			}
 		});
-		alertDialog.setIcon(R.drawable.informacao);
+		//alertDialog.setIcon(R.drawable.informacao);
 		alertDialog.show();
 	}
 	

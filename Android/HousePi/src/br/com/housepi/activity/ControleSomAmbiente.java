@@ -15,7 +15,6 @@ import br.com.housepi.classes.Conexao;
 import br.com.housepi.classes.Funcoes;
 import android.os.Bundle;
 import android.content.Context;
-import android.annotation.SuppressLint;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +29,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-@SuppressLint("NewApi")
 public class ControleSomAmbiente extends Fragment implements OnClickListener, OnSeekBarChangeListener {
 	private ListView listView;
 	private TextView lblVolume;

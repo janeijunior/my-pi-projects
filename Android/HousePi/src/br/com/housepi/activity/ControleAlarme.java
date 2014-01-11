@@ -5,18 +5,17 @@ import br.com.housepi.classes.Alarme;
 import br.com.housepi.classes.Funcoes;
 import android.os.Bundle;
 import android.content.Context;
-import android.annotation.SuppressLint;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
-@SuppressLint("NewApi")
 public class ControleAlarme extends Fragment implements OnClickListener {
 	private Alarme alarme;
-
+	
 	public static Fragment newInstance(Context context) {
 		ControleAlarme f = new ControleAlarme();
 		return f;
@@ -26,7 +25,7 @@ public class ControleAlarme extends Fragment implements OnClickListener {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.controle_alarme, container, false);
 
-		alarme = new Alarme((ToggleButton) rootView.findViewById(R.id.btnAlarme), (ToggleButton) rootView.findViewById(R.id.btnPanico));
+		alarme = new Alarme((ToggleButton) rootView.findViewById(R.id.btnAlarme), (ToggleButton) rootView.findViewById(R.id.btnPanico), (TextView) rootView.findViewById(R.id.lblStatus));
 		alarme.getBtnAlarme().setOnClickListener(this);
 		alarme.getBtnPanico().setOnClickListener(this);
 		

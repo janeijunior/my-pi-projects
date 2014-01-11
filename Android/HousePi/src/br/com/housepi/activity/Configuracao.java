@@ -5,7 +5,6 @@ import java.util.Locale;
 import java.util.Vector;
 import br.com.housepi.R;
 import br.com.housepi.classes.ViewPagerAdapter;
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBar.Tab;
@@ -22,7 +21,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-@SuppressLint("NewApi")
 public class Configuracao extends ActionBarActivity implements
 		ActionBar.TabListener {
 	private PagerAdapter mPagerAdapter;

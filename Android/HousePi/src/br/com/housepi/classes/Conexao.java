@@ -38,7 +38,7 @@ public class Conexao {
 		this.socket = new Socket(host, porta);
 		out = new DataOutputStream(socket.getOutputStream());
 		in = new DataInputStream(socket.getInputStream());
-		socket.setSoTimeout(10000);
+		socket.setSoTimeout(20000);
 	}
 
 	public void iniciar() {

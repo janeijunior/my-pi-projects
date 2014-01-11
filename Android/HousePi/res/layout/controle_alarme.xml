@@ -1,44 +1,73 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:configChanges="orientation"
     tools:context=".ControleAlarme" >
 
-    <TableLayout
-        android:id="@+id/TableLayout2"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="422dp" >
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:orientation="vertical" >
 
-        <TableRow
-            android:id="@+id/TableRow01"
+        <TableLayout
+            android:id="@+id/TableLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
-            <ToggleButton
-                android:id="@+id/btnAlarme"
-                android:layout_width="116dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.53"
-                android:textOff="Alarme Desligado"
-                android:textOn="Alarme Ligado"
-                android:background="@drawable/togglebutton" 
-                style="@style/ButtonText"/>
+            <TableRow
+                android:id="@+id/TableRow01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-            <ToggleButton
-                android:id="@+id/btnPanico"
-                android:layout_width="116dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.53"
-                android:textOff="Pânico Desligado"
-                android:textOn="Pânico Ligado"
-                android:background="@drawable/togglebutton" 
-                style="@style/ButtonText"/>
-        </TableRow>
-    </TableLayout>
+                <ToggleButton
+                    android:id="@+id/btnAlarme"
+                    style="@style/ButtonText"
+                    android:layout_width="116dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.53"
+                    android:background="@drawable/togglebutton"
+                    android:textOff="Alarme Desligado"
+                    android:textOn="Alarme Ligado" />
 
-</RelativeLayout>
+                <ToggleButton
+                    android:id="@+id/btnPanico"
+                    style="@style/ButtonText"
+                    android:layout_width="116dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.53"
+                    android:background="@drawable/togglebutton"
+                    android:textOff="Pânico Desligado"
+                    android:textOn="Pânico Ligado" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.74"
+        android:gravity="bottom|center" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status do Alarme: "
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:id="@+id/lblStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+
+</LinearLayout>

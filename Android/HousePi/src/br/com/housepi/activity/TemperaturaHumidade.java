@@ -26,7 +26,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-@SuppressLint("NewApi")
 public class TemperaturaHumidade extends Fragment implements OnClickListener {
 	private Button btnAtualizar;
 	private TextView lblTemperatura;
@@ -64,18 +63,23 @@ public class TemperaturaHumidade extends Fragment implements OnClickListener {
 	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
-			synchronized (msg) {
-				if (msg.arg1 == 1) {
-					Funcoes.msgToastErroComando(getActivity());
-				} else {
-					if (!temperatura.trim().equals("")) {
-						lblTemperatura.setText(temperatura);
-					}
-					
-					if (!humidade.trim().equals("")) {
-						lblHumidade.setText(humidade);
+			try {
+				synchronized (msg) {
+					if (msg.arg1 == 1) {
+						Funcoes.msgToastErroComando(getActivity());
+					} else {
+						if (!temperatura.trim().equals("")) {
+							lblTemperatura.setText(temperatura);
+						}
+						
+						if (!humidade.trim().equals("")) {
+							lblHumidade.setText(humidade);
+						}
 					}
 				}
+			} catch (Exception e) {
+				dialog.dismiss();
+				startThreadGetDados();
 			}
 		}
 	};
