@@ -168,7 +168,7 @@ def enviarTemperaturaHumidade(con):
     except:
         print "Erro ao obter a temperatura e humidade."
         con.send("Erro\n")
-	    ligarCamera()
+        ligarCamera()
         
 #liga ou desliga o alarme
 def controlarAlarme(root, con):
