@@ -76,8 +76,8 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 		sbVolume.refreshDrawableState();
 		
 		listView = (ListView) rootView.findViewById(R.id.listMusica);
-
-		adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, musicas);
+				
+		adapter = new ArrayAdapter<String>(this.getActivity(), R.layout.linha_list_view_musica, R.id.listNomeMusica, musicas);
 
 		listView.setAdapter(adapter);
 		registerForContextMenu(listView);
@@ -89,7 +89,7 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 	        	String atual = enviarComandoResposta("EnviarNomeArquivo", "0");
 	    		
 	        	if (!atual.equals("")) {
-	        		atual = atual.substring(1, atual.length() -1);
+	        		atual = atual.substring(1, atual.length() -5);
 	    		}
 	        	
 	        	Integer indiceAtual = musicas.indexOf(atual);		
@@ -163,6 +163,11 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 	
 			Element retorno = (Element) doc.getRootElement();
 			
+			if (!retorno.getName().equals("EnviarListaMusica")) {
+				Funcoes.msgToastErroComando(this.getActivity());
+				return;
+			}
+			
 			@SuppressWarnings("rawtypes")
 			List elements = retorno.getChildren();
 			@SuppressWarnings("rawtypes")
@@ -170,7 +175,8 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 			
 			while (j.hasNext()) {
 				Element element = (Element) j.next();
-				musicas.add(element.getAttribute("Nome").getValue());
+				String musica = element.getAttribute("Nome").getValue();
+				musicas.add(musica.substring(0, musica.length() - 4));
 			}
 			
 			adapter.notifyDataSetChanged();

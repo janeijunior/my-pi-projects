@@ -149,6 +149,10 @@ public class Agendamento {
 	
 			Element retorno = (Element) doc.getRootElement();
 			
+			if (!retorno.getName().equals("EnviarAgendamento")) {
+				return lista;
+			}
+			
 			@SuppressWarnings("rawtypes")
 			List elements = retorno.getChildren();
 			@SuppressWarnings("rawtypes")

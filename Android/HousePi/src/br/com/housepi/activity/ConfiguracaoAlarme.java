@@ -191,6 +191,11 @@ public class ConfiguracaoAlarme extends Fragment implements OnClickListener {
 	
 			Element retorno = (Element) doc.getRootElement();
 			
+			if (!retorno.getName().equals("EnviarConfiguracaoAlarme")) {
+				Funcoes.msgToastErroComando(this.getActivity());
+				return;
+			}
+			
 			cbxUsarSirene.setChecked(retorno.getChild("Geral").getAttribute("UsarSirene").getIntValue() == 1);
 			cbxUsarEmail.setChecked(retorno.getChild("Geral").getAttribute("UsarEmail").getIntValue() == 1);
 			edtTempoDisparo.setText(retorno.getChild("Geral").getAttribute("TempoDisparo").getValue());

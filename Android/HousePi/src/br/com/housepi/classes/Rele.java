@@ -97,9 +97,6 @@ public class Rele {
 			Element root = new Element("StatusRele");
 			doc.setRootElement(root);
 
-			//Format format = Format.getPrettyFormat();
-	        //format.setEncoding("ISO-8859-1");
-	        														//format	
 			Conexao.getConexaoAtual().enviarMensagem(new XMLOutputter().outputString(doc));
 
 			String mensagem = "";
@@ -116,6 +113,10 @@ public class Rele {
 			}
 
 			Element retorno = (Element) doc.getRootElement();
+			
+			if (!retorno.getName().equals("StatusRele")) {
+				return listaReles;
+			}
 			
 			@SuppressWarnings("rawtypes")
 			List elements = retorno.getChildren();

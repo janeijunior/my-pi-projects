@@ -105,6 +105,11 @@ public class ConfiguracaoEmail extends Fragment implements OnClickListener {
 	
 			Element retorno = (Element) doc.getRootElement();
 			
+			if (!retorno.getName().equals("EnviarConfiguracaoEmail")) {
+				Funcoes.msgToastErroComando(this.getActivity());
+				return;
+			}
+			
 			edtUsuario.setText(retorno.getChild("Dados").getAttribute("Usuario").getValue());
 			edtSenha.setText(retorno.getChild("Dados").getAttribute("Senha").getValue());
 			edtDestinatario.setText(retorno.getChild("Dados").getAttribute("Destinatario").getValue());
