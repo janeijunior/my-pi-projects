@@ -8,7 +8,7 @@ import time
 import datetime
 
 def lerSensor():
-    return subprocess.check_output(["./Adafruit_DHT", "2302", "4"]);
+    return subprocess.check_output(["./Adafruit_DHT", "22", "4"]);
 
 
 def lerTemperaturaHumidade():
