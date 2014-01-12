@@ -202,7 +202,7 @@ def controlarFuncaoPanico(root, con):
     
 #funcao que envia as configuracoes dos reles e status
 def enviarConfiguracaoStatusRele(con):
-    root = Element("Reles")
+    root = Element("StatusRele")
     
     for rele in listaReles:
         root.append(Element("Rele" + str(rele.id), Status=str(rele.status), Nome=rele.nome.decode('utf-8')))
