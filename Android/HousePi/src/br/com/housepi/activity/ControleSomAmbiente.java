@@ -73,6 +73,7 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 		sbVolume.setOnSeekBarChangeListener(this);
 		String vol = Funcoes.carregarDadosComponente("sbVolume", "60", this.getActivity());
 		sbVolume.setProgress(Integer.parseInt(vol));
+		sbVolume.refreshDrawableState();
 		
 		listView = (ListView) rootView.findViewById(R.id.listMusica);
 
