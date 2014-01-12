@@ -537,7 +537,7 @@ def reiniciarDesligarServidor(root, con):
 
 #inicia o servico da camera
 def ligarCamera():
-    os.system("sudo " + MJPG + " start")
+    os.system("sudo " + MJPG + " start 5005 320x240 2") #iniciar, porta, resolucao, fps
     
 #para o servico da camera
 def desligarCamera():
