@@ -485,9 +485,10 @@ def controlarSomAmbiente(root, con):
         
     elif comando == "Pause":
         executarComandoMPlayer("pause", "")
-        enviarNomeArquivo(con)
+        con.send("Pause")
     elif comando == "Stop":
         executarComandoMPlayer("stop", "")
+        con.send("Stop")
     elif comando == "AnteriorProxima":
         try:         
             executarComandoMPlayer("pt_step " + valor, "")
