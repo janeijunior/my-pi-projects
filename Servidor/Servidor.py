@@ -497,11 +497,7 @@ def controlarSomAmbiente(root, con):
         except:
             nome = ""
         
-        root = Element("EnviarNomeArquivo")
-        root.append(Element("Musica", Nome=nome.decode('utf-8')))
-        
-        xmlstr = ET.tostring(root) + "\n"  
-        con.send(xmlstr)
+        enviarNomeArquivo(con, nome)
 
 #executa um comando no subprocesso do mplayer e devolve o resultado
 def executarComandoMPlayer(cmd, retorno):
