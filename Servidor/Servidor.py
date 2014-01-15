@@ -453,6 +453,14 @@ def enviarListaMusica(con):
     xmlstr = ET.tostring(root) + "\n"  
     con.send(xmlstr)
 
+#envia o nome do arquivo sendo reproduzido pelo mplayer
+def enviarNomeArquivo(con, nome):
+    root = Element("EnviarNomeArquivo")
+    root.append(Element("Musica", Nome=nome.decode('utf-8')))
+    
+    xmlstr = ET.tostring(root) + "\n"  
+    con.send(xmlstr)
+        
 #controla o mplayer do linux
 def controlarSomAmbiente(root, con):
     global mplayer
@@ -463,7 +471,10 @@ def controlarSomAmbiente(root, con):
     
     if comando == "Play":
         try:
-            print executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
+            executando = executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
+            print executando
+            
+            
         except:
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
             mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
