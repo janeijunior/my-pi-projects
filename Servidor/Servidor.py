@@ -22,7 +22,7 @@ import subprocess
 import select
 
 HOST = ""    # IP do Servidor (em branco = IP do sistema)
-PORT = 5001  # Porta do Servidor
+PORT = 5000  # Porta do Servidor
 SIRENE = 10  # Numero GPIO da sirene
 PLAYLIST = "/home/pi/HousePi/playlist" # Diretorio onde encontra-se a playlist de musicas
 MJPG = "/usr/share/adafruit/webide/repositories/my-pi-projects/Servidor/mjpg-streamer/mjpg-streamer.sh" #caminho stream de video
@@ -453,33 +453,20 @@ def enviarListaMusica(con):
     xmlstr = ET.tostring(root) + "\n"  
     con.send(xmlstr)
 
-#envia o nome do arquivo sendo reproduzido pelo mplayer
-def enviarNomeArquivo(con):
-    try:
-        nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")
-    except:
-        nome = ""
-    
-    root = Element("EnviarNomeArquivo")
-    root.append(Element("Musica", Nome=nome.decode('utf-8')))
-    
-    xmlstr = ET.tostring(root) + "\n"  
-    con.send(xmlstr)
-        
 #controla o mplayer do linux
 def controlarSomAmbiente(root, con):
     global mplayer
     
     comando = str(root.find("Comando").text)
     valor = str(root.find("Valor").text)
-        
+    
+    
     if comando == "Play":
         try:
-            print executarComandoMPlayer("get_file_name", "ANS_FILENAME")      
+            print executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
         except:
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
             mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
-            nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")
     elif comando == "Pause":
         executarComandoMPlayer("pause", "")
     elif comando == "Stop":
@@ -490,11 +477,20 @@ def controlarSomAmbiente(root, con):
         except:
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
             mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)    
-            executarComandoMPlayer("pt_step " + str(int(valor) - 1), "")       
+            executarComandoMPlayer("pt_step " + str(int(valor) - 1), "")
     elif comando == "Volume":
        executarComandoMPlayer("set_property volume " + valor, "")
     elif comando == "EnviarNomeArquivo":
-        enviarNomeArquivo(con, nome)
+        try:
+            nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")
+        except:
+            nome = ""
+        
+        root = Element("EnviarNomeArquivo")
+        root.append(Element("Musica", Nome=nome.decode('utf-8')))
+        
+        xmlstr = ET.tostring(root) + "\n"  
+        con.send(xmlstr)
 
 #executa um comando no subprocesso do mplayer e devolve o resultado
 def executarComandoMPlayer(cmd, retorno):
