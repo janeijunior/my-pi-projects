@@ -482,7 +482,6 @@ def controlarSomAmbiente(root, con):
             nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")
             
         enviarNomeArquivo(con)
-        
     elif comando == "Pause":
         executarComandoMPlayer("pause", "")
         con.send("Pause\n")
