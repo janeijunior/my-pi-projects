@@ -467,8 +467,7 @@ def controlarSomAmbiente(root, con):
     
     comando = str(root.find("Comando").text)
     valor = str(root.find("Valor").text)
-    
-    
+        
     if comando == "Play":
         try:
             nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")      
