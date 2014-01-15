@@ -475,7 +475,7 @@ def controlarSomAmbiente(root, con):
         
     if comando == "Play":
         try:
-            nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")      
+            print executarComandoMPlayer("get_file_name", "ANS_FILENAME")      
         except:
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
             mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
