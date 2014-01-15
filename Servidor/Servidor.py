@@ -455,6 +455,11 @@ def enviarListaMusica(con):
 
 #envia o nome do arquivo sendo reproduzido pelo mplayer
 def enviarNomeArquivo(con, nome):
+    try:
+        nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")
+    except:
+        nome = ""
+    
     root = Element("EnviarNomeArquivo")
     root.append(Element("Musica", Nome=nome.decode('utf-8')))
     
