@@ -454,7 +454,7 @@ def enviarListaMusica(con):
     con.send(xmlstr)
 
 #envia o nome do arquivo sendo reproduzido pelo mplayer
-def enviarNomeArquivo(con, nome):
+def enviarNomeArquivo(con):
     try:
         nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")
     except:
