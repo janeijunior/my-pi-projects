@@ -480,8 +480,6 @@ def controlarSomAmbiente(root, con):
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
             mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
             nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")
-            
-        enviarNomeArquivo(con)
     elif comando == "Pause":
         executarComandoMPlayer("pause", "")
     elif comando == "Stop":
