@@ -39,11 +39,13 @@ class Alarme(object):
         self.threadAlarme = ThreadAlarme.ThreadAlarme(sirene=self.sirene)
         self.threadAlarme.start() 
         self.alarmeLigado = True
+        self.atualizarStatusBanco()
         
     #funcao para desligar o alarme
     def desligarAlarme(self):
         self.threadAlarme.stop()
         self.alarmeLigado = False
+        self.atualizarStatusBanco()
     
     #funcao para ler o status do alarme
     def getStatusAlarme(self):
