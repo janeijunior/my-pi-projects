@@ -14,7 +14,25 @@ class Alarme(object):
         self.alarmeLigado = False
         self.panicoAlarmeLigado = False    
         self.sirene = sirene
+        
+        conBanco = Funcoes.conectarBanco()
+        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute("select StatusAlarme, StatusPanico from Configuracao")
+        
+        row = cursor.fetchone()
+        
+        if row['StatusAlarme'] == 1:
+        
+        else:
+        
+        
+        if row['StatusPanico'] == 1:
             
+        else:
+        
+        conBanco.close()
+        
+        
     #funcoes
     #funcao para ligar o alarme
     def ligarAlarme(self):
