@@ -62,6 +62,7 @@ class Rele(object):
             conBanco.close()
             return False
     
+    #funcao para atualizar o status no banco
     def atualizarStatusBanco(self):
         try:
             conBanco = Funcoes.conectarBanco()
