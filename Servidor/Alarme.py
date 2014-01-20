@@ -15,6 +15,7 @@ class Alarme(object):
         self.panicoAlarmeLigado = False    
         self.sirene = sirene
         
+        #pega os status do banco e se necessario liga o alarme/panico
         conBanco = Funcoes.conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute("select StatusAlarme, StatusPanico from Configuracao")
