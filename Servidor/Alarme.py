@@ -33,7 +33,6 @@ class Alarme(object):
         
         conBanco.close()
         
-        
     #funcoes
     #funcao para ligar o alarme
     def ligarAlarme(self):
