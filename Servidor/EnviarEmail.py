@@ -48,6 +48,6 @@ class EnviarEmail(threading.Thread):
             smtp.sendmail(msg['From'], msg['To'], msg.as_string())
             smtp.quit()
         except Exception, e:
-            print "Erro no envio do e-mail: ",e
+            print "Erro no envio do e-mail: ", e
         else:
             print "E-mail enviado!"
