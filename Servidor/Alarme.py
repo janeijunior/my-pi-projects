@@ -21,10 +21,10 @@ class Alarme(object):
         
         row = cursor.fetchone()
         
-        if row['StatusAlarme'] == 1:
-        
-        else:
-        
+        if (row['StatusAlarme'] == 1) and (self.alarmeLigado == False):
+            self.ligarAlarme()
+        elif self.alarmeLigado:
+            self.desligarAlarme()
         
         if row['StatusPanico'] == 1:
             
