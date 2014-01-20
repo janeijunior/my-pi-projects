@@ -89,8 +89,6 @@ def iniciarAgendamento():
         
 #carregar lista de agendamentos
 def carregarListaAgendamento():
-    print "Carregando agendamentos..."
-
     global alarme
     global listaAgendamento
     
@@ -138,7 +136,7 @@ def efetuarLogin(root, con):
         con.send("Logado\n")
         controlarCamera()
     else:
-        print "Usuario ou senha invalidos."
+        print "Usuario ou senha invalidos.", cliente
         con.send("NaoLogado\n")
         con.close
         thread.exit()
