@@ -31,7 +31,6 @@ class Alarme(object):
             return self.threadAlarme.status
         except:
             return -1
-            print "Erro ao ler status"
         
     #funcao para ligar o panico do alarme
     def ligarPanicoAlarme(self):
