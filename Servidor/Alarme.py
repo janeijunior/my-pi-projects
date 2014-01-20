@@ -27,8 +27,9 @@ class Alarme(object):
             self.desligarAlarme()
         
         if row['StatusPanico'] == 1:
-            
+            self.ligarPanicoAlarme()     
         else:
+            self.desligarPanicoAlarme()
         
         conBanco.close()
         
