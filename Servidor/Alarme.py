@@ -2,6 +2,8 @@
 #-*- coding: utf-8 -*-
 
 import ThreadAlarme
+import Funcoes
+import MySQLdb
 
 class Alarme(object):
     
@@ -43,6 +45,21 @@ class Alarme(object):
             self.sirene.desligar()
         
         self.panicoAlarmeLigado = False
+    
+    #funcao para atualizar os status no banco
+    def atualizarStatusBanco(self):
+        try:
+            conBanco = Funcoes.conectarBanco()
+            cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+            
+            sql = "update Rele set Status = '{statusRele}' where Id = {idRele}".format(statusRele = self.status, idRele = self.id)
+            
+            cursor.execute(sql)
+            conBanco.commit()
+            conBanco.close()
+        except:
+            conBanco.rollback()
+            conBanco.close()
         
     #destrutor
     def __done__(self):
