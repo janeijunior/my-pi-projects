@@ -50,7 +50,7 @@ class Rele(object):
             conBanco = Funcoes.conectarBanco()
             cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
             
-            sql = "update Rele set Nome = '{nomeRele}' where Id = {idRele}".format(nomeRele = self.nome, idRele = self.id)
+            sql = "update Rele set Nome = {nomeRele} where Id = {idRele}".format(nomeRele = self.nome, idRele = self.id)
             
             cursor.execute(sql)
             conBanco.commit()
