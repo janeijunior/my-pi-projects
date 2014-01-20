@@ -36,11 +36,13 @@ class Rele(object):
     def ligar(self):
         mcp.output(self.numeroGPIO, LIGAR)
         self.status = STATUS_LIGADO
+        atualizarStatusBanco()
     
     #funcao para desligar o rele
     def desligar(self):
         mcp.output(self.numeroGPIO, DESLIGAR)
         self.status = STATUS_DESLIGADO
+        atualizarStatusBanco()
     
     #funcao para gravar o novo nome do rele
     def gravarNomeBanco(self):
