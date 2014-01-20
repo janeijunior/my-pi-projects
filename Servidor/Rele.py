@@ -51,7 +51,6 @@ class Rele(object):
             cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
             
             sql = "update Rele set Nome = '{nomeRele}' where Id = {idRele}".format(nomeRele = self.nome, idRele = self.id)
-            print sql
             
             cursor.execute(sql)
             conBanco.commit()
@@ -69,7 +68,6 @@ class Rele(object):
             cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
             
             sql = "update Rele set Status = '{statusRele}' where Id = {idRele}".format(statusRele = self.status, idRele = self.id)
-            print sql
             
             cursor.execute(sql)
             conBanco.commit()
