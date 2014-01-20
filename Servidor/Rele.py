@@ -60,6 +60,21 @@ class Rele(object):
             conBanco.rollback()
             conBanco.close()
             return False
+    
+    def atualizarStatusBanco(self):
+        try:
+            conBanco = Funcoes.conectarBanco()
+            cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+            
+            sql = "update Rele set Status = '{statusRele}' where Id = {idRele}".format(statusRele = self.status, idRele = self.id)
+            print sql
+            
+            cursor.execute(sql)
+            conBanco.commit()
+            conBanco.close()
+        except:
+            conBanco.rollback()
+            conBanco.close()
             
     #destrutor
     #def __done__(self):
