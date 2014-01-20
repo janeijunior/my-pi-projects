@@ -52,7 +52,7 @@ class Alarme(object):
             conBanco = Funcoes.conectarBanco()
             cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
             
-            sql = "update Configuracao set StatusAlarme = {statusAlarme}, StatusPanico = {statusPanico}".format(statusRele = self.status, idRele = self.id)
+            sql = "update Configuracao set StatusAlarme = {statusAlarme}, StatusPanico = {statusPanico}".format(statusAlarme = int(self.), statusPanico = int(self.))
             
             cursor.execute(sql)
             conBanco.commit()
