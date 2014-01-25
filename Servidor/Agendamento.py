@@ -22,7 +22,6 @@ class Agendamento(object):
         self.reles = []
         
         listaEquipamentos = Funcoes.stringToList(row["Equipamentos"])
-         = = 
         
         for e in equipamentos:
             if e <> "":
