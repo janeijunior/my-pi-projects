@@ -26,9 +26,9 @@ class Agendamento(object):
         for equip in listaEquipamentos:
             if equip <> "":
                 if equip == "-1":
-                    agendamento.alarme = alarme
+                    self.alarme = alarme
                 else:
-                    agendamento.reles.insert(len(agendamento.reles) + 1, listaReles[int(equip)])
+                    self.reles.insert(len(self.reles) + 1, listaReles[int(equip)])
 
     #funcoes    
     #funcao para gravar um novo agendamento no banco de dados
