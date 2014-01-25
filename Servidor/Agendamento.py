@@ -25,7 +25,7 @@ class Agendamento(object):
         equip = ""
         
         if self.alarme <> None:
-            equip = "-1"
+            equip = "-1;"
         
         for rele in self.reles:
             equip = equip + str(rele.id()) + ";"
