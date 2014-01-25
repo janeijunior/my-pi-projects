@@ -53,7 +53,9 @@ class ThreadAgendamento(threading.Thread):
                     #print "Data desligar: ", str(desligar)
                     
                     if len(agendamento.listaDias) > 0:
-                        print "Não implementado."
+                        if (diaAtual >= diaLigar) and (diaAtual <= diaDesligar):
+    
+                        
                     else:
                         if (atual == ligar) and (atual < desligar):
                             for rele in agendamento.reles:                        
