@@ -33,7 +33,7 @@ class Agendamento(object):
         return equip
     
     #funcao que retorna os dias da semana delimitados
-    def getEquipamentos(self):
+    def getDias(self):
         strDias = ""
         
         for dia in self.dias:
