@@ -290,7 +290,7 @@ def enviarAgendamento(con):
     
     for agendamento in listaAgendamento:
         root.append(Element("Agendamento" + str(agendamento.id), Id=str(agendamento.id), Nome=agendamento.nome.decode('utf-8'), 
-                                DataHoraInicial=str(agendamento.dataHoraInicial), DataHoraFinal=str(agendamento.dataHoraFinal), Dias=agendamento.getDias())
+                                DataHoraInicial=str(agendamento.dataHoraInicial), DataHoraFinal=str(agendamento.dataHoraFinal), Dias=agendamento.getDias()))
         
         equipamentos = Element("Equipamentos")
         
