@@ -20,6 +20,21 @@ class Agendamento(object):
         self.dias = dias
         
     #funcoes
+    #funcao que retorna a string delimitada dos equipamentos
+    def getEquipamentos(self):
+        equip = ""
+        
+        if self.alarme <> None:
+            equip = "-1"
+        
+        for rele in self.reles:
+            if equip == "":
+                equip = str(rele.getId())
+            else:
+                equip = equip + ", " str(rele.getId())
+        
+        
+    
     #funcao para gravar um novo agendamento no banco de dados
     def gravarRegistroBanco(self):
         try:
