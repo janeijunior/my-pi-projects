@@ -249,7 +249,10 @@ def gravarAgendamento(root, con):
     
     global alarme
     
-    dias = Funcoes.stringToList(root.find("Dias").text)
+    if root.find("Dias").text <> "":
+        dias = Funcoes.stringToList(root.find("Dias").text)
+    else:
+        dias = None
     
     agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text.encode('utf-8'), dias = dias, dataHoraInicial = 
                                           root.find("DataHoraInicial").text, dataHoraFinal = root.find("DataHoraFinal").text, ativo = 1)
