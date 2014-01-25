@@ -92,6 +92,8 @@ def carregarListaAgendamento():
     global alarme
     global listaAgendamento
     
+    print "Carregando agendamentos..."
+    
     listaAgendamento = []
 
     conBanco = Funcoes.conectarBanco()
