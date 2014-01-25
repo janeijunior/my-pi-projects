@@ -21,28 +21,7 @@ class Agendamento(object):
         self.equipamentos = equipamentos
         self.listaDias = []
         
-    #funcoes
-    #funcao que retorna a string delimitada dos equipamentos
-    def getEquipamentos(self):
-        equip = ""
-        
-        if self.alarme <> None:
-            equip = "-1;"
-        
-        for rele in self.reles:
-            equip = equip + str(rele.id) + ";"
-            
-        return equip
-    
-    #funcao que retorna os dias da semana delimitados
-    def getDias(self):
-        strDias = ""
-        
-        for dia in self.dias:
-            strDias = strDias + str(dia) + ";"
-            
-        return strDias
-    
+    #funcoes    
     #funcao para gravar um novo agendamento no banco de dados
     def gravarRegistroBanco(self):
         try:
