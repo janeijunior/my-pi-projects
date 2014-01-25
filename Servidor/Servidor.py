@@ -239,7 +239,7 @@ def gravarAgendamento(root, con):
     
     agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text.encode('utf-8'), dias = root.find("Dias").text, 
                                           equipamentos = root.find("Equipamentos").text, dataHoraInicial = root.find("DataHoraInicial").text, 
-                                          dataHoraFinal = root.find("DataHoraFinal").text, ativo = 1)
+                                          dataHoraFinal = root.find("DataHoraFinal").text, ativo = 1, reles = listaReles)
     
     if agendamento.gravarRegistroBanco():
         con.send("Ok\n")
