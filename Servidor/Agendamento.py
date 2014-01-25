@@ -30,7 +30,6 @@ class Agendamento(object):
                 else:
                     agendamento.reles.insert(len(agendamento.reles) + 1, listaReles[int(e)])
 
-        
     #funcoes    
     #funcao para gravar um novo agendamento no banco de dados
     def gravarRegistroBanco(self):
