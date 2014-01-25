@@ -7,7 +7,7 @@ import MySQLdb
 class Agendamento(object):
     
     #construtor
-    def __init__(self, id, nome, dias, equipamentos, dataHoraInicial, dataHoraFinal, ativo, listaReles):
+    def __init__(self, id, nome, dias, equipamentos, dataHoraInicial, dataHoraFinal, ativo, reles):
         
         #atributos publicos da classe
         self.id = id
