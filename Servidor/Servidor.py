@@ -289,15 +289,13 @@ def enviarAgendamento(con):
     global listaAgendamento
     
     for agendamento in listaAgendamento:
-        if agendamento.alarme == None:
-            root.append(Element("Agendamento" + str(agendamento.id), Id=str(agendamento.id), Nome=agendamento.nome.decode('utf-8'), 
-                                DataHoraInicial=str(agendamento.dataHoraInicial), DataHoraFinal=str(agendamento.dataHoraFinal),
-                                EhAlarme="0", IdRele=str(agendamento.rele.id), NomeRele=agendamento.rele.nome.decode('utf-8')))   
-        else:
-            root.append(Element("Agendamento" + str(agendamento.id), Id=str(agendamento.id), Nome=agendamento.nome.decode('utf-8'), 
-                                DataHoraInicial=str(agendamento.dataHoraInicial), DataHoraFinal=str(agendamento.dataHoraFinal),
-                                EhAlarme="1"))
-    
+        root.append(Element("Agendamento" + str(agendamento.id), Id=str(agendamento.id), Nome=agendamento.nome.decode('utf-8'), 
+                                DataHoraInicial=str(agendamento.dataHoraInicial), DataHoraFinal=str(agendamento.dataHoraFinal), Dias=agendamento.getDias())
+        
+        sensores = Element("Equipamentos")
+        
+        
+        
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
 
