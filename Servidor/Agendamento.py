@@ -38,7 +38,7 @@ class Agendamento(object):
         if self.alarme <> None:
             equip = "Alarme"
         
-        for rele in reles:
+        for rele in self.reles:
             if rele == "":
                 equip = rele.nome
             else:
