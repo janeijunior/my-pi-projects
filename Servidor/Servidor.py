@@ -511,7 +511,7 @@ def controlarSomAmbiente(root, con):
             
             step = proxima - atual
             
-            print nome, valor, atual, proxima, step
+            print nome, valor, str(atual), str(proxima), str(step)
             
             executarComandoMPlayer("pt_step " + step, "")
         except:
