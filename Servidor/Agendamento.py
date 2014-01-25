@@ -22,6 +22,11 @@ class Agendamento(object):
         self.reles = []
         
         listaEquipamentos = Funcoes.stringToList(self.equipamentos)
+        listaDias = Funcoes.stringToList(self.dias)
+        
+        for dia in listaDias:
+            if dia <> "":
+                self.listaDias.insert(len(self.listaDias) + 1, dia)
         
         for equip in listaEquipamentos:
             if equip <> "":
