@@ -30,7 +30,9 @@ class ThreadAgendamento(threading.Thread):
         while not self.__stop_thread_event.isSet(): 
             
             #data e hora atual
-            atual = datetime.now().strftime("%Y%m%d%H%M%S")
+            atual     = datetime.now().strftime("%Y%m%d%H%M%S")
+            diaAtual  = datetime.now().strftime("%Y%m%d") 
+            horaAtual = datetime.now().strftime("%H%M%S")
             
             for agendamento in self.listaAgendamento:
                 if agendamento.ativo == 1:
