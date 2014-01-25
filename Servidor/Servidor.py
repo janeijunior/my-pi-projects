@@ -241,7 +241,6 @@ def gravarAgendamento(root, con):
                                           equipamentos = root.find("Equipamentos").text, dataHoraInicial = root.find("DataHoraInicial").text, 
                                           dataHoraFinal = root.find("DataHoraFinal").text, ativo = 1)
     
-      
     if agendamento.gravarRegistroBanco():
         con.send("Ok\n")
         
