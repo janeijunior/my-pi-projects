@@ -25,11 +25,11 @@ class Agendamento(object):
         listaDiasTemp = Funcoes.stringToList(self.dias)
         
         for dia in listaDiasTemp:
-            if dia <> "":
+            if dia.strip() <> "":
                 self.listaDias.insert(len(self.listaDias) + 1, dia)
         
         for equip in listaEquipamentos:
-            if equip <> "":
+            if equip.strip() <> "":
                 if equip == "-1":
                     self.alarme = alarme
                 else:
