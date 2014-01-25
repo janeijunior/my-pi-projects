@@ -253,8 +253,8 @@ def gravarAgendamento(root, con):
     #    dias = Funcoes.stringToList(str(root.find("Dias").text))
     #else:
     #    dias = None
-#    
-#    agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text.encode('utf-8'), dias = dias, dataHoraInicial = 
+    
+    agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text.encode('utf-8'), dias = dias, dataHoraInicial = 
                                           root.find("DataHoraInicial").text, dataHoraFinal = root.find("DataHoraFinal").text, ativo = 1)
     
     noEquip = root.find("Equipamentos")
