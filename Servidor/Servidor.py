@@ -300,6 +300,8 @@ def enviarAgendamento(con):
         for rele in agendamento.reles:
             equipamentos.append(Element("Rele", Id = str(rele.Id))        
         
+        root.append(equipamentos)
+        
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
 
