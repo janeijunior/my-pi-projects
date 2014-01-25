@@ -29,9 +29,9 @@ class Agendamento(object):
         
         for rele in self.reles:
             if equip == "":
-                equip = str(rele.getId())
+                equip = str(rele.id())
             else:
-                equip = equip + ", " str(rele.getId())        
+                equip = equip + ", " str(rele.id())        
         
         return equip
     
