@@ -457,6 +457,25 @@ def enviarListaMusica(con):
     xmlstr = ET.tostring(root) + "\n"  
     con.send(xmlstr)
 
+#retorna a posicao da musica com o nome passado por parametro
+def getPosicaoMusica(nome):
+    arquivo = open(PLAYLIST)
+    
+    i = 0;
+    
+    for linha in arquivo:
+        musica = linha[len(PLAYLIST):len(linha) -5]
+        
+        if musica == nome:
+            return i
+            break
+            arquivo.close()
+        
+        i = i + 1
+    
+    return -1
+    arquivo.close()
+    
 #controla o mplayer do linux
 def controlarSomAmbiente(root, con):
     global mplayer
@@ -484,18 +503,20 @@ def controlarSomAmbiente(root, con):
             executarComandoMPlayer("pt_step " + str(int(valor) - 1), "")
     elif comando == "Volume":
        executarComandoMPlayer("set_property volume " + valor, "")
-    elif comando == "EnviarNomeArquivo":
+    elif comando == "ReproduzirPorNome":
         try:
             nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")
+            atual = getPosicaoMusica(nome)
+            proxima = getPosicaoMusica(valor)
+            
+            step = proxima - atual
+            
+            executarComandoMPlayer("pt_step " + step, "")
         except:
-            nome = ""
+            proxima = getPosicaoMusica(valor)
+            executarComandoMPlayer("pt_step " + proxima, "")
         
-        root = Element("EnviarNomeArquivo")
-        root.append(Element("Musica", Nome=nome.decode('utf-8')))
         
-        xmlstr = ET.tostring(root) + "\n"  
-        con.send(xmlstr)
-
 #executa um comando no subprocesso do mplayer e devolve o resultado
 def executarComandoMPlayer(cmd, retorno):
     global mplayer
