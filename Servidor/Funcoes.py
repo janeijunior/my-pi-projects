@@ -30,7 +30,6 @@ def removerAcentos(txt, codif='utf-8'):
 def stringToList(texto):
     lista = []
     
-    for linha in f:
-        lista.extend(str.lower().strip() for \
-            str in texto.split(';'))
+    lista.extend(str.lower().strip() for \
+        str in texto.split(';'))
     
