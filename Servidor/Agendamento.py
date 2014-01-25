@@ -19,9 +19,10 @@ class Agendamento(object):
         self.dias = dias
         self.equipamentos = equipamentos
         self.listaDias = Funcoes.stringToList(self.dias)
+        self.reles = []
         
         listaEquipamentos = Funcoes.stringToList(row["Equipamentos"])
-        self.reles = = 
+         = = 
         
         for e in equipamentos:
             if e <> "":
