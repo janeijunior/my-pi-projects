@@ -31,7 +31,7 @@ class Agendamento(object):
             if equip == "":
                 equip = str(rele.id())
             else:
-                equip = equip + ", " str(rele.id())        
+                equip = equip + ", " + str(rele.id())        
         
         return equip
     
