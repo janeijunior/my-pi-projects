@@ -231,30 +231,17 @@ def enviarConfiguracaoStatusAlarme(con):
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
 
-#funcao que insere um novo agendamento no banco de dados e alualiza a lista de agendamentos
+#funcao que insere um novo agendamento no banco de dados e alualiza a lista de agendamentos 
 def gravarAgendamento(root, con):
     
     global listaReles
     global alarme
     
-    if str(root.find("Dias").text) <> "":
-        dias = Funcoes.stringToList(str(root.find("Dias").text))
-    else:
-        dias = []
+    agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text.encode('utf-8'), dias = root.find("Dias").text, 
+                                          equipamentos = root.find("Equipamentos").text, dataHoraInicial = root.find("DataHoraInicial").text, 
+                                          dataHoraFinal = root.find("DataHoraFinal").text, ativo = 1)
     
-    agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text.encode('utf-8'), dias = dias, dataHoraInicial = 
-                                          root.find("DataHoraInicial").text, dataHoraFinal = root.find("DataHoraFinal").text, ativo = 1)
-    
-    equipamentos = root.find("Equipamentos")
-    
-    for child in equipamentos:
-        if str(child.get("Id")) == "-1":
-            agendamento.alarme = alarme    
-        else:
-            agendamento.reles.insert(len(agendamento.reles) + 1, listaReles[int(child.get("Id"))])
-    
-    print "Passou"
-    
+      
     if agendamento.gravarRegistroBanco():
         con.send("Ok\n")
         
