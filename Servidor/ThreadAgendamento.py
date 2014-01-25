@@ -55,11 +55,25 @@ class ThreadAgendamento(threading.Thread):
                     
                     if len(agendamento.listaDias) > 0:
                         if (diaAtual >= diaLigar) and (diaAtual <= diaDesligar):
-                            for agendamento.listaDias == 
-                            if (horaAtual == horaLigar) and (horaAtual < horaDesligar):
-                                
-                            elif (horaAtual == horaDesligar) and (horaAtual > horaLigar):
+                            for agendamento.listaDias == str(hoje):
+                                if (horaAtual == horaLigar) and (horaAtual < horaDesligar):
+                                    for rele in agendamento.reles:                        
+                                        if rele.status == 0:
+                                            rele.ligar()    
                                     
+                                    if (agendamento.alarme <> None) and (agendamento.alarme.alarmeLigado == False):
+                                        agendamento.alarme.ligarAlarme()
+           
+                                elif (horaAtual == horaDesligar) and (horaAtual > horaLigar):
+                                    for rele in agendamento.reles:                        
+                                        if rele.status == 1:
+                                            rele.desligar()
+                                
+                                    if (agendamento.alarme <> None) and (agendamento.alarme.alarmeLigado == True):
+                                        agendamento.alarme.desligarAlarme()    
+                        
+                        if diaAtual > diaDesligar:
+                            agendamento.desativarRegistroBanco()
                         
                     else:
                         if (atual == ligar) and (atual < desligar):
