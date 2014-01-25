@@ -23,9 +23,9 @@ class Agendamento(object):
         
         listaEquipamentos = Funcoes.stringToList(row["Equipamentos"])
         
-        for e in listaEquipamentos:
-            if e <> "":
-                if e == "-1":
+        for equip in listaEquipamentos:
+            if equip <> "":
+                if equip == "-1":
                     agendamento.alarme = alarme
                 else:
                     agendamento.reles.insert(len(agendamento.reles) + 1, listaReles[int(e)])
