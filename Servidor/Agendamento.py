@@ -26,7 +26,8 @@ class Agendamento(object):
             conBanco = Funcoes.conectarBanco()
             cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
             
-            sql = "insert into Agendamento (Nome, DataHoraInicial, DataHoraFinal, DiasDaSemana, Equipamentos) values ('{nome}', '{dataInicial}', '{dataFinal}', {dias}, {equipamentos})".format(nome = self.nome, dataInicial = self.dataHoraInicial, dataFinal = self.dataHoraFinal)
+            sql = "insert into Agendamento (Nome, DataHoraInicial, DataHoraFinal, DiasDaSemana, Equipamentos) values ('{nome}', '{dataInicial}', '{dataFinal}', {dias}, {equipamentos})"
+            sql = sql..format(nome = self.nome, dataInicial = self.dataHoraInicial, dataFinal = self.dataHoraFinal, dias = self.dias, equipamentos = self.getEquipamentos)
             
             print sql
         
