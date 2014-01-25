@@ -510,11 +510,17 @@ def controlarSomAmbiente(root, con):
             atual = executarComandoMPlayer("get_meta_track", "ANS_META_TRACK")
             proxima = getPosicaoMusica(str(valor))
             
+            print atual
+            
             step = proxima - int(atual)
             
             executarComandoMPlayer("pt_step " + str(step), "")
         except:
             print "CAIU NA EXCESSAO!"
+            
+            cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
+            mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+            
             proxima = getPosicaoMusica(valor)
             executarComandoMPlayer("pt_step " + str(proxima), "")
         
