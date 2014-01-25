@@ -507,21 +507,19 @@ def controlarSomAmbiente(root, con):
        executarComandoMPlayer("set_property volume " + valor, "")
     elif comando == "ReproduzirPorNome":
         try:
-            atual = executarComandoMPlayer("get_meta_track", "ANS_META_TRACK")
+            nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")
+            atual = getPosicaoMusica(nome[1:len(nome) -5])
             proxima = getPosicaoMusica(str(valor))
             
-            step = proxima - int(atual[1:len(atual) -1])
+            step = proxima - atual
             
             executarComandoMPlayer("pt_step " + str(step), "")
         except:
-            print "CAIU NA EXCESSAO!"
-            
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
             mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
             
             proxima = getPosicaoMusica(valor)
             executarComandoMPlayer("pt_step " + str(proxima), "")
-        
         
 #executa um comando no subprocesso do mplayer e devolve o resultado
 def executarComandoMPlayer(cmd, retorno):
