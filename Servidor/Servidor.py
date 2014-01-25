@@ -104,7 +104,7 @@ def carregarListaAgendamento():
 
     for row in rows:
         agendamento = Agendamento.Agendamento(id = row["Id"], nome = row["Nome"], dias = str(row["DiasDaSemana"]), equipamentos = str(row["Equipamentos"]),
-                          dataHoraInicial = row["DataHoraInicial"], dataHoraFinal = row["DataHoraFinal"], ativo = int(row["Ativo"]), reles = listaReles, alarme = alarme)        
+                          dataHoraInicial = row["DataHoraInicial"], dataHoraFinal = row["DataHoraFinal"], ativo = int(row["Ativo"]), listaReles = listaReles, alarme = alarme)        
                 
         listaAgendamento.insert(row["Id"], agendamento)
     
@@ -239,7 +239,7 @@ def gravarAgendamento(root, con):
     
     agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text.encode('utf-8'), dias = root.find("Dias").text, 
                                           equipamentos = root.find("Equipamentos").text, dataHoraInicial = root.find("DataHoraInicial").text, 
-                                          dataHoraFinal = root.find("DataHoraFinal").text, ativo = 1, reles = listaReles, alarme = alarme)
+                                          dataHoraFinal = root.find("DataHoraFinal").text, ativo = 1, listaReles = listaReles, alarme = alarme)
     
     if agendamento.gravarRegistroBanco():
         con.send("Ok\n")
