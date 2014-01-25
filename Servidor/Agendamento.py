@@ -43,7 +43,8 @@ class Agendamento(object):
                 equip = rele.nome
             else:
                 equip = equip + ', ' + rele.nome
-    
+        return equip
+        
     #funcao para gravar um novo agendamento no banco de dados
     def gravarRegistroBanco(self):
         try:
