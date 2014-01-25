@@ -267,7 +267,7 @@ def enviarAgendamento(con):
     for agendamento in listaAgendamento:
         root.append(Element("Agendamento" + str(agendamento.id), Id=str(agendamento.id), Nome=agendamento.nome.decode('utf-8'), 
                             DataHoraInicial=str(agendamento.dataHoraInicial), DataHoraFinal=str(agendamento.dataHoraFinal), 
-                            Dias=agendamento.dias, Equipamentos=agendamento.equipamentos))
+                            Dias=agendamento.dias, Equipamentos=agendamento.equipamentos, NomeEquipamentos=agendamento.getNomeEquipamento()))
                 
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
