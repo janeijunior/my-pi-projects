@@ -22,7 +22,7 @@ import subprocess
 import select
 
 HOST = ""    # IP do Servidor (em branco = IP do sistema)
-PORT = 5001  # Porta do Servidor
+PORT = 5002  # Porta do Servidor
 SIRENE = 10  # Numero GPIO da sirene
 PLAYLIST = "/home/pi/HousePi/playlist" # Diretorio onde encontra-se a playlist de musicas
 MJPG = "/usr/share/adafruit/webide/repositories/my-pi-projects/Servidor/mjpg-streamer/mjpg-streamer.sh" #caminho stream de video
@@ -254,19 +254,21 @@ def gravarAgendamento(root, con):
     #else:
     #    dias = None
     
-    agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text.encode('utf-8'), dias = dias, dataHoraInicial = 
+    agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text.encode('utf-8'), dias = "", dataHoraInicial = 
                                           root.find("DataHoraInicial").text, dataHoraFinal = root.find("DataHoraFinal").text, ativo = 1)
     
     noEquip = root.find("Equipamentos")
     
     i = 0
     for child in noEquip:
-        if child.get("Equipamento") == "-1":
+        if str(child.get("Equipamento")) == "-1":
             agendamento.alarme = alarme    
         else:
             agendamento.reles.insert(i, listaReles[int(child.get("Equipamento"))])
         i = i + 1
-        
+    
+    print "Passou"
+    
     if agendamento.gravarRegistroBanco():
         con.send("Ok\n")
         
