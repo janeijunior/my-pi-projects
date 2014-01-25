@@ -249,7 +249,7 @@ def gravarAgendamento(root, con):
     
     global alarme
     
-    if root.find("Dias").text <> "":
+    if str(root.find("Dias").text) <> "":
         dias = Funcoes.stringToList(str(root.find("Dias").text))
     else:
         dias = None
