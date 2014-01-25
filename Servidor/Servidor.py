@@ -115,7 +115,7 @@ def carregarListaAgendamento():
                     agendamento.alarme = alarme
                 else:
                     agendamento.reles.insert(len(agendamento.reles) + 1, listaReles[int(e)])
-            
+        
         listaAgendamento.insert(row["Id"], agendamento)
     
     conBanco.close()
