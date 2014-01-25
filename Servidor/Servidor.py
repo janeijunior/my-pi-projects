@@ -256,13 +256,14 @@ def gravarAgendamento(root, con):
     
     noEquip = root.find("Equipamentos")
     
-    for child in noEquip:
-        
+    i = 0
+    for child in noEquip
         if child.get("Equipamento") == "Alarme":
             agendamento.alarme = alarme    
         else:
             agendamento.reles.insert(i, listaReles[int(child.get("Id"))])
-    
+        i = i + 1
+        
     if agendamento.gravarRegistroBanco():
         con.send("Ok\n")
         
