@@ -511,8 +511,6 @@ def controlarSomAmbiente(root, con):
             
             step = proxima - atual
             
-            print str(nome), str(valor), str(atual), str(proxima), str(step)
-            
             executarComandoMPlayer("pt_step " + step, "")
         except:
             proxima = getPosicaoMusica(valor)
