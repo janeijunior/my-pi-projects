@@ -103,7 +103,7 @@ def carregarListaAgendamento():
     rows = cursor.fetchall()
 
     for row in rows:
-        agendamento = Agendamento.Agendamento(id = row["Id"], nome = row["Nome"], dias = str(row["DiasDaSemana"]), equipamentos = str(row["Equipamentos"])
+        agendamento = Agendamento.Agendamento(id = row["Id"], nome = row["Nome"], dias = str(row["DiasDaSemana"]), equipamentos = str(row["Equipamentos"]),
                           dataHoraInicial = row["DataHoraInicial"], dataHoraFinal = row["DataHoraFinal"], ativo = int(row["Ativo"]))        
                 
         listaAgendamento.insert(row["Id"], agendamento)
