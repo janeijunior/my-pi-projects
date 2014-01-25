@@ -15,11 +15,21 @@ class Agendamento(object):
         self.dataHoraInicial = dataHoraInicial
         self.dataHoraFinal = dataHoraFinal
         self.alarme = None
-        self.reles = []
         self.ativo = ativo
         self.dias = dias
         self.equipamentos = equipamentos
-        self.listaDias = []
+        self.listaDias = Funcoes.stringToList(self.dias)
+        
+        listaEquipamentos = Funcoes.stringToList(row["Equipamentos"])
+        self.reles = = 
+        
+        for e in equipamentos:
+            if e <> "":
+                if e == "-1":
+                    agendamento.alarme = alarme
+                else:
+                    agendamento.reles.insert(len(agendamento.reles) + 1, listaReles[int(e)])
+
         
     #funcoes    
     #funcao para gravar um novo agendamento no banco de dados
