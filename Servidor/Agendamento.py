@@ -28,11 +28,8 @@ class Agendamento(object):
             equip = "-1"
         
         for rele in self.reles:
-            if equip == "":
-                equip = str(rele.id())
-            else:
-                equip = equip + ";" + str(rele.id())        
-        
+            equip = str(rele.id()) + ";"
+            
         return equip
     
     #funcao para gravar um novo agendamento no banco de dados
