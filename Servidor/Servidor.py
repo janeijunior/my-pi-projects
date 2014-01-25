@@ -481,7 +481,7 @@ def controlarSomAmbiente(root, con):
     global mplayer
     
     comando = str(root.find("Comando").text)
-    valor = str(root.find("Valor").text)
+    valor = str(root.find("Valor").text.encode('utf-8'))
     
     
     if comando == "Play":
