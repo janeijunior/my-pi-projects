@@ -257,7 +257,7 @@ def gravarAgendamento(root, con):
     noEquip = root.find("Equipamentos")
     
     i = 0
-    for child in noEquip
+    for child in noEquip:
         if child.get("Equipamento") == "Alarme":
             agendamento.alarme = alarme    
         else:
