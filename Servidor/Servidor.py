@@ -298,7 +298,7 @@ def enviarAgendamento(con):
             equipamentos.append(Element("Alarme", Id = "-1"))
         
         for rele in agendamento.reles:
-            equipamentos.append(Element("Rele", Id = str(rele.id)))        
+            equipamentos.append(Element("Rele", Id = str(rele.id), Nome = rele.nome))        
         
         root.append(equipamentos)
         
