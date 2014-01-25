@@ -46,21 +46,24 @@ class ThreadAgendamento(threading.Thread):
                     #print "Data ligar: ", str(ligar)
                     #print "Data desligar: ", str(desligar)
                     
-                    if (atual == ligar) and (atual < desligar):
-                        for rele in agendamento.reles:                        
-                            if rele.status == 0:
-                                rele.ligar()    
-                        
-                        if (agendamento.alarme <> None) and (agendamento.alarme.alarmeLigado == False):
-                            agendamento.alarme.ligarAlarme()
-                    
-                    elif (atual == desligar) and (atual > ligar):
-                        for rele in agendamento.reles:                        
-                            if rele.status == 1:
-                                rele.desligar()
-                    
-                        if (agendamento.alarme <> None) and (agendamento.alarme.alarmeLigado == True):
-                            agendamento.alarme.desligarAlarme()
+                    if len(agendamento.listaDias) > 0:
+                        print "Não implementado."
+                    else:
+                        if (atual == ligar) and (atual < desligar):
+                            for rele in agendamento.reles:                        
+                                if rele.status == 0:
+                                    rele.ligar()    
                             
-                        agendamento.desativarRegistroBanco()
+                            if (agendamento.alarme <> None) and (agendamento.alarme.alarmeLigado == False):
+                                agendamento.alarme.ligarAlarme()
+                        
+                        elif (atual == desligar) and (atual > ligar):
+                            for rele in agendamento.reles:                        
+                                if rele.status == 1:
+                                    rele.desligar()
+                        
+                            if (agendamento.alarme <> None) and (agendamento.alarme.alarmeLigado == True):
+                                agendamento.alarme.desligarAlarme()
+                                
+                            agendamento.desativarRegistroBanco()
             time.sleep(0.2)
