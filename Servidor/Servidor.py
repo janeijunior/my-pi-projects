@@ -510,7 +510,7 @@ def controlarSomAmbiente(root, con):
             atual = executarComandoMPlayer("get_meta_track", "ANS_META_TRACK")
             proxima = getPosicaoMusica(str(valor))
             
-            step = proxima - int(atual[1:len(atual) -1)
+            step = proxima - int(atual[1:len(atual) -1])
             
             executarComandoMPlayer("pt_step " + str(step), "")
         except:
