@@ -26,7 +26,7 @@ class Agendamento(object):
         
         for dia in listaDiasTemp:
             if dia.strip() <> "":
-                print "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                print "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA:" + dia 
                 self.listaDias.insert(len(self.listaDias) + 1, dia)
         
         for equip in listaEquipamentos:
