@@ -48,7 +48,8 @@ class ThreadAgendamento(threading.Thread):
                     
                     if (atual == ligar) and (atual < desligar):
                         for rele in agendamento.reles:                        
-                            rele.ligar()    
+                            rele.status == 0:
+                                rele.ligar()    
                         
                         if (agendamento.alarme <> None) and (agendamento.alarme.alarmeLigado == False):
                             agendamento.alarme.ligarAlarme()
