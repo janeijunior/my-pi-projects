@@ -28,7 +28,7 @@ class Agendamento(object):
             equip = "-1;"
         
         for rele in self.reles:
-            equip = equip + str(rele.id()) + ";"
+            equip = equip + str(rele.id) + ";"
             
         return equip
     
