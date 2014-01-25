@@ -109,15 +109,11 @@ def carregarListaAgendamento():
         agendamento = Agendamento.Agendamento(id = row["Id"], nome = row["Nome"], dias = dias,
                           dataHoraInicial = row["DataHoraInicial"], dataHoraFinal = row["DataHoraFinal"], ativo = int(row["Ativo"]))        
         
-        i = 0
-        
         for e in equipamentos:
             if e == "-1":
                 agendamento.alarme = alarme
             else:
-                agendamento.reles.insert(i, listaReles[int(e)])
-        
-            i = i + 1
+                agendamento.reles.insert(len(agendamento.reles) + 1, listaReles[int(e)])
         
         listaAgendamento.insert(row["Id"], agendamento)
     
