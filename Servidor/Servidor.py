@@ -463,6 +463,8 @@ def getPosicaoMusica(nome):
     
     i = 0
     
+    print "NOME DA MUSICA A SER BUSCADA: " + nome
+    
     for linha in arquivo:
         musica = linha[len(PLAYLIST):len(linha) -5]
         
@@ -506,13 +508,14 @@ def controlarSomAmbiente(root, con):
     elif comando == "ReproduzirPorNome":
         try:
             nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")
-            atual = getPosicaoMusica(nome[1:len(linha) -4])
+            atual = getPosicaoMusica(nome[1:len(nome) -4])
             proxima = getPosicaoMusica(str(valor))
             
             step = proxima - atual
             
             executarComandoMPlayer("pt_step " + str(step), "")
         except:
+            print "CAIU NA EXCESSAO!"
             proxima = getPosicaoMusica(valor)
             executarComandoMPlayer("pt_step " + str(proxima), "")
         
