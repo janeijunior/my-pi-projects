@@ -25,3 +25,13 @@ def removerAcentos(txt, codif='utf-8'):
         return normalize('NFKD', txt).encode('ASCII','ignore')
     else:
         return normalize('NFKD', txt.decode(codif)).encode('ASCII','ignore')
+
+#transforma uma string delimitada em uma lista
+def stringToList(texto):
+print __doc__
+    lista = []
+    
+    for linha in f:
+        lista.extend(str.lower().strip() for \
+            str in texto.split(';'))
+    
