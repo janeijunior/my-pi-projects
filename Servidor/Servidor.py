@@ -257,15 +257,13 @@ def gravarAgendamento(root, con):
     agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text.encode('utf-8'), dias = "", dataHoraInicial = 
                                           root.find("DataHoraInicial").text, dataHoraFinal = root.find("DataHoraFinal").text, ativo = 1)
     
-    noEquip = root.find("Equipamentos")
+    equipamentos = root.find("Equipamentos")
     
-    i = 0
-    for child in noEquip:
+    for child in equipamentos:
         if str(child.get("Equipamento")) == "-1":
             agendamento.alarme = alarme    
         else:
-            agendamento.reles.insert(i, listaReles[int(child.get("Equipamento"))])
-        i = i + 1
+            agendamento.reles.insert(len(agendamento.reles) + 1, listaReles[int(child.get("Equipamento"))])
     
     print "Passou"
     
