@@ -31,6 +31,19 @@ class Agendamento(object):
                     self.reles.insert(len(self.reles) + 1, listaReles[int(equip)])
 
     #funcoes    
+    #funcao que retorna os nomes dos equipamentos
+    def getNomeEquipamento(self):
+        equip = ""
+        
+        if self.alarme <> None:
+            equip = "Alarme, "
+        
+        for rele in reles:
+            if rele == "":
+                equip = rele.nome
+            else:
+                equip = equip + ', ' + rele.nome
+    
     #funcao para gravar um novo agendamento no banco de dados
     def gravarRegistroBanco(self):
         try:
