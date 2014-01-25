@@ -507,8 +507,7 @@ def controlarSomAmbiente(root, con):
        executarComandoMPlayer("set_property volume " + valor, "")
     elif comando == "ReproduzirPorNome":
         try:
-            nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")
-            atual = getPosicaoMusica(nome[1:len(nome) -5])
+            atual = int(executarComandoMPlayer("get_meta_track", "ANS_METATRACK"))
             proxima = getPosicaoMusica(str(valor))
             
             step = proxima - atual
