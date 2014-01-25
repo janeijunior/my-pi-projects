@@ -34,7 +34,4 @@ def stringToList(texto):
     
     lista = texto.split(';')
     
-    for linha in lista:
-        print linha
-    
     return lista
