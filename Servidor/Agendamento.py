@@ -18,7 +18,7 @@ class Agendamento(object):
         self.ativo = ativo
         self.dias = dias
         self.equipamentos = equipamentos
-        self.listaDias = Funcoes.stringToList(self.dias)
+        self.listaDias = []
         self.reles = []
         
         listaEquipamentos = Funcoes.stringToList(self.equipamentos)
