@@ -21,7 +21,7 @@ class Agendamento(object):
         self.listaDias = Funcoes.stringToList(self.dias)
         self.reles = []
         
-        listaEquipamentos = Funcoes.stringToList(row["Equipamentos"])
+        listaEquipamentos = Funcoes.stringToList(self.equipamentos)
         
         for equip in listaEquipamentos:
             if equip <> "":
