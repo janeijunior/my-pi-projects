@@ -110,11 +110,12 @@ def carregarListaAgendamento():
                           dataHoraInicial = row["DataHoraInicial"], dataHoraFinal = row["DataHoraFinal"], ativo = int(row["Ativo"]))        
         
         for e in equipamentos:
-            if e == "-1":
-                agendamento.alarme = alarme
-            else:
-                agendamento.reles.insert(len(agendamento.reles) + 1, listaReles[int(e)])
-        
+            if e <> "":
+                if e == "-1":
+                    agendamento.alarme = alarme
+                else:
+                    agendamento.reles.insert(len(agendamento.reles) + 1, listaReles[int(e)])
+            
         listaAgendamento.insert(row["Id"], agendamento)
     
     conBanco.close()
