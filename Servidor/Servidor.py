@@ -261,7 +261,7 @@ def gravarAgendamento(root, con):
     equipamentos = root.find("Equipamentos")
     
     for child in equipamentos:
-        if str(child.get("Equipamento")) == "-1":
+        if str(child.get("Id")) == "-1":
             agendamento.alarme = alarme    
         else:
             agendamento.reles.insert(len(agendamento.reles) + 1, listaReles[int(child.get("Equipamento"))])
