@@ -33,3 +33,4 @@ def stringToList(texto):
     lista.extend(str.lower().strip() for \
         str in texto.split(';'))
     
+    return lista
