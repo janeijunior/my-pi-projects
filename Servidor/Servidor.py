@@ -22,7 +22,7 @@ import subprocess
 import select
 
 HOST = ""    # IP do Servidor (em branco = IP do sistema)
-PORT = 5002  # Porta do Servidor
+PORT = 5001  # Porta do Servidor
 SIRENE = 10  # Numero GPIO da sirene
 PLAYLIST = "/home/pi/HousePi/playlist" # Diretorio onde encontra-se a playlist de musicas
 MJPG = "/usr/share/adafruit/webide/repositories/my-pi-projects/Servidor/mjpg-streamer/mjpg-streamer.sh" #caminho stream de video
@@ -507,7 +507,7 @@ def controlarSomAmbiente(root, con):
        executarComandoMPlayer("set_property volume " + valor, "")
     elif comando == "ReproduzirPorNome":
         try:
-            atual = executarComandoMPlayer("get_meta_track", "ANS_METATRACK")
+            atual = executarComandoMPlayer("get_meta_track", "get_meta_track")
             proxima = getPosicaoMusica(str(valor))
             
             step = proxima - int(atual)
