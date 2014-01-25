@@ -249,15 +249,19 @@ def gravarAgendamento(root, con):
     
     global alarme
     
-    #se for alarme = -1
-    if root.find("Equipamento").text == "-1":
-        agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text.encode('utf-8'), dataHoraInicial = 
-                                              root.find("DataHoraInicial").text, dataHoraFinal = root.find("DataHoraFinal").text,
-                                              alarme = alarme, rele = None, ativo = 1)
-    else:
-        agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text.encode('utf-8'), dataHoraInicial = 
-                                              root.find("DataHoraInicial").text, dataHoraFinal = root.find("DataHoraFinal").text,
-                                              alarme = None, rele = listaReles[int(root.find("Equipamento").text)], ativo = 1)        
+    dias = Funcoes.stringToList(root.find("Dias").text)
+    
+    agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text.encode('utf-8'), dias = dias, dataHoraInicial = 
+                                          root.find("DataHoraInicial").text, dataHoraFinal = root.find("DataHoraFinal").text, ativo = 1)
+    
+    noEquip = root.find("Equipamentos")
+    
+    for child in noEquip:
+        
+        if child.get("Equipamento") == "Alarme":
+            agendamento.alarme = alarme    
+        else:
+            agendamento.reles.insert(i, listaReles[int(child.get("Id"))])
     
     if agendamento.gravarRegistroBanco():
         con.send("Ok\n")
