@@ -28,4 +28,4 @@ def removerAcentos(txt, codif='utf-8'):
 
 #transforma uma string delimitada em uma lista
 def stringToList(texto):
-    return lista = [str.strip() for str in texto.split(';')]
+    return texto.split(';')
