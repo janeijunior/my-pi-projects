@@ -31,9 +31,9 @@ class Agendamento(object):
             if equip == "":
                 equip = str(rele.getId())
             else:
-                equip = equip + ", " str(rele.getId())
+                equip = equip + ", " str(rele.getId())        
         
-        
+        return equip
     
     #funcao para gravar um novo agendamento no banco de dados
     def gravarRegistroBanco(self):
