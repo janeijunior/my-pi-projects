@@ -280,18 +280,9 @@ def enviarAgendamento(con):
     
     for agendamento in listaAgendamento:
         root.append(Element("Agendamento" + str(agendamento.id), Id=str(agendamento.id), Nome=agendamento.nome.decode('utf-8'), 
-                                DataHoraInicial=str(agendamento.dataHoraInicial), DataHoraFinal=str(agendamento.dataHoraFinal), Dias=agendamento.getDias()))
-        
-        equipamentos = Element("Equipamentos")
-        
-        if agendamento.alarme <> None:
-            equipamentos.append(Element("Equipamento", Id = "-1"))
-        
-        for rele in agendamento.reles:
-            equipamentos.append(Element("Equipamento", Id = str(rele.id), Nome = rele.nome))        
-        
-        root.append(equipamentos)
-        
+                            DataHoraInicial=str(agendamento.dataHoraInicial), DataHoraFinal=str(agendamento.dataHoraFinal), 
+                            Dias=agendamento.dias, Equipamentos=agendamento.equipamentos))
+                
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
 
