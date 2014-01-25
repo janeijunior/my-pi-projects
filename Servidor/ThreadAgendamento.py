@@ -55,7 +55,7 @@ class ThreadAgendamento(threading.Thread):
                     
                     if len(agendamento.listaDias) > 0:
                         if (diaAtual >= diaLigar) and (diaAtual <= diaDesligar):
-                            for agendamento.listaDias == str(hoje):
+                            for agendamento.listaDias == unicode(hoje):
                                 if (horaAtual == horaLigar) and (horaAtual < horaDesligar):
                                     for rele in agendamento.reles:                        
                                         if rele.status == 0:
