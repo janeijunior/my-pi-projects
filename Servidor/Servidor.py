@@ -295,7 +295,7 @@ def enviarAgendamento(con):
         equipamentos = Element("Equipamentos")
         
         if agendamento.alarme <> None:
-            equipamentos.append(Element("Alarme", Id = "-1")
+            equipamentos.append(Element("Alarme", Id = "-1"))
         
         for rele in agendamento.reles:
             equipamentos.append(Element("Rele", Id = str(rele.Id))        
