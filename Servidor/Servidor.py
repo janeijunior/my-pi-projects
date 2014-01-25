@@ -461,7 +461,7 @@ def enviarListaMusica(con):
 def getPosicaoMusica(nome):
     arquivo = open(PLAYLIST)
     
-    i = 0;
+    i = 0
     
     for linha in arquivo:
         musica = linha[len(PLAYLIST):len(linha) -5]
