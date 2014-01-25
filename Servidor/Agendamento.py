@@ -41,7 +41,6 @@ class Agendamento(object):
             
         return strDias
     
-    
     #funcao para gravar um novo agendamento no banco de dados
     def gravarRegistroBanco(self):
         try:
