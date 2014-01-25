@@ -49,4 +49,6 @@
         <item>Sobre</item>
     </string-array>
 
+    <string name="title_activity_cadastro_agendamento">Agendamento</string>
+
 </resources>

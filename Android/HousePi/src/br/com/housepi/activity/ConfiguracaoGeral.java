@@ -72,6 +72,14 @@ public class ConfiguracaoGeral extends Fragment implements OnClickListener {
 		super.onResume();
 	}
 	
+	@Override
+	public void onPause() {
+		cbxMostrarSenha.setChecked(false);
+		cbxAvancado.setChecked(false);
+
+		super.onPause();
+	}
+	
 	
 	@Override
     public void onClick(View v) {

@@ -16,24 +16,46 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical" >
+            android:gravity="center|top" >
+
+            <TextView
+                android:id="@+id/lblTemperaturaTexto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Temperatura: "
+                android:textAppearance="?android:attr/textAppearanceMedium" 
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/lblTemperatura"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Temperatura"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
             <TextView
+                android:id="@+id/lblHumidadeTexto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="30dp"
+                android:text="Humidade: "
+                android:textAppearance="?android:attr/textAppearanceMedium" 
+                android:textStyle="bold"/>
+            <TextView
                 android:id="@+id/lblHumidade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="Humidade"
                 android:layout_marginBottom="15dp"
+                android:layout_marginTop="30dp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
         </LinearLayout>

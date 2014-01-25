@@ -20,29 +20,19 @@ public class Agendamento {
 	private String nome;
 	private Date dataHoraInicial;
 	private Date dataHoraFinal;
-	private Alarme alarme;
-	private Rele rele;
+	private String diasDaSemana;
+	private String equipamentos;
+	private String nomeEquipamentos;
 	
 	public Agendamento() {
 		super();
 	}
-	
-	public Agendamento(String nome, Date dataHoraInicial, Date dataHoraFinal,
-			Alarme alarme) {
+		
+	public Agendamento(String nome, Date dataHoraInicial, Date dataHoraFinal) {
 		super();
 		this.nome = nome;
 		this.dataHoraInicial = dataHoraInicial;
 		this.dataHoraFinal = dataHoraFinal;
-		this.alarme = alarme;
-	}
-	
-	public Agendamento(String nome, Date dataHoraInicial, Date dataHoraFinal,
-			Rele rele) {
-		super();
-		this.nome = nome;
-		this.dataHoraInicial = dataHoraInicial;
-		this.dataHoraFinal = dataHoraFinal;
-		this.rele = rele;
 	}
 	
 	public Integer getCodigo() {
@@ -71,19 +61,35 @@ public class Agendamento {
 	public void setDataHoraFinal(Date dataHoraFinal) {
 		this.dataHoraFinal = dataHoraFinal;
 	}
-	public Alarme getAlarme() {
-		return alarme;
+
+	public String getDiasDaSemana() {
+		if (this.diasDaSemana.equals("")) {
+			return " ";
+		} else {
+			return diasDaSemana;
+		}
 	}
-	public void setAlarme(Alarme alarme) {
-		this.alarme = alarme;
-	}
-	public Rele getRele() {
-		return rele;
-	}
-	public void setRele(Rele rele) {
-		this.rele = rele;
+
+	public void setDiasDaSemana(String diasDaSemana) {
+		this.diasDaSemana = diasDaSemana;
 	}
 	
+	public String getEquipamentos() {
+		return equipamentos;
+	}
+
+	public void setEquipamentos(String equipamentos) {
+		this.equipamentos = equipamentos;
+	}
+
+	public String getNomeEquipamentos() {
+		return nomeEquipamentos;
+	}
+
+	public void setNomeEquipamentos(String nomeEquipamentos) {
+		this.nomeEquipamentos = nomeEquipamentos;
+	}
+
 	public Boolean gravarAgendamento() {
 		Document doc = new Document();
 		Element root = new Element("GravarAgendamento");
@@ -91,13 +97,9 @@ public class Agendamento {
 		root.addContent(new Element("Nome").setText(this.getNome()));
 		root.addContent(new Element("DataHoraInicial").setText(Funcoes.formatarDataHoraBanco(this.getDataHoraInicial())));
 		root.addContent(new Element("DataHoraFinal").setText(Funcoes.formatarDataHoraBanco(this.getDataHoraFinal())));
+		root.addContent(new Element("Dias").setText(this.getDiasDaSemana()));
+		root.addContent(new Element("Equipamentos").setText(this.getEquipamentos()));
 		
-		if (this.getAlarme() != null) {
-			root.addContent(new Element("Equipamento").setText("-1"));
-		} else {
-			root.addContent(new Element("Equipamento").setText(this.getRele().getNumero().toString()));
-		}
-			
 		doc.setRootElement(root);
 		Conexao.getConexaoAtual().enviarMensagem(new XMLOutputter().outputString(doc));		
 			
@@ -174,17 +176,9 @@ public class Agendamento {
 				agendamento.setNome(element.getAttribute("Nome").getValue());
 				agendamento.setDataHoraInicial(Funcoes.formatarDataHora(element.getAttribute("DataHoraInicial").getValue()));
 				agendamento.setDataHoraFinal(Funcoes.formatarDataHora(element.getAttribute("DataHoraFinal").getValue()));
-				
-				try {
-					if (element.getAttribute("EhAlarme").getIntValue() == 1) {
-						agendamento.setAlarme(new Alarme());
-					} else {
-						agendamento.setRele(new Rele(element.getAttribute("IdRele").getIntValue()));
-						agendamento.getRele().setNome(element.getAttribute("NomeRele").getValue());
-					}
-				} catch (DataConversionException e) {
-					e.printStackTrace();
-				}
+				agendamento.setDiasDaSemana(element.getAttribute("Dias").getValue());
+				agendamento.setEquipamentos(element.getAttribute("Equipamentos").getValue());
+				agendamento.setNomeEquipamentos(element.getAttribute("NomeEquipamentos").getValue());
 				
 				lista.add(agendamento);
 			}

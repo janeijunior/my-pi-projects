@@ -24,6 +24,12 @@
         android:textSize="12sp" />
 
     <TextView
+        android:id="@+id/lvDias"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:textSize="12sp" />
+    
+    <TextView
         android:id="@+id/lvEquipamento"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"

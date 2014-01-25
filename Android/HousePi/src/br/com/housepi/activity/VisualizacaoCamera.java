@@ -50,7 +50,7 @@ public class VisualizacaoCamera extends Fragment {
 			stream = con.getInputStream();
 			mv.setSource(new MjpegInputStream(stream));
 			mv.setDisplayMode(MjpegView.SIZE_BEST_FIT);
-			mv.showFps(true);
+			mv.showFps(false);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

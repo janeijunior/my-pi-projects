@@ -16,6 +16,8 @@ import br.com.housepi.classes.Funcoes;
 import android.os.Bundle;
 import android.content.Context;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,6 +25,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SeekBar;
@@ -39,9 +42,9 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 	private ImageButton btnProxima;	
 	private SeekBar sbVolume;
 	private ArrayAdapter<String> adapter;
+	private EditText edtPesquisaMusica;
 	private List<String> musicas = new LinkedList<String>();
-	//private String[] menuItems = new String[] {"Executar"};
-
+	
 	public static Fragment newInstance(Context context) {
 		ControleSomAmbiente f = new ControleSomAmbiente();
 		return f;
@@ -53,6 +56,8 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 				container, false);
 
 		lblVolume = (TextView) rootView.findViewById(R.id.lblVolume);
+		
+		edtPesquisaMusica = (EditText) rootView.findViewById(R.id.edtPesquisaMusica);
 		
 		btnAnterior = (ImageButton) rootView.findViewById(R.id.btnAnterior);
 		btnAnterior.setOnClickListener(this);
@@ -86,58 +91,30 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 		
 		listView.setOnItemClickListener(new OnItemClickListener() {
 	        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-	        	String atual = enviarComandoResposta("EnviarNomeArquivo", "0");
-	    		
-	        	if (!atual.equals("")) {
-	        		atual = atual.substring(1, atual.length() -5);
-	    		}
 	        	
-	        	Integer indiceAtual = musicas.indexOf(atual);		
-	    		
-	    		Integer valor = position - indiceAtual;
-	    		
-	    		if (valor != 0) {
-	    			enviarComando("AnteriorProxima", String.valueOf(valor));
-	    		}
-	   
+	        	String nome = listView.getItemAtPosition(position).toString();
+	        		
+	        	enviarComando("ReproduzirPorNome", nome);
 	        }
 	    });
+		
+		edtPesquisaMusica.addTextChangedListener(new TextWatcher() {
+        	 
+			public void afterTextChanged(Editable s) {
+       	  
+       	  	}
+       	 
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+       	
+			}
+       	 
+       	  	public void onTextChanged(CharSequence s, int start, int before, int count) {
+       	  		adapter.getFilter().filter(s.toString());
+       	  	}
+        });
 
 		return rootView;
 	}
-	
-	/*@Override
-	public void onCreateContextMenu(ContextMenu menu, View v,
-	    ContextMenuInfo menuInfo) {
-	  if (v.getId( )== R.id.listMusica) {
-	    menu.setHeaderTitle("O que deseja fazer?");
-	    
-	    for (int i = 0; i < menuItems.length; i++) {
-	      menu.add(Menu.NONE, i, i, menuItems[i]);
-	    }
-	  }
-	}*/
-	
-	/*@Override
-	public boolean onContextItemSelected(MenuItem item) {
-		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
-		//int menuItemIndex = item.getItemId();
-		//String menuItemName = menuItems[menuItemIndex];
-	  
-		//String musica = musicas.get(info.position).toString();	  
-		
-		String atual = enviarComandoResposta("EnviarNomeArquivo", "0");
-		atual = atual.substring(1, atual.length() -1);
-		Integer indiceAtual = musicas.indexOf(atual);		
-		
-		Integer valor = info.position - indiceAtual;
-		
-		if (valor != 0) {
-			enviarComando("AnteriorProxima", String.valueOf(valor));
-		}
-			
-		return true;
-	}*/
 
 	private void getMusicas() {
 		try {
@@ -237,39 +214,5 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 		doc.setRootElement(root);
 
 		Conexao.getConexaoAtual().enviarMensagem(new XMLOutputter().outputString(doc));
-	}
-	
-	private String enviarComandoResposta(String comando, String valor) {
-		try {
-			Document doc = new Document();
-			Element root = new Element("ControlarSomAmbiente");
-				
-			root.addContent(new Element("Comando").setText(comando));
-			root.addContent(new Element("Valor").setText(valor));
-			
-			doc.setRootElement(root);
-	
-			Conexao.getConexaoAtual().enviarMensagem(new XMLOutputter().outputString(doc));
-			
-			String mensagem = "";
-	
-			mensagem = Conexao.getConexaoAtual().receberRetorno();
-			
-			SAXBuilder builder = new SAXBuilder();
-			Reader in = new StringReader(mensagem);
-	
-			try {
-				doc = builder.build(in);
-			} catch (JDOMException e) {
-				e.printStackTrace();
-			}
-	
-			Element retorno = (Element) doc.getRootElement();
-			
-			return retorno.getChild("Musica").getAttribute("Nome").getValue();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "";
-		}		
 	}
 }

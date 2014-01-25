@@ -65,7 +65,7 @@ public class TemperaturaHumidade extends Fragment implements OnClickListener {
 		public void handleMessage(android.os.Message msg) {
 			try {
 				synchronized (msg) {
-					if (msg.arg1 == 1) {
+					if (msg.arg1 == 0) {
 						Funcoes.msgToastErroComando(getActivity());
 					} else {
 						if (!temperatura.trim().equals("")) {
@@ -123,14 +123,15 @@ public class TemperaturaHumidade extends Fragment implements OnClickListener {
 				Element retorno = (Element) doc.getRootElement();
 				
 				Message msg = new Message();
+				msg.arg1 = 1;
 				handler.sendMessage(msg);
 				
-				temperatura = "Temperatura: " + retorno.getChild("Dados").getAttribute("Temperatura").getValue() + " ºC";
-				humidade = "Humidade: " + retorno.getChild("Dados").getAttribute("Humidade").getValue() + " %";
+				temperatura = retorno.getChild("Dados").getAttribute("Temperatura").getValue() + " ºC";
+				humidade = retorno.getChild("Dados").getAttribute("Humidade").getValue() + " %";
 				dialog.dismiss();
 			} else {
 				Message msg = new Message();
-				msg.arg1 = 1;
+				msg.arg1 = 0;
 				handler.sendMessage(msg);
 				
 				dialog.dismiss();
