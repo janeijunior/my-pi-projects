@@ -463,8 +463,6 @@ def getPosicaoMusica(nome):
     
     i = 0
     
-    print "NOME DA MUSICA A SER BUSCADA: " + nome
-    
     for linha in arquivo:
         musica = linha[len(PLAYLIST):len(linha) -5]
         
