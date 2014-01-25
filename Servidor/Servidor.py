@@ -106,7 +106,7 @@ def carregarListaAgendamento():
         equipamentos = Funcoes.stringToList(row["Equipamentos"])
         dias = Funcoes.stringToList(row["DiasDaSemana"])
         
-        agendamento = Agendamento.Agendamento(id = row["Id"], nome = row["Nome"], 
+        agendamento = Agendamento.Agendamento(id = row["Id"], nome = row["Nome"], dias = dias,
                           dataHoraInicial = row["DataHoraInicial"], dataHoraFinal = row["DataHoraFinal"], ativo = int(row["Ativo"]))        
         
         listaAgendamento.insert(row["Id"], agendamento)
