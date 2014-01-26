@@ -503,10 +503,9 @@ def controlarSomAmbiente(root, con):
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
             mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
             
-            nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")
+            proxima = getPosicaoMusica(valor)
             
-            if valor <> nome[1:len(nome) -5]:  
-                proxima = getPosicaoMusica(valor)
+            if proxima <> -1: 
                 executarComandoMPlayer("pt_step " + str(proxima), "")
         
 #executa um comando no subprocesso do mplayer e devolve o resultado
