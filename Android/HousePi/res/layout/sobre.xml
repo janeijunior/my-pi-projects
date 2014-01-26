@@ -171,7 +171,7 @@
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/skype" />
+                android:src="@drawable/ic_skype" />
 
             <TextView
                 android:id="@+id/textView1"
@@ -189,7 +189,7 @@
                 android:id="@+id/imageView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/email" />
+                android:src="@drawable/ic_email" />
 
             <TextView
                 android:id="@+id/textView2"

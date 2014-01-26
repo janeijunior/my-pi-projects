@@ -187,7 +187,7 @@ public class CadastroAgendamento extends ActionBarActivity implements OnClickLis
 	public void showDateTimePicker() {
 		DateTimePickerDialog dtpDialog = new DateTimePickerDialog(this);
 
-		dtpDialog.setIcon(R.drawable.calendario);
+		dtpDialog.setIcon(R.drawable.ic_calendario);
 		Calendar c = Calendar.getInstance();
 
 		dtpDialog.setDateTime(c);
