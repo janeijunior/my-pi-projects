@@ -73,7 +73,7 @@ class ThreadAgendamento(threading.Thread):
                                         if (agendamento.alarme <> None) and (agendamento.alarme.alarmeLigado == True):
                                             agendamento.alarme.desligarAlarme()    
                         
-                        if (diaAtual >= diaDesligar) and (horaAtual > horaDesligar):
+                        if (diaAtual >= diaDesligar) or ((diaAtual >= diaDesligar) and (horaAtual > horaDesligar)):
                             agendamento.desativarRegistroBanco()
                         
                     else:
