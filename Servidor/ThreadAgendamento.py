@@ -95,4 +95,3 @@ class ThreadAgendamento(threading.Thread):
                                 agendamento.alarme.desligarAlarme()
                                 
                             agendamento.desativarRegistroBanco()
-            time.sleep(0.2)
