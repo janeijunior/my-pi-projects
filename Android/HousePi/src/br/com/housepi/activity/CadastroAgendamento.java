@@ -95,8 +95,8 @@ public class CadastroAgendamento extends ActionBarActivity implements OnClickLis
 		} else if (view == btnAdicionar) {
 			if (edtNome.getText().toString().trim().equals("")) {
 				Funcoes.msgDialogoInformacao("Atenção", "Informe um nome antes de continuar.", this);
-			} else if (lblEquipamento.equals("Definir...")) {
-				Funcoes.msgDialogoInformacao("Aletnção", "Selecione pelo menos um equipamento.", this);	
+			} else if (lblEquipamento.getText().equals("Definir...")) {
+				Funcoes.msgDialogoInformacao("Atenção", "Selecione pelo menos um equipamento.", this);	
 			} else if (dataHoraInicial == null) {
 				Funcoes.msgDialogoInformacao("Atenção", "Informe a data e a hora que deseja ligar o equipamento.", this);
 			} else if (dataHoraFinal == null) {
