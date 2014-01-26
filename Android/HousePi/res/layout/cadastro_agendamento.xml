@@ -21,32 +21,29 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.68"
-                android:text="Nome:"
+                android:text="Nome:      "
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtNomeAgendamento"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10" >
 
                 <requestFocus />
             </EditText>
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content" >
 
             <TextView
                 android:id="@+id/lblLigarDesligar"
-                android:layout_width="60dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.05"
-                android:text="Equip.:"
+                android:text="Equip.:      "
                 android:textStyle="bold" />
 
             <TextView
@@ -54,8 +51,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.04"
-                android:text="Definir..." 
-                android:maxLines="2"/>
+                android:maxLines="2"
+                android:text="Definir..." />
 
             <Button
                 android:id="@+id/btnEquipamento"
