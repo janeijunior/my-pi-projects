@@ -23,7 +23,6 @@ class ThreadAgendamento(threading.Thread):
     def stop(self):
         self.__stop_thread_event.set()
         
-        
     def run(self):
         
         #executa enquanto nao setar o evento
@@ -74,7 +73,7 @@ class ThreadAgendamento(threading.Thread):
                                         if (agendamento.alarme <> None) and (agendamento.alarme.alarmeLigado == True):
                                             agendamento.alarme.desligarAlarme()    
                         
-                        if diaAtual > diaDesligar:
+                        if (diaAtual > diaDesligar) and (horaAtual > horaDesligar):
                             agendamento.desativarRegistroBanco()
                         
                     else:
