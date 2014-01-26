@@ -458,7 +458,7 @@ def getPosicaoMusica(nome):
         
         i = i + 1
     
-    return -1
+    return 0
     arquivo.close()
     
 #controla o mplayer do linux
