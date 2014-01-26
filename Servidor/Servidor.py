@@ -505,7 +505,7 @@ def controlarSomAmbiente(root, con):
             
             proxima = getPosicaoMusica(valor)
             
-            if proxima <> -1: 
+            if proxima <> 0: 
                 executarComandoMPlayer("pt_step " + str(proxima), "")
         
 #executa um comando no subprocesso do mplayer e devolve o resultado
