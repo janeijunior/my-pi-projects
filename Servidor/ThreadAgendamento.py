@@ -54,8 +54,6 @@ class ThreadAgendamento(threading.Thread):
                     #print "Data ligar: ", str(ligar)
                     #print "Data desligar: ", str(desligar)
                     
-                    print str(hoje)
-                    
                     if len(agendamento.listaDias) > 0:
                         if (diaAtual >= diaLigar) and (diaAtual <= diaDesligar):
                             for dia in agendamento.listaDias:
