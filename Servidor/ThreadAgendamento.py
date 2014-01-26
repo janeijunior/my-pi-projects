@@ -33,7 +33,8 @@ class ThreadAgendamento(threading.Thread):
             atual     = datetime.now().strftime("%Y%m%d%H%M%S")
             diaAtual  = datetime.now().strftime("%Y%m%d") 
             horaAtual = datetime.now().strftime("%H%M%S")
-            hoje      = datetime.today()
+            dthoje    = datetime.today()
+            hoje      = dthoje.strftime("%w")
             
             for agendamento in self.listaAgendamento:
                 if agendamento.ativo == 1:
@@ -52,6 +53,8 @@ class ThreadAgendamento(threading.Thread):
                     #print "Data atual: ", str(atual)
                     #print "Data ligar: ", str(ligar)
                     #print "Data desligar: ", str(desligar)
+                    
+                    print str(hoje)
                     
                     if len(agendamento.listaDias) > 0:
                         if (diaAtual >= diaLigar) and (diaAtual <= diaDesligar):
