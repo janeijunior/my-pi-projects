@@ -49,7 +49,7 @@ class ThreadAgendamento(threading.Thread):
                     diaDesligar  = dtDesligar.strftime("%Y%m%d")
                     horaDesligar = dtDesligar.strftime("%H%M%S")
                     
-                    print "Data atual: ", str(atual)
+                    #print "Data atual: ", str(atual)
                     #print "Data ligar: ", str(ligar)
                     #print "Data desligar: ", str(desligar)
                     
