@@ -59,23 +59,10 @@ class Agendamento(object):
         
     #funcao para remover o agendamento no banco de dados
     def removerRegistroBanco(self): 
-        try:
-            conBanco = Funcoes.conectarBanco()
-            cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-            
-            sql = "delete from Agendamento where Id = {idRegistro}".format(idRegistro = self.id)
+        sql = "delete from Agendamento where Id = {idRegistro}".format(idRegistro = self.id)
         
-            print sql
+        return Funcoes.executarComando(sql)
         
-            cursor.execute(sql)
-            conBanco.commit()
-            conBanco.close()
-            
-            return True
-        except:
-            conBanco.rollback()
-            conBanco.close()
-            return False
     
     #funcao para desativar o agendamento no banco de dados
     def desativarRegistroBanco(self): 
