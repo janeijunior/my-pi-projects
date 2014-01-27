@@ -19,6 +19,25 @@ def conectarBanco():
 
     return conBanco
 
+#persiste um SQL no banco de dados
+def executarSql(sql):
+    try:
+        conBanco = Funcoes.conectarBanco()
+        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+        
+        cursor.execute(sql)
+        
+        conBanco.commit()
+        conBanco.close()
+        return True
+    except:
+        conBanco.rollback()
+        conBanco.close()
+        return False
+        
+#retorna o resultado da consulta SQL
+def consultarSql(sql):
+
 #remove caracteres invalidos
 def removerAcentos(txt, codif='utf-8'):
     if  isinstance(txt, unicode):
