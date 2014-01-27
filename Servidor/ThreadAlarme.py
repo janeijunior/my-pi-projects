@@ -21,14 +21,9 @@ class ThreadAlarme(threading.Thread):
         self.__stop_thread_event = threading.Event()
         
         #atributos
-        
-        conBanco = Funcoes.conectarBanco() 
-        
         self.sirene = sirene
         self.status = NORMAL
-        
-        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("select * from Configuracao")
+        row = Funcoes.consultarRegistro("select * from Configuracao")
     
         row = cursor.fetchone()
         
