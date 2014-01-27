@@ -3,7 +3,6 @@
 
 import ThreadAlarme
 import Funcoes
-import MySQLdb
 
 class Alarme(object):
     
@@ -16,11 +15,7 @@ class Alarme(object):
         self.sirene = sirene
         
         #pega os status do banco e se necessario liga o alarme/panico
-        conBanco = Funcoes.conectarBanco()
-        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("select StatusAlarme, StatusPanico from Configuracao")
-        
-        row = cursor.fetchone()
+        row = Funcoes.consultarRegistro("select StatusAlarme, StatusPanico from Configuracao")
         
         if (row['StatusAlarme'] == 1) and (self.alarmeLigado == False):
             self.ligarAlarme()
@@ -31,8 +26,6 @@ class Alarme(object):
             self.ligarPanicoAlarme()     
         else:
             self.desligarPanicoAlarme()
-        
-        conBanco.close()
         
     #funcoes
     #funcao para ligar o alarme
@@ -71,19 +64,11 @@ class Alarme(object):
     
     #funcao para atualizar os status no banco
     def atualizarStatusBanco(self):
-        try:
-            conBanco = Funcoes.conectarBanco()
-            cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-            
-            sql = "update Configuracao set StatusAlarme = {statusAlarme}, StatusPanico = {statusPanico}".format(statusAlarme = int(self.alarmeLigado), statusPanico = int(self.panicoAlarmeLigado))
-            
-            cursor.execute(sql)
-            conBanco.commit()
-            conBanco.close()
-        except:
-            conBanco.rollback()
-            conBanco.close()
-        
+       sql = "update Configuracao set StatusAlarme = {statusAlarme}, StatusPanico = {statusPanico}"
+       sql = sql.format(statusAlarme = int(self.alarmeLigado), statusPanico = int(self.panicoAlarmeLigado))
+       
+       Funcoes.executarComando(sql)
+       
     #destrutor
     def __done__(self):
         self.desligarPanicoAlarme()
