@@ -343,6 +343,7 @@ def alterarConfiguracaoAlarme(root, con):
                     set TempoDisparoAlarme = {tempo}, 
                         UsarSireneAlarme = {usarSirene},
                         EnviarEmailAlarme = {usarEmail}'''
+        
         sql = sqlConf.format(tempo = int(root.find("TempoDisparo").text), usarSirene = int(root.find("UsarSirene").text), 
                              usarEmail = int(root.find("UsarEmail").text))
         cursor.execute(sql)
