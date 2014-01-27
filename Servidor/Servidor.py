@@ -64,7 +64,6 @@ def configurarReles():
         
         listaReles.insert(row["Id"], rele)
     
-
     listaReles[12].ligar()
 
 #inicializa o alarme
