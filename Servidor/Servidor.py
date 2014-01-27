@@ -334,30 +334,25 @@ def enviarConfiguracaoAlarme(con):
         
 #funcao para gravar as novas configuracoes do alarme
 def alterarConfiguracaoAlarme(root, con):
-    try:
-        conBanco = Funcoes.conectarBanco()
-        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-        
-        sql = '''update Configuracao 
+    sqlConf = '''update Configuracao 
                     set TempoDisparoAlarme = {tempo}, 
                         UsarSireneAlarme = {usarSirene},
-                        EnviarEmailAlarme = {usarEmail}'''.format(tempo = int(root.find("TempoDisparo").text), usarSirene = int(root.find("UsarSirene").text), usarEmail = int(root.find("UsarEmail").text))
-        print sql
-        cursor.execute(sql)
-        
-        sensores = root.find("Sensores")
-        
-        for child in sensores:
-            sql = '''update SensorAlarme set Nome = '{novoNome}', Ativo = {ativo} where Id = {idSensor}'''.format(novoNome = child.get("Nome").encode('utf-8'), ativo = int(child.get("Ativo")), idSensor = int(child.get("Id")))
-            print sql
-            cursor.execute(sql)
-        
-        conBanco.commit()
-        conBanco.close()
+                        EnviarEmailAlarme = {usarEmail}'''
+    
+    sqlConf = sqlConf.format(tempo = int(root.find("TempoDisparo").text), usarSirene = int(root.find("UsarSirene").text), 
+                             usarEmail = int(root.find("UsarEmail").text))
+    
+    sensores  = root.find("Sensores")
+    sqlSensor = ""
+    
+    for child in sensores:
+        sql = "update SensorAlarme set Nome = '{novoNome}', Ativo = {ativo} where Id = {idSensor};"
+        sql = sql.format(novoNome = child.get("Nome").encode('utf-8'), ativo = int(child.get("Ativo")), idSensor = int(child.get("Id")))
+        sqlSensor = sqlSensor + sql + "\n" 
+    
+    if Funcoes.executarComando(sqlConf) and Funcoes.executarComando(sqlSensor):
         con.send("Ok\n")
-    except:
-        conBanco.rollback()
-        conBanco.close()
+    else:
         con.send("Erro\n")
 
 #envia a lista de musicas de uma pasta pre determinada
