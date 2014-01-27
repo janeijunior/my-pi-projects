@@ -164,8 +164,7 @@ def controlarAlarme(root, con):
         print "Alarme desativado."
     
     con.send("Ok\n")
-        
-    
+            
 #liga ou desliga a funcao panico do alarme
 def controlarFuncaoPanico(root, con):
     acao = root.find("Acao").text
