@@ -53,6 +53,18 @@ def consultarRegistro(sql):
 
 #retorna o resultado da consulta SQL em varias linhas
 def consultarRegistros(sql):
+    try:
+        conBanco = conectarBanco()
+        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute(sql)
+    
+        rows = cursor.fetchall()
+        conBanco.close()
+        
+        return rows
+    except:
+        print "Erro ao executar o comando!"
+        return None
     
 
 #remove caracteres invalidos
