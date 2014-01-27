@@ -273,9 +273,9 @@ def alterarUsuarioSenha(root, con):
             
 #funcao para renomear os reles atraves da aba de configuracoes
 def alterarConfiguracaoRele(root, con):
+    global listaReles
+    
     try:
-        global listaReles
-        
         for child in root:
             listaReles[int(child.get("Id"))].nome = str(child.get("Nome").encode('utf-8')) 
             listaReles[int(child.get("Id"))].gravarNomeBanco();
