@@ -45,22 +45,8 @@ class Rele(object):
     
     #funcao para gravar o novo nome do rele
     def gravarNomeBanco(self):
-        try:
-            conBanco = Funcoes.conectarBanco()
-            cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-            
-            sql = "update Rele set Nome = '{nomeRele}' where Id = {idRele}".format(nomeRele = self.nome, idRele = self.id)
-            print sql
-            
-            cursor.execute(sql)
-            conBanco.commit()
-            conBanco.close()
-            
-            return True
-        except:
-            conBanco.rollback()
-            conBanco.close()
-            return False
+        sql = "update Rele set Nome = '{nomeRele}' where Id = {idRele}".format(nomeRele = self.nome, idRele = self.id)
+        return Funcoes.executarComando(sql)
     
     #funcao para atualizar o status no banco
     def atualizarStatusBanco(self):
