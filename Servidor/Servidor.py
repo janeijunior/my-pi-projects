@@ -515,7 +515,7 @@ def conectado(con, cliente):
         if not msg: 
             break
         
-        print cliente, "Comando recebido: " + comando
+        print cliente, "Comando recebido: \n"
                   
         if len(comando) > 0:
             try:
