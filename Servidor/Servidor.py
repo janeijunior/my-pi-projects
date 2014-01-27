@@ -261,23 +261,14 @@ def removerAgendamento(root, con):
 
 #funcao para alterar o usuario e a senha
 def alterarUsuarioSenha(root, con):
-    try:
-        usuario = root.find("Usuario").text.encode('utf-8')
-        senha = root.find("Senha").text.encode('utf-8')
-        
-        conBanco = Funcoes.conectarBanco()
-        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-        
-        sql = "update Configuracao set Usuario = '{novoUsuario}', Senha = '{novaSenha}'".format(novoUsuario = usuario, novaSenha = senha)
-        print sql
-        
-        cursor.execute(sql)
-        conBanco.commit()
-        conBanco.close()
+    usuario = root.find("Usuario").text.encode('utf-8')
+    senha = root.find("Senha").text.encode('utf-8')
+    
+    sql = "update Configuracao set Usuario = '{novoUsuario}', Senha = '{novaSenha}'".format(novoUsuario = usuario, novaSenha = senha)
+    
+    if Funcoes.executarComando(sql):
         con.send("Ok\n")
-    except:
-        conBanco.rollback()
-        conBanco.close()
+    else:
         con.send("Erro\n")
             
 #funcao para renomear os reles atraves da aba de configuracoes
