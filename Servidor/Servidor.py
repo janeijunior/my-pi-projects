@@ -22,7 +22,7 @@ import select
 import MySQLdb
 
 HOST = ""    # IP do Servidor (em branco = IP do sistema)
-PORT = 5000  # Porta do Servidor
+PORT = 5001  # Porta do Servidor
 SIRENE = 10  # Numero GPIO da sirene
 PLAYLIST = "/home/pi/HousePi/playlist" # Diretorio onde encontra-se a playlist de musicas
 MUSICA = "/home/pi/HousePi/Musicas/"   # Diretorio das musicas
@@ -462,7 +462,7 @@ def finalizarProcessos():
         alarme.desligarAlarme()
     
     alarme.desligarPanicoAlarme()
-	threadAgendamento.stop()
+    threadAgendamento.stop()
     
     for rele in listaReles:	
 		rele.desligar()
