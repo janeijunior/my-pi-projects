@@ -306,21 +306,15 @@ def alterarConfiguracaoEmail(root, con):
 
 #envia a configuracao atual de email para o solicitante
 def enviarConfiguracaoEmail(con):
-    conBanco = Funcoes.conectarBanco()
-    cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute("select * from Configuracao")
-
-    row = cursor.fetchone()
+    row = Funcoes.consultarRegistro("select * from Configuracao")
     
     root = Element("EnviarConfiguracaoEmail")
     dados = Element("Dados", Usuario = str(row["RemetenteEmail"]).decode('utf-8'), Senha = str(row["SenhaEmail"]).decode('utf-8'), Destinatario = str(row["DestinatarioEmail"]).decode('utf-8'),
                              Servidor = str(row["ServidorSMTP"]).decode('utf-8'), Porta = str(row["PortaSMTP"]))
     root.append(dados)
-    
     xmlstr = ET.tostring(root) + "\n"       
     con.send(xmlstr)
-    conBanco.close()
-
+    
 #funcao para enviar as configuracoes atuais do alarme
 def enviarConfiguracaoAlarme(con):
     conBanco = Funcoes.conectarBanco()
