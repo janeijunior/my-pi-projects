@@ -23,6 +23,7 @@ class ThreadAlarme(threading.Thread):
         #atributos
         self.sirene = sirene
         self.status = NORMAL
+        
         row = Funcoes.consultarRegistro("select * from Configuracao")
     
         row = cursor.fetchone()
