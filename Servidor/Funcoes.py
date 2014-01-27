@@ -24,17 +24,14 @@ def executarComando(sql):
     try:
         conBanco = conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-        
-        print sql
         cursor.execute(sql)
-        
         conBanco.commit()
         conBanco.close()
         return True
     except:
         conBanco.rollback()
         conBanco.close()
-        print "Erro ao executar o comando!"
+        print "Erro ao executar o comando: " + sql
         return False
 
 #retorna o resultado da consulta SQL em uma linha
@@ -42,16 +39,13 @@ def consultarRegistro(sql):
     try:
         conBanco = conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-        
-        print sql
         cursor.execute(sql)
-        
         row = cursor.fetchone()
         conBanco.close()
     
         return row
     except:
-        print "Erro ao executar o comando!"
+        print "Erro ao executar o comando: " + sql
         return None
 
 #retorna o resultado da consulta SQL em varias linhas
@@ -59,16 +53,13 @@ def consultarRegistros(sql):
     try:
         conBanco = conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-        
-        print sql
         cursor.execute(sql)
-    
         rows = cursor.fetchall()
         conBanco.close()
         
         return rows
     except:
-        print "Erro ao executar o comando!"
+        print "Erro ao executar o comando: " + sql
         return None
 
 #remove caracteres invalidos
