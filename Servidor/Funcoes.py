@@ -33,18 +33,23 @@ def executarComando(sql):
     except:
         conBanco.rollback()
         conBanco.close()
+        print "Erro ao executar o comando!"
         return False
 
 #retorna o resultado da consulta SQL em uma linha
 def consultarRegistro(sql):
-    conBanco = Funcoes.conectarBanco()
-    cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute(sql)
+    try:
+        conBanco = Funcoes.conectarBanco()
+        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute(sql)
         
-    row = cursor.fetchone()
-    conBanco.close()
+        row = cursor.fetchone()
+        conBanco.close()
     
-    return row
+        return row
+    except:
+        print "Erro ao executar o comando!"
+        return None
     
 
 #retorna o resultado da consulta SQL em varias linhas
