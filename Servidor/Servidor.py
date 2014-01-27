@@ -86,7 +86,6 @@ def carregarListaAgendamento():
     global listaAgendamento
     
     print "Carregando agendamentos..."
-    
     listaAgendamento = []
 
     rows = Funcoes.consultarRegistros("select * from Agendamento where Ativo = 1")
@@ -99,16 +98,10 @@ def carregarListaAgendamento():
         
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
 def efetuarLogin(root, con):
-    conBanco = Funcoes.conectarBanco()
-    cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute("select Usuario, Senha from Configuracao")
-    
-    row = cursor.fetchone()
+    row = Funcoes.consultarRegistro("select Usuario, Senha from Configuracao")
     
     usuario = root.find("Usuario").text.encode('utf-8')
     senha = root.find("Senha").text.encode('utf-8')
-    
-    conBanco.close()
     
     global listaConexoes
     
