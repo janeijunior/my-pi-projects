@@ -63,7 +63,6 @@ class Agendamento(object):
         
         return Funcoes.executarComando(sql)
         
-    
     #funcao para desativar o agendamento no banco de dados
     def desativarRegistroBanco(self): 
         sql = "update Agendamento set Ativo = 0 where Id = {idRegistro}".format(idRegistro = self.id)
