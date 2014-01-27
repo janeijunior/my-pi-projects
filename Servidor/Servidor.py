@@ -210,6 +210,8 @@ def enviarConfiguracaoStatusAlarme(con):
 def gravarAgendamento(root, con):
     global listaReles
     global alarme
+    global threadAgendamento
+    global listaAgendamento
     
     agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text.encode('utf-8'), dias = root.find("Dias").text, 
                                           equipamentos = root.find("Equipamentos").text, dataHoraInicial = root.find("DataHoraInicial").text, 
@@ -217,13 +219,8 @@ def gravarAgendamento(root, con):
     
     if agendamento.gravarRegistroBanco():
         con.send("Ok\n")
-        
         #carrega os novos agendamentos
         carregarListaAgendamento()
-        
-        global threadAgendamento
-        global listaAgendamento
-        
         #passa a nova lista para a thread
         threadAgendamento.listaAgendamento = listaAgendamento
     else:
@@ -231,12 +228,11 @@ def gravarAgendamento(root, con):
 
 #funcao que retorna os agendamentos do servidor para o aplicativo movel
 def enviarAgendamento(con):
+    global listaAgendamento
     root = Element("EnviarAgendamento")
     
     #atualiza a lista de agendamentos
     carregarListaAgendamento()
-    
-    global listaAgendamento
     
     for agendamento in listaAgendamento:
         root.append(Element("Agendamento" + str(agendamento.id), Id=str(agendamento.id), Nome=agendamento.nome.decode('utf-8'), 
