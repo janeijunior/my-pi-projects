@@ -10,7 +10,6 @@ import time
 import os
 import commands
 import Alarme
-import MySQLdb
 import Rele
 import signal
 import sys
@@ -22,7 +21,7 @@ import subprocess
 import select
 
 HOST = ""    # IP do Servidor (em branco = IP do sistema)
-PORT = 5000  # Porta do Servidor
+PORT = 5001  # Porta do Servidor
 SIRENE = 10  # Numero GPIO da sirene
 PLAYLIST = "/home/pi/HousePi/playlist" # Diretorio onde encontra-se a playlist de musicas
 MJPG = "/usr/share/adafruit/webide/repositories/my-pi-projects/Servidor/mjpg-streamer/mjpg-streamer.sh" #caminho stream de video
