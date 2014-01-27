@@ -65,7 +65,6 @@ def consultarRegistros(sql):
     except:
         print "Erro ao executar o comando!"
         return None
-    
 
 #remove caracteres invalidos
 def removerAcentos(txt, codif='utf-8'):
