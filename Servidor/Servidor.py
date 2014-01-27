@@ -26,7 +26,7 @@ PORT = 5000  # Porta do Servidor
 SIRENE = 10  # Numero GPIO da sirene
 PLAYLIST = "/home/pi/HousePi/playlist" # Diretorio onde encontra-se a playlist de musicas
 MUSICA = "/home/pi/HousePi/Musicas/"   # Diretorio das musicas
-MJPG = "/usr/share/adafruit/webide/repositories/my-pi-projects/Servidor/mjpg-streamer/mjpg-streamer.sh" #caminho stream de video
+MJPG = "/usr/share/adafruit/webide/repositories/my-pi-projects/Servidor/mjpg-streamer/mjpg-streamer.sh" # Caminho stream de video
 
 orig = (HOST, PORT)
 
