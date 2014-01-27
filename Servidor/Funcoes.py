@@ -34,9 +34,13 @@ def executarSql(sql):
         conBanco.rollback()
         conBanco.close()
         return False
-        
-#retorna o resultado da consulta SQL
-def consultarSql(sql):
+
+#retorna o resultado da consulta SQL em uma linha
+def consultarRegistro(sql):
+
+
+#retorna o resultado da consulta SQL em varias linhas
+def consultarRegistros(sql):
     
 
 #remove caracteres invalidos
