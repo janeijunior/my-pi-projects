@@ -75,4 +75,3 @@ class Agendamento(object):
             
     #destrutor
     #def __done__(self):
-        
