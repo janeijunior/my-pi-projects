@@ -58,8 +58,8 @@ class ThreadAlarme(threading.Thread):
         rows = Funcoes.consultarRegistros("select * from SensorAlarme")
 
         for row in rows:
-          sensor = SensorAlarme.SensorAlarme(id = row["Id"], numeroGPIO = row["NumeroGPIO"], ativo = row["Ativo"], nome = row["Nome"])        
-          listaSensores.insert(int(row["Id"]) - 1 , sensor)
+            sensor = SensorAlarme.SensorAlarme(id = row["Id"], numeroGPIO = row["NumeroGPIO"], ativo = row["Ativo"], nome = row["Nome"])        
+            listaSensores.insert(int(row["Id"]) - 1 , sensor)
         
         if self.usarSirene == 1:
             self.sirene.ligar()
