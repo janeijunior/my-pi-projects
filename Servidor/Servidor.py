@@ -52,11 +52,7 @@ listaConexoes = []
 def configurarReles():
     print "Configurando reles..."
 
-    conBanco = Funcoes.conectarBanco()
-    cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute("select * from Rele")
-
-    rows = cursor.fetchall()
+    rows = Funcoes.consultarRegistros("select * from Rele")
 
     for row in rows:
         rele = Rele.Rele(id = row["Id"], numeroGPIO = row["NumeroGPIO"], status = row["Status"], nome = row["Nome"])        
@@ -68,7 +64,6 @@ def configurarReles():
         
         listaReles.insert(row["Id"], rele)
     
-    conBanco.close()
 
     listaReles[12].ligar()
 
