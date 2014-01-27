@@ -188,9 +188,8 @@ def enviarConfiguracaoStatusRele(con):
 
 #funcao que envia o status do alarme
 def enviarConfiguracaoStatusAlarme(con):
-    root = Element("Alarme")
-    
     global alarme
+    root = Element("Alarme")
     
     status = ""
     
