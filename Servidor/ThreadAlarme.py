@@ -7,7 +7,6 @@ import time
 import RPi.GPIO as GPIO 
 import EnviarEmail
 import SensorAlarme
-import MySQLdb
 import Funcoes
 
 DESLIGADO = -1
