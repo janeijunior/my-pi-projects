@@ -42,6 +42,8 @@ def consultarRegistro(sql):
     try:
         conBanco = conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+        
+        print sql
         cursor.execute(sql)
         
         row = cursor.fetchone()
@@ -57,6 +59,8 @@ def consultarRegistros(sql):
     try:
         conBanco = conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+        
+        print sql
         cursor.execute(sql)
     
         rows = cursor.fetchall()
