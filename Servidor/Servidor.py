@@ -359,7 +359,6 @@ def alterarConfiguracaoAlarme(root, con):
 def enviarListaMusica(con):
     playlist = 'find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -o -name "*m4a" -o -name "*wma" -type f | sort > /home/pi/HousePi/playlist'
     os.system(playlist)
-    
     arquivo = open(PLAYLIST)
 
     root = Element("EnviarListaMusica")
@@ -397,7 +396,6 @@ def controlarSomAmbiente(root, con):
     
     comando = str(root.find("Comando").text)
     valor = str(root.find("Valor").text.encode('utf-8'))
-    
     
     if comando == "Play":
         try:
@@ -509,7 +507,6 @@ def conectado(con, cliente):
         
         print cliente, "Comando recebido: " + comando
                   
-        
         if len(comando) > 0:
             try:
                 #root = XML recebido/elemento principal
