@@ -447,7 +447,7 @@ def executarComandoMPlayer(cmd, retorno):
     mplayer.stdin.write(cmd + '\n') 
     while select.select([mplayer.stdout], [], [], 0.05)[0]: 
         output = mplayer.stdout.readline()
-        print("output: {}".format(output.rstrip()))
+        #print("output: {}".format(output.rstrip()))
         split_output = output.split(retorno + '=', 1)
         if len(split_output) == 2 and split_output[0] == '':
             value = split_output[1]
