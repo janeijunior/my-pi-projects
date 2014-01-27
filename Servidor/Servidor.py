@@ -286,32 +286,22 @@ def alterarConfiguracaoRele(root, con):
         
 #funcao que grava a nova configuracao de email
 def alterarConfiguracaoEmail(root, con):
-    try:
-        usuario = root.find("Usuario").text.encode('utf-8')
-        senha = root.find("Senha").text.encode('utf-8')
-        destinatario = root.find("Destinatario").text.encode('utf-8')
-        servidor = root.find("Servidor").text.encode('utf-8')
-        porta = root.find("Porta").text.encode('utf-8')
-                
-        conBanco = Funcoes.conectarBanco()
-        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-        
-        sql = '''update Configuracao 
-                    set RemetenteEmail = '{novoUsuario}', 
-                        SenhaEmail = '{novaSenha}',
-                        DestinatarioEmail = '{novoDestinatario}',
-                        ServidorSMTP = '{novoServidor}',
-                        PortaSMTP = {novaPorta}'''.format(novoUsuario = usuario, novaSenha = senha, 
-                                                          novoDestinatario = destinatario, novoServidor = servidor, novaPorta = porta)
-        print sql
-        
-        cursor.execute(sql)
-        conBanco.commit()
-        conBanco.close()
+    usuario = root.find("Usuario").text.encode('utf-8')
+    senha = root.find("Senha").text.encode('utf-8')
+    destinatario = root.find("Destinatario").text.encode('utf-8')
+    servidor = root.find("Servidor").text.encode('utf-8')
+    porta = root.find("Porta").text.encode('utf-8')
+            
+    sql = '''update Configuracao 
+                set RemetenteEmail = '{novoUsuario}', 
+                    SenhaEmail = '{novaSenha}',
+                    DestinatarioEmail = '{novoDestinatario}',
+                    ServidorSMTP = '{novoServidor}',
+                    PortaSMTP = {novaPorta}'''.format(novoUsuario = usuario, novaSenha = senha, 
+                                                      novoDestinatario = destinatario, novoServidor = servidor, novaPorta = porta)
+    if Funcoes.executarComando(sql):
         con.send("Ok\n")
-    except:
-        conBanco.rollback()
-        conBanco.close()
+    else:
         con.send("Erro\n")
 
 #envia a configuracao atual de email para o solicitante
