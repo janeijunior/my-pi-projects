@@ -61,8 +61,6 @@ class ThreadAlarme(threading.Thread):
           sensor = SensorAlarme.SensorAlarme(id = row["Id"], numeroGPIO = row["NumeroGPIO"], ativo = row["Ativo"], nome = row["Nome"])        
           listaSensores.insert(int(row["Id"]) - 1 , sensor)
         
-        conBanco.close()
-        
         if self.usarSirene == 1:
             self.sirene.ligar()
             time.sleep(0.2)
