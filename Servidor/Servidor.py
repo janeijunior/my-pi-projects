@@ -317,7 +317,7 @@ def enviarConfiguracaoEmail(con):
     
 #funcao para enviar as configuracoes atuais do alarme
 def enviarConfiguracaoAlarme(con):
-    Funcoes.consultarRegistro("select EnviarEmailAlarme, UsarSireneAlarme, TempoDisparoAlarme from Configuracao")
+    row = Funcoes.consultarRegistro("select EnviarEmailAlarme, UsarSireneAlarme, TempoDisparoAlarme from Configuracao")
     row = cursor.fetchone()
 
     root = Element("EnviarConfiguracaoAlarme")
