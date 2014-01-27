@@ -25,8 +25,6 @@ class ThreadAlarme(threading.Thread):
         self.status = NORMAL
         
         row = Funcoes.consultarRegistro("select * from Configuracao")
-    
-        row = cursor.fetchone()
         
         self.tempoDisparo = row["TempoDisparoAlarme"]
         self.usarSirene   = row["UsarSireneAlarme"]
