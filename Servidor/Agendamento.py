@@ -52,25 +52,11 @@ class Agendamento(object):
         
     #funcao para gravar um novo agendamento no banco de dados
     def gravarRegistroBanco(self):
-        try:
-            conBanco = Funcoes.conectarBanco()
-            cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-            
-            sql = "insert into Agendamento (Nome, DataHoraInicial, DataHoraFinal, DiasDaSemana, Equipamentos) values ('{nome}', '{dataInicial}', '{dataFinal}', '{dias}', '{equipamentos}')"
-            sql = sql.format(nome = self.nome, dataInicial = self.dataHoraInicial, dataFinal = self.dataHoraFinal, dias = self.dias, equipamentos = self.equipamentos)
-            
-            print sql
+        sql = "insert into Agendamento (Nome, DataHoraInicial, DataHoraFinal, DiasDaSemana, Equipamentos) values ('{nome}', '{dataInicial}', '{dataFinal}', '{dias}', '{equipamentos}')"
+        sql = sql.format(nome = self.nome, dataInicial = self.dataHoraInicial, dataFinal = self.dataHoraFinal, dias = self.dias, equipamentos = self.equipamentos)
         
-            cursor.execute(sql)
-            conBanco.commit()
-            conBanco.close()
-            
-            return True
-        except:
-            conBanco.rollback()
-            conBanco.close()
-            return False
-            
+        return Funcoes.executarComando(sql)
+        
     #funcao para remover o agendamento no banco de dados
     def removerRegistroBanco(self): 
         try:
