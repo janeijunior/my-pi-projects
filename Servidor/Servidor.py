@@ -521,6 +521,7 @@ def conectado(con, cliente):
             try:
                 #root = XML recebido/elemento principal
                 root = ET.fromstring(comando)
+                print ET.tostring(root, pretty_print = True)
             
                 if root.tag == "Logar":
                     efetuarLogin(root, con)
