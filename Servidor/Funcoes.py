@@ -37,6 +37,7 @@ def executarSql(sql):
         
 #retorna o resultado da consulta SQL
 def consultarSql(sql):
+    
 
 #remove caracteres invalidos
 def removerAcentos(txt, codif='utf-8'):
