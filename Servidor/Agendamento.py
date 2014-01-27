@@ -2,7 +2,6 @@
 #-*- coding: utf-8 -*-
 
 import Funcoes
-import MySQLdb
 
 class Agendamento(object):
     
