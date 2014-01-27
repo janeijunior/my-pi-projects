@@ -20,7 +20,7 @@ def conectarBanco():
     return conBanco
 
 #persiste um SQL no banco de dados
-def executarSql(sql):
+def executarComando(sql):
     try:
         conBanco = conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
