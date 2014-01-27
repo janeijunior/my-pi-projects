@@ -95,10 +95,7 @@ def carregarListaAgendamento():
         agendamento = Agendamento.Agendamento(id = row["Id"], nome = row["Nome"], dias = str(row["DiasDaSemana"]), equipamentos = str(row["Equipamentos"]),
                           dataHoraInicial = row["DataHoraInicial"], dataHoraFinal = row["DataHoraFinal"], ativo = int(row["Ativo"]), listaReles = listaReles, alarme = alarme)        
                 
-        listaAgendamento.insert(row["Id"], agendamento)
-    
-    conBanco.close()
-    
+        listaAgendamento.insert(row["Id"], agendamento)    
         
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
 def efetuarLogin(root, con):
