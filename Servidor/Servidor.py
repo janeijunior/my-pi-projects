@@ -395,7 +395,6 @@ def getPosicaoMusica(nome):
             return i
             break
             arquivo.close()
-        
         i = i + 1
     
     return 0
@@ -434,14 +433,11 @@ def controlarSomAmbiente(root, con):
             if valor <> nome[1:len(nome) -5]: 
                 atual = getPosicaoMusica(nome[1:len(nome) -5])
                 proxima = getPosicaoMusica(str(valor))
-                
                 step = proxima - atual
-                
                 executarComandoMPlayer("pt_step " + str(step), "")
         except:
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
             mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
-            
             proxima = getPosicaoMusica(valor)
             
             if proxima <> 0: 
@@ -463,14 +459,13 @@ def executarComandoMPlayer(cmd, retorno):
 #finaliza os processos em execucao para encerrar o aplicativo servidor
 def finalizarProcessos():
     global alarme
+    global threadAgendamento
     
     if alarme.alarmeLigado:
         alarme.desligarAlarme()
     
     alarme.desligarPanicoAlarme()
-	
-    global threadAgendamento
-    threadAgendamento.stop()
+	threadAgendamento.stop()
     
     for rele in listaReles:	
 		rele.desligar()
@@ -480,9 +475,7 @@ def finalizarProcessos():
 #funcao para reiniciar ou desligar o servidor conforme solicitado pelo app android
 def reiniciarDesligarServidor(root, con):
     acao = root.find("Acao").text
-    
     finalizarProcessos()
-    
     con.send("Ok\n")    
     
     if acao == "Reiniciar":
