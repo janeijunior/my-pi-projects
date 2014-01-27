@@ -317,10 +317,7 @@ def enviarConfiguracaoEmail(con):
     
 #funcao para enviar as configuracoes atuais do alarme
 def enviarConfiguracaoAlarme(con):
-    conBanco = Funcoes.conectarBanco()
-    cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-        
-    cursor.execute("select EnviarEmailAlarme, UsarSireneAlarme, TempoDisparoAlarme from Configuracao")
+    Funcoes.consultarRegistro("select EnviarEmailAlarme, UsarSireneAlarme, TempoDisparoAlarme from Configuracao")
     row = cursor.fetchone()
 
     root = Element("EnviarConfiguracaoAlarme")
