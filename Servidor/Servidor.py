@@ -326,12 +326,11 @@ def enviarConfiguracaoAlarme(con):
     sensores = Element("Sensores")
     
     for row in rows:
-         sensores.append(Element("Sensor" + str(row["Id"]), Nome=str(row["Nome"]).decode('utf-8'), Ativo=str(row["Ativo"])))
+        sensores.append(Element("Sensor" + str(row["Id"]), Nome=str(row["Nome"]).decode('utf-8'), Ativo=str(row["Ativo"])))
     
     root.append(sensores)
     xmlstr = ET.tostring(root) + "\n"       
     con.send(xmlstr)
-    conBanco.close()
         
 #funcao para gravar as novas configuracoes do alarme
 def alterarConfiguracaoAlarme(root, con):
