@@ -515,13 +515,12 @@ def conectado(con, cliente):
         if not msg: 
             break
         
-        print cliente, "Comando recebido: " + comando
-                  
         if len(comando) > 0:
             try:
                 #root = XML recebido/elemento principal
                 root = ET.fromstring(comando)
-            
+                print cliente, "Comando recebido: " + root.tag 
+        
                 if root.tag == "Logar":
                     efetuarLogin(root, con)
                 elif root.tag == "Rele":
