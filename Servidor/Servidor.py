@@ -360,7 +360,7 @@ def alterarConfiguracaoAlarme(root, con):
         conBanco.close()
         con.send("Ok\n")
     except:
-        print "Erro ao executar o comando!"
+        print "Erro ao executar o comando: " + sql
         con.send("Erro\n")
         conBanco.rollback()
         conBanco.close()
