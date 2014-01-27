@@ -242,7 +242,7 @@ def enviarAgendamento(con):
     xmlstr = ET.tostring(root) + "\n"   
     con.send(xmlstr)
 
-#funcao que remove o agendamento da lita e do banco de dados conforme solicitado
+#funcao que remove o agendamento da lita e do banco de dados
 def removerAgendamento(root, con):
     global threadAgendamento
     global listaAgendamento
@@ -254,7 +254,6 @@ def removerAgendamento(root, con):
                 
                 #atualiza a lista de agendamentos
                 carregarListaAgendamento()
-                
                 #passa a nova lista de agendamentos para a thread
                 threadAgendamento.listaAgendamento = listaAgendamento
             
