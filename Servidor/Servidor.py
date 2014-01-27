@@ -336,7 +336,7 @@ def enviarConfiguracaoAlarme(con):
 #funcao para gravar as novas configuracoes do alarme
 def alterarConfiguracaoAlarme(root, con):
     try:
-        conBanco = conectarBanco()
+        conBanco = Funcoes.conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
         
         sql = '''update Configuracao 
