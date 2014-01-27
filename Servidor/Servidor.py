@@ -251,12 +251,10 @@ def removerAgendamento(root, con):
         if agendamento.id == int(root.find("Id").text):
             if agendamento.removerRegistroBanco():
                 con.send("Ok\n")
-                
                 #atualiza a lista de agendamentos
                 carregarListaAgendamento()
                 #passa a nova lista de agendamentos para a thread
                 threadAgendamento.listaAgendamento = listaAgendamento
-            
                 break
             else:
                 con.send("Erro\n")
