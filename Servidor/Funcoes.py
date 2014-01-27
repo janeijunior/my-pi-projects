@@ -39,7 +39,7 @@ def executarComando(sql):
 #retorna o resultado da consulta SQL em uma linha
 def consultarRegistro(sql):
     try:
-        conBanco = Funcoes.conectarBanco()
+        conBanco = conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute(sql)
         
