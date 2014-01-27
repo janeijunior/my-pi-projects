@@ -53,7 +53,6 @@ listaConexoes = []
 #Configura todos os pinos necessarios para o envio de comandos 
 def configurarReles():
     print "Configurando reles..."
-
     rows = Funcoes.consultarRegistros("select * from Rele")
 
     for row in rows:
