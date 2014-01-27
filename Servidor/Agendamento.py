@@ -73,6 +73,7 @@ class Agendamento(object):
             return True
         else:
             return False
+            
     #destrutor
     #def __done__(self):
         
