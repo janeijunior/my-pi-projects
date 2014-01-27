@@ -22,7 +22,7 @@ def conectarBanco():
 #persiste um SQL no banco de dados
 def executarSql(sql):
     try:
-        conBanco = Funcoes.conectarBanco()
+        conBanco = conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
         
         cursor.execute(sql)
