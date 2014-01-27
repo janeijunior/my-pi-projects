@@ -208,7 +208,6 @@ def enviarConfiguracaoStatusAlarme(con):
 
 #funcao que insere um novo agendamento no banco de dados e alualiza a lista de agendamentos 
 def gravarAgendamento(root, con):
-    
     global listaReles
     global alarme
     
