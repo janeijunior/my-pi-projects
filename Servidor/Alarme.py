@@ -67,7 +67,7 @@ class Alarme(object):
        sql = "update Configuracao set StatusAlarme = {statusAlarme}, StatusPanico = {statusPanico}"
        sql = sql.format(statusAlarme = int(self.alarmeLigado), statusPanico = int(self.panicoAlarmeLigado))
        
-       Funcoes.executarComando(sql)
+       return Funcoes.executarComando(sql)
        
     #destrutor
     def __done__(self):
