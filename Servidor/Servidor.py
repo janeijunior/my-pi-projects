@@ -19,6 +19,7 @@ import Agendamento
 import ThreadAgendamento
 import subprocess
 import select
+import MySQLdb
 
 HOST = ""    # IP do Servidor (em branco = IP do sistema)
 PORT = 5001  # Porta do Servidor
@@ -334,25 +335,31 @@ def enviarConfiguracaoAlarme(con):
         
 #funcao para gravar as novas configuracoes do alarme
 def alterarConfiguracaoAlarme(root, con):
-    sqlConf = '''update Configuracao 
+    try:
+        conBanco = conectarBanco()
+        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+        
+        sql = '''update Configuracao 
                     set TempoDisparoAlarme = {tempo}, 
                         UsarSireneAlarme = {usarSirene},
                         EnviarEmailAlarme = {usarEmail}'''
-    
-    sqlConf = sqlConf.format(tempo = int(root.find("TempoDisparo").text), usarSirene = int(root.find("UsarSirene").text), 
+        sql = sqlConf.format(tempo = int(root.find("TempoDisparo").text), usarSirene = int(root.find("UsarSirene").text), 
                              usarEmail = int(root.find("UsarEmail").text))
+        cursor.execute(sql)
+        sensores  = root.find("Sensores")
     
-    sensores  = root.find("Sensores")
-    sqlSensor = ""
-    
-    for child in sensores:
-        sql = "update SensorAlarme set Nome = '{novoNome}', Ativo = {ativo} where Id = {idSensor}"
-        sql = sql.format(novoNome = child.get("Nome").encode('utf-8'), ativo = int(child.get("Ativo")), idSensor = int(child.get("Id")))
-        sqlSensor = sqlSensor + sql + "\n" 
-    
-    if Funcoes.executarComando(sqlConf) and Funcoes.executarComando(sqlSensor):
+        for child in sensores:
+            sql = "update SensorAlarme set Nome = '{novoNome}', Ativo = {ativo} where Id = {idSensor}"
+            sql = sql.format(novoNome = child.get("Nome").encode('utf-8'), ativo = int(child.get("Ativo")), idSensor = int(child.get("Id")))
+            cursor.execute(sql)
+        
+        conBanco.commit()
+        conBanco.close()
         con.send("Ok\n")
-    else:
+    except:
+        conBanco.rollback()
+        conBanco.close()
+        print "Erro ao executar o comando!"
         con.send("Erro\n")
 
 #envia a lista de musicas de uma pasta pre determinada
