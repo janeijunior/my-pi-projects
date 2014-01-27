@@ -151,9 +151,8 @@ def enviarTemperaturaHumidade(con):
         
 #liga ou desliga o alarme
 def controlarAlarme(root, con):
-    acao = root.find("Acao").text
-    
     global alarme
+    acao = root.find("Acao").text
     
     if acao == "Ligar":
         if alarme.alarmeLigado == False:
@@ -167,9 +166,8 @@ def controlarAlarme(root, con):
             
 #liga ou desliga a funcao panico do alarme
 def controlarFuncaoPanico(root, con):
-    acao = root.find("Acao").text
-    
     global alarme
+    acao = root.find("Acao").text
     
     if acao == "Ligar":
         alarme.ligarPanicoAlarme()
