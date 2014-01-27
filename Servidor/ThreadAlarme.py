@@ -57,11 +57,7 @@ class ThreadAlarme(threading.Thread):
         #insere os sensores na lista passando seus atributos recuperados do banco
         listaSensores = [];
         
-        conBanco = Funcoes.conectarBanco()
-        cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("select * from SensorAlarme")
-
-        rows = cursor.fetchall()
+        rows = Funcoes.consultarRegistros("select * from SensorAlarme")
 
         for row in rows:
           sensor = SensorAlarme.SensorAlarme(id = row["Id"], numeroGPIO = row["NumeroGPIO"], ativo = row["Ativo"], nome = row["Nome"])        
