@@ -50,7 +50,6 @@ def consultarRegistro(sql):
     except:
         print "Erro ao executar o comando!"
         return None
-    
 
 #retorna o resultado da consulta SQL em varias linhas
 def consultarRegistros(sql):
