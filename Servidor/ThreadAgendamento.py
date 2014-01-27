@@ -5,8 +5,6 @@ from datetime import date, datetime
 import thread
 import threading
 import time
-import MySQLdb
-import Funcoes
 
 ATIVO = 1
 DESATIVADO = 0
