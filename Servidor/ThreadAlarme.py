@@ -4,7 +4,6 @@
 import thread
 import threading
 import time
-import RPi.GPIO as GPIO 
 import EnviarEmail
 import SensorAlarme
 import Funcoes
