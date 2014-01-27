@@ -318,14 +318,11 @@ def enviarConfiguracaoEmail(con):
 #funcao para enviar as configuracoes atuais do alarme
 def enviarConfiguracaoAlarme(con):
     row = Funcoes.consultarRegistro("select EnviarEmailAlarme, UsarSireneAlarme, TempoDisparoAlarme from Configuracao")
-    row = cursor.fetchone()
-
+    
     root = Element("EnviarConfiguracaoAlarme")
     root.append(Element("Geral", TempoDisparo=str(row["TempoDisparoAlarme"]), UsarSirene=str(row["UsarSireneAlarme"]), UsarEmail=str(row["EnviarEmailAlarme"])))
 
-    cursor.execute("select Id, Nome, Ativo from SensorAlarme")
-    rows = cursor.fetchall()
-    
+    rows = Funcoes.consultarRegistros("select Id, Nome, Ativo from SensorAlarme")
     sensores = Element("Sensores")
     
     for row in rows:
