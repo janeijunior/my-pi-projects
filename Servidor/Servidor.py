@@ -357,11 +357,11 @@ def alterarConfiguracaoAlarme(root, con):
         conBanco.close()
         con.send("Ok\n")
     except:
-        conBanco.rollback()
-        conBanco.close()
         print "Erro ao executar o comando!"
         con.send("Erro\n")
-
+        conBanco.rollback()
+        conBanco.close()
+        
 #envia a lista de musicas de uma pasta pre determinada
 def enviarListaMusica(con):
     playlist = 'find /home/pi/HousePi/Musicas/ -name "*mp3" -o -name "*flac" -o -name "*m4a" -o -name "*wma" -type f | sort > /home/pi/HousePi/playlist'
