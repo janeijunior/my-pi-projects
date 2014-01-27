@@ -25,6 +25,7 @@ def executarComando(sql):
         conBanco = conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
         
+        print sql
         cursor.execute(sql)
         
         conBanco.commit()
