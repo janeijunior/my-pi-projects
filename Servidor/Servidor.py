@@ -22,7 +22,7 @@ import select
 import MySQLdb
 
 HOST = ""    # IP do Servidor (em branco = IP do sistema)
-PORT = 5000  # Porta do Servidor
+PORT = 5001  # Porta do Servidor
 SIRENE = 10  # Numero GPIO da sirene
 PLAYLIST = "/home/pi/HousePi/playlist" # Diretorio onde encontra-se a playlist de musicas
 MJPG = "/usr/share/adafruit/webide/repositories/my-pi-projects/Servidor/mjpg-streamer/mjpg-streamer.sh" #caminho stream de video
@@ -99,12 +99,12 @@ def carregarListaAgendamento():
         
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
 def efetuarLogin(root, con):
+    global listaConexoes
+    
     row = Funcoes.consultarRegistro("select Usuario, Senha from Configuracao")
     
     usuario = root.find("Usuario").text.encode('utf-8')
     senha = root.find("Senha").text.encode('utf-8')
-    
-    global listaConexoes
     
     if row["Usuario"] == usuario and row["Senha"]  == senha:
         print "Conectado: ", cliente
