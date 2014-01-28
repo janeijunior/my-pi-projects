@@ -408,7 +408,7 @@ def controlarSomAmbiente(root, con):
         try:
             print executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
         except:
-            cmd = ['sudo', 'mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
+            cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
             mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
     elif comando == "Pause":
         executarComandoMPlayer("pause", "")
@@ -418,7 +418,7 @@ def controlarSomAmbiente(root, con):
         try:         
             executarComandoMPlayer("pt_step " + valor, "")
         except:
-            cmd = ['sudo', 'mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
+            cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
             mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)    
             executarComandoMPlayer("pt_step " + str(int(valor) - 1), "")
     elif comando == "Volume":
@@ -433,7 +433,7 @@ def controlarSomAmbiente(root, con):
                 step = proxima - atual
                 executarComandoMPlayer("pt_step " + str(step), "")
         except:
-            cmd = ['sudo', 'mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
+            cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
             mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
             proxima = getPosicaoMusica(valor)
             
