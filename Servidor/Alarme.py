@@ -17,15 +17,11 @@ class Alarme(object):
         #pega os status do banco e se necessario liga o alarme/panico
         row = Funcoes.consultarRegistro("select StatusAlarme, StatusPanico from Configuracao")
         
-        if (row['StatusAlarme'] == 1) and (self.alarmeLigado == False):
+        if (row['StatusAlarme'] == 1):
             self.ligarAlarme()
-        elif self.alarmeLigado:
-            self.desligarAlarme()
         
         if row['StatusPanico'] == 1:
             self.ligarPanicoAlarme()     
-        else:
-            self.desligarPanicoAlarme()
         
     #funcoes
     #funcao para ligar o alarme
