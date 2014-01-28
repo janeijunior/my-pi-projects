@@ -35,11 +35,12 @@ class EnviarEmail(threading.Thread):
         conteudo = conteudo.format(idSensor = int(self.idSensor), nomeSensor = Funcoes.removerAcentos(self.nomeSensor), dataHora =  datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         
         print 'Enviando e-mail\n'
+        print selg.servidorSMTP, self.remetente, self.senha
+            
         try:
             msg = MIMEText('%s'% conteudo)
             msg['Subject'] = assunto
             msg['From'] = self.remetente
-            
             msg['To'] = self.destinatario
             smtp = smtplib.SMTP(self.servidorSMTP, int(self.portaSMTP))
             smtp.ehlo()
