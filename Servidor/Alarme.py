@@ -17,7 +17,7 @@ class Alarme(object):
         #pega os status do banco e se necessario liga o alarme/panico
         row = Funcoes.consultarRegistro("select StatusAlarme, StatusPanico from Configuracao")
         
-        if (row['StatusAlarme'] == 1):
+        if row['StatusAlarme'] == 1:
             self.ligarAlarme()
         
         if row['StatusPanico'] == 1:
