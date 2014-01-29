@@ -95,28 +95,28 @@ function stop() {
 function check_running() {
     echo "starting running check task" >> ${LOG_FILE}
 
-    #while true; do
-    #    sleep ${RUNNING_CHECK_INTERVAL}
+    while true; do
+        sleep ${RUNNING_CHECK_INTERVAL}
 
-    #    if ! running; then
-    #        echo "server stopped, starting" >> ${LOG_FILE}
-    #        start nocheck
-    #    fi
-    #done
+        if ! running; then
+            echo "server stopped, starting" >> ${LOG_FILE}
+            start nocheck
+        fi
+    done
 }
 
 function check_hanging() {
     echo "starting hanging check task" >> ${LOG_FILE}
 
-    #while true; do
-    #    sleep ${HANGING_CHECK_INTERVAL}
+    while true; do
+        sleep ${HANGING_CHECK_INTERVAL}
 
         # treat the "error grabbing frames" case
-    #    if tail -n2 ${LOG_FILE} | grep -i "error grabbing frames" > /dev/null; then
-    #        echo "server is hanging, killing" >> ${LOG_FILE}
-    #        stop nocheck
-    #    fi
-    #done
+        if tail -n2 ${LOG_FILE} | grep -i "error grabbing frames" > /dev/null; then
+            echo "server is hanging, killing" >> ${LOG_FILE}
+            stop nocheck
+        fi
+    done
 }
 
 function help() {
