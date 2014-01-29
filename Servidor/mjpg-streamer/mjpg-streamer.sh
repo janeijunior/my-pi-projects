@@ -9,8 +9,8 @@ YUV="true"
 MJPG_STREAMER_DIR="$(dirname $0)"
 MJPG_STREAMER_BIN="mjpg_streamer"
 LOG_FILE="${MJPG_STREAMER_DIR}/mjpg-streamer.log"
-RUNNING_CHECK_INTERVAL="1" # how often to check to make sure the server is running (in seconds)
-HANGING_CHECK_INTERVAL="2" # how often to check to make sure the server is not hanging (in seconds)
+RUNNING_CHECK_INTERVAL="3" # how often to check to make sure the server is running (in seconds)
+HANGING_CHECK_INTERVAL="4" # how often to check to make sure the server is not hanging (in seconds)
 
 function parseAdditionalArguments() {
     if [ "$2" != "" ]; then
