@@ -8,7 +8,7 @@ from unicodedata import normalize
 #funcao para conectar no banco de dados
 def conectarBanco():
     cfg = ConfigParser.ConfigParser()
-    cfg.read('config.ini')
+    cfg.read('Config.ini')
     
     HOST   = cfg.getint('Dados', 'HostBanco')
     USER   = cfg.getint('Dados', 'UsuarioBanco')
