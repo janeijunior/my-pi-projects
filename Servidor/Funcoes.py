@@ -78,3 +78,10 @@ def stringToList(texto):
     lista = []
     lista = texto.split(';')
     return lista
+
+def lerConfiguracaoIni(nome):
+    cfg = ConfigParser.ConfigParser()
+    cfg.read('Config.ini')
+    
+    return cfg.get('Dados', nome)
+    
