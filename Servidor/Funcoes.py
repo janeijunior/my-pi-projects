@@ -2,6 +2,7 @@
 #-*- coding: utf-8 -*-
 
 import MySQLdb
+import ConfigParser
 from unicodedata import normalize
 
 #funcao para conectar no banco de dados
