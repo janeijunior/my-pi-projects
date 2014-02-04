@@ -7,10 +7,13 @@ from unicodedata import normalize
 
 #funcao para conectar no banco de dados
 def conectarBanco():
-    HOST   = "localhost"
-    USER   = "root"
-    PASSWD = "batistello"
-    BANCO  = "HousePi"
+    cfg = ConfigParser.ConfigParser()
+    cfg.read('config.ini')
+    
+    HOST   = cfg.getint('Dados', 'HostBanco')
+    USER   = cfg.getint('Dados', 'UsuarioBanco')
+    PASSWD = cfg.getint('Dados', 'SenhaBanco')
+    BANCO  = cfg.getint('Dados', 'NomeBanco')
 
     try:
         conBanco = MySQLdb.connect(HOST, USER, PASSWD)
