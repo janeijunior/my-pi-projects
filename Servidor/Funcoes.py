@@ -82,6 +82,5 @@ def stringToList(texto):
 def lerConfiguracaoIni(nome):
     cfg = ConfigParser.ConfigParser()
     cfg.read('Config.ini')
-    
     return cfg.get('Dados', nome)
     
