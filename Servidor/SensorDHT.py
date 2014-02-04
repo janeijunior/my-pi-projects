@@ -9,7 +9,7 @@ import datetime
 import Funcoes
 
 def lerSensor():
-    return subprocess.check_output(["/usr/share/adafruit/webide/repositories/my-pi-projects/Servidor/Adafruit_DHT", "22", "4"]);
+    return subprocess.check_output([Funcoes.lerConfiguracaoIni("CaminhoDHT"), "22", "4"]);
 
 
 def lerTemperaturaHumidade():
