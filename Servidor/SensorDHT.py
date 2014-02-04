@@ -6,6 +6,7 @@ import re
 import sys
 import time
 import datetime
+import Funcoes
 
 def lerSensor():
     return subprocess.check_output(["/usr/share/adafruit/webide/repositories/my-pi-projects/Servidor/Adafruit_DHT", "22", "4"]);
