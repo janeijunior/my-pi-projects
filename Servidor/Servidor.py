@@ -558,7 +558,7 @@ def conectado(con, cliente):
     
     global listaConexoes
     
-    for i in range(-1,  len(listaConexoes)):
+    for i in range(-1, len(listaConexoes)):
         if listaConexoes[i] == cliente:
             del listaConexoes[i]
             controlarCamera()
