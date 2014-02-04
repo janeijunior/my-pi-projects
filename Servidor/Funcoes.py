@@ -10,10 +10,10 @@ def conectarBanco():
     cfg = ConfigParser.ConfigParser()
     cfg.read('Config.ini')
     
-    HOST   = cfg.getint('Dados', 'HostBanco')
-    USER   = cfg.getint('Dados', 'UsuarioBanco')
-    PASSWD = cfg.getint('Dados', 'SenhaBanco')
-    BANCO  = cfg.getint('Dados', 'NomeBanco')
+    HOST   = cfg.get('Dados', 'HostBanco')
+    USER   = cfg.get('Dados', 'UsuarioBanco')
+    PASSWD = cfg.get('Dados', 'SenhaBanco')
+    BANCO  = cfg.get('Dados', 'NomeBanco')
 
     try:
         conBanco = MySQLdb.connect(HOST, USER, PASSWD)
