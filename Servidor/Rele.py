@@ -51,10 +51,12 @@ class Rele(object):
     
     #funcao para atualizar o status no banco
     def atualizarStatusBanco(self):
-        sql = "update Rele set Status = '{statusRele}' where Id = {idRele}".format(statusRele = self.status, idRele = self.id)
+        if self.numeroGPIO < 10:
+            sql = "update Rele set Status = '{statusRele}' where Id = {idRele}".format(statusRele = self.status, idRele = self.id)
         
-        return Funcoes.executarComando(sql)
-            
+            return Funcoes.executarComando(sql)
+        else:
+            return True
     #destrutor
     #def __done__(self):
     #    self.desligar()
