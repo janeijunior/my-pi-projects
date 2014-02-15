@@ -47,8 +47,8 @@ listaReles = [];
 #variavel para controle do subprocesso do mplayer do linux
 mplayer = None
 
-#lista de conexoes ativas
-listaConexoes = []
+#lista de conexoes ativas na camera
+listaConexoesCamera = []
 
 #Configura todos os pinos necessarios para o envio de comandos 
 def configurarReles():
@@ -96,8 +96,6 @@ def carregarListaAgendamento():
         
 #função para validar o usuario e a senha, se nao estiverem certos desconecta!
 def efetuarLogin(root, con):
-    global listaConexoes
-    
     row = Funcoes.consultarRegistro("select Usuario, Senha from Configuracao")
     
     usuario = root.find("Usuario").text.encode('utf-8')
@@ -105,9 +103,7 @@ def efetuarLogin(root, con):
     
     if row["Usuario"] == usuario and row["Senha"]  == senha:
         print "Conectado: ", cliente
-        listaConexoes.insert(len(listaConexoes) + 1, cliente)
         con.send("Logado\n")
-        controlarCamera()
     else:
         print "Usuario ou senha invalidos.", cliente
         con.send("NaoLogado\n")
@@ -487,13 +483,26 @@ def desligarCamera():
     os.system("sudo " + MJPG + " stop")
 
 #inicia ou para o servico de stream da camera
-def controlarCamera():
-    global listaConexoes
+def acionamentoCamera():
+    global listaConexoesCamera
     
-    if len(listaConexoes) < 1:
+    if len(listaConexoesCamera) < 1:
         desligarCamera()
-    elif len(listaConexoes) > 0:
+    elif len(listaConexoesCamera) > 0:
         ligarCamera()
+
+#liga ou desliga o servico da camera
+def controlarCamera(root, con, cliente):
+    global listaConexoesCamera
+    
+    acao = root.find("Acao").text  
+    
+    if acao == "Ligar":
+        listaConexoesCamera.insert(len(listaConexoesCamera) + 1, cliente) 
+        acionamentoCamera()
+        con.send("Ok\n")
+    else:
+        acionamentoCamera()
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
@@ -548,18 +557,20 @@ def conectado(con, cliente):
                     controlarSomAmbiente(root, con)
                 elif root.tag == "ReiniciarDesligar":
                     reiniciarDesligarServidor(root, con)
+                elif root.tag == "ControlarCamera":
+                    controlarCamera(root, con, cliente)
             except Exception as e: 
                 print "Erro: ", e
                 con.send("Erro\n")
                 
     print "Finalizando conexao do cliente", cliente
     
-    global listaConexoes
+    global listaConexoesCamera
     
-    for i in range(-1, len(listaConexoes)):
-        if listaConexoes[i] == cliente:
-            del listaConexoes[i]
-            controlarCamera()
+    for i in range(-1, len(listaConexoesCamera)):
+        if listaConexoesCamera[i] == cliente:
+            del listaConexoesCamera[i]
+            acionamentoCamera()
             break
     
     con.close()
