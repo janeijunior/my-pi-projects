@@ -140,6 +140,8 @@ def enviarTemperaturaHumidade(con):
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)    
         
+        if len(listaConexaoCamera) > 0:
+            ligarCamera()        
     except:
         print "Erro ao obter a temperatura e humidade."
         con.send("Erro\n")
