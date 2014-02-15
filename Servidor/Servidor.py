@@ -566,13 +566,7 @@ def conectado(con, cliente):
                 
     print "Finalizando conexao do cliente", cliente
     
-    global listaConexoesCamera
-    
-    for i in range(-1, len(listaConexoesCamera)):
-        if listaConexoesCamera[i] == cliente:
-            del listaConexoesCamera[i]
-            acionamentoCamera()
-            break
+    removerConexaoCamera(cliente)
     
     con.close()
     thread.exit()
