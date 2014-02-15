@@ -29,6 +29,7 @@ MUSICAS   = Funcoes.lerConfiguracaoIni("CaminhoMusicas")  # Diretorio das musica
 MJPG      = Funcoes.lerConfiguracaoIni("CaminhoMJPG")     # Caminho stream de video
 RESOLUCAO = Funcoes.lerConfiguracaoIni("Resolucao")       # Resolucao da camera
 FRAMES    = Funcoes.lerConfiguracaoIni("Frames")          # Frames por segundo da camera
+PORTA_CAM = 5005
 
 orig = (HOST, PORT)
 
