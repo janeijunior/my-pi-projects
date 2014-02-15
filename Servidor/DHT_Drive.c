@@ -16,7 +16,7 @@
 # Include "locking.h"
 
 # Define MAXTIMINGS 85
-static int DHTPIN = 7;
+static int DHTPIN = 4;
 int dht22_dat estática [5] = {0,0,0,0,0};
 
 sizecvt uint8_t estática (const int lido)
