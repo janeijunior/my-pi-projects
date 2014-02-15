@@ -21,12 +21,14 @@ import subprocess
 import select
 import MySQLdb
 
-HOST     = ""                                            # IP do Servidor (em branco = IP do sistema)
-PORT     = int(Funcoes.lerConfiguracaoIni("Porta"))      # Porta do Servidor
-SIRENE   = int(Funcoes.lerConfiguracaoIni("GPIOSirene")) # Numero GPIO da sirene
-PLAYLIST = Funcoes.lerConfiguracaoIni("CaminhoPlaylist") # Diretorio onde encontra-se a playlist de musicas
-MUSICAS  = Funcoes.lerConfiguracaoIni("CaminhoMusicas")  # Diretorio das musicas
-MJPG     = Funcoes.lerConfiguracaoIni("CaminhoMJPG")     # Caminho stream de video
+HOST      = ""                                            # IP do Servidor (em branco = IP do sistema)
+PORT      = int(Funcoes.lerConfiguracaoIni("Porta"))      # Porta do Servidor
+SIRENE    = int(Funcoes.lerConfiguracaoIni("GPIOSirene")) # Numero GPIO da sirene
+PLAYLIST  = Funcoes.lerConfiguracaoIni("CaminhoPlaylist") # Diretorio onde encontra-se a playlist de musicas
+MUSICAS   = Funcoes.lerConfiguracaoIni("CaminhoMusicas")  # Diretorio das musicas
+MJPG      = Funcoes.lerConfiguracaoIni("CaminhoMJPG")     # Caminho stream de video
+RESOLUCAO = Funcoes.lerConfiguracaoIni("Resolucao")       # Resolucao da camera
+FRAMES    = Funcoes.lerConfiguracaoIni("Frames")          # Frames por segundo da camera
 
 orig = (HOST, PORT)
 
