@@ -490,10 +490,10 @@ def desligarCamera():
 def controlarCamera():
     global listaConexoes
     
-    #if len(listaConexoes) < 1:
-    #    desligarCamera()
-    #elif len(listaConexoes) > 0:
-    #    ligarCamera()
+    if len(listaConexoes) < 1:
+        desligarCamera()
+    elif len(listaConexoes) > 0:
+        ligarCamera()
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
