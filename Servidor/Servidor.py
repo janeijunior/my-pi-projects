@@ -124,7 +124,7 @@ def controlarRele(root, con):
         
 #le o sensor de temperatura e humidade e envia os resultados
 def enviarTemperaturaHumidade(con):    
-    global listaConexaoCamera
+    global listaConexoesCamera
     
     try:
         desligarCamera()
@@ -140,13 +140,13 @@ def enviarTemperaturaHumidade(con):
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)    
         
-        if len(listaConexaoCamera) > 0:
+        if len(listaConexoesCamera) > 0:
             ligarCamera()        
     except:
         print "Erro ao obter a temperatura e humidade."
         con.send("Erro\n")
         
-        if len(listaConexaoCamera) > 0:
+        if len(listaConexoesCamera) > 0:
             ligarCamera() 
         
 #liga ou desliga o alarme
