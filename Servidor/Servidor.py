@@ -21,15 +21,12 @@ import subprocess
 import select
 import MySQLdb
 
-HOST      = ""                                            # IP do Servidor (em branco = IP do sistema)
-PORT      = int(Funcoes.lerConfiguracaoIni("Porta"))      # Porta do Servidor
-SIRENE    = int(Funcoes.lerConfiguracaoIni("GPIOSirene")) # Numero GPIO da sirene
-PLAYLIST  = Funcoes.lerConfiguracaoIni("CaminhoPlaylist") # Diretorio onde encontra-se a playlist de musicas
-MUSICAS   = Funcoes.lerConfiguracaoIni("CaminhoMusicas")  # Diretorio das musicas
-MJPG      = Funcoes.lerConfiguracaoIni("CaminhoMJPG")     # Caminho stream de video
-RESOLUCAO = Funcoes.lerConfiguracaoIni("Resolucao")       # Resolucao da camera
-FRAMES    = Funcoes.lerConfiguracaoIni("Frames")          # Frames por segundo da camera
-PORTA_CAM = 5005
+HOST     = ""                                            # IP do Servidor (em branco = IP do sistema)
+PORT     = int(Funcoes.lerConfiguracaoIni("Porta"))      # Porta do Servidor
+SIRENE   = int(Funcoes.lerConfiguracaoIni("GPIOSirene")) # Numero GPIO da sirene
+PLAYLIST = Funcoes.lerConfiguracaoIni("CaminhoPlaylist") # Diretorio onde encontra-se a playlist de musicas
+MUSICAS  = Funcoes.lerConfiguracaoIni("CaminhoMusicas")  # Diretorio das musicas
+MJPG     = Funcoes.lerConfiguracaoIni("CaminhoMJPG")     # Caminho stream de video
 
 orig = (HOST, PORT)
 
@@ -483,7 +480,7 @@ def reiniciarDesligarServidor(root, con):
 
 #inicia o servico da camera
 def ligarCamera():
-    os.system("sudo " + MJPG + " start " + PORTA_CAM + " " + RESOLUCAO + " " + str(FRAMES)) #iniciar, porta, resolucao, fps
+    os.system("sudo " + MJPG + " start 5005 320x240 2") #iniciar, porta, resolucao, fps
     
 #para o servico da camera
 def desligarCamera():
