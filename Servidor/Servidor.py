@@ -495,11 +495,12 @@ def acionamentoCamera():
 def removerConexaoCamera(cliente):
     global listaConexoesCamera
     
-    for i in range(-1, len(listaConexoesCamera)):
-        if listaConexoesCamera[i] == cliente:
-            del listaConexoesCamera[i]
-            acionamentoCamera()
-            break
+    if len(listaConexoesCamera) > 0:
+        for i in range(-1, len(listaConexoesCamera)):
+            if listaConexoesCamera[i] == cliente:
+                del listaConexoesCamera[i]
+                acionamentoCamera()
+                break
 
 #liga ou desliga o servico da camera
 def controlarCamera(root, con, cliente):
