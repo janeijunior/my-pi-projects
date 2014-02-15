@@ -491,6 +491,16 @@ def acionamentoCamera():
     elif len(listaConexoesCamera) > 0:
         ligarCamera()
 
+#remove o cliente da lista de conexões 
+def removerConexaoCamera(cliente):
+    global listaConexoesCamera
+    
+    for i in range(-1, len(listaConexoesCamera)):
+        if listaConexoesCamera[i] == cliente:
+            del listaConexoesCamera[i]
+            acionamentoCamera()
+            break
+
 #liga ou desliga o servico da camera
 def controlarCamera(root, con, cliente):
     global listaConexoesCamera
