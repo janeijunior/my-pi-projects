@@ -512,6 +512,7 @@ def controlarCamera(root, con, cliente):
         acionamentoCamera()
         con.send("Ok\n")
     else:
+        con.send("Ok\n")
         removerConexaoCamera(cliente)
 
 #cliente conectado, verifica os comandos recebidos
