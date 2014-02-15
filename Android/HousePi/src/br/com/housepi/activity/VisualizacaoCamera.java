@@ -4,6 +4,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.output.XMLOutputter;
+
 import br.com.housepi.activity.Login;
 import android.content.Context;
 import android.os.Bundle;
@@ -14,6 +19,7 @@ import android.view.ViewGroup;
 import br.com.housepi.R;
 import br.com.housepi.bibliotecas.MjpegInputStream;
 import br.com.housepi.bibliotecas.MjpegView;
+import br.com.housepi.classes.Conexao;
 
 public class VisualizacaoCamera extends Fragment {
 
@@ -26,11 +32,11 @@ public class VisualizacaoCamera extends Fragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.visualizacao_camera,
-				container, false);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		View rootView = inflater.inflate(R.layout.visualizacao_camera, container, false);
 
+		controlarCamera("Ligar");
+		
 		mv = (MjpegView) rootView.findViewById(R.id.mjpeg_view);
 		
 		String url = "http://" + Login.IP_SERVIDOR + ":5005/?action=stream"; 
@@ -56,9 +62,25 @@ public class VisualizacaoCamera extends Fragment {
 		}
 	}
 	
+	private void controlarCamera(String comando){
+		Document doc = new Document();
+		Element root = new Element("ControlarCamera");
+		       
+		Element acao = new Element("Acao");	
+		
+		acao.setText(comando);
+		
+		root.addContent(acao);
+		doc.setRootElement(root);
+		Conexao.getConexaoAtual().enviarMensagem(new XMLOutputter().outputString(doc));
+		
+		Conexao.getConexaoAtual().receberRetorno().equals("Ok");
+	}
+	
 	@Override
 	public void onPause() {
 		con.disconnect();
+		controlarCamera("Desligar");
 		super.onPause();
 	}
 }
