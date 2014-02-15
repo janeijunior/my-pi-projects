@@ -137,11 +137,11 @@ def enviarTemperaturaHumidade(con):
         
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)    
-        ligarCamera()
+        acionamentoCamera()
     except:
         print "Erro ao obter a temperatura e humidade."
         con.send("Erro\n")
-        ligarCamera()
+        acionamentoCamera
         
 #liga ou desliga o alarme
 def controlarAlarme(root, con):
