@@ -24,7 +24,6 @@ import MySQLdb
 HOST     = ""                                            # IP do Servidor (em branco = IP do sistema)
 PORT     = int(Funcoes.lerConfiguracaoIni("Porta"))      # Porta do Servidor
 SIRENE   = int(Funcoes.lerConfiguracaoIni("GPIOSirene")) # Numero GPIO da sirene
-COOLER   = int(Funcoes.lerConfiguracaoIni("GPIOCooler")) # Numero GPIO do cooler
 PLAYLIST = Funcoes.lerConfiguracaoIni("CaminhoPlaylist") # Diretorio onde encontra-se a playlist de musicas
 MUSICAS  = Funcoes.lerConfiguracaoIni("CaminhoMusicas")  # Diretorio das musicas
 MJPG     = Funcoes.lerConfiguracaoIni("CaminhoMJPG")     # Caminho stream de video
