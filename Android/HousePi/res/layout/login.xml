@@ -50,6 +50,13 @@
             android:layout_height="wrap_content"
             android:text="Mostrar Senha" 
             android:onClick="onClickMostrarSenha"/>
+
+        <CheckBox
+            android:id="@+id/cbxSalvarSenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salvar Senha" />
+
     </LinearLayout>
 
     <LinearLayout

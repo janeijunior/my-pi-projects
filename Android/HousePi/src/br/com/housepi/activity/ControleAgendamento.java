@@ -110,11 +110,11 @@ public class ControleAgendamento extends Fragment implements OnClickListener {
 	
 	private void addListaVisualizacao(String nome, String ligar, String desligar, String dias, String equipamento) {
     	HashMap<String,String> temp = new HashMap<String,String>();
-    	temp.put("Nome", nome);
-    	temp.put("Ligar", "Ligar: " + ligar);
-    	temp.put("Desligar", "Desligar: " + desligar);
-    	temp.put("Dias", "Repetir: " + dias);
-    	temp.put("Equipamento", "Equipamento: " + equipamento);
+    	temp.put("Nome", nome + "  ");
+    	temp.put("Ligar", "Ligar: " + ligar + "  ");
+    	temp.put("Desligar", "Desligar: " + desligar + "  ");
+    	temp.put("Dias", "Repetir: " + dias + "  ");
+    	temp.put("Equipamento", "Equipamento: " + equipamento + "  ");
     	listaVisualizacao.add(temp);
     }
 

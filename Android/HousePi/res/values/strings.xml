@@ -3,7 +3,6 @@
 
     <string name="app_name">House Pi</string>
     <string name="action_settings">Configurações</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_configuracao_conexao">Configurações</string>
     <string name="title_activity_menu_principal">House Pi</string>
     <string name="title_activity_controle_reles">Controle dos Relés</string>
@@ -14,7 +13,7 @@
     <string name="title_activity_configuracao_geral">Configurações</string>
     <string name="drawer_open">Abrir Menu</string>
     <string name="drawer_close">Fechar Menu</string>
-    <string name="title_activity_temperatura_humidade">TemperaturaHumidade</string>
+    <string name="title_activity_temperatura_humidade">Temperatura e Humidade</string>
     <string name="title_section1">GERAL</string>
     <string name="title_section2">RELÉS</string>
     <string name="title_section3">ALARME</string>
@@ -25,7 +24,8 @@
     <string name="title_activity_configuracao_rele">Configuração dos Relés</string>
     <string name="titulo_spinner_alarme_rele">Selecione uma opção</string>
     <string name="title_activity_sobre">Sobre o aplicativo</string>
-
+	<string name="title_activity_cadastro_agendamento">Agendamento</string>
+    
     <style name="ButtonText">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -48,7 +48,5 @@
         <item>Som Ambiente</item>
         <item>Sobre</item>
     </string-array>
-
-    <string name="title_activity_cadastro_agendamento">Agendamento</string>
 
 </resources>

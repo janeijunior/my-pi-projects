@@ -50,7 +50,7 @@ public class MenuPrincipal extends ActionBarActivity {
         mMenu = getResources().getStringArray(R.array.menu_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
-  
+        
         int[] image = new int[] {R.drawable.ic_action_settings, R.drawable.ic_action_accounts , R.drawable.ic_action_time, 
         		                 R.drawable.ic_action_view_as_list, R.drawable.ic_action_video,  R.drawable.ic_action_play_over_video, 
         		                 R.drawable.ic_action_about};
@@ -233,5 +233,14 @@ public class MenuPrincipal extends ActionBarActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+    
+    @Override
+    protected void onResume() {
+    	//Rele ou Camera
+    	if ((posicao == 0) || (posicao == 4)) {
+    		selectItem(posicao);
+    	}
+    	super.onResume();
     }
 }

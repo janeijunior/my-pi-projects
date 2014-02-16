@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+    android:layout_width="wrap_content"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
     <TextView
         android:id="@+id/lvNome"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/lvLigar"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:textSize="12sp" />
+        android:textSize="11sp" />
     
     <TextView
         android:id="@+id/lvDesligar"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:textSize="12sp" />
+        android:textSize="11sp" />
 
     <TextView
         android:id="@+id/lvDias"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:textSize="12sp" />
+        android:textSize="11sp" />
     
     <TextView
         android:id="@+id/lvEquipamento"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:textSize="12sp" />
+        android:textSize="11sp" />
 
 </LinearLayout>

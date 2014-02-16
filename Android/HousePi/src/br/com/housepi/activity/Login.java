@@ -32,6 +32,7 @@ public class Login extends ActionBarActivity {
 	private EditText edtUsuario;
 	private EditText edtSenha;
 	private CheckBox cbxMostrarSenha;
+	private CheckBox cbxSalvarSenha;
 	
 	public static String IP_SERVIDOR;
 	public static String PORTA_SERVIDOR;
@@ -46,20 +47,27 @@ public class Login extends ActionBarActivity {
 		edtUsuario = (EditText) findViewById(R.id.edtUsuario);
 		edtSenha = (EditText) findViewById(R.id.edtSenha);
 		
-		edtUsuario.setText(Funcoes.carregarDadosComponente("edtUsuario", edtUsuario.getText().toString(), this));
-		edtSenha.setText(Funcoes.carregarDadosComponente("edtSenha", edtSenha.getText().toString(), this));
-		
 		cbxMostrarSenha = (CheckBox) findViewById(R.id.cbxMostrarSenha);
+		cbxSalvarSenha = (CheckBox) findViewById(R.id.cbxSalvarSenha);
+		
+		carregarComponentes();
 	}
 	
-	@Override
-	protected void onPostResume() {
+	private void carregarComponentes() {
+		edtUsuario.setText(Funcoes.carregarDadosComponente("edtUsuario", edtUsuario.getText().toString(), this));
+		edtSenha.setText(Funcoes.carregarDadosComponente("edtSenha", edtSenha.getText().toString(), this));
+		cbxSalvarSenha.setChecked(Funcoes.carregarDadosComponente("cbxSalvarSenha", "1", this).equals("1"));
+		
 		if (cbxMostrarSenha.isChecked()) {
 			edtSenha.setInputType(InputType.TYPE_CLASS_TEXT);
 		} else {
 			edtSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);	
 		}
-		
+	}
+	
+	@Override
+	protected void onPostResume() {
+		carregarComponentes();		
 		super.onPostResume();
 	}
 
@@ -96,16 +104,20 @@ public class Login extends ActionBarActivity {
 	}
 
 	public void onClickConectar(View view) {
-		dialog = ProgressDialog.show(Login.this, "Aguarde", "Conectando ao servidor..."); 
-        new Thread() {
-            public void run() {
-                try{
-                	conectarServidor();
-                } catch (Exception e) {
-                    Log.e("tag", e.getMessage());
-                }
-            }
-        }.start();	
+		if ((edtUsuario.getText().toString().trim().equals("")) || (edtSenha.getText().toString().trim().equals(""))) {
+			Funcoes.msgDialogoInformacao("Atenção", "Informe o usuário e a senha!", this);
+		} else {
+			dialog = ProgressDialog.show(Login.this, "Aguarde", "Conectando ao servidor..."); 
+	        new Thread() {
+	            public void run() {
+	                try{
+	                	conectarServidor();
+	                } catch (Exception e) {
+	                    Log.e("tag", e.getMessage());
+	                }
+	            }
+	        }.start();
+		}
 	}
 	
 	public void onClickMostrarSenha(View view) {
@@ -177,7 +189,14 @@ public class Login extends ActionBarActivity {
 			
 			if (mensagem.equals("Logado")) {
 				Funcoes.salvarDadosComponente("edtUsuario", edtUsuario.getText().toString(), this);
-				Funcoes.salvarDadosComponente("edtSenha", edtSenha.getText().toString(), this);
+				
+				if (cbxSalvarSenha.isChecked()) {
+					Funcoes.salvarDadosComponente("edtSenha", edtSenha.getText().toString(), this);
+					Funcoes.salvarDadosComponente("cbxSalvarSenha", "1", this);
+				} else {
+					Funcoes.salvarDadosComponente("edtSenha", "", this);
+					Funcoes.salvarDadosComponente("cbxSalvarSenha", "0", this);
+				}
 				
 				startActivity(new Intent(this, MenuPrincipal.class));
 			} else if (mensagem.equals("NaoLogado")) {
@@ -199,6 +218,7 @@ public class Login extends ActionBarActivity {
 	
 	@Override
 	protected void onResume() {
+		carregarComponentes();
 		try {
 			Conexao.getConexaoAtual().disconnect();
 		} catch (Exception e) {
