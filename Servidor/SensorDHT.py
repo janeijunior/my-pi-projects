@@ -9,7 +9,7 @@ import datetime
 import Funcoes
 
 def lerSensor():
-    return subprocess.check_output([Funcoes.lerConfiguracaoIni("CaminhoDHT"), "22", "4"]);
+    return subprocess.check_output([Funcoes.lerConfiguracaoIni("CaminhoDHT"), Funcoes.lerConfiguracaoIni("TipoDHT"), Funcoes.lerConfiguracaoIni("GPIODHT")]);
 
 
 def lerTemperaturaHumidade():
