@@ -20,6 +20,7 @@ import ThreadAgendamento
 import subprocess
 import select
 import MySQLdb
+import Usuario
 
 HOST     = ""                                            # IP do Servidor (em branco = IP do sistema)
 PORT     = int(Funcoes.lerConfiguracaoIni("Porta"))      # Porta do Servidor
@@ -538,7 +539,9 @@ def conectado(con, cliente):
                 print cliente, "Comando recebido: " + root.tag 
         
                 if root.tag == "Logar":
-                    efetuarLogin(root, con)
+                    #efetuarLogin(root, con)
+                    usuario = Usuario.Usuario()
+                    usuario.efetuarLogin(root, con)
                 elif root.tag == "Rele":
                     controlarRele(root, con)
                 elif root.tag == "Temperatura":
