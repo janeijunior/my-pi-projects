@@ -38,7 +38,7 @@ class Usuario(object):
         usuario = root.find("Usuario").text.encode('utf-8')
         senha   = root.find("Senha").text.encode('utf-8')
         
-        if row["Usuario"] == usuario and row["Senha"]  == senha:
+        if self.usuario == usuario and self.senha == senha:
             print "Conectado: ", cliente
             con.send("Logado\n")
         else:
