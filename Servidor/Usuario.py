@@ -25,9 +25,20 @@ class Usuario(object):
         
         if Funcoes.executarComando(sql):
             con.send("Ok\n")
+            carregarUsuario()
         else:
             con.send("Erro\n")        
     
     #funcao para validar o login do sistema
     def efetuarLogin(usuario, senha):
+        usuario = root.find("Usuario").text.encode('utf-8')
+        senha = root.find("Senha").text.encode('utf-8')
         
+        if row["Usuario"] == usuario and row["Senha"]  == senha:
+            print "Conectado: ", cliente
+            con.send("Logado\n")
+        else:
+            print "Usuario ou senha invalidos.", cliente
+            con.send("NaoLogado\n")
+            con.close
+            thread.exit()
