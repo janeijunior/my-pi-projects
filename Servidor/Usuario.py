@@ -36,7 +36,7 @@ class Usuario(object):
     #funcao para validar o login do sistema
     def efetuarLogin(usuario, senha):
         usuario = root.find("Usuario").text.encode('utf-8')
-        senha = root.find("Senha").text.encode('utf-8')
+        senha   = root.find("Senha").text.encode('utf-8')
         
         if row["Usuario"] == usuario and row["Senha"]  == senha:
             print "Conectado: ", cliente
