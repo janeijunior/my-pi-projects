@@ -26,8 +26,7 @@ class Usuario(object):
         if Funcoes.executarComando(sql):
             con.send("Ok\n")
         else:
-            con.send("Erro\n")
-        
+            con.send("Erro\n")        
     
     #funcao para validar o login do sistema
     def efetuarLogin(usuario, senha):
