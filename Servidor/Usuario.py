@@ -41,7 +41,9 @@ class Usuario(object):
         if (self.usuario == usuario) and (self.senha == senha):
             print "Conectado: ", cliente
             con.send("Logado\n")
+            return True
         else:
             print "Usuario ou senha invalidos.", cliente
             con.send("NaoLogado\n")
             con.close
+            return False
