@@ -19,13 +19,17 @@ class Usuario(object):
         self.senha = row["Senha"]        
     
     #funcao para alterar o usuario e a senha 
-    def alterarUsuarioSenha(root, con):        
+    def alterarUsuarioSenha(root, con):
+        usuario = root.find("Usuario").text.encode('utf-8')
+        senha   = root.find("Senha").text.encode('utf-8')
+        
         sql = "update Configuracao set Usuario = '{novoUsuario}', Senha = '{novaSenha}'"
-        sql = sql.format(novoUsuario =  root.find("Usuario").text.encode('utf-8'), novaSenha = root.find("Senha").text.encode('utf-8'))
+        sql = sql.format(novoUsuario =  usuario, novaSenha = senha)
         
         if Funcoes.executarComando(sql):
             con.send("Ok\n")
-            carregarUsuario()
+            self.usuario = usuario
+            self.senha   = senha
         else:
             con.send("Erro\n")        
     
