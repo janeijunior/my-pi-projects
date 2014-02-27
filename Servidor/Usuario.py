@@ -27,9 +27,9 @@ class Usuario(object):
         sql = sql.format(novoUsuario =  usuario, novaSenha = senha)
         
         if Funcoes.executarComando(sql):
-            con.send("Ok\n")
             self.usuario = usuario
             self.senha   = senha
+            con.send("Ok\n")
         else:
             con.send("Erro\n")        
     
