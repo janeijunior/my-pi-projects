@@ -45,4 +45,3 @@ class Usuario(object):
             print "Usuario ou senha invalidos.", cliente
             con.send("NaoLogado\n")
             con.close
-            thread.exit()
