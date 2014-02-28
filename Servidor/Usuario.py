@@ -1,7 +1,10 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
+from xml.etree.ElementTree import Element
+import xml.etree.ElementTree as ET
 import Funcoes
+
 
 class Usuario(object):
     
