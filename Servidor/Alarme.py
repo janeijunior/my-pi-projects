@@ -15,7 +15,7 @@ class Alarme(object):
         self.sirene = sirene
         
         #pega os status do banco e se necessario liga o alarme/panico
-        row = Funcoes.consultarRegistro("select StatusAlarme, StatusPanico from Configuracao")
+        row = Funcoes.consultarRegistro("select StatusAlarme, StatusPanico from ConfiguracaoAlarme")
         
         if row['StatusAlarme'] == 1:
             self.ligarAlarme()
