@@ -53,7 +53,10 @@ class Usuario(object):
             con.send("Erro\n")        
     
     #funcao para validar o login do sistema
-    def efetuarLogin(usuario, senha):        
+    def efetuarLogin(usuario, senha):
+        usuario = root.find("Usuario").text.encode('utf-8')
+        senha   = root.find("Senha").text.encode('utf-8')
+        
         if (self.usuario == usuario) and (self.senha == senha):
             print "Conectado: ", cliente
             con.send("Logado\n")
