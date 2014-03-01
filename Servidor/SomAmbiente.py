@@ -18,8 +18,8 @@ class SomAmbiente(object):
         os.system(playlist)
         arquivo = open(self.__caminhoPlaylist)
     
-        root = Element("EnviarListaMusica")
-    
+        lista = []
+        
         for linha in arquivo:
             str = linha[len(PLAYLIST):len(linha) -1]
             root.append(Element("Musicas", Nome=str.decode('utf-8')))
