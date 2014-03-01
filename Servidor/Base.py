@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-import MySQLdb
+import MySQLdb 
 import Funcoes
 
 class Base(object):          
