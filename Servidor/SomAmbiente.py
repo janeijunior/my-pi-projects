@@ -83,6 +83,7 @@ class SomAmbiente(object):
 
     #volume
     def volume(self, valor):
+        executarComandoMPlayer("set_property volume " + valor, "")
         
     #reproduz a faixa a partir do nome
     def playNome(self, valor):
@@ -102,7 +103,7 @@ class SomAmbiente(object):
         elif comando == "AnteriorProxima":
             
         elif comando == "Volume":
-           executarComandoMPlayer("set_property volume " + valor, "")
+           
         elif comando == "ReproduzirPorNome":
             try:
                 nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")
