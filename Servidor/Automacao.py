@@ -4,6 +4,8 @@
 import Base
 import Usuario
 import TemperaturaHumidade
+from xml.etree.ElementTree import Element
+import xml.etree.ElementTree as ET
 
 class Automacao(Base.Base):
 
