@@ -4,6 +4,7 @@
 import Funcoes
 import subprocess
 import select
+import os
 
 class SomAmbiente(object):
     
