@@ -24,7 +24,7 @@ def lerConfiguracaoIni(nome):
     return cfg.get('Dados', nome)
     
 #funcao para conectar no banco de dados
-def conectarBanco(self):
+def conectarBanco():
     HOST   = Funcoes.lerConfiguracaoIni('HostBanco')
     USER   = Funcoes.lerConfiguracaoIni('UsuarioBanco')
     PASSWD = Funcoes.lerConfiguracaoIni('SenhaBanco')
@@ -39,7 +39,7 @@ def conectarBanco(self):
     return conBanco
 
 #persiste um SQL no banco de dados
-def executarComando(self, sql):
+def executarComando(sql):
     try:
         conBanco = conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
@@ -54,7 +54,7 @@ def executarComando(self, sql):
         return False
 
 #retorna o resultado da consulta SQL em uma linha
-def consultarRegistro(self, sql):
+def consultarRegistro(sql):
     try:
         conBanco = conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
@@ -68,7 +68,7 @@ def consultarRegistro(self, sql):
         return None
 
 #retorna o resultado da consulta SQL em varias linhas
-def consultarRegistros(self, sql):
+def consultarRegistros(sql):
     try:
         conBanco = conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
