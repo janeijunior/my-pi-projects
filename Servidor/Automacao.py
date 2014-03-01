@@ -34,20 +34,16 @@ class Automacao(Base.Base):
             #time.sleep(1)
             
             resultado = self.temperaturaHumidade.getTemperaturaHumidade()    
-            root = Element("TemperaturaHumidade")
+            root  = Element("TemperaturaHumidade")
             dados = Element("Dados", Temperatura=resultado[0], Humidade=resultado[1])
             root.append(dados)
-            
-            print "Temperatura: ", resultado[0], " Humidade: ", resultado[1]
-            
             xmlstr = ET.tostring(root) + "\n"   
             con.send(xmlstr)    
             
-            if len(listaConexoesCamera) > 0:
-                ligarCamera()        
+            #if len(listaConexoesCamera) > 0:
+            #    ligarCamera()        
         except:
-            print "Erro ao obter a temperatura e humidade."
             con.send("Erro\n")
             
-            if len(listaConexoesCamera) > 0:
-                ligarCamera() 
+            #if len(listaConexoesCamera) > 0:
+            #    ligarCamera() 
