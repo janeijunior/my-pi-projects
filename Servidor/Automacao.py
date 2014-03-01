@@ -55,4 +55,43 @@ class Automacao(Base.Base):
     
     #controla o som ambiente
     def controlarSomAmbiente(self, root, con)
+        comando = str(root.find("Comando").text)
+        valor   = str(root.find("Valor").text.encode('utf-8'))
         
+        if comando == "Play":
+            try:
+                print executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
+            except:
+                cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
+                mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+        elif comando == "Pause":
+            executarComandoMPlayer("pause", "")
+        elif comando == "Stop":
+            executarComandoMPlayer("stop", "")
+        elif comando == "AnteriorProxima":
+            try:         
+                executarComandoMPlayer("pt_step " + valor, "")
+            except:
+                cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
+                mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)    
+                executarComandoMPlayer("pt_step " + str(int(valor) - 1), "")
+        elif comando == "Volume":
+           executarComandoMPlayer("set_property volume " + valor, "")
+        elif comando == "ReproduzirPorNome":
+            try:
+                nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")
+                
+                if valor <> nome[1:len(nome) -5]: 
+                    atual = getPosicaoMusica(nome[1:len(nome) -5])
+                    proxima = getPosicaoMusica(str(valor))
+                    step = proxima - atual
+                    executarComandoMPlayer("pt_step " + str(step), "")
+            except:
+                cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
+                mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+                proxima = getPosicaoMusica(valor)
+                
+                if proxima <> 0: 
+                    executarComandoMPlayer("pt_step " + str(proxima), "")
+    
+            
