@@ -13,6 +13,7 @@ class SomAmbiente(object):
             
         __caminhoPlaylist = caminhoPlaylist
         __caminhoMusicas  = caminhoMusicas
+        
     #funcoes
     #retorna a lista de musicas de uma pasta pre determinada
     def getListaMusica(self):
