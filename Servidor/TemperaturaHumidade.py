@@ -15,12 +15,12 @@ class TemperaturaHumidade(object):
     
     
     def getTemperaturaHumidade():
-        output  = lerSensor(); 
+        output  = _lerSensor(); 
         matches = re.search("Temp =\s+([0-9.]+)", output)
         
         if (not matches):
           time.sleep(3)
-          output  = lerSensor();
+          output  = _lerSensor();
           matches = re.search("Temp =\s+([0-9.]+)", output)
           
         temp = float(matches.group(1))
