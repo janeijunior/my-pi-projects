@@ -7,7 +7,7 @@ class Usuario(Base):
     
     #construtor
     def __init__(self):
-        
+        base.__init__(self)
         self.carregarUsuario()
             
     #funcoes
