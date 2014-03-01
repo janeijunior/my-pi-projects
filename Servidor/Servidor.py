@@ -1,4 +1,4 @@
-e#!/usr/bin/python
+#!/usr/bin/python
 #-*- coding: utf-8 -*-
 
 from xml.etree.ElementTree import Element
