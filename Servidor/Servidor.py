@@ -441,7 +441,7 @@ def conectado(con, cliente):
                 elif root.tag == "EnviarListaMusica":
                     enviarListaMusica(con)
                 elif root.tag == "ControlarSomAmbiente":
-                    controlarSomAmbiente(root, con)
+                    automacao.controlarSomAmbiente(root, con)
                 elif root.tag == "ReiniciarDesligar":
                     reiniciarDesligarServidor(root, con)
                 elif root.tag == "ControlarCamera":
