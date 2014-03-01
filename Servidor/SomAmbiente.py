@@ -22,12 +22,10 @@ class SomAmbiente(object):
         
         for linha in arquivo:
             str = linha[len(PLAYLIST):len(linha) -1]
-            root.append(Element("Musicas", Nome=str.decode('utf-8')))
-        
+            lista.insert(len(lista) + 1, str)
+            
         arquivo.close()
-        
-        xmlstr = ET.tostring(root) + "\n"  
-        con.send(xmlstr)
+        return lista
     
     #retorna a posicao da musica com o nome passado por parametro
     def getPosicaoMusica(nome):
