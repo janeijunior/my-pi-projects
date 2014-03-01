@@ -53,3 +53,4 @@ class Automacao(Base.Base):
     
     #controla o som ambiente
     def controlarSomAmbiente(self, root, con)
+        
