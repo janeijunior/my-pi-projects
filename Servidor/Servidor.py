@@ -17,6 +17,8 @@ import SensorDHT
 import Funcoes
 import Agendamento
 import ThreadAgendamento
+import subprocess
+import select
 import MySQLdb
 import Automacao
 
