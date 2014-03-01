@@ -20,7 +20,7 @@ import ThreadAgendamento
 import subprocess
 import select
 import MySQLdb
-import Usuario
+import Automacao
 
 HOST     = ""                                            # IP do Servidor (em branco = IP do sistema)
 PORT     = int(Funcoes.lerConfiguracaoIni("Porta"))      # Porta do Servidor
