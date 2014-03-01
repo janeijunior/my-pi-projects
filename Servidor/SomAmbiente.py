@@ -70,7 +70,8 @@ class SomAmbiente(object):
             
     #pausa a musica
     def pause(self):
-    
+        executarComandoMPlayer("pause", "")
+        
     #avanca ou retrocede a faixa
     def step(self, valor):
     
@@ -89,7 +90,7 @@ class SomAmbiente(object):
         if comando == "Play":
             
         elif comando == "Pause":
-            executarComandoMPlayer("pause", "")
+            
         elif comando == "Stop":
             executarComandoMPlayer("stop", "")
         elif comando == "AnteriorProxima":
