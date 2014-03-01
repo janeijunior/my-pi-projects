@@ -47,7 +47,6 @@ class SomAmbiente(object):
         arquivo.close()
         return 0
         
-        
     #controla o mplayer do linux
     def controlarSomAmbiente(root, con):
         global mplayer
