@@ -24,7 +24,7 @@ class Base(object):
     #persiste um SQL no banco de dados
     def executarComando(self, sql):
         try:
-            conBanco = conectarBanco()
+            conBanco = self.conectarBanco()
             cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
             cursor.execute(sql)
             conBanco.commit()
@@ -39,7 +39,7 @@ class Base(object):
     #retorna o resultado da consulta SQL em uma linha
     def consultarRegistro(self, sql):
         try:
-            conBanco = conectarBanco()
+            conBanco = self.conectarBanco()
             cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
             cursor.execute(sql)
             row = cursor.fetchone()
@@ -53,7 +53,7 @@ class Base(object):
     #retorna o resultado da consulta SQL em varias linhas
     def consultarRegistros(self, sql):
         try:
-            conBanco = conectarBanco()
+            conBanco = self.conectarBanco()
             cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
             cursor.execute(sql)
             rows = cursor.fetchall()
