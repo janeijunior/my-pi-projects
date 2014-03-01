@@ -16,7 +16,6 @@ class Automacao(Base.Base):
         usuario = root.find("Usuario").text.encode('utf-8')
         senha   = root.find("Senha").text.encode('utf-8')
         
-        
         if self.usuario.validarLogin(usuario, senha):
             print "Conectado: ", cliente
             con.send("Logado\n")
