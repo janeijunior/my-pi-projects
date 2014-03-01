@@ -6,7 +6,7 @@ import Base
 class Usuario(Base):
     
     #construtor
-    def __init__(self, con):
+    def __init__(self):
         
         self.carregarUsuario()
         self.con = con
