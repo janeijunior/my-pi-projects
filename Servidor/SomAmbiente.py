@@ -5,7 +5,7 @@ class SomAmbiente(object):
     
     #construtor
     def __init__(self):
-        self.carregarUsuario()
+        
             
     #funcoes
     #funcao para carregar as propriedades da classe
