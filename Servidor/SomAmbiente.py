@@ -74,7 +74,13 @@ class SomAmbiente(object):
         
     #avanca ou retrocede a faixa
     def step(self, valor):
-    
+        try:         
+            executarComandoMPlayer("pt_step " + valor, "")
+        except:
+            cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.caminhoPlaylist]
+            mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)    
+            executarComandoMPlayer("pt_step " + str(int(valor) - 1), "")
+
     #volume
     def volume(self, valor):
         
@@ -94,12 +100,7 @@ class SomAmbiente(object):
         elif comando == "Stop":
             executarComandoMPlayer("stop", "")
         elif comando == "AnteriorProxima":
-            try:         
-                executarComandoMPlayer("pt_step " + valor, "")
-            except:
-                cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
-                mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)    
-                executarComandoMPlayer("pt_step " + str(int(valor) - 1), "")
+            
         elif comando == "Volume":
            executarComandoMPlayer("set_property volume " + valor, "")
         elif comando == "ReproduzirPorNome":
