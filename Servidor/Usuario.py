@@ -3,7 +3,7 @@
 
 import Base
 
-class Usuario(Base):
+class Usuario(Base.Base):
     
     #construtor
     def __init__(self):
