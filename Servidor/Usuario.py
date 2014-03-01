@@ -34,7 +34,7 @@ class Usuario(object):
     #funcao para validar o login do sistema
     def efetuarLogin(self, root, con):
         usuario = root.find("Usuario").text.encode('utf-8')
-        senha = root.find("Senha").text.encode('utf-8')
+        senha   = root.find("Senha").text.encode('utf-8')
         
         if (self.usuario == usuario) and (self.senha == senha):
             con.send("Logado\n")
