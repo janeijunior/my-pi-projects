@@ -14,7 +14,7 @@ class TemperaturaHumidade(object):
         return subprocess.check_output([Funcoes.lerConfiguracaoIni("CaminhoDHT"), Funcoes.lerConfiguracaoIni("TipoDHT"), Funcoes.lerConfiguracaoIni("GPIODHT")]);
     
     
-    def getTemperaturaHumidade():
+    def getTemperaturaHumidade(self):
         output  = __lerSensor(); 
         matches = re.search("Temp =\s+([0-9.]+)", output)
         
