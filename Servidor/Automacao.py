@@ -59,22 +59,13 @@ class Automacao(Base.Base):
         valor   = str(root.find("Valor").text.encode('utf-8'))
         
         if comando == "Play":
-            try:
-                print executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
-            except:
-                cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
-                mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+            self.somAmbiente.play()
         elif comando == "Pause":
-            executarComandoMPlayer("pause", "")
+            self.somAmbiente.pause()
         elif comando == "Stop":
-            executarComandoMPlayer("stop", "")
+            self.somAmbiente.stop()
         elif comando == "AnteriorProxima":
-            try:         
-                executarComandoMPlayer("pt_step " + valor, "")
-            except:
-                cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
-                mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)    
-                executarComandoMPlayer("pt_step " + str(int(valor) - 1), "")
+            self.somAmbiente.step(valor)
         elif comando == "Volume":
            executarComandoMPlayer("set_property volume " + valor, "")
         elif comando == "ReproduzirPorNome":
