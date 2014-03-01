@@ -4,9 +4,10 @@
 class Usuario(object):
     
     #construtor
-    def __init__(self):
+    def __init__(self, con):
         
         self.carregarUsuario()
+        self.con = con
             
     #funcoes
     #funcao para carregar as propriedades da classe
