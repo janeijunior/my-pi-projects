@@ -526,9 +526,7 @@ def conectado(con, cliente):
                 print cliente, "Comando recebido: " + root.tag 
         
                 if root.tag == "Logar":
-                    #efetuarLogin(root, con)
-                    usuario = Usuario.Usuario()
-                    usuario.efetuarLogin(root, con)
+                    automacao.efetuarLogin(root, con)
                 elif root.tag == "Rele":
                     controlarRele(root, con)
                 elif root.tag == "Temperatura":
