@@ -28,9 +28,9 @@ class Usuario(Base.Base):
         if self.executarComando(sql):
             con.usuario = usuario
             con.senha   = senha
-            con.send("Ok\n")
+            return True
         else:
-            con.send("Erro\n")        
+            return False        
     
     #funcao para validar o login do sistema
     def efetuarLogin(self, root, con):
