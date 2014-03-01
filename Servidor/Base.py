@@ -7,7 +7,7 @@ import Funcoes
 class Base(object):          
     
     #funcao para conectar no banco de dados
-    def conectarBanco():
+    def conectarBanco(self):
         HOST   = Funcoes.lerConfiguracaoIni('HostBanco')
         USER   = Funcoes.lerConfiguracaoIni('UsuarioBanco')
         PASSWD = Funcoes.lerConfiguracaoIni('SenhaBanco')
@@ -22,7 +22,7 @@ class Base(object):
         return conBanco
     
     #persiste um SQL no banco de dados
-    def executarComando(sql):
+    def executarComando(self, sql):
         try:
             conBanco = conectarBanco()
             cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
@@ -37,7 +37,7 @@ class Base(object):
             return False
     
     #retorna o resultado da consulta SQL em uma linha
-    def consultarRegistro(sql):
+    def consultarRegistro(self, sql):
         try:
             conBanco = conectarBanco()
             cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
@@ -51,7 +51,7 @@ class Base(object):
             return None
     
     #retorna o resultado da consulta SQL em varias linhas
-    def consultarRegistros(sql):
+    def consultarRegistros(self, sql):
         try:
             conBanco = conectarBanco()
             cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
