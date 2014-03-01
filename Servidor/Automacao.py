@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-import Automacao
+import Base
 import Usuario
 
 class Automacao(Base.Base):
