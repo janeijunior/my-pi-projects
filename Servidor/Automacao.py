@@ -13,7 +13,7 @@ class Automacao(Base.Base):
     #funcoes da classe
     
     #função para validar o usuario e a senha, se nao estiverem certos desconecta!
-    def efetuarLogin(root, con):
+    def efetuarLogin(self, root, con):
         usuario = root.find("Usuario").text.encode('utf-8')
         senha   = root.find("Senha").text.encode('utf-8')
         
