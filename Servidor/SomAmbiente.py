@@ -44,8 +44,9 @@ class SomAmbiente(object):
                 arquivo.close()
             i = i + 1
         
-        return 0
         arquivo.close()
+        return 0
+        
         
     #controla o mplayer do linux
     def controlarSomAmbiente(root, con):
