@@ -12,6 +12,7 @@ class SomAmbiente(object):
         self.__caminhoMusicas  = Funcoes.lerConfiguracaoIni("CaminhoMusicas")  # Diretorio das musicas
             
         __caminhoPlaylist = caminhoPlaylist
+        __caminhoMusicas  = caminhoMusicas
     #funcoes
     #retorna a lista de musicas de uma pasta pre determinada
     def getListaMusica(self):
