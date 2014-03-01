@@ -30,7 +30,7 @@ class Usuario(Base.Base):
             self.senha   = senha
             self.send("Ok\n")
         else:
-            self.send("Erro\n")        
+            con.send("Erro\n")        
     
     #funcao para validar o login do sistema
     def efetuarLogin(self, root, con):
