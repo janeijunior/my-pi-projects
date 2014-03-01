@@ -25,7 +25,7 @@ class Usuario(Base.Base):
         sql = "update Configuracao set Usuario = '{novoUsuario}', Senha = '{novaSenha}'"
         sql = sql.format(novoUsuario =  usuario, novaSenha = senha)
         
-        if Funcoes.executarComando(sql):
+        if self.executarComando(sql):
             self.usuario = usuario
             self.senha   = senha
             self.send("Ok\n")
