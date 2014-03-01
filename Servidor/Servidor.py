@@ -543,7 +543,7 @@ def conectado(con, cliente):
                     usuario = Usuario.Usuario(con)
                     usuario.efetuarLogin(root, con)
                 elif root.tag == "Rele":
-                    controlarRele(root, con)
+                    controlarRele(root)
                 elif root.tag == "Temperatura":
                     enviarTemperaturaHumidade(con)
                 elif root.tag == "Alarme":
