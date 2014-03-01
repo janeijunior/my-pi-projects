@@ -1,27 +1,6 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from xml.etree.ElementTree import Element
-import xml.etree.ElementTree as ET
-import socket
-import thread
-import threading
-import time
-import os
-import commands
-import Alarme
-import Rele
-import signal
-import sys
-import SensorDHT
-import Funcoes
-import Agendamento
-import ThreadAgendamento
-import subprocess
-import select
-import MySQLdb
-
-
 class Usuario(object):
     
     #construtor
