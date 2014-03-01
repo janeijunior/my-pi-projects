@@ -9,5 +9,5 @@ class Automacao(Base.Base):
     def __init__(self):
     
     
-    #funcoes
+    #funcoes da classe
   
