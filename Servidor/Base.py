@@ -4,7 +4,7 @@
 import MySQLdb
 import Funcoes
 
-class Base(Object):
+class Base(object):
     
     #construtor
     def __init__(self, con):
