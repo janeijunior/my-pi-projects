@@ -50,3 +50,6 @@ class Automacao(Base.Base):
             
             #if len(listaConexoesCamera) > 0:
             #    ligarCamera() 
+    
+    #controla o som ambiente
+    def controlarSomAmbiente(self, root, con)
