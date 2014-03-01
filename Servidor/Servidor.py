@@ -1,4 +1,4 @@
-#!/usr/bin/python
+e#!/usr/bin/python
 #-*- coding: utf-8 -*-
 
 from xml.etree.ElementTree import Element
@@ -94,22 +94,6 @@ def carregarListaAgendamento():
                           dataHoraInicial = row["DataHoraInicial"], dataHoraFinal = row["DataHoraFinal"], ativo = int(row["Ativo"]), listaReles = listaReles, alarme = alarme)        
                 
         listaAgendamento.insert(row["Id"], agendamento)    
-        
-#função para validar o usuario e a senha, se nao estiverem certos desconecta!
-def efetuarLogin(root, con):
-    row = Funcoes.consultarRegistro("select Usuario, Senha from Configuracao")
-    
-    usuario = root.find("Usuario").text.encode('utf-8')
-    senha = root.find("Senha").text.encode('utf-8')
-    
-    if row["Usuario"] == usuario and row["Senha"]  == senha:
-        print "Conectado: ", cliente
-        con.send("Logado\n")
-    else:
-        print "Usuario ou senha invalidos.", cliente
-        con.send("NaoLogado\n")
-        con.close
-        thread.exit()
 
 #liga ou desliga os reles/atuadores
 def controlarRele(root, con):
