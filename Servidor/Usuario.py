@@ -30,7 +30,7 @@ class Usuario(Base.Base):
             return False        
     
     #funcao para validar o login do sistema
-    def efetuarLogin(self, root, con):
+    def efetuarLogin(self, usuario, senha):
         if (self.usuario == usuario) and (self.senha == senha):
             return True
         else:
