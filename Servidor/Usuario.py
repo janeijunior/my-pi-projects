@@ -18,10 +18,7 @@ class Usuario(Base.Base):
         self.senha = row["Senha"]        
     
     #funcao para alterar o usuario e a senha 
-    def alterarUsuarioSenha(usuario, senha):
-        usuario = root.find("Usuario").text.encode('utf-8')
-        senha   = root.find("Senha").text.encode('utf-8')
-        
+    def alterarUsuarioSenha(usuario, senha):        
         sql = "update Configuracao set Usuario = '{novoUsuario}', Senha = '{novaSenha}'"
         sql = sql.format(novoUsuario =  usuario, novaSenha = senha)
         
