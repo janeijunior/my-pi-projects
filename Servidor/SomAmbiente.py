@@ -17,7 +17,7 @@ class SomAmbiente(object):
     #funcoes
     #retorna a lista de musicas de uma pasta pre determinada
     def getListaMusica(self):
-        playlist = 'find ' + MUSICAS + ' -name "*mp3" -o -name "*m4a" -o -name "*wma" -type f | sort > ' + self.caminhoPlaylist
+        playlist = 'find ' + self.caminhoMusicas + ' -name "*mp3" -o -name "*m4a" -o -name "*wma" -type f | sort > ' + self.caminhoPlaylist
         os.system(playlist)
         arquivo = open(self.caminhoPlaylist)
     
