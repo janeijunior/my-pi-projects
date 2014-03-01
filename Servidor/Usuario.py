@@ -38,7 +38,7 @@ class Usuario(object):
         senha   = root.find("Senha").text.encode('utf-8')
         
         if (self.usuario == usuario) and (self.senha == senha):
-            con.send("Logado\n")
+            self.send("Logado\n")
         else:
-            con.send("NaoLogado\n")
-            con.close
+            self.send("NaoLogado\n")
+            self.close
