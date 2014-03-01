@@ -38,7 +38,7 @@ class Usuario(object):
         self.senha = row["Senha"]        
     
     #funcao para alterar o usuario e a senha 
-    def alterarUsuarioSenha(root, con):
+    def alterarUsuarioSenha(self, root, con):
         usuario = root.find("Usuario").text.encode('utf-8')
         senha   = root.find("Senha").text.encode('utf-8')
         
@@ -53,7 +53,7 @@ class Usuario(object):
             con.send("Erro\n")        
     
     #funcao para validar o login do sistema
-    def efetuarLogin(root, con, cliente):
+    def efetuarLogin(self, root, con, cliente):
         usuario = root.find("Usuario").text.encode('utf-8')
         senha   = root.find("Senha").text.encode('utf-8')
         
