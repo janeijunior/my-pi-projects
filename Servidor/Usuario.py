@@ -27,7 +27,7 @@ class Usuario(Base.Base):
         
         if self.executarComando(sql):
             self.usuario = usuario
-            self.senha   = senha
+            cpon.senha   = senha
             con.send("Ok\n")
         else:
             con.send("Erro\n")        
