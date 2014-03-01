@@ -16,7 +16,7 @@ class SomAmbiente(object):
     def enviarListaMusica(con):
         playlist = 'find ' + MUSICAS + ' -name "*mp3" -o -name "*m4a" -o -name "*wma" -type f | sort > ' + PLAYLIST
         os.system(playlist)
-        arquivo = open(PLAYLIST)
+        arquivo = open(self.__caminhoPlaylist)
     
         root = Element("EnviarListaMusica")
     
