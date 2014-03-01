@@ -62,7 +62,12 @@ class SomAmbiente(object):
         
     #executa a musica
     def play(self):
-        
+        try:
+            print executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
+        except:
+            cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.caminhoPlaylist]
+            mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+            
     #pausa a musica
     def pause(self):
     
@@ -82,11 +87,7 @@ class SomAmbiente(object):
         valor = str(root.find("Valor").text.encode('utf-8'))
         
         if comando == "Play":
-            try:
-                print executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
-            except:
-                cmd = ['mplayer', '-slave', '-quiet', '-playlist', PLAYLIST]
-                mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+            
         elif comando == "Pause":
             executarComandoMPlayer("pause", "")
         elif comando == "Stop":
