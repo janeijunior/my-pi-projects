@@ -3,6 +3,7 @@
 
 import Base
 import Usuario
+import TemperaturaHumidade
 
 class Automacao(Base.Base):
 
