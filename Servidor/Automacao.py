@@ -27,13 +27,13 @@ class Automacao(Base.Base):
     
     #le o sensor de temperatura e humidade e envia os resultados
     def enviarTemperaturaHumidade(con):    
-        global listaConexoesCamera
+        #global listaConexoesCamera
         
         try:
-            desligarCamera()
-            time.sleep(1)
+            #desligarCamera()
+            #time.sleep(1)
             
-            resultado = SensorDHT.lerTemperaturaHumidade()    
+            resultado = self.temperaturaHumidade.getTemperaturaHumidade()    
             root = Element("TemperaturaHumidade")
             dados = Element("Dados", Temperatura=resultado[0], Humidade=resultado[1])
             root.append(dados)
