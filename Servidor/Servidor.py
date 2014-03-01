@@ -503,7 +503,7 @@ def conectado(con, cliente):
                 elif root.tag == "Rele":
                     controlarRele(root, con)
                 elif root.tag == "Temperatura":
-                    enviarTemperaturaHumidade(con)
+                    automacao.enviarTemperaturaHumidade(con)
                 elif root.tag == "Alarme":
                     controlarAlarme(root, con)
                 elif root.tag == "Panico":
