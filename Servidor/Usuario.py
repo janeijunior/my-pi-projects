@@ -9,7 +9,6 @@ class Usuario(Base):
     def __init__(self):
         
         self.carregarUsuario()
-        self.con = con
             
     #funcoes
     #funcao para carregar as propriedades da classe
