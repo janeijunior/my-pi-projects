@@ -47,8 +47,22 @@ class SomAmbiente(object):
         arquivo.close()
         return 0
         
-    #controla o mplayer do linux
-    def controlarSomAmbiente(root, con):
+    #executa a musica
+    def play(self):
+        
+    #pausa a musica
+    def pause(self):
+    
+    #avanca ou retrocede a faixa
+    def step(self, valor):
+    
+    #volume
+    def volume(self, valor):
+        
+    #reproduz a faixa a partir do nome
+    def playNome(self, valor):
+    
+    
         global mplayer
         
         comando = str(root.find("Comando").text)
