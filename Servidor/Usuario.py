@@ -18,7 +18,7 @@ class Usuario(Base.Base):
         self.senha = row["Senha"]        
     
     #funcao para alterar o usuario e a senha 
-    def alterarUsuarioSenha(usuario, senha):        
+    def alterarUsuarioSenha(self, usuario, senha):        
         sql = "update Configuracao set Usuario = '{novoUsuario}', Senha = '{novaSenha}'"
         sql = sql.format(novoUsuario =  usuario, novaSenha = senha)
         
