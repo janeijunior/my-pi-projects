@@ -9,8 +9,8 @@ class Automacao(Base.Base):
     def __init__(self):
         self.usuario = = Usuario.Usuario()
     
-    #funcoes da class
-    e
+    #funcoes da classe
+    
     #função para validar o usuario e a senha, se nao estiverem certos desconecta!
     def efetuarLogin(root, con):
         row = Funcoes.consultarRegistro("select Usuario, Senha from Configuracao")
