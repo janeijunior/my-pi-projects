@@ -12,7 +12,7 @@ class SomAmbiente(object):
         self.__musicas  = Funcoes.lerConfiguracaoIni("CaminhoMusicas")  # Diretorio das musicas
             
     #funcoes
-    #envia a lista de musicas de uma pasta pre determinada
+    #retorna a lista de musicas de uma pasta pre determinada
     def enviarListaMusica(con):
         playlist = 'find ' + MUSICAS + ' -name "*mp3" -o -name "*m4a" -o -name "*wma" -type f | sort > ' + PLAYLIST
         os.system(playlist)
