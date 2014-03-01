@@ -42,7 +42,8 @@ class Automacao(Base.Base):
             
             #if len(listaConexoesCamera) > 0:
             #    ligarCamera()        
-        except:
+        except Exception as e: 
+            print "Erro: ", e
             con.send("Erro\n")
             
             #if len(listaConexoesCamera) > 0:
