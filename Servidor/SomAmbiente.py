@@ -8,8 +8,8 @@ class SomAmbiente(object):
     #construtor
     def __init__(self):
     
-        self.__playlist = Funcoes.lerConfiguracaoIni("CaminhoPlaylist") # Diretorio onde encontra-se a playlist de musicas
-        self.__musicas  = Funcoes.lerConfiguracaoIni("CaminhoMusicas")  # Diretorio das musicas
+        self.__caminhoPlaylist = Funcoes.lerConfiguracaoIni("CaminhoPlaylist") # Diretorio onde encontra-se a playlist de musicas
+        self.__caminhoMusicas  = Funcoes.lerConfiguracaoIni("CaminhoMusicas")  # Diretorio das musicas
             
     #funcoes
     #retorna a lista de musicas de uma pasta pre determinada
