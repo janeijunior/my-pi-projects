@@ -10,4 +10,4 @@ class Automacao(Base.Base):
         self.usuario = = Usuario.Usuario()
     
     #funcoes da classe
-  
+    
