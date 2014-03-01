@@ -17,6 +17,7 @@ def stringToList(texto):
     lista = texto.split(';')
     return lista
 
+#retorna a configuracao lida do arquivo ini
 def lerConfiguracaoIni(nome):
     cfg = ConfigParser.ConfigParser()
     cfg.read('Config.ini')
