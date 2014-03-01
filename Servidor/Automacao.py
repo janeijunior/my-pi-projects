@@ -7,6 +7,7 @@ import Rele
 import SomAmbiente
 import Configuracao
 import TemperaturaHumidade
+import Base
 
 class Automacao(Base.Base):
 
