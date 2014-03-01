@@ -6,6 +6,8 @@ import Funcoes
 
 class Base(Object):
     
+
+    
 #funcao para conectar no banco de dados
 def conectarBanco():
     HOST   = Funcoes.lerConfiguracaoIni('HostBanco')
