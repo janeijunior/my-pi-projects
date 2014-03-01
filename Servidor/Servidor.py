@@ -541,7 +541,7 @@ def conectado(con, cliente):
                 if root.tag == "Logar":
                     #efetuarLogin(root, con)
                     usuario = Usuario.Usuario()
-                    usuario.efetuarLogin(root, con, cliente)
+                    usuario.efetuarLogin(root, con)
                 elif root.tag == "Rele":
                     controlarRele(root, con)
                 elif root.tag == "Temperatura":
