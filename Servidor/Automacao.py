@@ -24,3 +24,30 @@ class Automacao(Base.Base):
         else:
             con.send("NaoLogado\n")
             con.close
+    
+    #le o sensor de temperatura e humidade e envia os resultados
+    def enviarTemperaturaHumidade(con):    
+        global listaConexoesCamera
+        
+        try:
+            desligarCamera()
+            time.sleep(1)
+            
+            resultado = SensorDHT.lerTemperaturaHumidade()    
+            root = Element("TemperaturaHumidade")
+            dados = Element("Dados", Temperatura=resultado[0], Humidade=resultado[1])
+            root.append(dados)
+            
+            print "Temperatura: ", resultado[0], " Humidade: ", resultado[1]
+            
+            xmlstr = ET.tostring(root) + "\n"   
+            con.send(xmlstr)    
+            
+            if len(listaConexoesCamera) > 0:
+                ligarCamera()        
+        except:
+            print "Erro ao obter a temperatura e humidade."
+            con.send("Erro\n")
+            
+            if len(listaConexoesCamera) > 0:
+                ligarCamera() 
