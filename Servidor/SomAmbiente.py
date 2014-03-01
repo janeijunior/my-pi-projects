@@ -36,7 +36,7 @@ class SomAmbiente(object):
         
         i = 0
         for linha in arquivo:
-            musica = linha[len(PLAYLIST):len(linha) -5]
+            musica = linha[len(self.caminhoPlaylist):len(linha) -5]
             
             if musica == nome:
                 return i
