@@ -12,7 +12,7 @@ class Usuario(Base.Base):
     #funcoes
     #funcao para carregar as propriedades da classe
     def carregarUsuario(self):
-        row = Funcoes.consultarRegistro("select Usuario, Senha from Usuario")
+        row = self.consultarRegistro("select Usuario, Senha from Usuario")
         
         self.usuario = row["Usuario"]
         self.senha = row["Senha"]        
