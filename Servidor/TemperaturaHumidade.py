@@ -10,7 +10,7 @@ import Funcoes
 
 class TemperaturaHumidade(object):
 
-    def __lerSensor():
+    def __lerSensor(self):
         return subprocess.check_output([Funcoes.lerConfiguracaoIni("CaminhoDHT"), Funcoes.lerConfiguracaoIni("TipoDHT"), Funcoes.lerConfiguracaoIni("GPIODHT")]);
     
     
