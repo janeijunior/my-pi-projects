@@ -29,7 +29,7 @@ class TemperaturaHumidade(object):
         
         if (not matches):
           time.sleep(3)
-          output  = lerSensor();     
+          output  = _lerSensor();     
           matches = re.search("Hum =\s+([0-9.]+)", output)  
           
         hum = float(matches.group(1))
