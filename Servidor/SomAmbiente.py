@@ -2,6 +2,8 @@
 #-*- coding: utf-8 -*-
 
 import Funcoes
+import subprocess
+import select
 
 class SomAmbiente(object):
     
