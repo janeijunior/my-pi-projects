@@ -58,9 +58,7 @@ class Usuario(object):
         senha = root.find("Senha").text.encode('utf-8')
         
         if (self.usuario == usuario) and (self.senha == senha):
-            print "Conectado: ", cliente
             con.send("Logado\n")
         else:
-            print "Usuario ou senha invalidos.", cliente
             con.send("NaoLogado\n")
             con.close
