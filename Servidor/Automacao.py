@@ -26,7 +26,7 @@ class Automacao(Base.Base):
             con.close
     
     #le o sensor de temperatura e humidade e envia os resultados
-    def enviarTemperaturaHumidade(con):    
+    def enviarTemperaturaHumidade(self, con):    
         #global listaConexoesCamera
         
         try:
