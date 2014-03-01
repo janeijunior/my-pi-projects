@@ -1,13 +1,14 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-import Alarme
-import Agendamento
-import Rele
-import SomAmbiente
-import Configuracao
-import TemperaturaHumidade
-import Base
+#import Alarme
+#import Agendamento
+#import Rele
+#import SomAmbiente
+#import Configuracao
+#import TemperaturaHumidade
+#import Base
+import Usuario
 
 class Automacao(Base.Base):
 
