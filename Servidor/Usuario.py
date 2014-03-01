@@ -1,7 +1,9 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-class Usuario(object):
+import Base
+
+class Usuario(Base):
     
     #construtor
     def __init__(self, con):
