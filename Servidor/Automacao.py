@@ -13,12 +13,11 @@ class Automacao(Base.Base):
     
     #função para validar o usuario e a senha, se nao estiverem certos desconecta!
     def efetuarLogin(root, con):
-        row = Funcoes.consultarRegistro("select Usuario, Senha from Configuracao")
-        
         usuario = root.find("Usuario").text.encode('utf-8')
-        senha = root.find("Senha").text.encode('utf-8')
+        senha   = root.find("Senha").text.encode('utf-8')
         
-        if row["Usuario"] == usuario and row["Senha"]  == senha:
+        
+        if self.usuario.validarLogin(usuario, senha):
             print "Conectado: ", cliente
             con.send("Logado\n")
         else:
