@@ -24,7 +24,7 @@ class SomAmbiente(object):
         lista = []
         
         for linha in arquivo:
-            str = linha[len(PLAYLIST):len(linha) -1]
+            str = linha[len(self.caminhoPlaylist):len(linha) -1]
             lista.insert(len(lista) + 1, str)
             
         arquivo.close()
