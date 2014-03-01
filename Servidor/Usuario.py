@@ -40,5 +40,5 @@ class Usuario(Base.Base):
         if (self.usuario == usuario) and (self.senha == senha):
             self.send("Logado\n")
         else:
-            self.send("NaoLogado\n")
-            self.close
+            con.send("NaoLogado\n")
+            con.close
