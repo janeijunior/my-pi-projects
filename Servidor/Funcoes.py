@@ -1,6 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
+import MySQLdb
 import ConfigParser
 from unicodedata import normalize
 
