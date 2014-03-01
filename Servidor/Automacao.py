@@ -4,6 +4,7 @@
 import Base
 import Usuario
 import TemperaturaHumidade
+import SomAmbiente
 from xml.etree.ElementTree import Element
 import xml.etree.ElementTree as ET
 
