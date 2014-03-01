@@ -15,7 +15,7 @@ class Usuario(Base.Base):
         row = self.consultarRegistro("select Usuario, Senha from Usuario")
         
         self.usuario = row["Usuario"]
-        self.senha = row["Senha"]        
+        self.senha   = row["Senha"]        
     
     #funcao para alterar o usuario e a senha 
     def alterarUsuarioSenha(self, usuario, senha):        
