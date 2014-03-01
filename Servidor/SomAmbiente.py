@@ -31,7 +31,7 @@ class SomAmbiente(object):
         return lista
     
     #retorna a posicao da musica com o nome passado por parametro
-    def __getPosicaoMusica(nome):
+    def getPosicaoMusica(nome):
         arquivo = open(self.caminhoPlaylist)
         
         i = 0
@@ -46,6 +46,19 @@ class SomAmbiente(object):
         
         arquivo.close()
         return 0
+    
+     #executa um comando no subprocesso do mplayer e devolve o resultado
+    def executarComandoMPlayer(cmd, retorno):
+        global mplayer
+        
+        mplayer.stdin.write(cmd + '\n') 
+        while select.select([mplayer.stdout], [], [], 0.05)[0]: 
+            output = mplayer.stdout.readline()
+            print("output: {}".format(output.rstrip()))
+            split_output = output.split(retorno + '=', 1)
+            if len(split_output) == 2 and split_output[0] == '':
+                value = split_output[1]
+                return value.rstrip()
         
     #executa a musica
     def play(self):
@@ -104,15 +117,4 @@ class SomAmbiente(object):
                 if proxima <> 0: 
                     executarComandoMPlayer("pt_step " + str(proxima), "")
             
-    #executa um comando no subprocesso do mplayer e devolve o resultado
-    def executarComandoMPlayer(cmd, retorno):
-        global mplayer
-        
-        mplayer.stdin.write(cmd + '\n') 
-        while select.select([mplayer.stdout], [], [], 0.05)[0]: 
-            output = mplayer.stdout.readline()
-            print("output: {}".format(output.rstrip()))
-            split_output = output.split(retorno + '=', 1)
-            if len(split_output) == 2 and split_output[0] == '':
-                value = split_output[1]
-                return value.rstrip()
+   
