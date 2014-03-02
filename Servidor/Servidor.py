@@ -264,7 +264,7 @@ def enviarConfiguracaoAlarme(con):
     row = Funcoes.consultarRegistro("select EnviarEmail, UsarSirene, TempoDisparo from ConfiguracaoAlarme")
     
     root = Element("EnviarConfiguracaoAlarme")
-    root.append(Element("Geral", TempoDisparo=str(row["TempoDisparoAlarme"]), UsarSirene=str(row["UsarSireneAlarme"]), UsarEmail=str(row["EnviarEmailAlarme"])))
+    root.append(Element("Geral", TempoDisparo=str(row["TempoDisparo"]), UsarSirene=str(row["UsarSirene"]), UsarEmail=str(row["EnviarEmail"])))
 
     rows = Funcoes.consultarRegistros("select Id, Nome, Ativo from SensorAlarme")
     sensores = Element("Sensores")
