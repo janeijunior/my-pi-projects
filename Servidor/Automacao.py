@@ -37,7 +37,6 @@ class Automacao(Base.Base):
         self.carregarAgendamentos()
         self.controleAgendamento = ControleAgendamento.ControleAgendamento(self.agendamentos)
         self.controleAgendamento.start() 
-
     
     #funcoes da classe
     
