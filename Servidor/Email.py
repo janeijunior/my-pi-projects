@@ -26,14 +26,6 @@ class EnviarEmail(Base.Base):
         self.portaSMTP    = row["PortaSMTP"]
         self.senha        = row["SenhaEmail"]
         
-        self.remetente = remetente
-        self.senha = senha
-        self.destinatario = destinatario
-        self.servidorSMTP = servidorSMTP
-        self.portaSMTP = portaSMTP
-        self.nomeSensor = nomeSensor
-        self.idSensor = idSensor
-    
     def __threadEnviar(self):
         form = cgi.FieldStorage()
         
