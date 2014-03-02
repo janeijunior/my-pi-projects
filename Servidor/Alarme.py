@@ -64,13 +64,13 @@ class Alarme(Base.Base):
             print "Alarme desligado!"
         
     #funcao para ligar o panico do alarme
-    def ligarPanicoAlarme(self):
+    def ligarPanico(self):
         self.sirene.ligar()
         self.panicoAlarmeLigado = True
         self.atualizarStatusBanco()
         
     #funcao para desligar o panico do alarme
-    def desligarPanicoAlarme(self):
+    def desligarPanico(self):
         if self.status <> 1:
             self.sirene.desligar()
         
