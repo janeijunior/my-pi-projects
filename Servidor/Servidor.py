@@ -439,7 +439,7 @@ def conectado(con, cliente):
                 elif root.tag == "AlterarConfiguracaoAlarme":
                     alterarConfiguracaoAlarme(root, con)
                 elif root.tag == "EnviarListaMusica":
-                    enviarListaMusica(con)
+                    automacao.enviarListaMusica(con)
                 elif root.tag == "ControlarSomAmbiente":
                     automacao.controlarSomAmbiente(root, con)
                 elif root.tag == "ReiniciarDesligar":
