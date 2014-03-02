@@ -40,8 +40,8 @@ class Automacao(Base.Base):
     
     #funcoes da classe
     
-    #retorna uma lista com os reles já configurados
-    def getReles(self):
+    #carrega a lista com os reles já configurados
+    def carregarReles(self):
         rows  = self.consultarRegistros("select * from Rele")
         lista = []
 
