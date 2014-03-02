@@ -22,6 +22,8 @@ class Automacao(Base.Base):
 
     #construtor
     def __init__(self):
+        #atributos
+        
         self.GPIOSirene = int(Funcoes.lerConfiguracaoIni("GPIOSirene")) 
         self.usuario = Usuario.Usuario()
         self.temperaturaHumidade = TemperaturaHumidade.TemperaturaHumidade()
