@@ -183,9 +183,9 @@ class Automacao(Base.Base):
             if self.alarme.alarmeLigado == False:
                 self.alarme.ligarAlarme() 
                 print "Alarme ativado"
-            else:
-                self.alarme.desligarAlarme()
-                print "Alarme desativado"
+        else:
+            self.alarme.desligarAlarme()
+            print "Alarme desativado"
         
         con.send("Ok\n")
                 
