@@ -91,7 +91,7 @@ class Alarme(Base.Base):
                         UsarSirene = {usarSirene},
                         EnviarEmail = {enviarEmail}'''
             
-        sql = sql.format(tempo = int(self.tempoDisparo), usarSirene = int(self.usarSirene), usarEmail = int(self.usarEmail))
+        sql = sql.format(tempo = int(self.tempoDisparo), usarSirene = int(self.usarSirene), enviarEmail = int(self.enviarEmail))
             
         return self.executarComando(sql)
      
