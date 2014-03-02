@@ -274,10 +274,7 @@ class Automacao(Base.Base):
     
     #inicializar thread do agendamento
     def iniciarAgendamento():
-        global threadAgendamento
-        global listaAgendamento
-        
-        threadAgendamento = ThreadAgendamento.ThreadAgendamento(listaAgendamento)
+        threadAgendamento = ControleAgendamento.ThreadAgendamento(listaAgendamento)
         threadAgendamento.start() 
             
     #carregar lista de agendamentos
