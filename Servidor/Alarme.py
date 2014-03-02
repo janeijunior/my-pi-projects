@@ -71,7 +71,7 @@ class Alarme(Base.Base):
         
     #funcao para desligar o panico do alarme
     def desligarPanicoAlarme(self):
-        if self.status() <> 1:
+        if self.status <> 1:
             self.sirene.desligar()
         
         self.panicoAlarmeLigado = False
