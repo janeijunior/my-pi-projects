@@ -122,7 +122,7 @@ class Alarme(object):
             self.sirene.desligar()
         
         #executa enquanto o alarme estiver ativo
-        while True: 
+        while self.alarmeLigado: 
             #percorre os sensores
             for i in range(0, 8):
                 #le os status dos sensores ativos
