@@ -302,13 +302,11 @@ class Automacao(Base.Base):
     
     #funcao que retorna os agendamentos do servidor para o aplicativo movel
     def enviarAgendamento(self, con):
-        global listaAgendamento
         root = Element("EnviarAgendamento")
         
-        #atualiza a lista de agendamentos
-        carregarListaAgendamento()
+        self.carregarListaAgendamento()
         
-        for agendamento in listaAgendamento:
+        for agendamento in self.agendamentos:
             root.append(Element("Agendamento" + str(agendamento.id), Id=str(agendamento.id), Nome=agendamento.nome.decode('utf-8'), 
                                 DataHoraInicial=str(agendamento.dataHoraInicial), DataHoraFinal=str(agendamento.dataHoraFinal), 
                                 Dias=agendamento.dias, Equipamentos=agendamento.equipamentos, NomeEquipamentos=agendamento.getNomeEquipamento().decode('utf-8')))
