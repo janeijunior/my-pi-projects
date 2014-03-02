@@ -2,8 +2,9 @@
 #-*- coding: utf-8 -*-
 
 import Funcoes
+import Base
 
-class Agendamento(object):
+class Agendamento(Base.Base):
     
     #construtor
     def __init__(self, id, nome, dias, equipamentos, dataHoraInicial, dataHoraFinal, ativo, listaReles, alarme):
@@ -59,7 +60,7 @@ class Agendamento(object):
         sql = "insert into Agendamento (Nome, DataHoraInicial, DataHoraFinal, Alarme) values ('{nome}', '{dataInicial}', '{dataFinal}', {alarme}')"
         sql = sql.format(nome = self.nome, dataInicial = self.dataHoraInicial, dataFinal = self.dataHoraFinal, alarme = alarme)
         
-        return Funcoes.executarComando(sql)
+        return self.executarComando(sql)
         
     #funcao para remover o agendamento no banco de dados
     def removerRegistroBanco(self): 
