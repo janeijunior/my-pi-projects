@@ -129,7 +129,7 @@ class Alarme(Base.Base):
         #executa enquanto o alarme estiver ativo
         while self.alarmeLigado: 
             #percorre os sensores
-            for i in range(0, 8):
+            for sensor in self.sensores:
                 #le os status dos sensores ativos
                 if (self.sensores[i].ativo == 1) and (self.sensores[i].lerStatus() == 0):
                     self.status = DISPARADO
