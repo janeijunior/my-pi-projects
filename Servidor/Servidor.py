@@ -70,7 +70,7 @@ def configurarAlarme():
     global alarme
     global email
     
-    alarme = Alarme.Alarme(sirene=listaReles[SIRENE], email)
+    alarme = Alarme.Alarme(email)
 
 #inicializar thread do agendamento
 def iniciarAgendamento():
