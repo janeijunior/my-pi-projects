@@ -73,4 +73,14 @@ class Automacao(Base.Base):
     
     #envia a lista de musicas para o aparelho
     def enviarListaMusica(self, con):
+        lista = self.somAmbiente.getListaMusica()
+        
+        root = Element("EnviarListaMusica")
+
+        for linha in lista:
+            str = linha[len(PLAYLIST):len(linha) -1]
+            root.append(Element("Musicas", Nome=str.decode('utf-8')))
+                
+        xmlstr = ET.tostring(root) + "\n"  
+        con.send(xmlstr)
         
