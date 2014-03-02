@@ -12,7 +12,7 @@ import Funcoes
 import Base
 from email.MIMEText import MIMEText
 
-class EnviarEmail(Base.Base):
+class Email(Base.Base):
     def __init__(self):
         self.carregarDados()
     
