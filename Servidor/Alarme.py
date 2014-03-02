@@ -125,7 +125,7 @@ class Alarme(object):
             #percorre os sensores
             for i in range(0, 8):
                 #le os status dos sensores ativos
-                if (listaSensores[i].ativo == 1) and (listaSensores[i].lerStatus() == 0):
+                if (self.sensores[i].ativo == 1) and (self.sensores[i].lerStatus() == 0):
                     self.status = DISPARADO
                     
                     #se estiver violado mostra msg na tela
@@ -138,7 +138,7 @@ class Alarme(object):
                     
                     #se estiver configurado envia o e-mail
                     if self.enviarEmail == 1:
-                        self.email.enviar(listaSensores[i].id, listaSensores[i].nome) 
+                        self.email.enviar(self.sensores[i].id, self.sensores[i].nome) 
                     
                     #aguarda o tempo configurado ate iniciar a proxima leitura
                     time.sleep(self.tempoDisparo)
