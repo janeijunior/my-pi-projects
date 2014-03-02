@@ -18,7 +18,13 @@ class EnviarEmail(Base.Base):
     
     def carregarDados(self):
         
+        row = Funcoes.consultarRegistro("select * from ConfiguracaoEmail")
         
+        self.remetente    = row["RemetenteEmail"]
+        self.destinatario = row["DestinatarioEmail"]
+        self.servidorSMTP = row["ServidorSMTP"]
+        self.portaSMTP    = row["PortaSMTP"]
+        self.senha        = row["SenhaEmail"]
         
         self.remetente = remetente
         self.senha = senha
