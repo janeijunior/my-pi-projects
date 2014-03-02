@@ -8,6 +8,7 @@ import SomAmbiente
 import Email
 import Rele
 import Alarme
+import Funcoes
 import xml.etree.ElementTree as ET
 
 from xml.etree.ElementTree import Element
