@@ -81,14 +81,7 @@ class Alarme(object):
 
         for row in rows:
             sensor = SensorAlarme.SensorAlarme(row["Id"], row["NumeroGPIO"], row["Ativo"], row["Nome"])        
-            self.sensores.insert(int(row["Id"]) - 1 , sensor)
-        
-        if self.usarSirene == 1:
-            self.sirene.ligar()
-            time.sleep(0.2)
-            self.sirene.desligar()
-        
-    
+            self.sensores.insert(int(row["Id"]) - 1 , sensor)    
     
     #destrutor
     def __done__(self):
