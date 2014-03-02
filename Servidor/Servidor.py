@@ -25,7 +25,6 @@ import Email
 
 HOST     = ""                                            # IP do Servidor (em branco = IP do sistema)
 PORT     = int(Funcoes.lerConfiguracaoIni("Porta"))      # Porta do Servidor
-SIRENE   = int(Funcoes.lerConfiguracaoIni("GPIOSirene")) # Numero GPIO da sirene
 MJPG     = Funcoes.lerConfiguracaoIni("CaminhoMJPG")     # Caminho stream de video
 
 orig = (HOST, PORT)
