@@ -240,7 +240,7 @@ class Automacao(Base.Base):
             sensores  = root.find("Sensores")
         
             for child in sensores:
-                id    = int(child.get("Id") 
+                id = int(child.get("Id")) 
                 
                 self.alarme.sensores[id].nome  = child.get("Nome").encode('utf-8')
                 self.alarme.sensores[id].ativo = int(child.get("Ativo"))
