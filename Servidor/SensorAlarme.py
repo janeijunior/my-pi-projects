@@ -26,5 +26,12 @@ class SensorAlarme(object):
     def lerStatus(self):
         return GPIO.input(self.numeroGPIO)
     
+    #funcao para gravar o novo nome do rele
+    def gravarBanco(self):
+        sql = "update SensorAlarme set Nome = '{nomeSensor}', Ativo = {ativo} where Id = {idSensor}"
+        sql = sql.format(nomeSensor = self.nome, ativo = self.ativo, idSensor = self.id)
+        
+        return self.executarComando(sql)
+    
     #destrutor
     #def __done__(self):
