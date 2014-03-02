@@ -96,7 +96,7 @@ class Automacao(Base.Base):
             con.send("Erro\n")
     
     #funcao que grava a nova configuracao de email
-    def alterarConfiguracaoEmail(root, con):
+    def alterarConfiguracaoEmail(self, root, con):
         usuario      = root.find("Usuario").text.encode('utf-8')
         senha        = root.find("Senha").text.encode('utf-8')
         destinatario = root.find("Destinatario").text.encode('utf-8')
@@ -109,7 +109,7 @@ class Automacao(Base.Base):
             con.send("Erro\n")
     
     #envia a configuracao atual de email para o dispositivo
-    def enviarConfiguracaoEmail(con):
+    def enviarConfiguracaoEmail(self, con):
         root = Element("EnviarConfiguracaoEmail")
         dados = Element("Dados", Usuario = self.email.remetente.decode('utf-8'), Senha = str(self.email.senha).decode('utf-8'), 
                                  Destinatario = self.email.destinatario.decode('utf-8'), Servidor = str(self.email.servidorSMTP).decode('utf-8'),
