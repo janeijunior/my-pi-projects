@@ -9,6 +9,7 @@ import Email
 import Rele
 import Alarme
 import xml.etree.ElementTree as ET
+
 from xml.etree.ElementTree import Element
 
 class Automacao(Base.Base):
