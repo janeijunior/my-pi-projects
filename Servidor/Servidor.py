@@ -71,7 +71,7 @@ def conectado(con, cliente):
                 elif root.tag == "ControlarSomAmbiente":
                     automacao.controlarSomAmbiente(root, con)
                 elif root.tag == "ReiniciarDesligar":
-                    reiniciarDesligarServidor(root, con)
+                    automacao.reiniciarDesligarServidor(root, con)
                 elif root.tag == "ControlarCamera":
                     automacao.controlarCamera(root, con, cliente)
             except Exception as e: 
