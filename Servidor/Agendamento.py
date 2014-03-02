@@ -63,6 +63,12 @@ class Agendamento(Base.Base):
             
             self.executarComando(sql)
         
+            self.consultarRegistro("select max(Id) from Agendamento")
+            idAgendamento = int(row["Id"])
+        
+            for str in self.listaDias:
+                sql = "insert into DiaAgendamento (IdAgendamento, Dia) values (idAgendamento, Dia)"
+                sel = sql.format(idAgendamento = idAgendamento
         
             return True
         except Exception, e:
