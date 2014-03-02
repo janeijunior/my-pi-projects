@@ -346,7 +346,7 @@ class Automacao(Base.Base):
         if self.alarme.alarmeLigado:
             alarme.desligarAlarme()
         
-        self.alarme.desligarPanicoAlarme()
+        self.alarme.desligarPanico()
         self.controleAgendamento.stop()
         
         for rele in self.reles:    
