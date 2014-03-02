@@ -340,7 +340,7 @@ class Automacao(Base.Base):
         for rele in self.reles:    
     		rele.desligar()
     	
-        desligarCamera()
+        self.camera.desligarCamera()
     
     #funcao para reiniciar ou desligar o servidor conforme solicitado pelo app android
     def reiniciarDesligarServidor(root, con):
