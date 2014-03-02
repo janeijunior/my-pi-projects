@@ -282,10 +282,10 @@ def alterarConfiguracaoAlarme(root, con):
         conBanco = Funcoes.conectarBanco()
         cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
         
-        sql = '''update Configuracao 
-                    set TempoDisparoAlarme = {tempo}, 
-                        UsarSireneAlarme = {usarSirene},
-                        EnviarEmailAlarme = {usarEmail}'''
+        sql = '''update ConfiguracaoAlarme 
+                    set TempoDisparo = {tempo}, 
+                        UsarSirene = {usarSirene},
+                        EnviarEmail = {usarEmail}'''
         
         sql = sql.format(tempo = int(root.find("TempoDisparo").text), usarSirene = int(root.find("UsarSirene").text), 
                          usarEmail = int(root.find("UsarEmail").text))
