@@ -7,7 +7,8 @@ class Camera(object):
     
     #construtor
     def __init__(self):
-        self.MJPG = Funcoes.lerConfiguracaoIni("CaminhoMJPG") # Caminho stream de video
+        self.MJPG     = Funcoes.lerConfiguracaoIni("CaminhoMJPG") # Caminho stream de video
+        self.conexoes = []
     
     #inicia o servico da camera
     def ligarCamera():
@@ -28,8 +29,6 @@ class Camera(object):
     
     #remove o cliente da lista de conexões 
     def removerConexaoCamera(cliente):
-        global listaConexoesCamera
-        
         if len(listaConexoesCamera) > 0:
             for i in range(-1, len(listaConexoesCamera)):
                 if listaConexoesCamera[i] == cliente:
