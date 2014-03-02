@@ -97,7 +97,6 @@ tcp.listen(1)
 #classe automacao
 automacao = Automacao.Automacao()
 
-
 signal.signal(signal.SIGINT, signal_handler)
 
 print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
