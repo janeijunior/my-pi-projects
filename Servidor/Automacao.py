@@ -215,7 +215,7 @@ class Automacao(Base.Base):
         
         if self.alarme.status == 1:
             status = "Disparado"
-        elif alarme.status == 0:
+        elif self.alarme.status == 0:
             status = "Normal"
         else:
             status = "Desligado"
