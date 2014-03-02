@@ -226,7 +226,8 @@ class Automacao(Base.Base):
             sensores.append(Element("Sensor" + str(sensor.id), Nome=str(sensor.nome).decode('utf-8'), Ativo=str(sensor.ativo)))
         
         root.append(sensores)
-        xmlstr = ET.tostring(root) + "\n"       
+        xmlstr = ET.tostring(root) + "\n" 
+        print xmlstr
         con.send(xmlstr)
             
     #funcao para gravar as novas configuracoes do alarme
