@@ -95,7 +95,30 @@ class Alarme(Base.Base):
      
     #função que atualiza as congiguracoes no banco
     def gravarConfiguracaoBanco(self):
+        try:
+            sql = '''update ConfiguracaoAlarme 
+                        set TempoDisparo = {tempo}, 
+                            UsarSirene = {usarSirene},
+                            EnviarEmail = {usarEmail}'''
+            
+            sql = sql.format(tempo = int(self.tempoDisparo), usarSirene = int(self.usarSirene), usarEmail = int(self.usarEmail))
+            
+            cursor.execute(sql)
+            sensores  = root.find("Sensores")
         
+            for child in sensores:
+                sql = "update SensorAlarme set Nome = '{novoNome}', Ativo = {ativo} where Id = {idSensor}"
+                sql = sql.format(novoNome = child.get("Nome").encode('utf-8'), ativo = int(child.get("Ativo")), idSensor = int(child.get("Id")))
+                cursor.execute(sql)
+            
+            conBanco.commit()
+            conBanco.close()
+            con.send("Ok\n")
+        except:
+            print "Erro ao executar o comando: " + sql
+            con.send("Erro\n")
+            conBanco.rollback()
+            conBanco.close()
      
     #insere os sensores na lista passando seus atributos recuperados do banco
     def carregarSensores(self):
