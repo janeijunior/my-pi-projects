@@ -288,13 +288,13 @@ def conectado(con, cliente):
                 elif root.tag == "Temperatura":
                     automacao.enviarTemperaturaHumidade(con)
                 elif root.tag == "Alarme":
-                    controlarAlarme(root, con)
+                    automacao.controlarAlarme(root, con)
                 elif root.tag == "Panico":
-                    controlarFuncaoPanico(root, con)           
+                    automacao.controlarFuncaoPanico(root, con)           
                 elif root.tag == "StatusRele":
                     automacao.enviarConfiguracaoStatusRele(con)
                 elif root.tag == "StatusAlarme":
-                    enviarConfiguracaoStatusAlarme(con)   
+                    automacao.enviarConfiguracaoStatusAlarme(con)   
                 elif root.tag == "GravarAgendamento":
                     gravarAgendamento(root, con)
                 elif root.tag == "EnviarAgendamento":
