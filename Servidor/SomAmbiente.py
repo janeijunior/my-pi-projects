@@ -50,11 +50,9 @@ class SomAmbiente(object):
     
      #executa um comando no subprocesso do mplayer e devolve o resultado
     def executarComandoMPlayer(self, cmd, retorno):
-        global mplayer
-        
-        mplayer.stdin.write(cmd + '\n') 
-        while select.select([mplayer.stdout], [], [], 0.05)[0]: 
-            output = mplayer.stdout.readline()
+        self.__mplayer.stdin.write(cmd + '\n') 
+        while select.select([self.__mplayer.stdout], [], [], 0.05)[0]: 
+            output = self.__mplayer.stdout.readline()
             print("output: {}".format(output.rstrip()))
             split_output = output.split(retorno + '=', 1)
             if len(split_output) == 2 and split_output[0] == '':
