@@ -230,12 +230,12 @@ class Automacao(Base.Base):
     #funcao para gravar as novas configuracoes do alarme
     def alterarConfiguracaoAlarme(root, con):
         try:
-            tempoDisparo = int(root.find("TempoDisparo").text)
-            usarSirene   = int(root.find("UsarSirene").text
-            usarEmail    = int(root.find("UsarEmail").text)
+            self.alarme.tempoDisparo = int(root.find("TempoDisparo").text)
+            self.alarme.usarSirene   = int(root.find("UsarSirene").text
+            self.alarme.usarEmail    = int(root.find("UsarEmail").text)
             
             
-            self.alarme.alterarConfiguracao(tempoDisparo, usarSirene, usarEmail)
+            self.alarme.gravarConfiguracao()
             
             cursor.execute(sql)
             sensores  = root.find("Sensores")
