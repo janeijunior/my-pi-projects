@@ -103,7 +103,7 @@ class Automacao(Base.Base):
         servidor     = root.find("Servidor").text.encode('utf-8')
         porta        = root.find("Porta").text.encode('utf-8')
                 
-        if Funcoes.executarComando(sql):
+        if email.alterarConfiguracao():
             con.send("Ok\n")
         else:
             con.send("Erro\n")
