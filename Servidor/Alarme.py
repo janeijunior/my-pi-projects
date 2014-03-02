@@ -46,7 +46,8 @@ class Alarme(object):
         
     #funcao para desligar o alarme
     def desligarAlarme(self):
-        self.threadAlarme.stop()
+        self.thread.stop()
+        self.sirene.desligar()
         
         if self.usarSirene == 1:
             if self.status == DISPARADO:
