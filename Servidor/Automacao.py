@@ -250,3 +250,17 @@ class Automacao(Base.Base):
         except Exception, e:
             print "Erro ao alterar configuração do alarme: ", e
             con.send("Erro\n")
+    
+    #liga ou desliga o servico da camera
+    def controlarCamera(self, root, con, cliente):
+        global listaConexoesCamera
+        
+        acao = root.find("Acao").text  
+        
+        if acao == "Ligar":
+            listaConexoesCamera.insert(len(listaConexoesCamera) + 1, cliente) 
+            acionamentoCamera()
+            con.send("Ok\n")
+        else:
+            con.send("Ok\n")
+            removerConexaoCamera(cliente)
