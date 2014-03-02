@@ -12,10 +12,12 @@ import Funcoes
 
 from email.MIMEText import MIMEText
 
-class EnviarEmail(threading.Thread):
-    def __init__(self, remetente, senha, destinatario, servidorSMTP, portaSMTP, nomeSensor, idSensor):
-        threading.Thread.__init__(self)
-        self.name = "ThreadEnviaEmail" 
+class EnviarEmail(object):
+    def __init__(self):
+        self.carregarDados()
+    
+    def carregarDados(self):
+        
         
         self.remetente = remetente
         self.senha = senha
@@ -25,7 +27,7 @@ class EnviarEmail(threading.Thread):
         self.nomeSensor = nomeSensor
         self.idSensor = idSensor
     
-    def run(self):
+    def __threadEnviar(self):
         form = cgi.FieldStorage()
         
         assunto  = "Alarme disparado!"
@@ -51,3 +53,8 @@ class EnviarEmail(threading.Thread):
             print "Erro no envio do e-mail: ", e
         else:
             print "E-mail enviado!"
+    
+    def enviar(self):
+        
+    
+    
