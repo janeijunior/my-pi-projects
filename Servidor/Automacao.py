@@ -214,3 +214,49 @@ class Automacao(Base.Base):
         
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)
+        
+    #funcao para enviar as configuracoes atuais do alarme
+    def enviarConfiguracaoAlarme(self, con):
+        root = Element("EnviarConfiguracaoAlarme")
+        root.append(Element("Geral", TempoDisparo=str(self.tempoDisparo), UsarSirene=str(self.usarSirene), UsarEmail=str(self.usarEmail)))
+    
+        rows = Funcoes.consultarRegistros("select Id, Nome, Ativo from SensorAlarme")
+        sensores = Element("Sensores")
+        
+        for row in rows:
+            sensores.append(Element("Sensor" + str(row["Id"]), Nome=str(row["Nome"]).decode('utf-8'), Ativo=str(row["Ativo"])))
+        
+        root.append(sensores)
+        xmlstr = ET.tostring(root) + "\n"       
+        con.send(xmlstr)
+            
+    #funcao para gravar as novas configuracoes do alarme
+    def alterarConfiguracaoAlarme(root, con):
+        try:
+            conBanco = Funcoes.conectarBanco()
+            cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+            
+            sql = '''update ConfiguracaoAlarme 
+                        set TempoDisparo = {tempo}, 
+                            UsarSirene = {usarSirene},
+                            EnviarEmail = {usarEmail}'''
+            
+            sql = sql.format(tempo = int(root.find("TempoDisparo").text), usarSirene = int(root.find("UsarSirene").text), 
+                             usarEmail = int(root.find("UsarEmail").text))
+            
+            cursor.execute(sql)
+            sensores  = root.find("Sensores")
+        
+            for child in sensores:
+                sql = "update SensorAlarme set Nome = '{novoNome}', Ativo = {ativo} where Id = {idSensor}"
+                sql = sql.format(novoNome = child.get("Nome").encode('utf-8'), ativo = int(child.get("Ativo")), idSensor = int(child.get("Id")))
+                cursor.execute(sql)
+            
+            conBanco.commit()
+            conBanco.close()
+            con.send("Ok\n")
+        except:
+            print "Erro ao executar o comando: " + sql
+            con.send("Erro\n")
+            conBanco.rollback()
+            conBanco.close()
