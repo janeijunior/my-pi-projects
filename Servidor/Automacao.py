@@ -331,14 +331,11 @@ class Automacao(Base.Base):
 
     #finaliza os processos em execucao para encerrar o aplicativo servidor
     def finalizarProcessos(self):
-        global alarme
-        global threadAgendamento
-        
-        if alarme.alarmeLigado:
+        if self.alarme.alarmeLigado:
             alarme.desligarAlarme()
         
-        alarme.desligarPanicoAlarme()
-        threadAgendamento.stop()
+        self.alarme.desligarPanicoAlarme()
+        self.controleAgendamento.stop()
         
         for rele in listaReles:    
     		rele.desligar()
