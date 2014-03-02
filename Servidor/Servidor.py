@@ -23,18 +23,14 @@ import MySQLdb
 import Automacao
 import Email
 
-HOST     = ""                                            # IP do Servidor (em branco = IP do sistema)
-PORT     = int(Funcoes.lerConfiguracaoIni("Porta"))      # Porta do Servidor
+HOST     = ""                                       # IP do Servidor (em branco = IP do sistema)
+PORT     = int(Funcoes.lerConfiguracaoIni("Porta")) # Porta do Servidor
 
 orig = (HOST, PORT)
 
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp.bind(orig)
 tcp.listen(1)
-
-#variavel para controle do agendamento
-threadAgendamento = None
-listaAgendamento = []
 
 #classe automacao
 automacao = Automacao.Automacao()
