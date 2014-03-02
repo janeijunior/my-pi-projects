@@ -85,7 +85,7 @@ class Alarme(Base.Base):
        return self.executarComando(sql)
      
     #função que atualiza as configuracoes no banco
-    def gravarConfiguracaoBanco(self):
+    def gravarBanco(self):
         sql = '''update ConfiguracaoAlarme 
                     set TempoDisparo = {tempo}, 
                         UsarSirene = {usarSirene},
