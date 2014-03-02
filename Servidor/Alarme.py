@@ -93,6 +93,10 @@ class Alarme(Base.Base):
        
        return self.executarComando(sql)
      
+    #função que atualiza as congiguracoes
+    def gravarConfiguracaoBanco(self):
+        
+     
     #insere os sensores na lista passando seus atributos recuperados do banco
     def carregarSensores(self):
         self.sensores = [];
