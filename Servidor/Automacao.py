@@ -264,11 +264,11 @@ class Automacao(Base.Base):
         
         if acao == "Ligar":
             self.camera.adicionarConexaoCamera(cliente) 
-            self.camera.acionamentoCamera()
+            self.camera.acionamento()
             con.send("Ok\n")
         else:
             con.send("Ok\n")
-            self.camera.removerConexaoCamera(cliente)
+            self.camera.removerConexao(cliente)
     
     #inicializar thread do agendamento
     def iniciarAgendamento(self):
@@ -324,3 +324,34 @@ class Automacao(Base.Base):
                     break
                 else:
                     con.send("Erro\n")
+
+    #remove o cliente
+    def removerConecao(self, cliente):
+        self.camera.remover
+
+    #finaliza os processos em execucao para encerrar o aplicativo servidor
+    def finalizarProcessos(self):
+        global alarme
+        global threadAgendamento
+        
+        if alarme.alarmeLigado:
+            alarme.desligarAlarme()
+        
+        alarme.desligarPanicoAlarme()
+        threadAgendamento.stop()
+        
+        for rele in listaReles:    
+    		rele.desligar()
+    	
+        desligarCamera()
+    
+    #funcao para reiniciar ou desligar o servidor conforme solicitado pelo app android
+    def reiniciarDesligarServidor(root, con):
+        acao = root.find("Acao").text
+        finalizarProcessos()
+        con.send("Ok\n")    
+        
+        if acao == "Reiniciar":
+            os.system("/usr/bin/sudo /sbin/shutdown -r now")
+        else:
+            os.system("/usr/bin/sudo /sbin/shutdown -h now")
