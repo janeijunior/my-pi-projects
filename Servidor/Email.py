@@ -45,6 +45,7 @@ class Email(Base.Base):
             msg['To'] = self.destinatario
             print self.servidorSMTP, self.portaSMTP
             smtp = smtplib.SMTP(self.servidorSMTP, int(self.portaSMTP))
+            print 'passou'
             smtp.ehlo()
             smtp.starttls()
             smtp.login(self.remetente, self.senha)
