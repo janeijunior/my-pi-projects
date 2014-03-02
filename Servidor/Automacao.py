@@ -270,31 +270,25 @@ class Automacao(Base.Base):
             con.send("Ok\n")
             self.camera.removerConexaoCamera(cliente)
     
-    ##############################
-    
     #inicializar thread do agendamento
-    def iniciarAgendamento():
+    def iniciarAgendamento(self):
         self.controleAgendamento = ControleAgendamento.ControleAgendamento(self.agendamentos)
         self.controleAgendamento.start() 
             
     #carregar lista de agendamentos
-    def carregarListaAgendamento():
-        global alarme
-        global listaAgendamento
-        
-        print "Carregando agendamentos..."
-        listaAgendamento = []
+    def carregarListaAgendamento(self):
+        self.agendamentos = []
     
-        rows = Funcoes.consultarRegistros("select * from Agendamento where Ativo = 1")
+        rows = self.consultarRegistros("select * from Agendamento where Ativo = 1")
     
         for row in rows:
             agendamento = Agendamento.Agendamento(id = row["Id"], nome = row["Nome"], dias = str(row["DiasDaSemana"]), equipamentos = str(row["Equipamentos"]),
                               dataHoraInicial = row["DataHoraInicial"], dataHoraFinal = row["DataHoraFinal"], ativo = int(row["Ativo"]), listaReles = listaReles, alarme = alarme)        
                     
-            listaAgendamento.insert(row["Id"], agendamento)    
+            self.agendamentos.insert(row["Id"], agendamento)    
             
     #funcao que insere um novo agendamento no banco de dados e alualiza a lista de agendamentos 
-    def gravarAgendamento(root, con):
+    def gravarAgendamento(self, root, con):
         global listaReles
         global alarme
         global threadAgendamento
@@ -314,7 +308,7 @@ class Automacao(Base.Base):
             con.send("Erro\n")
     
     #funcao que retorna os agendamentos do servidor para o aplicativo movel
-    def enviarAgendamento(con):
+    def enviarAgendamento(self, con):
         global listaAgendamento
         root = Element("EnviarAgendamento")
         
