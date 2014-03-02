@@ -31,12 +31,7 @@ class Email(Base.Base):
         
     #função para alterar os dados de envio
     def alterarDados(self, remetente, destinatario, servidorSMTP, portaSMTP, senha):
-        try
         
-            return True
-        except Exception, e:
-            print "Erro ao alterar a configuração de e-mail: ", e
-            return False
         
         
     
