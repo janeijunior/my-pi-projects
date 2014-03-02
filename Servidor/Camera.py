@@ -35,4 +35,7 @@ class Camera(object):
                 if listaConexoesCamera[i] == cliente:
                     del listaConexoesCamera[i]
                     acionamentoCamera()
-                    break
+    
+    def adicionarConexaoCamera(cliente):
+        self.conexoes.insert(len(self.conexoes) + 1, cliente)
+                
