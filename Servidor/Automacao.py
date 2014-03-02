@@ -284,7 +284,7 @@ class Automacao(Base.Base):
             dias = ''
             equipamentos = ''
             
-            rowsdia = self.consultarRegistros("select * from DiaAgendamento where IdAgendamento = {id}".format(id = row["Id"]))
+            rowsdia = self.consultarRegistros("select Dia from DiaAgendamento where IdAgendamento = {id}".format(id = row["Id"]))
             
             for rowdia in rowsdia:
                 dias = dias + rowdia + ";"
