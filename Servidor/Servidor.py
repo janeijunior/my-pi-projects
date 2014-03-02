@@ -9,18 +9,6 @@ import threading
 import Funcoes
 import Automacao
 
-HOST     = ""                                       # IP do Servidor (em branco = IP do sistema)
-PORT     = int(Funcoes.lerConfiguracaoIni("Porta")) # Porta do Servidor
-
-orig = (HOST, PORT)
-
-tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-tcp.bind(orig)
-tcp.listen(1)
-
-#classe automacao
-automacao = Automacao.Automacao()
-
 #para fechar o programa
 def signal_handler(signal, frame):
     print "\nEncerrando aplicativo..."
