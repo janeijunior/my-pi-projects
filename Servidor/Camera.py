@@ -8,7 +8,7 @@ class Camera(object):
     
     #construtor
     def __init__(self):
-        self.MJPG     = Funcoes.lerConfiguracaoIni("CaminhoMJPG") + " start " +  Funcoes.lerConfiguracaoIni("ConfiguracaoMJPG") 
+        self.MJPG     = Funcoes.lerConfiguracaoIni("CaminhoMJPG")
         self.conexoes = []
     
     #inicia o servico da camera
