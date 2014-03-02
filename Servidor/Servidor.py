@@ -11,12 +11,10 @@ import Automacao
 import signal
 import sys
 
-HOST     = ""                                       
-PORT     = int(Funcoes.lerConfiguracaoIni("Porta")) 
-
+HOST = ""                                       
+PORT = int(Funcoes.lerConfiguracaoIni("Porta")) 
 orig = (HOST, PORT)
-
-tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+tcp  = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp.bind(orig)
 tcp.listen(1)
 
