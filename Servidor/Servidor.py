@@ -28,8 +28,6 @@ def signal_handler(signal, frame):
     automacao.cleanup()
     tcp.close;
     sys.exit(0)
-    
-signal.signal(signal.SIGINT, signal_handler)
 
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
