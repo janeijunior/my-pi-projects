@@ -33,6 +33,7 @@ class Camera(object):
                     del self.conexoes[i]
                     acionamentoCamera()
     
+    #adiciona o cliente na lista de conexões
     def adicionarConexaoCamera(cliente):
         self.conexoes.insert(len(self.conexoes) + 1, cliente)
                 
