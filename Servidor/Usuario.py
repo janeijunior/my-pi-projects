@@ -23,8 +23,8 @@ class Usuario(Base.Base):
         sql = sql.format(novoUsuario =  usuario, novaSenha = senha)
         
         if self.executarComando(sql):
-            con.usuario = usuario
-            con.senha   = senha
+            self.usuario = usuario
+            self.senha   = senha
             return True
         else:
             return False        
