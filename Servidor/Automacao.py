@@ -330,7 +330,7 @@ class Automacao(Base.Base):
         con.send(xmlstr)
     
     #funcao que remove o agendamento da lita e do banco de dados
-    def removerAgendamento(root, con):
+    def removerAgendamento(self, root, con):
         global threadAgendamento
         global listaAgendamento
         
