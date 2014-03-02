@@ -110,7 +110,7 @@ class Alarme(Base.Base):
         self.enviarEmail  = row["EnviarEmail"]
     
     #função que é executada como thread que monitora os sensores    
-    def __monitorarSensor(self):
+    def __monitorarSensores(self):
         if self.usarSirene == 1:
             self.sirene.ligar()
             time.sleep(0.2)
