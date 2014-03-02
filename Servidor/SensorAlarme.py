@@ -28,7 +28,7 @@ class SensorAlarme(Base.Base):
         return GPIO.input(self.numeroGPIO)
     
     #funcao para gravar o novo nome do sensor e se esta ativo
-    def gravarBanco(self):
+    def gravarRegistroBanco(self):
         sql = "update SensorAlarme set Nome = '{nomeSensor}', Ativo = {ativo} where Id = {idSensor}"
         sql = sql.format(nomeSensor = self.nome, ativo = self.ativo, idSensor = self.id)
         
