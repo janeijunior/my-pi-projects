@@ -30,7 +30,7 @@ class Email(Base.Base):
         self.senha        = row["Senha"]
         
     #função para alterar os dados de envio
-    def alterarConfiguracaoEmail(self, remetente, destinatario, servidorSMTP, portaSMTP, senha):
+    def alterarConfiguracao(self, remetente, destinatario, servidorSMTP, portaSMTP, senha):
          sql = '''update ConfiguracaoEmail 
                      set Remetente = '{novoRemetente}', 
                          Senha = '{novaSenha}',
