@@ -66,7 +66,7 @@ class Agendamento(Base.Base):
     def removerRegistroBanco(self): 
         sql = "delete from Agendamento where Id = {idRegistro}".format(idRegistro = self.id)
         
-        return Funcoes.executarComando(sql)
+        return self.executarComando(sql)
         
     #funcao para desativar o agendamento no banco de dados
     def desativarRegistroBanco(self): 
