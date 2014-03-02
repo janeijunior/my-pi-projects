@@ -283,7 +283,7 @@ class Automacao(Base.Base):
         for row in rows:
             dias = ''
             
-            if row["Alarme"] == 1:
+            if int(row["Alarme"]) == 1:
                 equipamentos = "-1;"
             else:
                 equipamentos = ''
