@@ -220,6 +220,8 @@ class Automacao(Base.Base):
         root = Element("EnviarConfiguracaoAlarme")
         root.append(Element("Geral", TempoDisparo=str(self.alarme.tempoDisparo), UsarSirene=str(self.alarme.usarSirene), UsarEmail=str(self.alarme.enviarEmail)))
     
+        sensores = Element("Sensores")
+        
         for sensor in self.alarme.sensores:
             sensores.append(Element("Sensor" + str(row["Id"]), Nome=str(sensor.nome).decode('utf-8'), Ativo=str(sensor.ativo)))
         
