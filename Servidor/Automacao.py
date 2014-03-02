@@ -54,7 +54,7 @@ class Automacao(Base.Base):
             #    ligarCamera() 
     
     #controla o som ambiente
-    def controlarSomAmbiente(self, root, con)
+    def controlarSomAmbiente(self, root, con):
         comando = str(root.find("Comando").text)
         valor   = str(root.find("Valor").text.encode('utf-8'))
         
