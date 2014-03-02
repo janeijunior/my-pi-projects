@@ -223,7 +223,7 @@ class Automacao(Base.Base):
         sensores = Element("Sensores")
         
         for sensor in self.alarme.sensores:
-            sensores.append(Element("Sensor" + str(row["Id"]), Nome=str(sensor.nome).decode('utf-8'), Ativo=str(sensor.ativo)))
+            sensores.append(Element("Sensor" + str(sensor.id), Nome=str(sensor.nome).decode('utf-8'), Ativo=str(sensor.ativo)))
         
         root.append(sensores)
         xmlstr = ET.tostring(root) + "\n"       
