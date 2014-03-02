@@ -55,6 +55,4 @@ class EnviarEmail(object):
             print "E-mail enviado!"
     
     def enviar(self):
-        thread.start_new_thread(__threadEnviar)    
-    
-    
+        thread.start_new_thread(__threadEnviar)        
