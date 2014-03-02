@@ -2,8 +2,9 @@
 #-*- coding: utf-8 -*-
 
 import RPi.GPIO as GPIO 
+import Base
 
-class SensorAlarme(object):
+class SensorAlarme(Base.Base):
     
     #construtor
     def __init__(self, id, numeroGPIO, ativo, nome):
