@@ -64,10 +64,6 @@ class Alarme(Base.Base):
     
         self.status = DESLIGADO
         self.atualizarStatusBanco()
-    
-    #funcao para ler o status do alarme
-    def getStatusAlarme(self):
-        self.status
         
     #funcao para ligar o panico do alarme
     def ligarPanicoAlarme(self):
