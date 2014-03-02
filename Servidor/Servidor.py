@@ -20,6 +20,9 @@ tcp  = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp.bind(orig)
 tcp.listen(1)
 
+#classe automacao
+automacao = Automacao.Automacao()
+
 #para fechar o programa
 def signal_handler(signal, frame):
     print "\nEncerrando aplicativo..."
