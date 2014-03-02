@@ -261,7 +261,7 @@ def enviarConfiguracaoEmail(con):
     
 #funcao para enviar as configuracoes atuais do alarme
 def enviarConfiguracaoAlarme(con):
-    row = Funcoes.consultarRegistro("select EnviarEmailAlarme, UsarSireneAlarme, TempoDisparoAlarme from Configuracao")
+    row = Funcoes.consultarRegistro("select EnviarEmail, UsarSirene, TempoDisparo from ConfiguracaoAlarme")
     
     root = Element("EnviarConfiguracaoAlarme")
     root.append(Element("Geral", TempoDisparo=str(row["TempoDisparoAlarme"]), UsarSirene=str(row["UsarSireneAlarme"]), UsarEmail=str(row["EnviarEmailAlarme"])))
