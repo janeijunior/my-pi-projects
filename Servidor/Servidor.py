@@ -11,6 +11,15 @@ import Automacao
 import signal
 import sys
 
+HOST     = ""                                       
+PORT     = int(Funcoes.lerConfiguracaoIni("Porta")) 
+
+orig = (HOST, PORT)
+
+tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+tcp.bind(orig)
+tcp.listen(1)
+
 #para fechar o programa
 def signal_handler(signal, frame):
     print "\nEncerrando aplicativo..."
