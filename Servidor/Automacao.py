@@ -294,7 +294,7 @@ class Automacao(Base.Base):
             for rowequip in rowsequi:
                 equipamentos = equipamentos + rowequip["IdRele"] + ";"
             
-            agendamento = Agendamento.Agendamento(row["Id"], row["Nome"], dias), equipamentos), row["DataHoraInicial"], 
+            agendamento = Agendamento.Agendamento(row["Id"], row["Nome"], dias), equipamentos, row["DataHoraInicial"], 
                                                   row["DataHoraFinal"], int(row["Ativo"]), self.reles, self.alarme)        
                     
             self.agendamentos.insert(row["Id"], agendamento)    
