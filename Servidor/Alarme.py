@@ -89,7 +89,7 @@ class Alarme(Base.Base):
         sql = '''update ConfiguracaoAlarme 
                     set TempoDisparo = {tempo}, 
                         UsarSirene = {usarSirene},
-                        EnviarEmail = {usarEmail}'''
+                        EnviarEmail = {enviarEmail}'''
             
         sql = sql.format(tempo = int(self.tempoDisparo), usarSirene = int(self.usarSirene), usarEmail = int(self.usarEmail))
             
