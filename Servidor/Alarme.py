@@ -37,7 +37,7 @@ class Alarme(Base.Base):
     #funcoes
     #funcao para ligar o alarme
     def ligarAlarme(self):
-        if self.alarme.alarmeLigado == False:
+        if self.alarmeLigado == False:
             self.status = NORMAL
             self.alarmeLigado = True
             
@@ -50,7 +50,7 @@ class Alarme(Base.Base):
         
     #funcao para desligar o alarme
     def desligarAlarme(self):
-        if self.alarme.alarmeLigado == True:
+        if self.alarmeLigado == True:
             self.alarmeLigado = False
             self.sirene.desligar()
             
