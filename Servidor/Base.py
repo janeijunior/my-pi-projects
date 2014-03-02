@@ -9,13 +9,13 @@ class Base(object):
     #funcao para conectar no banco de dados
     def conectarBanco(self):
         try:
-            self.__hostBanco    = Funcoes.lerConfiguracaoIni('HostBanco')
-            self.__usuarioBanco = Funcoes.lerConfiguracaoIni('UsuarioBanco')
-            self.__senhaBanco   = Funcoes.lerConfiguracaoIni('SenhaBanco')
-            self.__nomeBanco    = Funcoes.lerConfiguracaoIni('NomeBanco') 
+            hostBanco    = Funcoes.lerConfiguracaoIni('HostBanco')
+            usuarioBanco = Funcoes.lerConfiguracaoIni('UsuarioBanco')
+            senhaBanco   = Funcoes.lerConfiguracaoIni('SenhaBanco')
+            nomeBanco    = Funcoes.lerConfiguracaoIni('NomeBanco') 
             
-            conBanco = MySQLdb.connect(self.__hostBanco, self.__usuarioBanco, self.__senhaBanco)
-            conBanco.select_db(self.__nomeBanco)
+            conBanco = MySQLdb.connect(hostBanco, usuarioBanco, senhaBanco)
+            conBanco.select_db(nomeBanco)
         except MySQLdb.Error, e:
             print "Nao foi possivel conectar ao banco de dados.", e
     
