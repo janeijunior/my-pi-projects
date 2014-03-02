@@ -16,7 +16,7 @@ class Camera(object):
         
     #para o servico da camera
     def desligarCamera():
-        os.system("sudo " + MJPG + " stop")
+        os.system("sudo " + self.MJPG + " stop")
     
     #inicia ou para o servico de stream da camera
     def acionamentoCamera():
