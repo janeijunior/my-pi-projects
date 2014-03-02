@@ -78,8 +78,7 @@ class Automacao(Base.Base):
         root = Element("EnviarListaMusica")
 
         for linha in lista:
-            str = linha[len(PLAYLIST):len(linha) -1]
-            root.append(Element("Musicas", Nome=str.decode('utf-8')))
+            root.append(Element("Musicas", Nome=linha.decode('utf-8')))
                 
         xmlstr = ET.tostring(root) + "\n"  
         con.send(xmlstr)
