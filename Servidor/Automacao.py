@@ -93,8 +93,8 @@ class Automacao(Base.Base):
         #global listaConexoesCamera
         
         try:
-            #desligarCamera()
-            #time.sleep(1)
+            self.camera.desligarCamera()
+            time.sleep(1)
             
             resultado = self.temperaturaHumidade.getDados()    
             root  = Element("TemperaturaHumidade")
@@ -103,14 +103,14 @@ class Automacao(Base.Base):
             xmlstr = ET.tostring(root) + "\n"   
             con.send(xmlstr)    
             
-            #if len(listaConexoesCamera) > 0:
-            #    ligarCamera()        
+            if len(self.camera.conexoes) > 0:
+                self.camera.ligarCamera()        
         except Exception as e: 
             print "Erro: ", e
             con.send("Erro\n")
             
-            #if len(listaConexoesCamera) > 0:
-            #    ligarCamera() 
+            if len(self.camera.conexoes) > 0:
+                self.camera.ligarCamera()
     
     #controla o som ambiente
     def controlarSomAmbiente(self, root, con):
