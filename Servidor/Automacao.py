@@ -212,5 +212,3 @@ class Automacao(Base.Base):
         
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)
-
-            
