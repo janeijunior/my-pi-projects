@@ -121,7 +121,6 @@ class Alarme(object):
             time.sleep(0.2)
             self.sirene.desligar()
         
-        
         #executa enquanto o alarme estiver ativo
         while True: 
             #percorre os sensores
