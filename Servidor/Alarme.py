@@ -125,7 +125,7 @@ class Alarme(Base.Base):
                     self.status = DISPARADO
                     
                     #se estiver violado mostra msg na tela
-                    print("Sensor: " + str(i) + " - " + listaSensores[i].nome + " violado.")
+                    print("Sensor: " + str(i) + " - " + self.sensores[i].nome + " violado.")
                     
                     #se estiver configurado dispara a sirene
                     if self.usarSirene == 1:
