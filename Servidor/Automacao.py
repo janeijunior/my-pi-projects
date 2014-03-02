@@ -6,6 +6,7 @@ import Usuario
 import TemperaturaHumidade
 import SomAmbiente
 import Email
+import Rele
 from xml.etree.ElementTree import Element
 import xml.etree.ElementTree as ET
 
