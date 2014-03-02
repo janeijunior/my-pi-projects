@@ -284,7 +284,10 @@ class Automacao(Base.Base):
             dias = ''
             equipamentos = ''
             
+            rowsdia self.consultarRegistros("select * from DiaAgendamento")
             
+            for rowdia in rowsdia:
+                dias = dias + rowdia + ";"
             
             agendamento = Agendamento.Agendamento(row["Id"], row["Nome"], dias), equipamentos), row["DataHoraInicial"], 
                                                   row["DataHoraFinal"], int(row["Ativo"]), self.reles, self.alarme)        
