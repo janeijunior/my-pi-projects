@@ -70,6 +70,10 @@ class SomAmbiente(object):
     #pausa a musica
     def pause(self):
         self.executarComandoMPlayer("pause", "")
+    
+    #para a execucao
+    def stop(self):
+        self.executarComandoMPlayer("stop", "")
         
     #avanca ou retrocede a faixa
     def step(self, valor):
