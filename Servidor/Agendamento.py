@@ -58,7 +58,7 @@ class Agendamento(Base.Base):
             else:
                 alarme = 0
                 
-            sql = "insert into Agendamento (Nome, DataHoraInicial, DataHoraFinal, Alarme) values ('{nome}', '{dataInicial}', '{dataFinal}', {alarme}')"
+            sql = "insert into Agendamento (Nome, DataHoraInicial, DataHoraFinal, Alarme) values ('{nome}', '{dataInicial}', '{dataFinal}', {alarme})"
             sql = sql.format(nome = self.nome, dataInicial = self.dataHoraInicial, dataFinal = self.dataHoraFinal, alarme = alarme)
             
             self.executarComando(sql)
