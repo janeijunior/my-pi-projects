@@ -66,24 +66,24 @@ class SomAmbiente(object):
             print self.executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
         except:
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
-            self.mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+            self.__mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
             
     #pausa a musica
     def pause(self):
-        executarComandoMPlayer("pause", "")
+        self.executarComandoMPlayer("pause", "")
         
     #avanca ou retrocede a faixa
     def step(self, valor):
         try:         
-            executarComandoMPlayer("pt_step " + valor, "")
+            self.executarComandoMPlayer("pt_step " + valor, "")
         except:
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
-            self.mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)    
-            executarComandoMPlayer("pt_step " + str(int(valor) - 1), "")
+            self.__mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)    
+            self.executarComandoMPlayer("pt_step " + str(int(valor) - 1), "")
 
     #volume
     def volume(self, valor):
-        executarComandoMPlayer("set_property volume " + valor, "")
+        self.executarComandoMPlayer("set_property volume " + valor, "")
         
     #reproduz a faixa a partir do nome
     def playNome(self, valor):
@@ -97,8 +97,8 @@ class SomAmbiente(object):
                 executarComandoMPlayer("pt_step " + str(step), "")
         except:
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
-            self.mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+            self.__mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
             proxima = self.getPosicaoMusica(valor)
             
             if proxima <> 0: 
-                executarComandoMPlayer("pt_step " + str(proxima), "")           
+                self.executarComandoMPlayer("pt_step " + str(proxima), "")           
