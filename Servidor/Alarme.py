@@ -67,10 +67,7 @@ class Alarme(object):
     
     #funcao para ler o status do alarme
     def getStatusAlarme(self):
-        try:
-            return self.threadAlarme.status
-        except:
-            return -1
+        self.status
         
     #funcao para ligar o panico do alarme
     def ligarPanicoAlarme(self):
