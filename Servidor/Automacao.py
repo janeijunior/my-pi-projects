@@ -243,7 +243,7 @@ class Automacao(Base.Base):
                 id    = int(child.get("Id") 
                 
                 self.alarme.sensores[id].nome  = child.get("Nome").encode('utf-8')
-                self.alarme.sensores[id].ativo = int(child.get("Ativo")
+                self.alarme.sensores[id].ativo = int(child.get("Ativo"))
                 self.alarme.sensores[id].gravarBanco()
                 
             con.send("Ok\n")
