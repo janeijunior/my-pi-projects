@@ -7,7 +7,6 @@ import threading
 import time
 import SensorAlarme
 import Base
-import MySQLdb
 
 DESLIGADO = -1
 NORMAL = 0
@@ -87,34 +86,15 @@ class Alarme(Base.Base):
      
     #função que atualiza as congiguracoes no banco
     def gravarConfiguracaoBanco(self):
-        try:
-            conBanco = self.conectarBanco()
-            cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+        sql = '''update ConfiguracaoAlarme 
+                    set TempoDisparo = {tempo}, 
+                        UsarSirene = {usarSirene},
+                        EnviarEmail = {usarEmail}'''
             
-            sql = '''update Configuracao 
-                        set TempoDisparo = {tempo}, 
-                            UsarSirene   = {usarSirene},
-                            EnviarEmail  = {usarEmail}'''
+        sql = sql.format(tempo = int(self.tempoDisparo), usarSirene = int(self.usarSirene), usarEmail = int(self.usarEmail))
             
-            sql = sql.format(tempo = int(root.find("TempoDisparo").text), usarSirene = int(root.find("UsarSirene").text), 
-                             usarEmail = int(root.find("UsarEmail").text))
-            
-            cursor.execute(sql)
-            sensores  = root.find("Sensores")
+        return self.executarComando(sql)
         
-            for child in sensores:
-                sql = "update SensorAlarme set Nome = '{novoNome}', Ativo = {ativo} where Id = {idSensor}"
-                sql = sql.format(novoNome = child.get("Nome").encode('utf-8'), ativo = int(child.get("Ativo")), idSensor = int(child.get("Id")))
-                cursor.execute(sql)
-            
-            conBanco.commit()
-            conBanco.close()
-            con.send("Ok\n")
-        except:
-            print "Erro ao executar o comando: " + sql
-            con.send("Erro\n")
-            conBanco.rollback()
-            conBanco.close()
      
     #insere os sensores na lista passando seus atributos recuperados do banco
     def carregarSensores(self):
