@@ -22,9 +22,9 @@ class Camera(object):
     #inicia ou para o servico de stream da camera
     def acionamentoCamera(self):
         if len(self.conexoes) < 1:
-            desligarCamera()
+            self.desligarCamera()
         elif len(self.conexoes) > 0:
-            ligarCamera()
+            self.ligarCamera()
     
     #remove o cliente da lista de conexões 
     def removerConexaoCamera(self, cliente):
