@@ -117,7 +117,7 @@ class Alarme(Base.Base):
             self.ligarAlarme()
         
         if row['StatusPanico'] == 1:
-            self.ligarPanicoAlarme()     
+            self.ligarPanico()     
     
     #função que é executada como thread que monitora os sensores    
     def __monitorarSensores(self):
