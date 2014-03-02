@@ -112,24 +112,9 @@ class Alarme(object):
     def __done__(self):
         self.desligarPanicoAlarme()
         self.desligarAlarme()
-        
-class ThreadAlarme(threading.Thread):
-    def __init__(self, sirene):
-        threading.Thread.__init__(self)
-        self.name = 'ThreadAlarme'
-        self.__stop_thread_event = threading.Event()
-        
-        #atributos
-        
-        
-        
-    def stop(self):
-        self.sirene.desligar()
-        self.__stop_thread_event.set()
-        
-      
-        
-    def run(self):
+    
+    #função que é executada como thread que monitora os sensores    
+    def __monitorarSensores(self):
         if self.usarSirene == 1:
             self.sirene.ligar()
             time.sleep(0.2)
