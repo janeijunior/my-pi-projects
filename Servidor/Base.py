@@ -16,8 +16,8 @@ class Base(object):
     #funcao para conectar no banco de dados
     def conectarBanco(self):
         try:
-            conBanco = MySQLdb.connect(self.hostBanco, self.usuarioBanco, self.senhaBanco)
-            conBanco.select_db(self.nomeBanco)
+            conBanco = MySQLdb.connect(self.__hostBanco, self.__usuarioBanco, self.__senhaBanco)
+            conBanco.select_db(self.__nomeBanco)
         except MySQLdb.Error, e:
             print "Nao foi possivel conectar ao banco de dados.", e
     
