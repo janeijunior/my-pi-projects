@@ -13,9 +13,12 @@ import Base
 from email.MIMEText import MIMEText
 
 class Email(Base.Base):
+    
+    #construtor
     def __init__(self):
         self.carregarDados()
     
+    #função para carregar os dados de envio
     def carregarDados(self):
         
         row = Funcoes.consultarRegistro("select * from ConfiguracaoEmail")
