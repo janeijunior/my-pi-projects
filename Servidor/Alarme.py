@@ -85,7 +85,7 @@ class Alarme(Base.Base):
        return self.executarComando(sql)
      
     #função que atualiza as configuracoes no banco
-    def alterarConfiguracao(self):
+    def gravarConfiguracaoBanco(self):
         sql = '''update ConfiguracaoAlarme 
                     set TempoDisparo = {tempo}, 
                         UsarSirene = {usarSirene},
@@ -93,11 +93,7 @@ class Alarme(Base.Base):
             
         sql = sql.format(tempo = int(self.tempoDisparo), usarSirene = int(self.usarSirene), usarEmail = int(self.usarEmail))
             
-        if self.executarComando(sql):
-            
-            return True
-        else:
-            return False
+        return self.executarComando(sql)
      
     #insere os sensores na lista passando seus atributos recuperados do banco
     def carregarSensores(self):
