@@ -36,7 +36,6 @@ class Alarme(object):
     #funcoes
     #funcao para ligar o alarme
     def ligarAlarme(self):
-        self.sirene = sirene
         self.status = NORMAL
         
         self.thread = threading.Thread(None, self.__monitorarSensor, None, ())
