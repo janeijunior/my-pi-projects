@@ -285,17 +285,14 @@ class Automacao(Base.Base):
             equipamentos = ''
             
             rowsdia = self.consultarRegistros("select Dia from DiaAgendamento where IdAgendamento = {id}".format(id = row["Id"]))
-            
             for rowdia in rowsdia:
                 dias = dias + rowdia["Dia"] + ";"
             
             rowsequip = self.consultarRegistros("select IdRele from ReleAgendamento where IdAgendamento = {id}".format(id = row["Id"]))
-            
             for rowequip in rowsequi:
                 equipamentos = equipamentos + rowequip["IdRele"] + ";"
             
             agendamento = Agendamento.Agendamento(row["Id"], row["Nome"], dias), equipamentos, row["DataHoraInicial"], row["DataHoraFinal"], int(row["Ativo"]), self.reles, self.alarme)        
-                    
             self.agendamentos.insert(row["Id"], agendamento)    
             
     #funcao que insere um novo agendamento no banco de dados e alualiza a lista de agendamentos 
