@@ -51,7 +51,7 @@ class Agendamento(object):
         
     #funcao para gravar um novo agendamento no banco de dados
     def gravarRegistroBanco(self):
-        sql = "insert into Agendamento (Nome, DataHoraInicial, DataHoraFinal) values ('{nome}', '{dataInicial}', '{dataFinal}', '{dias}', '{equipamentos}')"
+        sql = "insert into Agendamento (Nome, DataHoraInicial, DataHoraFinal, Alarme) values ('{nome}', '{dataInicial}', '{dataFinal}', {alarme}')"
         sql = sql.format(nome = self.nome, dataInicial = self.dataHoraInicial, dataFinal = self.dataHoraFinal, dias = self.dias, equipamentos = self.equipamentos)
         
         return Funcoes.executarComando(sql)
