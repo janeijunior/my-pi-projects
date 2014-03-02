@@ -87,7 +87,7 @@ class Agendamento(Base.Base):
             sql = "delete from ReleAgendamento where IdAgendamento = {idRegistro}".format(idRegistro = self.id)
             self.executarComando(sql)
             
-            sql = "delete from DiaAgendamento where Id = {idRegistro}".format(idRegistro = self.id)
+            sql = "delete from DiaAgendamento where IdAgendamento = {idRegistro}".format(idRegistro = self.id)
             self.executarComando(sql)
             
             sql = "delete from Agendamento where Id = {idRegistro}".format(idRegistro = self.id)
