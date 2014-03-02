@@ -84,7 +84,7 @@ class Automacao(Base.Base):
         con.send(xmlstr)
     
     #funcao para alterar o usuario e a senha
-    def alterarUsuarioSenha(senha, root, con):
+    def alterarUsuarioSenha(self, senha, root, con):
         usuario = root.find("Usuario").text.encode('utf-8')
         senha   = root.find("Senha").text.encode('utf-8')
         
