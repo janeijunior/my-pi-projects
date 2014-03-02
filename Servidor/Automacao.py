@@ -276,7 +276,7 @@ class Automacao(Base.Base):
             self.camera.removerConexao(cliente)
     
     #carregar lista de agendamentos
-    def carregarListaAgendamento(self):
+    def carregarAgendamento(self):
         self.agendamentos = []
     
         rows = self.consultarRegistros("select * from Agendamento where Ativo = 1")
