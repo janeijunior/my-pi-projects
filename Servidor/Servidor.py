@@ -20,7 +20,17 @@ tcp.listen(1)
 
 #classe automacao
 automacao = Automacao.Automacao()
-        
+
+#para fechar o programa
+def signal_handler(signal, frame):
+    print "\nEncerrando aplicativo..."
+    automacao.finalizarProcessos()
+    automacao.cleanup()
+    tcp.close;
+    sys.exit(0)
+    
+signal.signal(signal.SIGINT, signal_handler)
+
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
     while True:
