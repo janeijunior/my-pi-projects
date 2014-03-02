@@ -332,10 +332,10 @@ def conectado(con, cliente):
     con.close()
     thread.exit()
 
-configurarReles()
-configurarAlarme()
-carregarListaAgendamento()
-iniciarAgendamento()
+#configurarReles()
+#configurarAlarme()
+#carregarListaAgendamento()
+#iniciarAgendamento()
 
 print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
 
