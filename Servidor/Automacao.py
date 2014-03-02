@@ -40,7 +40,7 @@ class Automacao(Base.Base):
     return lista
     
     #liga ou desliga os reles/atuadores
-    def controlarRele(root, con):
+    def controlarRele(self, root, con):
         acao   = root.find("Acao").text
         numero = root.find("Numero").text
         
