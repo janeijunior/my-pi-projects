@@ -93,7 +93,7 @@ class SomAmbiente(object):
                 atual = self.getPosicaoMusica(nome[1:len(nome) -5])
                 proxima = self.getPosicaoMusica(str(valor))
                 step = proxima - atual
-                executarComandoMPlayer("pt_step " + str(step), "")
+                self.executarComandoMPlayer("pt_step " + str(step), "")
         except:
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
             self.__mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
