@@ -44,7 +44,7 @@ class Automacao(Base.Base):
     #carrega a lista com os reles já configurados
     def carregarReles(self):
         rows  = self.consultarRegistros("select * from Rele")
-        lista = []
+        self.reles = []
 
         for row in rows:
             rele = Rele.Rele(row["Id"], row["NumeroGPIO"], row["Status"], row["Nome"])        
