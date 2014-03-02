@@ -37,8 +37,8 @@ class Email(Base.Base):
                          Destinatario = '{novoDestinatario}',
                          ServidorSMTP = '{novoServidor}',
                          PortaSMTP = {novaPorta}'''
-        sql = sql.format(novoUsuario = usuario, novaSenha = senha, 
-                                                      novoDestinatario = destinatario, novoServidor = servidor, novaPorta = porta)
+        
+        sql = sql.format(novoUsuario = usuario, novaSenha = senha, novoDestinatario = destinatario, novoServidor = servidor, novaPorta = porta)
 
         
         if self.executarComando(sql):
