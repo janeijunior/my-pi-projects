@@ -50,13 +50,13 @@ class Alarme(Base.Base):
                 if self.status == DISPARADO:
                     time.sleep(0.5)    
             
-            self.sirene.ligar()
-            time.sleep(0.2)
-            self.sirene.desligar()
-            time.sleep(0.5)
-            self.sirene.ligar()
-            time.sleep(0.2)
-            self.sirene.desligar()
+                self.sirene.ligar()
+                time.sleep(0.2)
+                self.sirene.desligar()
+                time.sleep(0.5)
+                self.sirene.ligar()
+                time.sleep(0.2)
+                self.sirene.desligar()
         
             self.status = DESLIGADO
             self.atualizarStatusBanco()
