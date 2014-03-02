@@ -61,6 +61,19 @@ class Automacao(Base.Base):
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)
     
+    #funcao para renomear os reles atraves da aba de configuracoes
+    def alterarConfiguracaoRele(self, root, con):
+        global listaReles
+        
+        try:
+            for child in root:
+                listaReles[int(child.get("Id"))].nome = str(child.get("Nome").encode('utf-8')) 
+                listaReles[int(child.get("Id"))].gravarNomeBanco();
+            
+            con.send("Ok\n")
+        except:
+            con.send("Erro\n")
+    
     #função para validar o usuario e a senha, se nao estiverem certos desconecta!
     def efetuarLogin(self, root, con):
         usuario = root.find("Usuario").text.encode('utf-8')
