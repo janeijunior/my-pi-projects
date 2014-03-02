@@ -271,11 +271,6 @@ class Automacao(Base.Base):
             con.send("Ok\n")
             self.camera.removerConexao(cliente)
     
-    #inicializar thread do agendamento
-    def iniciarAgendamento(self):
-        self.controleAgendamento = ControleAgendamento.ControleAgendamento(self.agendamentos)
-        self.controleAgendamento.start() 
-            
     #carregar lista de agendamentos
     def carregarListaAgendamento(self):
         self.agendamentos = []
