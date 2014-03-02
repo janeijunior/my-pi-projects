@@ -238,8 +238,6 @@ class Automacao(Base.Base):
             self.alarme.enviarEmail  = int(root.find("UsarEmail").text)
             
             self.alarme.gravarBanco()
-            
-            cursor.execute(sql)
             sensores  = root.find("Sensores")
         
             for child in sensores:
