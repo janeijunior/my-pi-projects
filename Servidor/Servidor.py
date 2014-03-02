@@ -82,7 +82,7 @@ def conectado(con, cliente):
                 
     print "Finalizando conexao do cliente", cliente
     
-    #removerConexaoCamera(cliente)
+    automacao.removerConexao(cliente)
     
     con.close()
     thread.exit()
