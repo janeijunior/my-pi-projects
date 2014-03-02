@@ -8,8 +8,8 @@ import SomAmbiente
 import Email
 import Rele
 import Alarme
-from xml.etree.ElementTree import Element
 import xml.etree.ElementTree as ET
+from xml.etree.ElementTree import Element
 
 class Automacao(Base.Base):
 
