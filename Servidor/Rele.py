@@ -2,7 +2,6 @@
 #-*- coding: utf-8 -*-
 
 import Adafruit_MCP230xx
-import Funcoes
 import Base.Base
 
 #variavel para controle dos pinos GPIO (reles)
