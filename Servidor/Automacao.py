@@ -10,6 +10,7 @@ import Rele
 import Alarme
 import Camera
 import Funcoes
+import time
 import xml.etree.ElementTree as ET
 
 from xml.etree.ElementTree import Element
