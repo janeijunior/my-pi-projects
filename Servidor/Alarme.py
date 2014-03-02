@@ -83,6 +83,14 @@ class Alarme(object):
             sensor = SensorAlarme.SensorAlarme(row["Id"], row["NumeroGPIO"], row["Ativo"], row["Nome"])        
             self.sensores.insert(int(row["Id"]) - 1 , sensor)    
     
+    #carrega as configurações
+    def carregarConfiguracao(self):
+        row = self.consultarRegistro("select * from ConfiguracaoAlarme")
+        
+        self.tempoDisparo = row["TempoDisparo"]
+        self.usarSirene   = row["UsarSirene"]
+        self.enviarEmail  = row["EnviarEmail"]
+    
     #destrutor
     def __done__(self):
         self.desligarPanicoAlarme()
@@ -98,12 +106,7 @@ class ThreadAlarme(threading.Thread):
         self.sirene = sirene
         self.status = NORMAL
         
-        row = Funcoes.consultarRegistro("select * from ConfiguracaoAlarme")
         
-        self.tempoDisparo = row["TempoDisparo"]
-        self.usarSirene   = row["UsarSirene"]
-        self.enviarEmail  = row["EnviarEmail"]
-    
     def stop(self):
         self.sirene.desligar()
         self.__stop_thread_event.set()
