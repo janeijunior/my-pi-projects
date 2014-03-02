@@ -8,6 +8,8 @@ import thread
 import threading
 import Funcoes
 import Automacao
+import signal
+import sys
 
 #para fechar o programa
 def signal_handler(signal, frame):
