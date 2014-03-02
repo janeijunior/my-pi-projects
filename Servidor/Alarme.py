@@ -7,6 +7,7 @@ import threading
 import time
 import SensorAlarme
 import Base
+import MySQLdb
 
 DESLIGADO = -1
 NORMAL = 0
@@ -86,16 +87,22 @@ class Alarme(Base.Base):
      
     #função que atualiza as congiguracoes no banco
     def gravarConfiguracaoBanco(self):
-        sql = '''update ConfiguracaoAlarme 
-                    set TempoDisparo = {tempo}, 
-                        UsarSirene = {usarSirene},
-                        EnviarEmail = {usarEmail}'''
+        try:
+            conBanco = self.conectarBanco()
+            cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
             
-        sql = sql.format(tempo = int(self.tempoDisparo), usarSirene = int(self.usarSirene), usarEmail = int(self.usarEmail))
+            sql = '''update Configuracao 
+                        set TempoDisparoAlarme = {tempo}, 
+                            UsarSireneAlarme = {usarSirene},
+                            EnviarEmailAlarme = {usarEmail}'''
             
-        self.executarComando(sql)
+            sql = sql.format(tempo = int(root.find("TempoDisparo").text), usarSirene = int(root.find("UsarSirene").text), 
+                             usarEmail = int(root.find("UsarEmail").text))
+            
+            cursor.execute(sql)
+            sensores  = root.find("Sensores")
         
-        for sensor in self.sensores:
+            for child in sensores:
                 sql = "update SensorAlarme set Nome = '{novoNome}', Ativo = {ativo} where Id = {idSensor}"
                 sql = sql.format(novoNome = child.get("Nome").encode('utf-8'), ativo = int(child.get("Ativo")), idSensor = int(child.get("Id")))
                 cursor.execute(sql)
