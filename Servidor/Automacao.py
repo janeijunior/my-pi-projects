@@ -234,15 +234,20 @@ class Automacao(Base.Base):
             self.alarme.usarSirene   = int(root.find("UsarSirene").text
             self.alarme.usarEmail    = int(root.find("UsarEmail").text)
             
-            
             self.alarme.gravarConfiguracao()
             
             cursor.execute(sql)
             sensores  = root.find("Sensores")
         
             for child in sensores:
+                id    = int(child.get("Id") 
+                nome  = child.get("Nome").encode('utf-8')
+                ativo = int(child.get("Ativo")
+                
+                sensor = self.alarme.sensores[int(child.get("Id")]
+                
                 sql = "update SensorAlarme set Nome = '{novoNome}', Ativo = {ativo} where Id = {idSensor}"
-                sql = sql.format(novoNome = child.get("Nome").encode('utf-8'), ativo = int(child.get("Ativo")), idSensor = int(child.get("Id")))
+                sql = sql.format(novoNome =, ativo = int(child.get("Ativo")), idSensor = int(child.get("Id")))
                 cursor.execute(sql)
             
             conBanco.commit()
