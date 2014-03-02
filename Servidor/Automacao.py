@@ -112,7 +112,7 @@ class Automacao(Base.Base):
             con.send(xmlstr)    
             
             if len(self.camera.conexoes) > 0:
-                self.camera.ligarCamera()        
+                self.camera.ligar()        
         except Exception as e: 
             print "Erro: ", e
             con.send("Erro\n")
