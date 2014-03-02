@@ -26,15 +26,6 @@ class Alarme(Base.Base):
         self.carregarConfiguracao()
         self.status = DESLIGADO
         
-        #pega os status do banco e se necessario liga o alarme/panico
-        row = self.consultarRegistro("select StatusAlarme, StatusPanico from ConfiguracaoAlarme")
-        
-        if row['StatusAlarme'] == 1:
-            self.ligarAlarme()
-        
-        if row['StatusPanico'] == 1:
-            self.ligarPanicoAlarme()     
-        
     #funcoes
     #funcao para ligar o alarme
     def ligarAlarme(self):
