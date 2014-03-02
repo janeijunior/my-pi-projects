@@ -48,23 +48,24 @@ class Alarme(Base.Base):
         
     #funcao para desligar o alarme
     def desligarAlarme(self):
-        self.alarmeLigado = False
-        self.sirene.desligar()
+        if self.alarme.alarmeLigado == True:
+            self.alarmeLigado = False
+            self.sirene.desligar()
+            
+            if self.usarSirene == 1:
+                if self.status == DISPARADO:
+                    time.sleep(0.5)    
+            
+            self.sirene.ligar()
+            time.sleep(0.2)
+            self.sirene.desligar()
+            time.sleep(0.5)
+            self.sirene.ligar()
+            time.sleep(0.2)
+            self.sirene.desligar()
         
-        if self.usarSirene == 1:
-            if self.status == DISPARADO:
-                time.sleep(0.5)    
-        
-        self.sirene.ligar()
-        time.sleep(0.2)
-        self.sirene.desligar()
-        time.sleep(0.5)
-        self.sirene.ligar()
-        time.sleep(0.2)
-        self.sirene.desligar()
-    
-        self.status = DESLIGADO
-        self.atualizarStatusBanco()
+            self.status = DESLIGADO
+            self.atualizarStatusBanco()
         
     #funcao para ligar o panico do alarme
     def ligarPanicoAlarme(self):
