@@ -63,12 +63,10 @@ class Automacao(Base.Base):
     
     #funcao para renomear os reles atraves da aba de configuracoes
     def alterarConfiguracaoRele(self, root, con):
-        global listaReles
-        
         try:
             for child in root:
-                listaReles[int(child.get("Id"))].nome = str(child.get("Nome").encode('utf-8')) 
-                listaReles[int(child.get("Id"))].gravarNomeBanco();
+                self.reles[int(child.get("Id"))].nome = str(child.get("Nome").encode('utf-8')) 
+                self.reles[int(child.get("Id"))].gravarNomeBanco();
             
             con.send("Ok\n")
         except:
