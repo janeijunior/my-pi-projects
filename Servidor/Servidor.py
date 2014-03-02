@@ -67,7 +67,7 @@ def configurarReles():
 #inicializa o alarme
 def configurarAlarme():
     global alarme
-    alarme = Alarme.Alarme(sirene=listaReles[SIRENE])
+    alarme = Alarme.Alarme(sirene=listaReles[SIRENE], Email.Email())
 
 #inicializar thread do agendamento
 def iniciarAgendamento():
