@@ -353,6 +353,13 @@ class Automacao(Base.Base):
     		rele.desligar()
     	
         self.camera.desligar()
+        
+        self.usuario.cleanup()
+        self.temperaturaHumidade.cleanup()
+        self.somAmbiente.cleanup()
+        self.email.cleanup()
+        self.camera.cleanup()
+        self.alarme.cleanup()
     
     #funcao para reiniciar ou desligar o servidor conforme solicitado pelo app android
     def reiniciarDesligarServidor(root, con):
