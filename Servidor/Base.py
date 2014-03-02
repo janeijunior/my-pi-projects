@@ -7,7 +7,7 @@ import Funcoes
 class Base(object):  
     
     #construtor
-    def __init__(self, carregar):
+    def __init__(self):
         self.__hostBanco    = Funcoes.lerConfiguracaoIni('HostBanco')
         self.__usuarioBanco = Funcoes.lerConfiguracaoIni('UsuarioBanco')
         self.__senhaBanco   = Funcoes.lerConfiguracaoIni('SenhaBanco')
