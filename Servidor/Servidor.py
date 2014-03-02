@@ -87,8 +87,10 @@ def conectado(con, cliente):
     
 signal.signal(signal.SIGINT, signal_handler)
 
-HOST     = ""                                       # IP do Servidor (em branco = IP do sistema)
-PORT     = int(Funcoes.lerConfiguracaoIni("Porta")) # Porta do Servidor
+# IP do Servidor (em branco = IP do sistema)
+HOST     = ""                                       
+# Porta do Servidor
+PORT     = int(Funcoes.lerConfiguracaoIni("Porta")) 
 
 orig = (HOST, PORT)
 
