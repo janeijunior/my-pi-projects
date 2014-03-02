@@ -36,8 +36,8 @@ class Alarme(object):
     #funcoes
     #funcao para ligar o alarme
     def ligarAlarme(self):
-        self.threadAlarme = ThreadAlarme.ThreadAlarme(sirene=self.sirene)
-        self.threadAlarme.start() 
+        self.thread = threading.Thread(None, self.__monitorarSensor, None, ())
+        self.thread.start()
         self.alarmeLigado = True
         self.atualizarStatusBanco()
         
