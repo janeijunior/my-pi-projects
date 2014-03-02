@@ -289,21 +289,14 @@ class Automacao(Base.Base):
             
     #funcao que insere um novo agendamento no banco de dados e alualiza a lista de agendamentos 
     def gravarAgendamento(self, root, con):
-        global listaReles
-        global alarme
-        global threadAgendamento
-        global listaAgendamento
-        
         agendamento = Agendamento.Agendamento(id = 0, nome = root.find("Nome").text.encode('utf-8'), dias = root.find("Dias").text, 
                                               equipamentos = root.find("Equipamentos").text, dataHoraInicial = root.find("DataHoraInicial").text, 
-                                              dataHoraFinal = root.find("DataHoraFinal").text, ativo = 1, listaReles = listaReles, alarme = alarme)
+                                              dataHoraFinal = root.find("DataHoraFinal").text, ativo = 1, listaReles = self.reles, alarme = self.alarme)
         
         if agendamento.gravarRegistroBanco():
             con.send("Ok\n")
-            #carrega os novos agendamentos
-            carregarListaAgendamento()
-            #passa a nova lista para a thread
-            threadAgendamento.listaAgendamento = listaAgendamento
+            self.carregarListaAgendamento()
+            self.controleAgendamento.listaAgendamento = self.agendamentos
         else:
             con.send("Erro\n")
     
