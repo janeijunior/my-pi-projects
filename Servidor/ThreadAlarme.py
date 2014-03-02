@@ -21,6 +21,12 @@ class ThreadAlarme(threading.Thread):
         #atributos
         self.sirene = sirene
         self.status = NORMAL
+        
+        row = Funcoes.consultarRegistro("select * from ConfiguracaoAlarme")
+        
+        self.tempoDisparo = row["TempoDisparo"]
+        self.usarSirene   = row["UsarSirene"]
+        self.enviarEmail  = row["EnviarEmail"]
     
     def stop(self):
         self.sirene.desligar()
