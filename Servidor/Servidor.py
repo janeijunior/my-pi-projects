@@ -25,7 +25,6 @@ import Email
 
 HOST     = ""                                            # IP do Servidor (em branco = IP do sistema)
 PORT     = int(Funcoes.lerConfiguracaoIni("Porta"))      # Porta do Servidor
-MJPG     = Funcoes.lerConfiguracaoIni("CaminhoMJPG")     # Caminho stream de video
 
 orig = (HOST, PORT)
 
