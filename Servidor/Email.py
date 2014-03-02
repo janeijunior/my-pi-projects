@@ -16,10 +16,10 @@ class Email(Base.Base):
     
     #construtor
     def __init__(self):
-        self.carregarDados()
+        self.carregarConfiguracaoEmail()
     
     #função para carregar os dados de envio
-    def carregarDados(self):
+    def ConfiguracaoEmail(self):
         
         row = Funcoes.consultarRegistro("select * from ConfiguracaoEmail")
         
@@ -30,8 +30,16 @@ class Email(Base.Base):
         self.senha        = row["Senha"]
         
     #função para alterar os dados de envio
-    def alterarDados(self, remetente, destinatario, servidorSMTP, portaSMTP, senha):
+    def alterarConfiguracaoEmail(self, remetente, destinatario, servidorSMTP, portaSMTP, senha):
+        sql = "update Usuario set Usuario = '{novoUsuario}', Senha = '{novaSenha}'"
+        sql = sql.format(novoUsuario =  usuario, novaSenha = senha)
         
+        if self.executarComando(sql):
+            self.usuario = usuario
+            self.senha   = senha
+            return True
+        else:
+            return False     
         
         
     
