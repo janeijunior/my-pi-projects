@@ -12,19 +12,19 @@ class Camera(object):
         self.conexoes = []
     
     #inicia o servico da camera
-    def ligarCamera(self):
+    def ligar(self):
         os.system("sudo " + self.MJPG) #iniciar, porta, resolucao, fps
         
     #para o servico da camera
-    def desligarCamera(self):
+    def desligar(self):
         os.system("sudo " + self.MJPG + " stop")
     
     #inicia ou para o servico de stream da camera
-    def acionamentoCamera(self):
+    def acionamento(self):
         if len(self.conexoes) < 1:
-            self.desligarCamera()
+            self.desligar()
         elif len(self.conexoes) > 0:
-            self.ligarCamera()
+            self.ligar()
     
     #remove o cliente da lista de conexões 
     def removerConexao(self, cliente):
