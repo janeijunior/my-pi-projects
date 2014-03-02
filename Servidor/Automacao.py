@@ -227,7 +227,6 @@ class Automacao(Base.Base):
         
         root.append(sensores)
         xmlstr = ET.tostring(root) + "\n" 
-        print xmlstr
         con.send(xmlstr)
             
     #funcao para gravar as novas configuracoes do alarme
