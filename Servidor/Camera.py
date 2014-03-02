@@ -27,10 +27,10 @@ class Camera(object):
     
     #remove o cliente da lista de conexões 
     def removerConexaoCamera(cliente):
-        if len(listaConexoesCamera) > 0:
-            for i in range(-1, len(listaConexoesCamera)):
-                if listaConexoesCamera[i] == cliente:
-                    del listaConexoesCamera[i]
+        if len(self.conexoes) > 0:
+            for i in range(-1, len(self.conexoes)):
+                if self.conexoes[i] == cliente:
+                    del self.conexoes[i]
                     acionamentoCamera()
     
     def adicionarConexaoCamera(cliente):
