@@ -19,6 +19,7 @@ class EnviarEmail(Base.Base):
     def carregarDados(self):
         
         
+        
         self.remetente = remetente
         self.senha = senha
         self.destinatario = destinatario
