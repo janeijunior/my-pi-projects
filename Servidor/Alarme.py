@@ -63,7 +63,6 @@ class Alarme(object):
         time.sleep(0.2)
         self.sirene.desligar()
     
-        
         self.atualizarStatusBanco()
     
     #funcao para ler o status do alarme
