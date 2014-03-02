@@ -180,12 +180,9 @@ class Automacao(Base.Base):
         acao = root.find("Acao").text
         
         if acao == "Ligar":
-            if self.alarme.alarmeLigado == False:
-                self.alarme.ligarAlarme() 
-                print "Alarme ativado"
+            self.alarme.ligarAlarme() 
         else:
             self.alarme.desligarAlarme()
-            print "Alarme desativado"
         
         con.send("Ok\n")
                 
