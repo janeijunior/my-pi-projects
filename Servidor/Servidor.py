@@ -239,9 +239,9 @@ def conectado(con, cliente):
                 elif root.tag == "EnviarConfiguracaoEmail":
                     automacao.enviarConfiguracaoEmail(con)
                 elif root.tag == "EnviarConfiguracaoAlarme":
-                    enviarConfiguracaoAlarme(con)
+                    automacao.enviarConfiguracaoAlarme(con)
                 elif root.tag == "AlterarConfiguracaoAlarme":
-                    alterarConfiguracaoAlarme(root, con)
+                    automacao.alterarConfiguracaoAlarme(root, con)
                 elif root.tag == "EnviarListaMusica":
                     automacao.enviarListaMusica(con)
                 elif root.tag == "ControlarSomAmbiente":
