@@ -29,7 +29,7 @@ class Automacao(Base.Base):
         self.camera = Camera.Camera()
         self.reles = self.getReles()
         self.alarme = Alarme.Alarme(self.reles[self.GPIOSirene], self.email)
-        self.threadAgendamento = None
+        self.controleAgendamento = None
         self.agendamentos = []
     
     #funcoes da classe
