@@ -328,7 +328,7 @@ def conectado(con, cliente):
                 if root.tag == "Logar":
                     automacao.efetuarLogin(root, con)
                 elif root.tag == "Rele":
-                    controlarRele(root, con)
+                    automacao.controlarRele(root, con)
                 elif root.tag == "Temperatura":
                     automacao.enviarTemperaturaHumidade(con)
                 elif root.tag == "Alarme":
@@ -336,7 +336,7 @@ def conectado(con, cliente):
                 elif root.tag == "Panico":
                     controlarFuncaoPanico(root, con)           
                 elif root.tag == "StatusRele":
-                    enviarConfiguracaoStatusRele(con)
+                    automacao.enviarConfiguracaoStatusRele(con)
                 elif root.tag == "StatusAlarme":
                     enviarConfiguracaoStatusAlarme(con)   
                 elif root.tag == "GravarAgendamento":
@@ -348,7 +348,7 @@ def conectado(con, cliente):
                 elif root.tag == "AlterarUsuarioSenha":
                     automacao.alterarUsuarioSenha(root, con)
                 elif root.tag == "AlterarConfiguracaoRele":
-                    alterarConfiguracaoRele(root, con)
+                    automacao.alterarConfiguracaoRele(root, con)
                 elif root.tag == "AlterarConfiguracaoEmail":
                     automacao.alterarConfiguracaoEmail(root, con)
                 elif root.tag == "EnviarConfiguracaoEmail":
