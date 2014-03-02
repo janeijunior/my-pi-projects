@@ -32,7 +32,7 @@ class Camera(object):
             for i in range(-1, len(self.conexoes)):
                 if self.conexoes[i] == cliente:
                     del self.conexoes[i]
-                    acionamentoCamera()
+                    self.acionamentoCamera()
     
     #adiciona o cliente na lista de conexões
     def adicionarConexaoCamera(self, cliente):
