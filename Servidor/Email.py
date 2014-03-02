@@ -57,4 +57,4 @@ class Email(Base.Base):
         self.nomeSensor = nomeSensor
         self.idSensor = idSensor
     
-        thread.start_new_thread(self.__threadEnviar)        
+        thread.start_new_thread(self.__threadEnviar, ())        
