@@ -20,11 +20,11 @@ class Email(Base.Base):
         
         row = Funcoes.consultarRegistro("select * from ConfiguracaoEmail")
         
-        self.remetente    = row["RemetenteEmail"]
-        self.destinatario = row["DestinatarioEmail"]
+        self.remetente    = row["Remetente"]
+        self.destinatario = row["Destinatario"]
         self.servidorSMTP = row["ServidorSMTP"]
         self.portaSMTP    = row["PortaSMTP"]
-        self.senha        = row["SenhaEmail"]
+        self.senha        = row["Senha"]
         
     def __threadEnviar(self):
         form = cgi.FieldStorage()
