@@ -26,8 +26,8 @@ automacao = Automacao.Automacao()
 #para fechar o programa
 def signal_handler(signal, frame):
     print "\nEncerrando aplicativo..."
-    automacao.finalizarProcessos()
-    automacao.cleanup()
+    #automacao.finalizarProcessos()
+    #automacao.cleanup()
     tcp.close;
     sys.exit(0)
 
