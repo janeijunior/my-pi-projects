@@ -12,7 +12,7 @@ class Base(object):
         self.__usuarioBanco = Funcoes.lerConfiguracaoIni('UsuarioBanco')
         self.__senhaBanco   = Funcoes.lerConfiguracaoIni('SenhaBanco')
         self.__nomeBanco    = Funcoes.lerConfiguracaoIni('NomeBanco') 
-    
+        
     #funcao para conectar no banco de dados
     def conectarBanco(self):
         try:
