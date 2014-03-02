@@ -63,6 +63,8 @@ class Agendamento(Base.Base):
             
             return self.executarComando(sql)
         
+        
+            return True
         except Exception, e:
             print "Erro ao gravar agendamento: ", e
             return False
