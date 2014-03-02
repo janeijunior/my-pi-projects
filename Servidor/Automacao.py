@@ -108,7 +108,7 @@ class Automacao(Base.Base):
         else:
             con.send("Erro\n")
     
-    #envia a configuracao atual de email para o solicitante
+    #envia a configuracao atual de email para o dispositivo
     def enviarConfiguracaoEmail(con):
         row = Funcoes.consultarRegistro("select * from Configuracao")
         
