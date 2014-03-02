@@ -221,7 +221,7 @@ class Automacao(Base.Base):
             status = "Desligado"
         
         root.append(Element("SensorAlarme", Status=status, Ligado=str(int(self.alarme.alarmeLigado))))
-        root.append(Element("PanicoAlarme", Ligado=str(int(self.alarme.panicoAlarmeLigado))))
+        root.append(Element("PanicoAlarme", Ligado=str(int(self.alarme.panicoLigado))))
         
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)
