@@ -316,17 +316,12 @@ class Automacao(Base.Base):
     
     #funcao que remove o agendamento da lita e do banco de dados
     def removerAgendamento(self, root, con):
-        global threadAgendamento
-        global listaAgendamento
-        
-        for agendamento in listaAgendamento:
+        for agendamento in self.agendamentos:
             if agendamento.id == int(root.find("Id").text):
                 if agendamento.removerRegistroBanco():
                     con.send("Ok\n")
-                    #atualiza a lista de agendamentos
-                    carregarListaAgendamento()
-                    #passa a nova lista de agendamentos para a thread
-                    threadAgendamento.listaAgendamento = listaAgendamento
+                    self.carregarListaAgendamento()
+                    self.controleAgendamento.listaAgendamento = self.agendamentos
                     break
                 else:
                     con.send("Erro\n")
