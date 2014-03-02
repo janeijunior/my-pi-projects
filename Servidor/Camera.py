@@ -20,7 +20,7 @@ class Camera(object):
         os.system("sudo " + self.MJPG + " stop")
     
     #inicia ou para o servico de stream da camera
-    def a__cionamentoCamera():
+    def __acionamentoCamera():
         if len(self.conexoes) < 1:
             desligarCamera()
         elif len(self.conexoes) > 0:
