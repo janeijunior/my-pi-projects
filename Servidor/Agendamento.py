@@ -63,7 +63,7 @@ class Agendamento(Base.Base):
             
             self.executarComando(sql)
         
-            self.consultarRegistro("select max(Id) from Agendamento")
+            row = self.consultarRegistro("select max(Id) from Agendamento")
             idAgendamento = int(row["Id"])
         
             for str in self.listaDias:
