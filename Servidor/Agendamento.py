@@ -65,7 +65,7 @@ class Agendamento(Base.Base):
         
         except Exception, e:
             print "Erro ao gravar agendamento: ", e
-        
+            return False
         
     #funcao para remover o agendamento no banco de dados
     def removerRegistroBanco(self): 
