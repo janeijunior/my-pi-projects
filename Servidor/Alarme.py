@@ -21,6 +21,8 @@ class Alarme(object):
         self.panicoAlarmeLigado = False    
         self.sirene = sirene
         self.email = email
+        self.carregarSensores()
+        self.carregarConfiguracao()
         
         #pega os status do banco e se necessario liga o alarme/panico
         row = self.consultarRegistro("select StatusAlarme, StatusPanico from ConfiguracaoAlarme")
