@@ -39,6 +39,15 @@ class Automacao(Base.Base):
     
     return lista
     
+    #liga ou desliga os reles/atuadores
+    def controlarRele(root, con):
+        if root.find("Acao").text == "Ligar":
+            listaReles[int(root.find("Numero").text)].ligar()
+        else:
+            listaReles[int(root.find("Numero").text)].desligar()
+        
+        con.send("Ok\n")
+    
     #função para validar o usuario e a senha, se nao estiverem certos desconecta!
     def efetuarLogin(self, root, con):
         usuario = root.find("Usuario").text.encode('utf-8')
