@@ -108,11 +108,6 @@ class Alarme(object):
         self.usarSirene   = row["UsarSirene"]
         self.enviarEmail  = row["EnviarEmail"]
     
-    #destrutor
-    def __done__(self):
-        self.desligarPanicoAlarme()
-        self.desligarAlarme()
-    
     #função que é executada como thread que monitora os sensores    
     def __monitorarSensores(self):
         if self.usarSirene == 1:
@@ -150,3 +145,9 @@ class Alarme(object):
                         self.sirene.desligar() 
                         
             time.sleep(0.05)
+
+    #destrutor
+    def __done__(self):
+        self.desligarPanicoAlarme()
+        self.desligarAlarme()
+    
