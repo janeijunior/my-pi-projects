@@ -94,7 +94,8 @@ def conectado(con, cliente):
     
     con.close()
     thread.exit()
-
+    
+signal.signal(signal.SIGINT, signal_handler)
 print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
 
 while True:
