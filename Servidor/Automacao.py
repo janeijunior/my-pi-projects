@@ -100,8 +100,6 @@ class Automacao(Base.Base):
     
     #le o sensor de temperatura e humidade e envia os resultados
     def enviarTemperaturaHumidade(self, con):    
-        #global listaConexoesCamera
-        
         try:
             self.camera.desligar()
             time.sleep(1)
