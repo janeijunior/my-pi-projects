@@ -23,7 +23,7 @@ class Base(object):
     
         try:
             conBanco = MySQLdb.connect(self.hostBanco, self.usuarioBanco, self.senhaBanco)
-            conBanco.select_db(sef.nomeBanco)
+            conBanco.select_db(self.nomeBanco)
         except MySQLdb.Error, e:
             print "Nao foi possivel conectar ao banco de dados.", e
     
