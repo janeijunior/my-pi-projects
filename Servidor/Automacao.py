@@ -230,7 +230,7 @@ class Automacao(Base.Base):
         con.send(xmlstr)
             
     #funcao para gravar as novas configuracoes do alarme
-    def alterarConfiguracaoAlarme(root, con):
+    def alterarConfiguracaoAlarme(self, root, con):
         try:
             self.alarme.tempoDisparo = int(root.find("TempoDisparo").text)
             self.alarme.usarSirene   = int(root.find("UsarSirene").text)
