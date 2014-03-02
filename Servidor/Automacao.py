@@ -261,4 +261,4 @@ class Automacao(Base.Base):
             con.send("Ok\n")
         else:
             con.send("Ok\n")
-            removerConexaoCamera(cliente)
+            self.camera.removerConexaoCamera(cliente)
