@@ -101,7 +101,7 @@ class Automacao(Base.Base):
         #global listaConexoesCamera
         
         try:
-            self.camera.desligarCamera()
+            self.camera.desligar()
             time.sleep(1)
             
             resultado = self.temperaturaHumidade.getDados()    
