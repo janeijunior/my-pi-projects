@@ -230,15 +230,12 @@ class Automacao(Base.Base):
     #funcao para gravar as novas configuracoes do alarme
     def alterarConfiguracaoAlarme(root, con):
         try:
-            conBanco = Funcoes.conectarBanco()
-            cursor = conBanco.cursor(MySQLdb.cursors.DictCursor)
+            tempoDisparo = 
+            usarSirene   = 
+            usarEmail    = 
             
-            sql = '''update ConfiguracaoAlarme 
-                        set TempoDisparo = {tempo}, 
-                            UsarSirene = {usarSirene},
-                            EnviarEmail = {usarEmail}'''
-            
-            sql = sql.format(tempo = int(root.find("TempoDisparo").text), usarSirene = int(root.find("UsarSirene").text), 
+          
+          sql = sql.format(tempo = int(root.find("TempoDisparo").text), usarSirene = int(root.find("UsarSirene").text), 
                              usarEmail = int(root.find("UsarEmail").text))
             
             cursor.execute(sql)
