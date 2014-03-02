@@ -282,8 +282,13 @@ class Automacao(Base.Base):
     
         for row in rows:
             dias = ''
-            equipamentos = ''
             
+            if row["Alarme"] == 1:
+                equipamentos = "-1;"
+            else:
+                equipamentos = ''
+                
+                
             rowsdia = self.consultarRegistros("select Dia from DiaAgendamento where IdAgendamento = {id}".format(id = row["Id"]))
             for rowdia in rowsdia:
                 dias = dias + rowdia["Dia"] + ";"
