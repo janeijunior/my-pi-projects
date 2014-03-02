@@ -84,6 +84,6 @@ class Email(Base.Base):
         self.nomeSensor = nomeSensor
         self.idSensor = idSensor
     
-        #thread.start_new_thread(self.__threadEnviar, ()) 
-        t = threading.Thread(None,self.__threadEnviar,None,())
-        t.start()
+        thread.start_new_thread(self.__threadEnviar, ()) 
+        #t = threading.Thread(None,self.__threadEnviar,None,())
+        #t.start()
