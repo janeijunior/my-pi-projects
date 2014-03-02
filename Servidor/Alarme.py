@@ -24,6 +24,7 @@ class Alarme(Base.Base):
         self.email = email
         self.carregarSensores()
         self.carregarConfiguracao()
+        self.status = DESLIGADO
         
         #pega os status do banco e se necessario liga o alarme/panico
         row = self.consultarRegistro("select StatusAlarme, StatusPanico from ConfiguracaoAlarme")
