@@ -47,7 +47,6 @@ class Alarme(object):
     #funcao para desligar o alarme
     def desligarAlarme(self):
         self.alarmeLigado = False
-        self.status = DESLIGADO
         self.thread.stop()
         self.sirene.desligar()
         
@@ -63,6 +62,7 @@ class Alarme(object):
         time.sleep(0.2)
         self.sirene.desligar()
     
+        self.status = DESLIGADO
         self.atualizarStatusBanco()
     
     #funcao para ler o status do alarme
