@@ -4,7 +4,7 @@
 import thread
 import threading
 import time
-import EnviarEmail
+import Email
 import SensorAlarme
 import Funcoes
 
