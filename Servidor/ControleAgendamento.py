@@ -9,7 +9,7 @@ import time
 ATIVO = 1
 DESATIVADO = 0
 
-class ThreadAgendamento(threading.Thread):
+class ControleAgendamento(threading.Thread):
     def __init__(self, listaAgendamento):
         threading.Thread.__init__(self)
         self.name = 'ThreadAgendamento'
