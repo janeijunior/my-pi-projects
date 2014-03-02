@@ -80,7 +80,7 @@ class Alarme(Base.Base):
     #funcao para atualizar os status no banco
     def atualizarStatusBanco(self):
        sql = "update ConfiguracaoAlarme set StatusAlarme = {statusAlarme}, StatusPanico = {statusPanico}"
-       sql = sql.format(statusAlarme = int(self.alarmeLigado), statusPanico = int(self.panicoAlarmeLigado))
+       sql = sql.format(statusAlarme = int(self.alarmeLigado), statusPanico = int(self.panicoLigado))
        
        return self.executarComando(sql)
      
