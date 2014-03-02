@@ -153,48 +153,6 @@ def reiniciarDesligarServidor(root, con):
     else:
         os.system("/usr/bin/sudo /sbin/shutdown -h now")
 
-#inicia o servico da camera
-def ligarCamera():
-    os.system("sudo " + MJPG + " start 5005 320x240 2") #iniciar, porta, resolucao, fps
-    
-#para o servico da camera
-def desligarCamera():
-    os.system("sudo " + MJPG + " stop")
-
-#inicia ou para o servico de stream da camera
-def acionamentoCamera():
-    global listaConexoesCamera
-    
-    if len(listaConexoesCamera) < 1:
-        desligarCamera()
-    elif len(listaConexoesCamera) > 0:
-        ligarCamera()
-
-#remove o cliente da lista de conexões 
-def removerConexaoCamera(cliente):
-    global listaConexoesCamera
-    
-    if len(listaConexoesCamera) > 0:
-        for i in range(-1, len(listaConexoesCamera)):
-            if listaConexoesCamera[i] == cliente:
-                del listaConexoesCamera[i]
-                acionamentoCamera()
-                break
-
-#liga ou desliga o servico da camera
-def controlarCamera(root, con, cliente):
-    global listaConexoesCamera
-    
-    acao = root.find("Acao").text  
-    
-    if acao == "Ligar":
-        listaConexoesCamera.insert(len(listaConexoesCamera) + 1, cliente) 
-        acionamentoCamera()
-        con.send("Ok\n")
-    else:
-        con.send("Ok\n")
-        removerConexaoCamera(cliente)
-
 #cliente conectado, verifica os comandos recebidos
 def conectado(con, cliente):    
     while True:
