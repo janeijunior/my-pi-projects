@@ -72,7 +72,7 @@ class Agendamento(Base.Base):
     def desativarRegistroBanco(self): 
         sql = "update Agendamento set Ativo = 0 where Id = {idRegistro}".format(idRegistro = self.id)
         
-        if Funcoes.executarComando(sql):
+        if self.executarComando(sql):
             self.ativo = 0
             return True
         else:
