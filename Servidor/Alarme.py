@@ -37,13 +37,14 @@ class Alarme(Base.Base):
     #funcoes
     #funcao para ligar o alarme
     def ligarAlarme(self):
-        self.status = NORMAL
-        self.alarmeLigado = True
-        
-        self.thread = threading.Thread(None, self.__monitorarSensores, None, ())
-        self.thread.start()
-        
-        self.atualizarStatusBanco()
+        if self.alarme.alarmeLigado == False:
+            self.status = NORMAL
+            self.alarmeLigado = True
+            
+            self.thread = threading.Thread(None, self.__monitorarSensores, None, ())
+            self.thread.start()
+            
+            self.atualizarStatusBanco()
         
     #funcao para desligar o alarme
     def desligarAlarme(self):
