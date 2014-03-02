@@ -12,6 +12,7 @@ class Automacao(Base.Base):
 
     #construtor
     def __init__(self):
+        Base.Base.__init__()
         self.usuario = Usuario.Usuario()
         self.temperaturaHumidade = TemperaturaHumidade.TemperaturaHumidade()
         self.somAmbiente = SomAmbiente.SomAmbiente()
