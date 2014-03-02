@@ -346,7 +346,7 @@ class Automacao(Base.Base):
     #funcao para reiniciar ou desligar o servidor conforme solicitado pelo app android
     def reiniciarDesligarServidor(root, con):
         acao = root.find("Acao").text
-        finalizarProcessos()
+        self.finalizarProcessos()
         con.send("Ok\n")    
         
         if acao == "Reiniciar":
