@@ -40,16 +40,17 @@ class Email(Base.Base):
         
         sql = sql.format(novoRemetente = remetente, novaSenha = senha, novoDestinatario = destinatario, novoServidor = servidorSMTP, novaPorta = portaSMTP)
 
-        
         if self.executarComando(sql):
-            self.usuario = usuario
-            self.senha   = senha
+            self.remetente    = remetente
+            self.destinatario = 
+            self.servidorSMTP = servidorSMTP
+            self.portaSMTP    = portaSMTP
+            self.senha        = senha
+                        
             return True
         else:
             return False     
-        
-        
-    
+            
     def __threadEnviar(self):
         form = cgi.FieldStorage()
         
