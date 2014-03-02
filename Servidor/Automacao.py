@@ -41,10 +41,13 @@ class Automacao(Base.Base):
     
     #liga ou desliga os reles/atuadores
     def controlarRele(root, con):
-        if root.find("Acao").text == "Ligar":
-            listaReles[int(root.find("Numero").text)].ligar()
+        acao   = root.find("Acao").text
+        numero = root.find("Numero").text
+        
+        if acao == "Ligar":
+            listaReles[int(numero)].ligar()
         else:
-            listaReles[int(root.find("Numero").text)].desligar()
+            listaReles[int(numero)].desligar()
         
         con.send("Ok\n")
     
