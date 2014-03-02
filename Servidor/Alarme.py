@@ -75,13 +75,13 @@ class Alarme(object):
      
     #insere os sensores na lista passando seus atributos recuperados do banco
     def carregarSensores(self):
-    listaSensores = [];
+        self.sensores = [];
         
-        rows = Funcoes.consultarRegistros("select * from SensorAlarme")
+        rows = self.consultarRegistros("select * from SensorAlarme")
 
         for row in rows:
-            sensor = SensorAlarme.SensorAlarme(id = row["Id"], numeroGPIO = row["NumeroGPIO"], ativo = row["Ativo"], nome = row["Nome"])        
-            listaSensores.insert(int(row["Id"]) - 1 , sensor)
+            sensor = SensorAlarme.SensorAlarme(row["Id"], row["NumeroGPIO"], row["Ativo"], row["Nome"])        
+            self.sensores.insert(int(row["Id"]) - 1 , sensor)
         
         if self.usarSirene == 1:
             self.sirene.ligar()
