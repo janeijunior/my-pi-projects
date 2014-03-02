@@ -4,7 +4,11 @@
 import MySQLdb 
 import Funcoes
 
-class Base(object):          
+class Base(object):  
+    
+    #construtor
+    def __init__(self):
+    
     
     #funcao para conectar no banco de dados
     def conectarBanco(self):
