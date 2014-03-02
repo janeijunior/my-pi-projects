@@ -22,6 +22,10 @@ class Automacao(Base.Base):
     
     #funcoes da classe
     
+    #retorna uma lista com os reles
+    def getReles(self):
+        
+    
     #função para validar o usuario e a senha, se nao estiverem certos desconecta!
     def efetuarLogin(self, root, con):
         usuario = root.find("Usuario").text.encode('utf-8')
