@@ -140,8 +140,7 @@ class Alarme(object):
                     
                     #se estiver configurado envia o e-mail
                     if self.enviarEmail == 1:
-                        email = Email.Email()
-                        email.enviar(listaSensores[i].id, listaSensores[i].nome) 
+                        self.email.enviar(listaSensores[i].id, listaSensores[i].nome) 
                     
                     #aguarda o tempo configurado ate iniciar a proxima leitura
                     time.sleep(self.tempoDisparo)
