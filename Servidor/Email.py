@@ -53,5 +53,8 @@ class EnviarEmail(Base.Base):
         else:
             print "E-mail enviado!"
     
-    def enviar(self):
+    def enviar(self, idSensor, nomeSensor):    
+        self.nomeSensor = nomeSensor
+        self.idSensor = idSensor
+    
         thread.start_new_thread(self.__threadEnviar)        
