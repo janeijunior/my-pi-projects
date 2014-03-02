@@ -28,7 +28,7 @@ class Automacao(Base.Base):
         lista = []
 
         for row in rows:
-            rele = Rele.Rele(id = row["Id"], numeroGPIO = row["NumeroGPIO"], status = row["Status"], nome = row["Nome"])        
+            rele = Rele.Rele(row["Id"], row["NumeroGPIO"], row["Status"], row["Nome"])        
             
             if rele.status == 1:
                 rele.ligar()
