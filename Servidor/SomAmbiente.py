@@ -31,7 +31,7 @@ class SomAmbiente(object):
         return lista
     
     #retorna a posicao da musica com o nome passado por parametro
-    def getPosicaoMusica(nome):
+    def getPosicaoMusica(self, nome):
         arquivo = open(self.__caminhoPlaylist)
         
         i = 0
