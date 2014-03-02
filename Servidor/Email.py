@@ -23,7 +23,7 @@ class Email(Base.Base):
         self.remetente    = row["Remetente"]
         self.destinatario = row["Destinatario"]
         self.servidorSMTP = row["ServidorSMTP"]
-        self.portaSMTP    = row["PortaSMTP"]
+        self.portaSMTP    = int(row["PortaSMTP"])
         self.senha        = row["Senha"]
         
     def __threadEnviar(self):
