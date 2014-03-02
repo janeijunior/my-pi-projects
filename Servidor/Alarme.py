@@ -123,6 +123,11 @@ class ThreadAlarme(threading.Thread):
         self.status = DESLIGADO
         
     def run(self):
+        if self.usarSirene == 1:
+            self.sirene.ligar()
+            time.sleep(0.2)
+            self.sirene.desligar()
+        
         
         #executa enquanto o alarme estiver ativo
         while not self.__stop_thread_event.isSet(): 
