@@ -110,11 +110,10 @@ class Automacao(Base.Base):
     
     #envia a configuracao atual de email para o dispositivo
     def enviarConfiguracaoEmail(con):
-        row = Funcoes.consultarRegistro("select * from Configuracao")
-        
         root = Element("EnviarConfiguracaoEmail")
-        dados = Element("Dados", Usuario = str(row["RemetenteEmail"]).decode('utf-8'), Senha = str(row["SenhaEmail"]).decode('utf-8'), Destinatario = str(row["DestinatarioEmail"]).decode('utf-8'),
-                                 Servidor = str(row["ServidorSMTP"]).decode('utf-8'), Porta = str(row["PortaSMTP"]))
+        dados = Element("Dados", Usuario = self.email.remetente.decode('utf-8'), Senha = str(self.email.senha).decode('utf-8'), 
+                                 Destinatario = self.email.destinatario.decode('utf-8'), Servidor = str(row["ServidorSMTP"]).decode('utf-8'),
+                                 Porta = str(self.email.portaSMTP))
         root.append(dados)
         xmlstr = ET.tostring(root) + "\n"       
         con.send(xmlstr)
