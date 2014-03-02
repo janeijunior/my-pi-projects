@@ -95,7 +95,8 @@ class Automacao(Base.Base):
             #desligarCamera()
             #time.sleep(1)
             
-            resultado = self.temperaturaHumidade.getDados()    
+            temp = TemperaturaHumidade.TemperaturaHumidade()
+            resultado = temp.getDados()    
             root  = Element("TemperaturaHumidade")
             dados = Element("Dados", Temperatura=resultado[0], Humidade=resultado[1])
             root.append(dados)
