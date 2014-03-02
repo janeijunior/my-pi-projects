@@ -21,7 +21,7 @@ class Email(Base.Base):
     #função para carregar os dados de envio
     def carregarConfiguracao(self):
         
-        row = Funcoes.consultarRegistro("select * from ConfiguracaoEmail")
+        row = self.consultarRegistro("select * from ConfiguracaoEmail")
         
         self.remetente    = row["Remetente"]
         self.destinatario = row["Destinatario"]
