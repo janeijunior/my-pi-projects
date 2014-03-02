@@ -93,6 +93,7 @@ print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
 def signal_handler(signal, frame):
     print "\nEncerrando aplicativo..."
     automacao.finalizarProcessos()
+    automacao.cleanup()
     tcp.close;
     sys.exit(0)
     
