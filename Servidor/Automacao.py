@@ -294,7 +294,7 @@ class Automacao(Base.Base):
         
         if agendamento.gravarRegistroBanco():
             con.send("Ok\n")
-            self.carregarListaAgendamento()
+            self.carregarAgendamentos()
             self.controleAgendamento.listaAgendamento = self.agendamentos
         else:
             con.send("Erro\n")
@@ -303,7 +303,7 @@ class Automacao(Base.Base):
     def enviarAgendamento(self, con):
         root = Element("EnviarAgendamento")
         
-        self.carregarListaAgendamento()
+        self.carregarAgendamentos()
         
         for agendamento in self.agendamentos:
             root.append(Element("Agendamento" + str(agendamento.id), Id=str(agendamento.id), Nome=agendamento.nome.decode('utf-8'), 
@@ -319,7 +319,7 @@ class Automacao(Base.Base):
             if agendamento.id == int(root.find("Id").text):
                 if agendamento.removerRegistroBanco():
                     con.send("Ok\n")
-                    self.carregarListaAgendamento()
+                    self.carregarAgendamentos()
                     self.controleAgendamento.listaAgendamento = self.agendamentos
                     break
                 else:
