@@ -49,9 +49,9 @@ def conectado(con, cliente):
                 elif root.tag == "StatusAlarme":
                     automacao.enviarConfiguracaoStatusAlarme(con)   
                 elif root.tag == "GravarAgendamento":
-                    gravarAgendamento(root, con)
+                    automacao.gravarAgendamento(root, con)
                 elif root.tag == "EnviarAgendamento":
-                    enviarAgendamento(con)
+                    automacao.enviarAgendamento(con)
                 elif root.tag == "RemoverAgendamento":
                     removerAgendamento(root, con)
                 elif root.tag == "AlterarUsuarioSenha":
