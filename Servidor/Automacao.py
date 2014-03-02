@@ -231,7 +231,7 @@ class Automacao(Base.Base):
     def alterarConfiguracaoAlarme(root, con):
         try:
             self.alarme.tempoDisparo = int(root.find("TempoDisparo").text)
-            self.alarme.usarSirene   = int(root.find("UsarSirene").text
+            self.alarme.usarSirene   = int(root.find("UsarSirene").text)
             self.alarme.usarEmail    = int(root.find("UsarEmail").text)
             
             self.alarme.gravarConfiguracao()
