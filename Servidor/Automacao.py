@@ -289,7 +289,7 @@ class Automacao(Base.Base):
             for rowdia in rowsdia:
                 dias = dias + rowdia + ";"
             
-            rowsequip = self.consultarRegistros("select IdRele from ReleAgendamento")
+            rowsequip = self.consultarRegistros("select IdRele from ReleAgendamento where IdAgendamento = {id}".format(id = row[Id]))
             
             agendamento = Agendamento.Agendamento(row["Id"], row["Nome"], dias), equipamentos), row["DataHoraInicial"], 
                                                   row["DataHoraFinal"], int(row["Ativo"]), self.reles, self.alarme)        
