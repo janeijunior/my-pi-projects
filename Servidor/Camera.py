@@ -20,11 +20,9 @@ class Camera(object):
     
     #inicia ou para o servico de stream da camera
     def acionamentoCamera():
-        global listaConexoesCamera
-        
-        if len(listaConexoesCamera) < 1:
+        if len(self.conexoes) < 1:
             desligarCamera()
-        elif len(listaConexoesCamera) > 0:
+        elif len(self.conexoes) > 0:
             ligarCamera()
     
     #remove o cliente da lista de conexões 
