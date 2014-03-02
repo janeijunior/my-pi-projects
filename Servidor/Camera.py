@@ -12,11 +12,11 @@ class Camera(object):
         self.conexoes = []
     
     #inicia o servico da camera
-    def __ligarCamera():
+    def ligarCamera():
         os.system("sudo " + self.MJPG) #iniciar, porta, resolucao, fps
         
     #para o servico da camera
-    def __desligarCamera():
+    def desligarCamera():
         os.system("sudo " + self.MJPG + " stop")
     
     #inicia ou para o servico de stream da camera
