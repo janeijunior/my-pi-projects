@@ -89,16 +89,6 @@ def conectado(con, cliente):
 
 print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
 
-#para fechar o programa
-def signal_handler(signal, frame):
-    print "\nEncerrando aplicativo..."
-    automacao.finalizarProcessos()
-    automacao.cleanup()
-    tcp.close;
-    sys.exit(0)
-    
-signal.signal(signal.SIGINT, signal_handler)
-
 while True:
    conexao, cliente = tcp.accept()
    thread.start_new_thread(conectado, tuple([conexao, cliente]))
