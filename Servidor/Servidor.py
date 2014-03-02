@@ -32,18 +32,9 @@ tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp.bind(orig)
 tcp.listen(1)
 
-#variavel para controle do alarme
-alarme = None
-
 #variavel para controle do agendamento
 threadAgendamento = None
 listaAgendamento = []
-
-#lista dos reles
-listaReles = [];
-
-#lista de conexoes ativas na camera
-listaConexoesCamera = []
 
 #classe automacao
 automacao = Automacao.Automacao()
