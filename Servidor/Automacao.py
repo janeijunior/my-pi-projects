@@ -19,7 +19,6 @@ class Automacao(Base.Base):
     def __init__(self):
         self.GPIOSirene = int(Funcoes.lerConfiguracaoIni("GPIOSirene")) 
         self.usuario = Usuario.Usuario()
-        self.temperaturaHumidade = TemperaturaHumidade.TemperaturaHumidade()
         self.somAmbiente = SomAmbiente.SomAmbiente()
         self.email = Email.Email()
         self.reles = self.getReles()
