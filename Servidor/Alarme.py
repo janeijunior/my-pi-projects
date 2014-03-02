@@ -150,4 +150,3 @@ class Alarme(object):
     def __done__(self):
         self.desligarPanicoAlarme()
         self.desligarAlarme()
-    
