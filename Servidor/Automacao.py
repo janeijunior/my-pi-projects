@@ -11,6 +11,8 @@ import Alarme
 import Camera
 import Funcoes
 import time
+import Agendamento
+import ControleAgendamento
 import xml.etree.ElementTree as ET
 
 from xml.etree.ElementTree import Element
