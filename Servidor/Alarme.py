@@ -93,7 +93,7 @@ class Alarme(Base.Base):
        
        return self.executarComando(sql)
      
-    #função que atualiza as congiguracoes
+    #função que atualiza as congiguracoes no banco
     def gravarConfiguracaoBanco(self):
         
      
