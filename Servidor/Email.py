@@ -16,7 +16,7 @@ class Email(Base.Base):
     
     #construtor
     def __init__(self):
-        self.carregarConfiguracaoEmail()
+        self.carregarConfiguracao()
     
     #função para carregar os dados de envio
     def carregarConfiguracaoEmail(self):
