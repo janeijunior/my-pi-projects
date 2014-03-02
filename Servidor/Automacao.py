@@ -19,6 +19,7 @@ class Automacao(Base.Base):
     def __init__(self):
         self.GPIOSirene = int(Funcoes.lerConfiguracaoIni("GPIOSirene")) 
         self.usuario = Usuario.Usuario()
+        self.temperaturaHumidade = TemperaturaHumidade.TemperaturaHumidade()
         self.somAmbiente = SomAmbiente.SomAmbiente()
         self.email = Email.Email()
         self.reles = self.getReles()
@@ -95,8 +96,7 @@ class Automacao(Base.Base):
             #desligarCamera()
             #time.sleep(1)
             
-            temp = TemperaturaHumidade.TemperaturaHumidade()
-            resultado = temp.getDados()    
+            resultado = self.temperaturaHumidade.getDados()    
             root  = Element("TemperaturaHumidade")
             dados = Element("Dados", Temperatura=resultado[0], Humidade=resultado[1])
             root.append(dados)
