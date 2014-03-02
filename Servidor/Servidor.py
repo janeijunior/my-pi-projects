@@ -49,6 +49,7 @@ listaConexoesCamera = []
 
 #classe automacao
 automacao = Automacao.Automacao()
+email = Email.Email()
 
 #Configura todos os pinos necessarios para o envio de comandos 
 def configurarReles():
