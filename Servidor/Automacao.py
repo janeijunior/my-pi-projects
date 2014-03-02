@@ -112,7 +112,7 @@ class Automacao(Base.Base):
     def enviarConfiguracaoEmail(con):
         root = Element("EnviarConfiguracaoEmail")
         dados = Element("Dados", Usuario = self.email.remetente.decode('utf-8'), Senha = str(self.email.senha).decode('utf-8'), 
-                                 Destinatario = self.email.destinatario.decode('utf-8'), Servidor = str(row["ServidorSMTP"]).decode('utf-8'),
+                                 Destinatario = self.email.destinatario.decode('utf-8'), Servidor = str(self.email.servidorSMTP).decode('utf-8'),
                                  Porta = str(self.email.portaSMTP))
         root.append(dados)
         xmlstr = ET.tostring(root) + "\n"       
