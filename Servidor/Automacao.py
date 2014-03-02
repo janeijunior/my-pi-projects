@@ -19,7 +19,8 @@ class Automacao(Base.Base):
         self.temperaturaHumidade = TemperaturaHumidade.TemperaturaHumidade()
         self.somAmbiente = SomAmbiente.SomAmbiente()
         self.email = Email.Email()
-        self.reles = self.getReles();
+        self.reles = self.getReles()
+        self.alarme = Alarme.Alarme(self.reles[self.GPIOSirene], self.email)
     
     #funcoes da classe
     
