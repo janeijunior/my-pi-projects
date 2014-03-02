@@ -236,7 +236,7 @@ class Automacao(Base.Base):
             self.alarme.usarSirene   = int(root.find("UsarSirene").text)
             self.alarme.enviarEmail  = int(root.find("UsarEmail").text)
             
-            self.alarme.gravarBanco()
+            self.alarme.gravarRegistroBanco()
             sensores  = root.find("Sensores")
         
             for child in sensores:
