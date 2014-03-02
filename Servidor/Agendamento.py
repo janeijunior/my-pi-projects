@@ -52,15 +52,20 @@ class Agendamento(Base.Base):
         
     #funcao para gravar um novo agendamento no banco de dados
     def gravarRegistroBanco(self):
-        if self.alarme <> None:
-            alarme = 1
-        else:
-            alarme = 0
+        try
+            if self.alarme <> None:
+                alarme = 1
+            else:
+                alarme = 0
+                
+            sql = "insert into Agendamento (Nome, DataHoraInicial, DataHoraFinal, Alarme) values ('{nome}', '{dataInicial}', '{dataFinal}', {alarme}')"
+            sql = sql.format(nome = self.nome, dataInicial = self.dataHoraInicial, dataFinal = self.dataHoraFinal, alarme = alarme)
             
-        sql = "insert into Agendamento (Nome, DataHoraInicial, DataHoraFinal, Alarme) values ('{nome}', '{dataInicial}', '{dataFinal}', {alarme}')"
-        sql = sql.format(nome = self.nome, dataInicial = self.dataHoraInicial, dataFinal = self.dataHoraFinal, alarme = alarme)
+            return self.executarComando(sql)
         
-        return self.executarComando(sql)
+        except Exception, e:
+            print "Erro ao gravar agendamento: ", e
+        
         
     #funcao para remover o agendamento no banco de dados
     def removerRegistroBanco(self): 
