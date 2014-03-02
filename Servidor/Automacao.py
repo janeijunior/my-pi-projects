@@ -294,7 +294,7 @@ class Automacao(Base.Base):
             
             rowsequip = self.consultarRegistros("select IdRele from ReleAgendamento where IdAgendamento = {id}".format(id = row["Id"]))
             for rowequip in rowsequip:
-                equipamentos = equipamentos + rowequip["IdRele"] + ";"
+                equipamentos = equipamentos + str(rowequip["IdRele"]) + ";"
             
             agendamento = Agendamento.Agendamento(row["Id"], row["Nome"], dias, equipamentos, row["DataHoraInicial"], row["DataHoraFinal"], int(row["Ativo"]), self.reles, self.alarme)        
             self.agendamentos.insert(row["Id"], agendamento)    
