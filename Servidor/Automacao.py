@@ -241,20 +241,11 @@ class Automacao(Base.Base):
         
             for child in sensores:
                 id    = int(child.get("Id") 
-                nome  = child.get("Nome").encode('utf-8')
-                ativo = int(child.get("Ativo")
                 
-                sensor = self.alarme.sensores[int(child.get("Id")]
+                self.alarme.sensores[id].nome  = child.get("Nome").encode('utf-8')
+                self.alarme.sensores[id].ativo = int(child.get("Ativo")
+                self.alarme.sensores[id].gravarBanco()
                 
-                sql = "update SensorAlarme set Nome = '{novoNome}', Ativo = {ativo} where Id = {idSensor}"
-                sql = sql.format(novoNome =, ativo = int(child.get("Ativo")), idSensor = int(child.get("Id")))
-                cursor.execute(sql)
-            
-            conBanco.commit()
-            conBanco.close()
             con.send("Ok\n")
         except:
-            print "Erro ao executar o comando: " + sql
             con.send("Erro\n")
-            conBanco.rollback()
-            conBanco.close()
