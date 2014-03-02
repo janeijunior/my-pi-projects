@@ -6,6 +6,7 @@ import thread
 import threading
 import time
 import SensorAlarme
+import Base
 
 DESLIGADO = -1
 NORMAL = 0
