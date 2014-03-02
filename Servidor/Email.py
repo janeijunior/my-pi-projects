@@ -38,7 +38,6 @@ class Email(Base.Base):
         print 'Enviando e-mail\n'
             
         try:
-            print conteudo
             msg = MIMEText('%s'% conteudo)
             msg['Subject'] = assunto
             msg['From'] = self.remetente
