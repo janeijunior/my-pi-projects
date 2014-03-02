@@ -289,9 +289,8 @@ class Automacao(Base.Base):
             
     #funcao que insere um novo agendamento no banco de dados e alualiza a lista de agendamentos 
     def gravarAgendamento(self, root, con):
-        agendamento = Agendamento.Agendamento(0, root.find("Nome").text.encode('utf-8'), root.find("Dias").text, 
-                                              root.find("Equipamentos").text, root.find("DataHoraInicial").text, 
-                                              root.find("DataHoraFinal").text, 1, self.reles, self.alarme)
+        agendamento = Agendamento.Agendamento(0, root.find("Nome").text.encode('utf-8'), root.find("Dias").text, root.find("Equipamentos").text,
+                                              root.find("DataHoraInicial").text, root.find("DataHoraFinal").text, 1, self.reles, self.alarme)
         
         if agendamento.gravarRegistroBanco():
             con.send("Ok\n")
