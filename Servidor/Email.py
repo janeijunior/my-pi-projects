@@ -39,10 +39,15 @@ class Email(Base.Base):
             
         try:
             msg = MIMEText('%s'% conteudo)
+            print 'msg'
             msg['Subject'] = assunto
+            print 'assunto'
             msg['From'] = self.remetente
+            print 'reme'
             msg['To'] = self.destinatario
+            print 'dest'
             smtp = smtplib.SMTP(self.servidorSMTP, int(self.portaSMTP))
+            print 'server'
             smtp.ehlo()
             smtp.starttls()
             print "login"
