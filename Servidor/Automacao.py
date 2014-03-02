@@ -281,8 +281,8 @@ class Automacao(Base.Base):
         rows = self.consultarRegistros("select * from Agendamento where Ativo = 1")
     
         for row in rows:
-            agendamento = Agendamento.Agendamento(row["Id"], row["Nome"], dias), equipamentos),
-                                                  row["DataHoraInicial"], row["DataHoraFinal"], int(row["Ativo"]), self.reles, self.alarme)        
+            agendamento = Agendamento.Agendamento(row["Id"], row["Nome"], dias), equipamentos), row["DataHoraInicial"], 
+                                                  row["DataHoraFinal"], int(row["Ativo"]), self.reles, self.alarme)        
                     
             self.agendamentos.insert(row["Id"], agendamento)    
             
