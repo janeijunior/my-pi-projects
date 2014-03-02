@@ -73,7 +73,7 @@ class Agendamento(Base.Base):
             
             for rele in self.reles:
                 sql = "insert into ReleAgendamento (IdAgendamento, IdRele) values (idAgendamento, idRele)"
-                sel = sql.format(idAgendamento = idAgendamento, idRele = int(rele.id))
+                sel = sql.format(idAgendamento = idAgendamento, idRele = rele.id)
                 self.executarComando(sql)
         
             return True
