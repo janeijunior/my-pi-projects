@@ -119,16 +119,6 @@ def controlarFuncaoPanico(root, con):
         alarme.desligarPanicoAlarme()
     
     con.send("Ok\n")
-    
-#funcao que envia as configuracoes dos reles e status
-def enviarConfiguracaoStatusRele(con):
-    root = Element("StatusRele")
-    
-    for rele in listaReles:
-        root.append(Element("Rele" + str(rele.id), Status=str(rele.status), Nome=rele.nome.decode('utf-8')))
-    
-    xmlstr = ET.tostring(root) + "\n"   
-    con.send(xmlstr)
 
 #funcao que envia o status do alarme
 def enviarConfiguracaoStatusAlarme(con):
