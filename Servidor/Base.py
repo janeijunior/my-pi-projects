@@ -16,11 +16,6 @@ class Base(object):
     
     #funcao para conectar no banco de dados
     def conectarBanco(self):
-        HOST   = Funcoes.lerConfiguracaoIni('HostBanco')
-        USER   = Funcoes.lerConfiguracaoIni('UsuarioBanco')
-        PASSWD = Funcoes.lerConfiguracaoIni('SenhaBanco')
-        BANCO  = Funcoes.lerConfiguracaoIni('NomeBanco')
-    
         try:
             conBanco = MySQLdb.connect(self.hostBanco, self.usuarioBanco, self.senhaBanco)
             conBanco.select_db(self.nomeBanco)
