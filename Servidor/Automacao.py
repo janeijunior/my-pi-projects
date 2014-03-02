@@ -237,7 +237,7 @@ class Automacao(Base.Base):
             self.alarme.usarSirene   = int(root.find("UsarSirene").text)
             self.alarme.enviarEmail  = int(root.find("UsarEmail").text)
             
-            self.alarme.gravarConfiguracao()
+            self.alarme.gravarBanco()
             
             cursor.execute(sql)
             sensores  = root.find("Sensores")
