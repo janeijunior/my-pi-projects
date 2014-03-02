@@ -128,6 +128,12 @@ class Alarme(Base.Base):
         self.tempoDisparo = row["TempoDisparo"]
         self.usarSirene   = row["UsarSirene"]
         self.enviarEmail  = row["EnviarEmail"]
+        
+        if row['StatusAlarme'] == 1:
+            self.ligarAlarme()
+        
+        if row['StatusPanico'] == 1:
+            self.ligarPanicoAlarme()     
     
     #função que é executada como thread que monitora os sensores    
     def __monitorarSensores(self):
