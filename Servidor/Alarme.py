@@ -19,7 +19,7 @@ class Alarme(Base.Base):
         
         #atributos publicos da classe
         self.alarmeLigado = False
-        self.panicoAlarmeLigado = False    
+        self.panicoLigado = False    
         self.sirene = sirene
         self.email = email
         self.carregarSensores()
