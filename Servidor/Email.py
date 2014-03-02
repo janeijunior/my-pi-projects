@@ -43,6 +43,7 @@ class Email(Base.Base):
             msg['Subject'] = assunto
             msg['From'] = self.remetente
             msg['To'] = self.destinatario
+            print self.servidorSMTP, self.portaSMTP
             smtp = smtplib.SMTP(self.servidorSMTP, int(self.portaSMTP))
             smtp.ehlo()
             smtp.starttls()
