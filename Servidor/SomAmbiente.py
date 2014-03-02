@@ -17,14 +17,14 @@ class SomAmbiente(object):
     #funcoes
     #retorna a lista de musicas de uma pasta pre determinada
     def getListaMusica(self):
-        playlist = 'find ' + self.__caminhoMusicas + ' -name "*mp3" -o -name "*m4a" -o -name "*wma" -type f | sort > ' + self.caminhoPlaylist
+        playlist = 'find ' + self.__caminhoMusicas + ' -name "*mp3" -o -name "*m4a" -o -name "*wma" -type f | sort > ' + self.__caminhoPlaylist
         os.system(playlist)
-        arquivo = open(self.caminhoPlaylist)
+        arquivo = open(self.__caminhoPlaylist)
     
         lista = []
         
         for linha in arquivo:
-            str = linha[len(self.caminhoPlaylist):len(linha) -1]
+            str = linha[len(self.__caminhoPlaylist):len(linha) -1]
             lista.insert(len(lista) + 1, str)
             
         arquivo.close()
@@ -32,11 +32,11 @@ class SomAmbiente(object):
     
     #retorna a posicao da musica com o nome passado por parametro
     def getPosicaoMusica(nome):
-        arquivo = open(self.caminhoPlaylist)
+        arquivo = open(self.__caminhoPlaylist)
         
         i = 0
         for linha in arquivo:
-            musica = linha[len(self.caminhoPlaylist):len(linha) -5]
+            musica = linha[len(self.__caminhoPlaylist):len(linha) -5]
             
             if musica == nome:
                 return i
@@ -65,7 +65,7 @@ class SomAmbiente(object):
         try:
             print executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
         except:
-            cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.caminhoPlaylist]
+            cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
             self.__mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
             
     #pausa a musica
@@ -77,7 +77,7 @@ class SomAmbiente(object):
         try:         
             executarComandoMPlayer("pt_step " + valor, "")
         except:
-            cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.caminhoPlaylist]
+            cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
             self.__mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)    
             executarComandoMPlayer("pt_step " + str(int(valor) - 1), "")
 
@@ -96,7 +96,7 @@ class SomAmbiente(object):
                 step = proxima - atual
                 executarComandoMPlayer("pt_step " + str(step), "")
         except:
-            cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.caminhoPlaylist]
+            cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
             self.__mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
             proxima = getPosicaoMusica(valor)
             
