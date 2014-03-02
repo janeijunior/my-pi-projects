@@ -92,18 +92,6 @@ def carregarListaAgendamento():
                           dataHoraInicial = row["DataHoraInicial"], dataHoraFinal = row["DataHoraFinal"], ativo = int(row["Ativo"]), listaReles = listaReles, alarme = alarme)        
                 
         listaAgendamento.insert(row["Id"], agendamento)    
-
-#liga ou desliga os reles/atuadores
-def controlarRele(root, con):
-    acao = root.find("Acao").text
-    numero = root.find("Numero").text
-    
-    if acao == "Ligar":
-        listaReles[int(numero)].ligar()
-    else:
-        listaReles[int(numero)].desligar()
-    
-    con.send("Ok\n")
         
 #liga ou desliga o alarme
 def controlarAlarme(root, con):
