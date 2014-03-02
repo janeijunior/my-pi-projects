@@ -2,6 +2,7 @@
 #-*- coding: utf-8 -*-
 
 import Funcoes
+import os
 
 class Camera(object):
     
