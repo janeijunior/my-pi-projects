@@ -52,7 +52,7 @@ class Agendamento(Base.Base):
         
     #funcao para gravar um novo agendamento no banco de dados
     def gravarRegistroBanco(self):
-        try
+        try:
             if self.alarme <> None:
                 alarme = 1
             else:
