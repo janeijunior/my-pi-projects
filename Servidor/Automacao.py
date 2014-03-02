@@ -244,7 +244,7 @@ class Automacao(Base.Base):
                 
                 self.alarme.sensores[id].nome  = child.get("Nome").encode('utf-8')
                 self.alarme.sensores[id].ativo = int(child.get("Ativo"))
-                self.alarme.sensores[id].gravarBanco()
+                self.alarme.sensores[id].gravarRegistroBanco()
                 
             con.send("Ok\n")
         except Exception, e:
