@@ -355,7 +355,7 @@ class Automacao(Base.Base):
         self.camera.desligar()
     
     #funcao para reiniciar ou desligar o servidor conforme solicitado pelo app android
-    def reiniciarDesligarServidor(root, con):
+    def reiniciarDesligarServidor(self, root, con):
         acao = root.find("Acao").text
         self.finalizarProcessos()
         con.send("Ok\n")    
