@@ -45,6 +45,8 @@ class Alarme(Base.Base):
             self.thread.start()
             
             self.atualizarStatusBanco()
+            
+            print "Alarme ligado!"
         
     #funcao para desligar o alarme
     def desligarAlarme(self):
@@ -66,6 +68,8 @@ class Alarme(Base.Base):
         
             self.status = DESLIGADO
             self.atualizarStatusBanco()
+            
+            print "Alarme desligado!"
         
     #funcao para ligar o panico do alarme
     def ligarPanicoAlarme(self):
