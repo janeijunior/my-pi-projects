@@ -91,14 +91,14 @@ class SomAmbiente(object):
             nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")
             
             if valor <> nome[1:len(nome) -5]: 
-                atual = getPosicaoMusica(nome[1:len(nome) -5])
-                proxima = getPosicaoMusica(str(valor))
+                atual = self.getPosicaoMusica(nome[1:len(nome) -5])
+                proxima = self.getPosicaoMusica(str(valor))
                 step = proxima - atual
                 executarComandoMPlayer("pt_step " + str(step), "")
         except:
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
             self.__mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
-            proxima = getPosicaoMusica(valor)
+            proxima = self.getPosicaoMusica(valor)
             
             if proxima <> 0: 
                 executarComandoMPlayer("pt_step " + str(proxima), "")           
