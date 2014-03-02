@@ -86,18 +86,16 @@ class Alarme(Base.Base):
      
     #função que atualiza as congiguracoes no banco
     def gravarConfiguracaoBanco(self):
-        try:
-            sql = '''update ConfiguracaoAlarme 
-                        set TempoDisparo = {tempo}, 
-                            UsarSirene = {usarSirene},
-                            EnviarEmail = {usarEmail}'''
+        sql = '''update ConfiguracaoAlarme 
+                    set TempoDisparo = {tempo}, 
+                        UsarSirene = {usarSirene},
+                        EnviarEmail = {usarEmail}'''
             
-            sql = sql.format(tempo = int(self.tempoDisparo), usarSirene = int(self.usarSirene), usarEmail = int(self.usarEmail))
+        sql = sql.format(tempo = int(self.tempoDisparo), usarSirene = int(self.usarSirene), usarEmail = int(self.usarEmail))
             
-            cursor.execute(sql)
-            sensores  = root.find("Sensores")
+        self.executarComando(sql)
         
-            for child in sensores:
+        for sensor in self.sensores:
                 sql = "update SensorAlarme set Nome = '{novoNome}', Ativo = {ativo} where Id = {idSensor}"
                 sql = sql.format(novoNome = child.get("Nome").encode('utf-8'), ativo = int(child.get("Ativo")), idSensor = int(child.get("Id")))
                 cursor.execute(sql)
