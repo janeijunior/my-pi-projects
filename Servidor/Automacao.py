@@ -5,6 +5,7 @@ import Base
 import Usuario
 import TemperaturaHumidade
 import SomAmbiente
+import Email
 from xml.etree.ElementTree import Element
 import xml.etree.ElementTree as ET
 
@@ -15,6 +16,7 @@ class Automacao(Base.Base):
         self.usuario = Usuario.Usuario()
         self.temperaturaHumidade = TemperaturaHumidade.TemperaturaHumidade()
         self.somAmbiente = SomAmbiente.SomAmbiente()
+        self.email = Email.Email()
     
     #funcoes da classe
     
@@ -92,4 +94,28 @@ class Automacao(Base.Base):
             con.send("Ok\n")
         else:
             con.send("Erro\n")
+    
+    #funcao que grava a nova configuracao de email
+    def alterarConfiguracaoEmail(root, con):
+        usuario      = root.find("Usuario").text.encode('utf-8')
+        senha        = root.find("Senha").text.encode('utf-8')
+        destinatario = root.find("Destinatario").text.encode('utf-8')
+        servidor     = root.find("Servidor").text.encode('utf-8')
+        porta        = root.find("Porta").text.encode('utf-8')
+                
+        if Funcoes.executarComando(sql):
+            con.send("Ok\n")
+        else:
+            con.send("Erro\n")
+    
+    #envia a configuracao atual de email para o solicitante
+    def enviarConfiguracaoEmail(con):
+        row = Funcoes.consultarRegistro("select * from Configuracao")
         
+        root = Element("EnviarConfiguracaoEmail")
+        dados = Element("Dados", Usuario = str(row["RemetenteEmail"]).decode('utf-8'), Senha = str(row["SenhaEmail"]).decode('utf-8'), Destinatario = str(row["DestinatarioEmail"]).decode('utf-8'),
+                                 Servidor = str(row["ServidorSMTP"]).decode('utf-8'), Porta = str(row["PortaSMTP"]))
+        root.append(dados)
+        xmlstr = ET.tostring(root) + "\n"       
+        con.send(xmlstr)
+            
