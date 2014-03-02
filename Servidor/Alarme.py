@@ -48,7 +48,6 @@ class Alarme(Base.Base):
     #funcao para desligar o alarme
     def desligarAlarme(self):
         self.alarmeLigado = False
-        self.thread.exit()
         self.sirene.desligar()
         
         if self.usarSirene == 1:
