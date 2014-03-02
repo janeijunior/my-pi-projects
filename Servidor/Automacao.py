@@ -263,7 +263,7 @@ class Automacao(Base.Base):
         acao = root.find("Acao").text  
         
         if acao == "Ligar":
-            self.camera.adicionarConexaoCamera(cliente) 
+            self.camera.adicionarConexao(cliente) 
             self.camera.acionamento()
             con.send("Ok\n")
         else:
