@@ -118,7 +118,7 @@ class Automacao(Base.Base):
             con.send("Erro\n")
             
             if len(self.camera.conexoes) > 0:
-                self.camera.ligarCamera()
+                self.camera.ligar()
     
     #controla o som ambiente
     def controlarSomAmbiente(self, root, con):
