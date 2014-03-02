@@ -63,10 +63,10 @@ class SomAmbiente(object):
     #executa a musica
     def play(self):
         try:
-            print executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
+            print self.executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
         except:
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
-            self.__mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+            self.mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
             
     #pausa a musica
     def pause(self):
@@ -78,7 +78,7 @@ class SomAmbiente(object):
             executarComandoMPlayer("pt_step " + valor, "")
         except:
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
-            self.__mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)    
+            self.mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)    
             executarComandoMPlayer("pt_step " + str(int(valor) - 1), "")
 
     #volume
@@ -97,7 +97,7 @@ class SomAmbiente(object):
                 executarComandoMPlayer("pt_step " + str(step), "")
         except:
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
-            self.__mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+            self.mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
             proxima = self.getPosicaoMusica(valor)
             
             if proxima <> 0: 
