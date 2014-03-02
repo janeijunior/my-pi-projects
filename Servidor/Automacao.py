@@ -220,11 +220,8 @@ class Automacao(Base.Base):
         root = Element("EnviarConfiguracaoAlarme")
         root.append(Element("Geral", TempoDisparo=str(self.alarme.tempoDisparo), UsarSirene=str(self.alarme.usarSirene), UsarEmail=str(self.alarme.usarEmail)))
     
-        rows = Funcoes.consultarRegistros("select Id, Nome, Ativo from SensorAlarme")
-        sensores = Element("Sensores")
-        
-        for row in rows:
-            sensores.append(Element("Sensor" + str(row["Id"]), Nome=str(row["Nome"]).decode('utf-8'), Ativo=str(row["Ativo"])))
+        for sensor in self.alarme.sensores:
+            sensores.append(Element("Sensor" + str(row["Id"]), Nome=str(sensor.nome).decode('utf-8'), Ativo=str(sensor.ativo)))
         
         root.append(sensores)
         xmlstr = ET.tostring(root) + "\n"       
