@@ -11,7 +11,7 @@ DESLIGADO = -1
 NORMAL = 0
 DISPARADO = 1
 
-class Alarme(object):
+class Alarme(Base.Base):
     
     #construtor
     def __init__(self, sirene, email):
