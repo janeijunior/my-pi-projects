@@ -42,7 +42,7 @@ class Email(Base.Base):
 
         if self.executarComando(sql):
             self.remetente    = remetente
-            self.destinatario = destinatarioSMTP
+            self.destinatario = destinatario
             self.servidorSMTP = servidorSMTP
             self.portaSMTP    = portaSMTP
             self.senha        = senha
