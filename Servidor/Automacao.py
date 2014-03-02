@@ -82,4 +82,14 @@ class Automacao(Base.Base):
                 
         xmlstr = ET.tostring(root) + "\n"  
         con.send(xmlstr)
+    
+    #funcao para alterar o usuario e a senha
+    def alterarUsuarioSenha(root, con):
+        usuario = root.find("Usuario").text.encode('utf-8')
+        senha   = root.find("Senha").text.encode('utf-8')
+        
+        if self.usuario.alterarUsuarioSenha(usuario, senha):
+            con.send("Ok\n")
+        else:
+            con.send("Erro\n")
         
