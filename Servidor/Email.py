@@ -29,7 +29,7 @@ class Email(Base.Base):
     def __threadEnviar(self):
         form = cgi.FieldStorage()
         
-        assunto  = "Alarme disparado!"
+        assunto   = "Alarme disparado!"
         separador = "-----------------------------------------------------------\n"
         
         conteudo = "O alarme de sua residencia esta disparado. \n" + separador + "Sensor: {idSensor} - {nomeSensor}\nData e hora do disparo: {dataHora}\n" + separador + "E-mail enviado automaticamento pelo sistema House Pi"
