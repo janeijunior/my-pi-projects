@@ -6,16 +6,14 @@ import Funcoes
 
 class Base(object):  
     
-    #construtor
-    def __init__(self):
-        self.__hostBanco    = Funcoes.lerConfiguracaoIni('HostBanco')
-        self.__usuarioBanco = Funcoes.lerConfiguracaoIni('UsuarioBanco')
-        self.__senhaBanco   = Funcoes.lerConfiguracaoIni('SenhaBanco')
-        self.__nomeBanco    = Funcoes.lerConfiguracaoIni('NomeBanco') 
-        
     #funcao para conectar no banco de dados
     def conectarBanco(self):
         try:
+            self.__hostBanco    = Funcoes.lerConfiguracaoIni('HostBanco')
+            self.__usuarioBanco = Funcoes.lerConfiguracaoIni('UsuarioBanco')
+            self.__senhaBanco   = Funcoes.lerConfiguracaoIni('SenhaBanco')
+            self.__nomeBanco    = Funcoes.lerConfiguracaoIni('NomeBanco') 
+            
             conBanco = MySQLdb.connect(self.__hostBanco, self.__usuarioBanco, self.__senhaBanco)
             conBanco.select_db(self.__nomeBanco)
         except MySQLdb.Error, e:
