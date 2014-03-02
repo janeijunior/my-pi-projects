@@ -43,9 +43,6 @@ listaAgendamento = []
 #lista dos reles
 listaReles = [];
 
-#variavel para controle do subprocesso do mplayer do linux
-mplayer = None
-
 #lista de conexoes ativas na camera
 listaConexoesCamera = []
 
