@@ -53,7 +53,7 @@ def conectado(con, cliente):
                 elif root.tag == "EnviarAgendamento":
                     automacao.enviarAgendamento(con)
                 elif root.tag == "RemoverAgendamento":
-                    removerAgendamento(root, con)
+                    automacao.removerAgendamento(root, con)
                 elif root.tag == "AlterarUsuarioSenha":
                     automacao.alterarUsuarioSenha(root, con)
                 elif root.tag == "AlterarConfiguracaoRele":
