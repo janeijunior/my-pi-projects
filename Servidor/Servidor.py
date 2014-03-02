@@ -97,53 +97,6 @@ def carregarListaAgendamento():
                 
         listaAgendamento.insert(row["Id"], agendamento)    
         
-#liga ou desliga o alarme
-def controlarAlarme(root, con):
-    global alarme
-    acao = root.find("Acao").text
-    
-    if acao == "Ligar":
-        if alarme.alarmeLigado == False:
-            alarme.ligarAlarme() 
-            print "Alarme ativado."
-    else:
-        alarme.desligarAlarme()
-        print "Alarme desativado."
-    
-    con.send("Ok\n")
-            
-#liga ou desliga a funcao panico do alarme
-def controlarFuncaoPanico(root, con):
-    global alarme
-    acao = root.find("Acao").text
-    
-    if acao == "Ligar":
-        alarme.ligarPanicoAlarme()
-    else:
-        alarme.desligarPanicoAlarme()
-    
-    con.send("Ok\n")
-
-#funcao que envia o status do alarme
-def enviarConfiguracaoStatusAlarme(con):
-    global alarme
-    root = Element("Alarme")
-    
-    status = ""
-    
-    if alarme.getStatusAlarme() == 1:
-        status = "Disparado"
-    elif alarme.getStatusAlarme() == 0:
-        status = "Normal"
-    else:
-        status = "Desligado"
-    
-    root.append(Element("SensorAlarme", Status=status, Ligado=str(int(alarme.alarmeLigado))))
-    root.append(Element("PanicoAlarme", Ligado=str(int(alarme.panicoAlarmeLigado))))
-    
-    xmlstr = ET.tostring(root) + "\n"   
-    con.send(xmlstr)
-
 #funcao que insere um novo agendamento no banco de dados e alualiza a lista de agendamentos 
 def gravarAgendamento(root, con):
     global listaReles
