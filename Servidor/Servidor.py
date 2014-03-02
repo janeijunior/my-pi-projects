@@ -21,6 +21,7 @@ import subprocess
 import select
 import MySQLdb
 import Automacao
+import Email
 
 HOST     = ""                                            # IP do Servidor (em branco = IP do sistema)
 PORT     = int(Funcoes.lerConfiguracaoIni("Porta"))      # Porta do Servidor
