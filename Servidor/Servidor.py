@@ -15,7 +15,6 @@ import sys
 def signal_handler(signal, frame):
     print "\nEncerrando aplicativo..."
     automacao.finalizarProcessos()
-    automacao.cleanup()
     tcp.close;
     sys.exit(0)
 
