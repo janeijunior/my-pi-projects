@@ -44,6 +44,21 @@ class Alarme(object):
     #funcao para desligar o alarme
     def desligarAlarme(self):
         self.threadAlarme.stop()
+        
+        if self.usarSirene == 1:
+            if self.status == DISPARADO:
+                time.sleep(0.5)    
+        
+        self.sirene.ligar()
+        time.sleep(0.2)
+        self.sirene.desligar()
+        time.sleep(0.5)
+        self.sirene.ligar()
+        time.sleep(0.2)
+        self.sirene.desligar()
+    
+        self.status = DESLIGADO
+        
         self.alarmeLigado = False
         self.atualizarStatusBanco()
     
@@ -70,10 +85,10 @@ class Alarme(object):
     
     #funcao para atualizar os status no banco
     def atualizarStatusBanco(self):
-       sql = "update Configuracao set StatusAlarme = {statusAlarme}, StatusPanico = {statusPanico}"
+       sql = "update ConfiguracaoAlarme set StatusAlarme = {statusAlarme}, StatusPanico = {statusPanico}"
        sql = sql.format(statusAlarme = int(self.alarmeLigado), statusPanico = int(self.panicoAlarmeLigado))
        
-       return Funcoes.executarComando(sql)
+       return self.executarComando(sql)
      
     #insere os sensores na lista passando seus atributos recuperados do banco
     def carregarSensores(self):
@@ -113,19 +128,7 @@ class ThreadAlarme(threading.Thread):
         self.sirene.desligar()
         self.__stop_thread_event.set()
         
-        if self.usarSirene == 1:
-            if self.status == DISPARADO:
-                time.sleep(0.5)    
-            
-            self.sirene.ligar()
-            time.sleep(0.2)
-            self.sirene.desligar()
-            time.sleep(0.5)
-            self.sirene.ligar()
-            time.sleep(0.2)
-            self.sirene.desligar()
-        
-        self.status = DESLIGADO
+      
         
     def run(self):
         if self.usarSirene == 1:
