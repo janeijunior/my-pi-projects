@@ -134,7 +134,8 @@ class Alarme(Base.Base):
                     #aguarda o tempo configurado ate iniciar a proxima leitura
                     time.sleep(self.tempoDisparo)
                     
-                    self.status = NORMAL
+                    if self.alarmeLigado:
+                        self.status = NORMAL
                     
                     #desliga a sirene se necessario
                     if self.usarSirene == 1:
