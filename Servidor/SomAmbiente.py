@@ -87,7 +87,7 @@ class SomAmbiente(object):
     #reproduz a faixa a partir do nome
     def playNome(self, valor):
         try:
-            nome = executarComandoMPlayer("get_file_name", "ANS_FILENAME")
+            nome = self.executarComandoMPlayer("get_file_name", "ANS_FILENAME")
             
             if valor <> nome[1:len(nome) -5]: 
                 atual = self.getPosicaoMusica(nome[1:len(nome) -5])
