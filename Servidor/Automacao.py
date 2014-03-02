@@ -202,9 +202,9 @@ class Automacao(Base.Base):
         acao = root.find("Acao").text
         
         if acao == "Ligar":
-            self.alarme.ligarPanicoAlarme()
+            self.alarme.ligarPanico()
         else:
-            self.alarme.desligarPanicoAlarme()
+            self.alarme.desligarPanico()
         
         con.send("Ok\n")
     
