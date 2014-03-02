@@ -327,7 +327,7 @@ class Automacao(Base.Base):
 
     #remove o cliente
     def removerConecao(self, cliente):
-        self.camera.remover
+        self.camera.removerConexao(cliente)
 
     #finaliza os processos em execucao para encerrar o aplicativo servidor
     def finalizarProcessos(self):
