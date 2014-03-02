@@ -123,15 +123,10 @@ def conectado(con, cliente):
                 
     print "Finalizando conexao do cliente", cliente
     
-    removerConexaoCamera(cliente)
+    #removerConexaoCamera(cliente)
     
     con.close()
     thread.exit()
-
-#configurarReles()
-#configurarAlarme()
-#carregarListaAgendamento()
-#iniciarAgendamento()
 
 print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
 
