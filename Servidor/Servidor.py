@@ -96,9 +96,6 @@ def conectado(con, cliente):
     
 signal.signal(signal.SIGINT, signal_handler)
 
-#classe automacao
-automacao = Automacao.Automacao()
-
 print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
 
 while True:
