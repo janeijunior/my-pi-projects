@@ -169,4 +169,51 @@ class Automacao(Base.Base):
         root.append(dados)
         xmlstr = ET.tostring(root) + "\n"       
         con.send(xmlstr)
+    
+    #liga ou desliga o alarme
+    def controlarAlarme(self, root, con):
+        acao = root.find("Acao").text
+        
+        if acao == "Ligar":
+            if self.alarme.alarmeLigado == False:
+                self.alarme.ligarAlarme() 
+                print "Alarme ativado"
+            else:
+                self.alarme.desligarAlarme()
+                print "Alarme desativado"
+        
+        con.send("Ok\n")
+                
+    #liga ou desliga a funcao panico do alarme
+    def controlarFuncaoPanico(root, con):
+        global alarme
+        acao = root.find("Acao").text
+        
+        if acao == "Ligar":
+            alarme.ligarPanicoAlarme()
+        else:
+            alarme.desligarPanicoAlarme()
+        
+        con.send("Ok\n")
+    
+    #funcao que envia o status do alarme
+    def enviarConfiguracaoStatusAlarme(con):
+        global alarme
+        root = Element("Alarme")
+        
+        status = ""
+        
+        if alarme.getStatusAlarme() == 1:
+            status = "Disparado"
+        elif alarme.getStatusAlarme() == 0:
+            status = "Normal"
+        else:
+            status = "Desligado"
+        
+        root.append(Element("SensorAlarme", Status=status, Ligado=str(int(alarme.alarmeLigado))))
+        root.append(Element("PanicoAlarme", Ligado=str(int(alarme.panicoAlarmeLigado))))
+        
+        xmlstr = ET.tostring(root) + "\n"   
+        con.send(xmlstr)
+
             
