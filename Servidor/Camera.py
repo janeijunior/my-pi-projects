@@ -13,7 +13,7 @@ class Camera(object):
     
     #inicia o servico da camera
     def ligarCamera():
-        os.system("sudo " + self.MJPG + " start 5005 320x240 2") #iniciar, porta, resolucao, fps
+        os.system("sudo " + self.MJPG) #iniciar, porta, resolucao, fps
         
     #para o servico da camera
     def desligarCamera():
