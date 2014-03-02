@@ -250,6 +250,6 @@ class Automacao(Base.Base):
                 self.alarme.sensores[id].gravarBanco()
                 
             con.send("Ok\n")
-        except:
+        except Exception, e:
             print "Erro ao alterar configuração do alarme: ", e
             con.send("Erro\n")
