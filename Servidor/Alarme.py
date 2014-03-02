@@ -9,7 +9,7 @@ import SensorAlarme
 import Base
 
 DESLIGADO = -1
-NORMAL = 0
+NORMAL    = 0
 DISPARADO = 1
 
 class Alarme(Base.Base):
