@@ -8,11 +8,10 @@ class Base(object):
     
     #construtor
     def __init__(self):
-        self.hostBanco    = Funcoes.lerConfiguracaoIni('HostBanco')
-        self.usuarioBanco = Funcoes.lerConfiguracaoIni('UsuarioBanco')
-        self.senhaBanco   = Funcoes.lerConfiguracaoIni('SenhaBanco')
-        self.nomeBanco    = Funcoes.lerConfiguracaoIni('NomeBanco') 
-    
+        self.__hostBanco    = Funcoes.lerConfiguracaoIni('HostBanco')
+        self.__usuarioBanco = Funcoes.lerConfiguracaoIni('UsuarioBanco')
+        self.__senhaBanco   = Funcoes.lerConfiguracaoIni('SenhaBanco')
+        self.__nomeBanco    = Funcoes.lerConfiguracaoIni('NomeBanco') 
     
     #funcao para conectar no banco de dados
     def conectarBanco(self):
