@@ -9,8 +9,7 @@ import os
 class SomAmbiente(object):
     
     #construtor
-    def __init__(self):
-        self.__init__()    
+    def __init__(self): 
         self.__caminhoPlaylist = Funcoes.lerConfiguracaoIni("CaminhoPlaylist") # Diretorio onde encontra-se a playlist de musicas
         self.__caminhoMusicas  = Funcoes.lerConfiguracaoIni("CaminhoMusicas")  # Diretorio das musicas
         self.__mplayer = None
