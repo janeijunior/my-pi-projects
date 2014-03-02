@@ -48,7 +48,7 @@ class SomAmbiente(object):
         arquivo.close()
         return 0
     
-     #executa um comando no subprocesso do mplayer e devolve o resultado
+    #executa um comando no subprocesso do mplayer e devolve o resultado
     def executarComandoMPlayer(self, cmd, retorno):
         self.__mplayer.stdin.write(cmd + '\n') 
         while select.select([self.__mplayer.stdout], [], [], 0.05)[0]: 
