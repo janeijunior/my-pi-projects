@@ -337,7 +337,7 @@ class Automacao(Base.Base):
         self.alarme.desligarPanicoAlarme()
         self.controleAgendamento.stop()
         
-        for rele in listaReles:    
+        for rele in self.reles:    
     		rele.desligar()
     	
         desligarCamera()
