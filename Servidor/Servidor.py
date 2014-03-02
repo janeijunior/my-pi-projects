@@ -7,16 +7,8 @@ import socket
 import thread
 import threading
 import time
-import os
-import commands
-import signal
-import sys
 import Funcoes
-import subprocess
-import select
-import MySQLdb
 import Automacao
-import Email
 
 HOST     = ""                                       # IP do Servidor (em branco = IP do sistema)
 PORT     = int(Funcoes.lerConfiguracaoIni("Porta")) # Porta do Servidor
