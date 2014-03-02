@@ -3,6 +3,7 @@
 
 import Adafruit_MCP230xx
 import Funcoes
+import Base.Base
 
 #variavel para controle dos pinos GPIO (reles)
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
@@ -13,7 +14,7 @@ DESLIGAR = 0
 STATUS_LIGADO = 1
 STATUS_DESLIGADO = 0
 
-class Rele(object):
+class Rele(Base.Base):
     
     #construtor
     def __init__(self, id, numeroGPIO, status, nome):
@@ -47,14 +48,14 @@ class Rele(object):
     def gravarNomeBanco(self):
         sql = "update Rele set Nome = '{nomeRele}' where Id = {idRele}".format(nomeRele = self.nome, idRele = self.id)
         
-        return Funcoes.executarComando(sql)
+        return self.executarComando(sql)
     
     #funcao para atualizar o status no banco
     def atualizarStatusBanco(self):
         if self.numeroGPIO < 10:
             sql = "update Rele set Status = '{statusRele}' where Id = {idRele}".format(statusRele = self.status, idRele = self.id)
         
-            return Funcoes.executarComando(sql)
+            return self.executarComando(sql)
         else:
             return True
     #destrutor
