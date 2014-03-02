@@ -45,8 +45,11 @@ class Email(Base.Base):
             smtp = smtplib.SMTP(self.servidorSMTP, int(self.portaSMTP))
             smtp.ehlo()
             smtp.starttls()
+            print "login"
             smtp.login(self.remetente, self.senha)
+            print "logou"
             smtp.sendmail(msg['From'], msg['To'], msg.as_string())
+            print "enviou"
             smtp.quit()
         except Exception, e:
             print "Erro no envio do e-mail: ", e
