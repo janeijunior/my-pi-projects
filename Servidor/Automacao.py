@@ -51,6 +51,16 @@ class Automacao(Base.Base):
         
         con.send("Ok\n")
     
+    #funcao que envia as configuracoes dos reles e status
+    def enviarConfiguracaoStatusRele(con):
+        root = Element("StatusRele")
+        
+        for rele in self.reles:
+            root.append(Element("Rele" + str(rele.id), Status=str(rele.status), Nome=rele.nome.decode('utf-8')))
+        
+        xmlstr = ET.tostring(root) + "\n"   
+        con.send(xmlstr)
+    
     #função para validar o usuario e a senha, se nao estiverem certos desconecta!
     def efetuarLogin(self, root, con):
         usuario = root.find("Usuario").text.encode('utf-8')
