@@ -128,6 +128,7 @@ class Alarme(Base.Base):
                     
                     #se estiver configurado envia o e-mail
                     if self.enviarEmail == 1:
+                        self.email.carregarConfiguracao()
                         self.email.enviar(self.sensores[i].id, self.sensores[i].nome) 
                     
                     #aguarda o tempo configurado ate iniciar a proxima leitura
