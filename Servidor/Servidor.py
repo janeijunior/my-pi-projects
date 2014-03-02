@@ -214,18 +214,6 @@ def removerAgendamento(root, con):
                 break
             else:
                 con.send("Erro\n")
-
-#funcao para alterar o usuario e a senha
-def alterarUsuarioSenha(root, con):
-    usuario = root.find("Usuario").text.encode('utf-8')
-    senha = root.find("Senha").text.encode('utf-8')
-    
-    sql = "update Configuracao set Usuario = '{novoUsuario}', Senha = '{novaSenha}'".format(novoUsuario = usuario, novaSenha = senha)
-    
-    if Funcoes.executarComando(sql):
-        con.send("Ok\n")
-    else:
-        con.send("Erro\n")
             
 #funcao para renomear os reles atraves da aba de configuracoes
 def alterarConfiguracaoRele(root, con):
