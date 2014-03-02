@@ -101,7 +101,6 @@ automacao = Automacao.Automacao()
 
 print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
 
-
 while True:
    conexao, cliente = tcp.accept()
    thread.start_new_thread(conectado, tuple([conexao, cliente]))
