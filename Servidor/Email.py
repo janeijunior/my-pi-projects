@@ -19,7 +19,7 @@ class Email(Base.Base):
         self.carregarConfiguracaoEmail()
     
     #função para carregar os dados de envio
-    def ConfiguracaoEmail(self):
+    def carregarConfiguracaoEmail(self):
         
         row = Funcoes.consultarRegistro("select * from ConfiguracaoEmail")
         
