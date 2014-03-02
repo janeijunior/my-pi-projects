@@ -251,4 +251,5 @@ class Automacao(Base.Base):
                 
             con.send("Ok\n")
         except:
+            print "Erro ao alterar configuração do alarme: ", e
             con.send("Erro\n")
