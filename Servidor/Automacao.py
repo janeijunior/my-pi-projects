@@ -37,7 +37,7 @@ class Automacao(Base.Base):
             
             lista.insert(row["Id"], rele)    
     
-    return lista
+        return lista
     
     #liga ou desliga os reles/atuadores
     def controlarRele(self, root, con):
