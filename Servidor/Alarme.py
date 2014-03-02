@@ -74,7 +74,7 @@ class Alarme(Base.Base):
         if self.status <> 1:
             self.sirene.desligar()
         
-        self.panicoAlarmeLigado = False
+        self.panicoLigado = False
         self.atualizarStatusBanco()
     
     #funcao para atualizar os status no banco
