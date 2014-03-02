@@ -84,7 +84,20 @@ def conectado(con, cliente):
     
     con.close()
     thread.exit()
-    
+
+HOST = ""                                       
+PORT = int(Funcoes.lerConfiguracaoIni("Porta")) 
+
+orig = (HOST, PORT)
+
+tcp  = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+tcp.bind(orig)
+tcp.listen(1)
+
+#classe automacao
+automacao = Automacao.Automacao()
+
+
 signal.signal(signal.SIGINT, signal_handler)
 
 print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
