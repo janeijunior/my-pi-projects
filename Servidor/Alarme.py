@@ -103,7 +103,7 @@ class Alarme(Base.Base):
 
         for row in rows:
             sensor = SensorAlarme.SensorAlarme(row["Id"], row["NumeroGPIO"], row["Ativo"], row["Nome"])        
-            self.sensores.insert(int(row["Id"]) - 1, sensor)    
+            self.sensores.insert(int(row["Id"]), sensor)    
     
     #carrega as configurações
     def carregarConfiguracao(self):
