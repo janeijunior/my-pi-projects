@@ -326,7 +326,7 @@ class Automacao(Base.Base):
                     con.send("Erro\n")
 
     #remove o cliente
-    def removerConecao(self, cliente):
+    def removerConexao(self, cliente):
         self.camera.removerConexao(cliente)
 
     #finaliza os processos em execucao para encerrar o aplicativo servidor
