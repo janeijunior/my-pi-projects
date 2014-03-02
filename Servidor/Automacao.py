@@ -24,7 +24,20 @@ class Automacao(Base.Base):
     
     #retorna uma lista com os reles
     def getReles(self):
-        
+        rows  = self.consultarRegistros("select * from Rele")
+        lista = []
+
+        for row in rows:
+            rele = Rele.Rele(id = row["Id"], numeroGPIO = row["NumeroGPIO"], status = row["Status"], nome = row["Nome"])        
+            
+            if rele.status == 1:
+                rele.ligar()
+            else:
+                rele.desligar()
+            
+            lista.insert(row["Id"], rele)    
+    
+    return lista
     
     #função para validar o usuario e a senha, se nao estiverem certos desconecta!
     def efetuarLogin(self, root, con):
