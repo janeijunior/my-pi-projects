@@ -160,5 +160,5 @@ class Alarme(Base.Base):
 
     #destrutor
     def __done__(self):
-        self.desligarPanicoAlarme()
+        self.desligarPanico()
         self.desligarAlarme()
