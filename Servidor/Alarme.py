@@ -66,7 +66,7 @@ class Alarme(Base.Base):
     #funcao para ligar o panico do alarme
     def ligarPanico(self):
         self.sirene.ligar()
-        self.panicoAlarmeLigado = True
+        self.panicoAlarme = True
         self.atualizarStatusBanco()
         
     #funcao para desligar o panico do alarme
