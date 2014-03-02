@@ -93,7 +93,11 @@ class Alarme(Base.Base):
             
         sql = sql.format(tempo = int(self.tempoDisparo), usarSirene = int(self.usarSirene), usarEmail = int(self.usarEmail))
             
-        return self.executarComando(sql)
+        if self.executarComando(sql):
+            
+            return True
+        else:
+            return False
      
     #insere os sensores na lista passando seus atributos recuperados do banco
     def carregarSensores(self):
