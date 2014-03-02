@@ -36,6 +36,6 @@ class Camera(object):
                     break
     
     #adiciona o cliente na lista de conexões
-    def adicionarConexaoCamera(self, cliente):
+    def adicionarConexao(self, cliente):
         self.conexoes.insert(len(self.conexoes) + 1, cliente)
                 
