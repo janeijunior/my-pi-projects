@@ -50,7 +50,8 @@ class Email(Base.Base):
             return True
         else:
             return False     
-            
+    
+    #função chamada como uma thread para enviar o e-mail
     def __threadEnviar(self):
         form = cgi.FieldStorage()
         
