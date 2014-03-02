@@ -9,6 +9,7 @@ import datetime
 import thread
 import threading
 import Funcoes
+import Base
 
 from email.MIMEText import MIMEText
 
