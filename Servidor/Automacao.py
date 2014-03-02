@@ -52,7 +52,7 @@ class Automacao(Base.Base):
         con.send("Ok\n")
     
     #funcao que envia as configuracoes dos reles e status
-    def enviarConfiguracaoStatusRele(con):
+    def enviarConfiguracaoStatusRele(self, con):
         root = Element("StatusRele")
         
         for rele in self.reles:
