@@ -68,7 +68,7 @@ class Agendamento(Base.Base):
         
             for str in self.listaDias:
                 sql = "insert into DiaAgendamento (IdAgendamento, Dia) values (idAgendamento, Dia)"
-                sel = sql.format(idAgendamento = idAgendamento
+                sel = sql.format(idAgendamento = idAgendamento, Dia = int(str))
         
             return True
         except Exception, e:
