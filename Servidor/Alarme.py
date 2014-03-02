@@ -123,7 +123,7 @@ class Alarme(object):
         
         
         #executa enquanto o alarme estiver ativo
-        while not self.__stop_thread_event.isSet(): 
+        while True: 
             #percorre os sensores
             for i in range(0, 8):
                 #le os status dos sensores ativos
