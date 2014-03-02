@@ -234,9 +234,8 @@ class Automacao(Base.Base):
             usarSirene   = int(root.find("UsarSirene").text
             usarEmail    = int(root.find("UsarEmail").text)
             
-          
-          sql = sql.format(tempo =, usarSirene = ), 
-                             usarEmail = )
+            
+            self.alarme.alterarConfiguracao(tempoDisparo, usarSirene, usarEmail)
             
             cursor.execute(sql)
             sensores  = root.find("Sensores")
