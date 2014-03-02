@@ -6,7 +6,6 @@ import xml.etree.ElementTree as ET
 import socket
 import thread
 import threading
-import time
 import Funcoes
 import Automacao
 
