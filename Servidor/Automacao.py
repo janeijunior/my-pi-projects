@@ -232,7 +232,7 @@ class Automacao(Base.Base):
         try:
             self.alarme.tempoDisparo = int(root.find("TempoDisparo").text)
             self.alarme.usarSirene   = int(root.find("UsarSirene").text)
-            self.alarme.usarEmail    = int(root.find("UsarEmail").text)
+            self.alarme.enviarEmail  = int(root.find("UsarEmail").text)
             
             self.alarme.gravarConfiguracao()
             
