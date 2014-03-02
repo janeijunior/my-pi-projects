@@ -292,7 +292,8 @@ class Automacao(Base.Base):
             for rowequip in rowsequi:
                 equipamentos = equipamentos + rowequip["IdRele"] + ";"
             
-            agendamento = Agendamento.Agendamento(row["Id"], row["Nome"], dias, equipamentos, row["DataHoraInicial"], row["DataHoraFinal"], int(row["Ativo"]), self.reles, self.alarme)        
+            agendamento = Agendamento.Agendamento(row["Id"], row["Nome"], dias, equipamentos, 
+                                                 row["DataHoraInicial"], row["DataHoraFinal"], int(row["Ativo"]), self.reles, self.alarme)        
             self.agendamentos.insert(row["Id"], agendamento)    
             
     #funcao que insere um novo agendamento no banco de dados e alualiza a lista de agendamentos 
