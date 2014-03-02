@@ -39,22 +39,14 @@ class Email(Base.Base):
             
         try:
             msg = MIMEText('%s'% conteudo)
-            print 'msg'
             msg['Subject'] = assunto
-            print 'assunto'
             msg['From'] = self.remetente
-            print 'reme'
             msg['To'] = self.destinatario
-            print 'dest'
             smtp = smtplib.SMTP(self.servidorSMTP, int(self.portaSMTP))
-            print 'server'
             smtp.ehlo()
             smtp.starttls()
-            print "login"
             smtp.login(self.remetente, self.senha)
-            print "logou"
             smtp.sendmail(msg['From'], msg['To'], msg.as_string())
-            print "enviou"
             smtp.quit()
         except Exception, e:
             print "Erro no envio do e-mail: ", e
