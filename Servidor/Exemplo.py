@@ -88,9 +88,8 @@ if __name__ == '__main__':
     #  mcp.output(11, 0)
     #  break;
     
+    # e assim por diante..
+    
     time.sleep(0.05)
     
-    print "Fim da execução!"
-
-# e assim por diante..
-      
+    print "Fim da execução!
