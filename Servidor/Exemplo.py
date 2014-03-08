@@ -12,7 +12,7 @@ if __name__ == '__main__':
   
   #exemplo de uso dos reles
   
-  mcp = Adafruit_MCP230XX(busnum = 1, address = 0x20, num_gpios = 16)  
+  mcp = Adafruit_MCP230xx(busnum = 1, address = 0x20, num_gpios = 16)  
  
   # configura os pinos para uso
   mcp.config(0, OUTPUT) 
