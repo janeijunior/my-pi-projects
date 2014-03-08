@@ -72,14 +72,14 @@ if __name__ == '__main__':
   #retorno 1 = normal e 0 = disparado
   
   #configura a saida 12v para uso da sirene
-  mcp.config(11, OUTPUT) 
+  mcp.config(10, OUTPUT) 
   
   while True:
     if GPIO.input(17) == 0:
         print "Sensor 0 Violado!"
-        mcp.output(11, 1)
+        mcp.output(10, 1)
         time.sleep(10) 
-        mcp.output(11, 0)
+        mcp.output(10, 0)
         break;
     #elif GPIO.input(18) == 0:
     #  print "Sensor 1 Violado!"
