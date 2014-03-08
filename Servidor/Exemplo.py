@@ -75,7 +75,7 @@ if __name__ == '__main__':
   mcp.config(11, OUTPUT) 
   
   while True:
-     if GPIO.input(17) == 0:
+    if GPIO.input(17) == 0:
         print "Sensor 0 Violado!"
         mcp.output(11, 1)
         time.sleep(10) 
