@@ -57,6 +57,15 @@ if __name__ == '__main__':
   
   #exemplo de uso do alarme
   
+  GPIO.setmode(GPIO.BCM) 
+  GPIO.setup(17,GPIO.IN) #GPIO0 
+  GPIO.setup(18,GPIO.IN) #GPIO1 
+  GPIO.setup(27,GPIO.IN) #GPIO2 
+  GPIO.setup(22,GPIO.IN) #GPIO3 
+  GPIO.setup(23,GPIO.IN) #gpio4 
+  GPIO.setup(24,GPIO.IN) #GPIO5 
+  GPIO.setup(25,GPIO.IN) #GPIO6 
+  GPIO.setup(4,GPIO.IN)  #GPIO7 
   
   
   
