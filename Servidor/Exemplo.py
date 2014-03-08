@@ -69,6 +69,24 @@ if __name__ == '__main__':
   
   #obs: sensores de alarme nao conectados retorna como disparado
   #por isso comentei os que não tenho...
+  #retorno 1 = normal e 0 = disparado
+  
+  if GPIO.input(17) == 0:
+    print "Sensor 0 Violado!"
+  elif GPIO.input(18) == 0:
+    print "Sensor 0 Violado!"
+  elif GPIO.input(27) == 0:
+    print "Sensor 2 Violado!"
+  elif GPIO.input(22) == 0:
+    print "Sensor 3 Violado!"
+  elif GPIO.input(23) == 0:
+    print "Sensor 4 Violado!"
+  elif GPIO.input(24) == 0:
+    print "Sensor 5 Violado!"
+  elif GPIO.input(25) == 0:
+    print "Sensor 6 Violado!"
+  elif GPIO.input(4) == 0:
+    print "Sensor 7 Violado!"
   
   
   
