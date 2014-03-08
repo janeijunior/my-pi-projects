@@ -67,6 +67,9 @@ if __name__ == '__main__':
   GPIO.setup(25,GPIO.IN) #GPIO6 
   GPIO.setup(4,GPIO.IN)  #GPIO7 
   
+  #obs: sensores de alarme nao conectados retorna como disparado
+  #por isso comentei os que não tenho...
+  
   
   
   
