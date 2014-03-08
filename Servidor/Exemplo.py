@@ -2,15 +2,17 @@
 #-*- coding: utf-8 -*-
 
 import time 
-import Adafruit_MCP230xx
+import Adafruit_MCP230xx #usado para os reles
+import RPi.GPIO as GPIO  # usado para o alarme
  
 OUTPUT = 0 
 INPUT = 1 
  
 if __name__ == '__main__': 
-  #  Use busnum = 0 for older Raspberry Pi's (pre 512MB) 
-  mcp = Adafruit_MCP230XX(busnum = 1, address = 0x20, num_gpios = 16) 
-  # Use busnum = 1 for new Raspberry Pi's (512MB) 
+  
+  #exemplo de uso dos reles
+  
+  mcp = Adafruit_MCP230XX(busnum = 1, address = 0x20, num_gpios = 16)  
  
   # configura os pinos para uso
   mcp.config(0, OUTPUT) 
@@ -52,6 +54,9 @@ if __name__ == '__main__':
   mcp.output(7, 0) 
   mcp.output(8, 0) 
   mcp.output(9, 0) 
+  
+  #exemplo de uso do alarme
+  
   
   
   
