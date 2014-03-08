@@ -12,6 +12,7 @@ import signal
 import sys
 
 if __name__ == '__main__': 
+    
     #para fechar o programa
     def signal_handler(signal, frame):
         print "\nEncerrando aplicativo..."
