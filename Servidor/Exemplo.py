@@ -81,13 +81,16 @@ if __name__ == '__main__':
         time.sleep(10) 
         mcp.output(11, 0)
         break;
+    #elif GPIO.input(18) == 0:
+    #  print "Sensor 1 Violado!"
+    #  mcp.output(11, 1)
+    #  time.sleep(10) 
+    #  mcp.output(11, 0)
+    #  break;
+    
     time.sleep(0.05)
-      #elif GPIO.input(18) == 0:
-      #  print "Sensor 1 Violado!"
-      #  mcp.output(11, 1)
-      #  time.sleep(10) 
-      #  mcp.output(11, 0)
-      #  break;
-      
-      # e assim por diante..
+    
+    print "Fim da execução!"
+
+# e assim por diante..
       
