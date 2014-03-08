@@ -72,6 +72,7 @@ if __name__ == '__main__':
   #retorno 1 = normal e 0 = disparado
   
   #configura a saida 12v para uso da sirene
+  #a mesma esta conectada no GPB2 = GPIO11
   mcp.config(10, OUTPUT) 
   
   while True:
