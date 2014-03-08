@@ -86,6 +86,7 @@ if __name__ == '__main__':
         con.close()
         thread.exit()
     
+    #inicia o servidor    
     HOST = ""                                       
     PORT = int(Funcoes.lerConfiguracaoIni("Porta")) 
     
