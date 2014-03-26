@@ -128,7 +128,7 @@ class Alarme(Base.Base):
         return self.executarComando(sql)        
 
 	#retorna os ultimos 20 disparos do alarme
-	def getUltimosDisparosAlarme(self):
+	def getUltimosDisparos(self):
 		return = self.consultarRegistros('''select DA.Id, 
 												   SA.Nome, 
 												   DA.DataHora 
