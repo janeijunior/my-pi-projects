@@ -119,6 +119,13 @@ class Alarme(Base.Base):
         if row['StatusPanico'] == 1:
             self.ligarPanico()     
     
+    #grava o disparo no banco de dados
+    def gravarRegistroDisparo(self, idSensorDisparo):
+        sql = "insert into DisparoAlarme (IdSensor) values ({idSensor})"
+        sql = sql.format(idSensor = idSensorDisparo, dataHora = )
+       
+        return self.executarComando(sql)        
+    
     #função que é executada como thread que monitora os sensores    
     def __monitorarSensores(self):
         if self.usarSirene == 1:
@@ -145,6 +152,9 @@ class Alarme(Base.Base):
                     if self.enviarEmail == 1:
                         self.email.carregarConfiguracao()
                         self.email.enviar(sensor.id, sensor.nome) 
+                    
+                    #grava o disparo no banco
+                    self.gravarRegistroDisparo(sensor.id)
                     
                     #aguarda o tempo configurado ate iniciar a proxima leitura
                     time.sleep(self.tempoDisparo)
