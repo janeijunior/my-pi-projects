@@ -76,7 +76,7 @@ if __name__ == '__main__':
                     elif root.tag == "ControlarCamera":
                         automacao.controlarCamera(root, con, cliente)
                     elif root.tag == "EnviarUltimosDisparos":
-                        automacao.enviarUltimosDisparos(root, con)
+                        automacao.enviarUltimosDisparos(con)
                 except Exception as e: 
                     print "Erro: ", e
                     con.send("Erro\n")

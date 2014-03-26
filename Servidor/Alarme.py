@@ -7,6 +7,7 @@ import threading
 import time
 import SensorAlarme
 import Base
+import datetime
 
 DESLIGADO = -1
 NORMAL    =  0
@@ -121,11 +122,22 @@ class Alarme(Base.Base):
     
     #grava o disparo no banco de dados
     def gravarRegistroDisparo(self, idSensorDisparo):
-        sql = "insert into DisparoAlarme (IdSensor) values ({idSensor})"
-        sql = sql.format(idSensor = idSensorDisparo, dataHora = )
+        sql = "insert into DisparoAlarme (IdSensor, DataHora) values ({idSensor}, '{dataHora}')"
+        sql = sql.format(idSensor = idSensorDisparo, dataHora = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
        
         return self.executarComando(sql)        
-    
+
+	#retorna os ultimos 20 disparos do alarme
+	def getUltimosDisparosAlarme(self):
+		return = self.consultarRegistros('''select DA.Id, 
+												   SA.Nome, 
+												   DA.DataHora 
+											  from DisparoAlarme DA 
+											  join SensorAlarme SA 
+											    on SA.Id = DA.IdSensor 
+										  order by DA.Id desc
+										     limit 20''')
+
     #função que é executada como thread que monitora os sensores    
     def __monitorarSensores(self):
         if self.usarSirene == 1:
