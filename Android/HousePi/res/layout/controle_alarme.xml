@@ -47,6 +47,15 @@
                     android:textOn="Pânico Ligado" />
             </TableRow>
         </TableLayout>
+
+        <Button
+            android:id="@+id/btnDisparos"
+            style="@style/ButtonText"
+            android:background="@drawable/btn_blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Últimos Disparos" />
+
     </LinearLayout>
 
     <LinearLayout

@@ -5,16 +5,19 @@ import br.com.housepi.classes.Alarme;
 import br.com.housepi.classes.Funcoes;
 import android.os.Bundle;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
 public class ControleAlarme extends Fragment implements OnClickListener {
 	private Alarme alarme;
+	private Button btnDisparos;
 	
 	public static Fragment newInstance(Context context) {
 		ControleAlarme f = new ControleAlarme();
@@ -25,6 +28,9 @@ public class ControleAlarme extends Fragment implements OnClickListener {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.controle_alarme, container, false);
 
+		btnDisparos = (Button) rootView.findViewById(R.id.btnDisparos);
+		btnDisparos.setOnClickListener(this);
+		
 		alarme = new Alarme((ToggleButton) rootView.findViewById(R.id.btnAlarme), (ToggleButton) rootView.findViewById(R.id.btnPanico), (TextView) rootView.findViewById(R.id.lblStatus));
 		alarme.getBtnAlarme().setOnClickListener(this);
 		alarme.getBtnPanico().setOnClickListener(this);
@@ -60,6 +66,8 @@ public class ControleAlarme extends Fragment implements OnClickListener {
 					alarme.getBtnPanico().setChecked(true);
 				}
 			}
+		} else if (view == btnDisparos) {
+			startActivity(new Intent(this.getActivity(), VisualizacaoDisparos.class));
 		}
 	}
 	

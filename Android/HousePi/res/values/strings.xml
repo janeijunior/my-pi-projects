@@ -24,8 +24,8 @@
     <string name="title_activity_configuracao_rele">Configuração dos Relés</string>
     <string name="titulo_spinner_alarme_rele">Selecione uma opção</string>
     <string name="title_activity_sobre">Sobre o aplicativo</string>
-	<string name="title_activity_cadastro_agendamento">Agendamento</string>
-    
+    <string name="title_activity_cadastro_agendamento">Agendamento</string>
+
     <style name="ButtonText">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -48,5 +48,8 @@
         <item>Som Ambiente</item>
         <item>Sobre</item>
     </string-array>
+
+    <string name="title_activity_visualizacao_disparos">Últimos Disparos</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

@@ -86,6 +86,10 @@
             android:name="br.com.housepi.activity.CadastroAgendamento"
             android:label="@string/title_activity_cadastro_agendamento" >
         </activity>
+        <activity
+            android:name="br.com.housepi.activity.VisualizacaoDisparos"
+            android:label="@string/title_activity_visualizacao_disparos" >
+        </activity>
     </application>
 
 </manifest>
