@@ -338,7 +338,7 @@ class Automacao(Base.Base):
 	
     #funcao para enviar os ultimos disparos do alarme
     def enviarUltimosDisparos(self, con):
-        root = Element("EnviarAgendamento")
+        root = Element("EnviarUltimosDisparos")
         rows = self.alarme.getUltimosDisparos() 
         
         for row in rows:	
