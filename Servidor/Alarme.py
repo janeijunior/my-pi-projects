@@ -122,7 +122,7 @@ class Alarme(Base.Base):
     
     #grava o disparo no banco de dados
     def gravarRegistroDisparo(self, idSensorDisparo):
-        sql = "insert into DisparoAlarme (IdSensor, DataHora) values ({idSensor}, '{dataHora}')"
+        sql = "insert into DisparoAlarme (IdSensorAlarme, DataHora) values ({idSensor}, '{dataHora}')"
         sql = sql.format(idSensor = idSensorDisparo, dataHora = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
        
         return self.executarComando(sql)        
