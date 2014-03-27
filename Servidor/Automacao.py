@@ -342,7 +342,7 @@ class Automacao(Base.Base):
         rows = alarme.getUltimosDisparosAlarme() 
         
         for row in rows:	
-            root.append(Element("Disparo",Id=row["Id"]  NomeSensor=row["Nome"].decode('utf-8'), DataHora=row["DataHora"]))
+            root.append(Element("Disparo", Id=row["Id"],  NomeSensor=row["Nome"].decode('utf-8'), DataHora=row["DataHora"]))
                     
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)
