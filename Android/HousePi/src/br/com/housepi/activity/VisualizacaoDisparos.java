@@ -14,6 +14,7 @@ import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.XMLOutputter;
 import br.com.housepi.R;
 import br.com.housepi.classes.Conexao;
+import br.com.housepi.classes.Funcoes;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -79,7 +80,7 @@ public class VisualizacaoDisparos extends Activity {
 	
 			while (j.hasNext()) {
 				Element element = (Element) j.next();
-				addListaDisparo(element.getAttribute("NomeSensor").getValue(), element.getAttribute("DataHora").getValue());
+				addListaDisparo(element.getAttribute("NomeSensor").getValue(), Funcoes.formatarDataHoraLocal((Funcoes.formatarDataHora(element.getAttribute("DataHora").getValue()))));
 			}
 		}
 			
@@ -88,8 +89,12 @@ public class VisualizacaoDisparos extends Activity {
 	
 	private void addListaDisparo(String nome, String dataHora) {
     	HashMap<String,String> temp = new HashMap<String,String>();
-    	temp.put("Sensor", nome + "  ");
-    	temp.put("DataHora", "Data e Hora: " + dataHora + "  ");
+    	if (nome.length() > 20) {
+    		temp.put("Sensor", nome.substring(0, 20) + "...");
+    	} else {
+    		temp.put("Sensor", nome);
+    	}
+    	temp.put("DataHora", dataHora);
     	disparos.add(temp);
     }
 
