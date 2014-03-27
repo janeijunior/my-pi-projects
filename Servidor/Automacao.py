@@ -336,13 +336,13 @@ class Automacao(Base.Base):
                 else:
                     con.send("Erro\n")
 	
-	#funcao para enviar os ultimos disparos do alarme
-	def enviarUltimosDisparos(self, con):
-		root = Element("EnviarAgendamento")
-		rows = alarme.getUltimosDisparosAlarme() 
+    #funcao para enviar os ultimos disparos do alarme
+    def enviarUltimosDisparos(self, con):
+        root = Element("EnviarAgendamento")
+        rows = alarme.getUltimosDisparosAlarme() 
         
         for row in rows:	
-		    root.append(Element("Disparo",Id=row["Id"]  NomeSensor=row["Nome"].decode('utf-8'), DataHora=row["DataHora"]))
+            root.append(Element("Disparo",Id=row["Id"]  NomeSensor=row["Nome"].decode('utf-8'), DataHora=row["DataHora"]))
                     
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)
