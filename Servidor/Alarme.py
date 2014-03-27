@@ -127,16 +127,16 @@ class Alarme(Base.Base):
        
         return self.executarComando(sql)        
 
-	#retorna os ultimos 20 disparos do alarme
-	def getUltimosDisparos(self):
-		return = self.consultarRegistros('''select DA.Id, 
-												   SA.Nome, 
-												   DA.DataHora 
-											  from DisparoAlarme DA 
-											  join SensorAlarme SA 
-											    on SA.Id = DA.IdSensor 
-										  order by DA.Id desc
-										     limit 20''')
+    #retorna os ultimos 20 disparos do alarme
+    def getUltimosDisparos(self):
+        return = self.consultarRegistros('''select DA.Id, 
+                                                   SA.Nome, 
+                                                   DA.DataHora 
+                                              from DisparoAlarme DA 
+                                              join SensorAlarme SA 
+                                                on SA.Id = DA.IdSensor 
+                                          order by DA.Id desc
+                                             limit 20''')
 
     #função que é executada como thread que monitora os sensores    
     def __monitorarSensores(self):
