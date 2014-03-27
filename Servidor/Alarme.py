@@ -134,7 +134,7 @@ class Alarme(Base.Base):
                                                  DA.DataHora 
                                             from DisparoAlarme DA 
                                             join SensorAlarme SA 
-                                              on SA.Id = DA.IdSensor 
+                                              on SA.Id = DA.IdSensorAlarme 
                                         order by DA.Id desc
                                            limit 20''')
 
