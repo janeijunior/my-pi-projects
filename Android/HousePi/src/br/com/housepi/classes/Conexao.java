@@ -3,7 +3,9 @@ package br.com.housepi.classes;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+
 
 /**
  *@author Rodrigo
@@ -35,10 +37,14 @@ public class Conexao {
 	}
 
 	public void conectar() throws Exception {
-		this.socket = new Socket(host, porta);
+		InetSocketAddress inet = new InetSocketAddress(host, porta);
+		String hostConexao = inet.getAddress().getHostAddress();
+		
+		this.socket = new Socket(hostConexao, porta);
+		this.socket.setSoTimeout(15000);
+		
 		out = new DataOutputStream(socket.getOutputStream());
 		in = new DataInputStream(socket.getInputStream());
-		socket.setSoTimeout(20000);
 	}
 
 	public void iniciar() {
