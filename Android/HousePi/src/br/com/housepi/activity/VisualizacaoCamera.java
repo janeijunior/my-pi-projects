@@ -39,7 +39,9 @@ public class VisualizacaoCamera extends Fragment {
 		
 		mv = (MjpegView) rootView.findViewById(R.id.mjpeg_view);
 		
-		String url = "http://" + Login.IP_SERVIDOR + ":5005/?action=stream"; 
+		Integer portaCamera = Integer.parseInt(Login.PORTA_SERVIDOR) + 1;
+		
+		String url = "http://" + Login.IP_SERVIDOR + ":" + portaCamera.toString() + "/?action=stream"; 
 
 		mv = (MjpegView) rootView.findViewById(R.id.mjpeg_view);
 		connection(mv, url);
