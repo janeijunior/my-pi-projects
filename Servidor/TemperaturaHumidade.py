@@ -18,8 +18,6 @@ class TemperaturaHumidade(object):
         output  = self.__lerSensor(); 
         matches = re.search("Temp =\s+([0-9.]+)", output)
         
-        time.sleep(5)
-        
         if (not matches):
           time.sleep(3)
           output  = self.__lerSensor();
