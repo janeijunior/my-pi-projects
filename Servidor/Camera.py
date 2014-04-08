@@ -14,7 +14,7 @@ class Camera(object):
     #inicia o servico da camera
     def ligar(self):
         porta = int(Funcoes.lerConfiguracaoIni("Porta")) + 1
-        os.system("sudo " + self.MJPG + " start " +  str(porta) + Funcoes.lerConfiguracaoIni("ConfiguracaoMJPG")) 
+        os.system("sudo " + self.MJPG + " start " +  str(porta) + " " + Funcoes.lerConfiguracaoIni("ConfiguracaoMJPG")) 
         
     #para o servico da camera
     def desligar(self):
