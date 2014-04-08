@@ -77,6 +77,8 @@ if __name__ == '__main__':
                         automacao.controlarCamera(root, con, cliente)
                     elif root.tag == "EnviarUltimosDisparos":
                         automacao.enviarUltimosDisparos(con)
+                    else:
+                        print "Comando não reconhecido!"
                 except Exception as e: 
                     print "Erro: ", e
                     con.send("Erro\n")
