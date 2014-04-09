@@ -183,6 +183,12 @@ CREATE TABLE IF NOT EXISTS `Usuario` (
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `Usuario`
+--
+
+INSERT INTO `Usuario` (`Id`, `Usuario`, `Senha`) VALUES
+(1, 'admin', 'admin');
 
 -- --------------------------------------------------------
 
