@@ -38,6 +38,6 @@ class TemperaturaHumidade(object):
         lista.insert(0, "%.1f" % temp)
         lista.insert(1, "%.1f" % hum)
         
-        print "Temperatura: " + temp + "ºC Humidade: " + hum + "%"
+        print "Temperatura: " + str(temp) + "ºC Humidade: " + str(hum) + "%"
     
         return lista
