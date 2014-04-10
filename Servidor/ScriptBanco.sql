@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `ConfiguracaoEmail` (
 --
 
 INSERT INTO `ConfiguracaoEmail` (`Id`, `Remetente`, `Senha`, `Destinatario`, `ServidorSMTP`, `PortaSMTP`) VALUES
-(1, 'NULL', 'NULL', 'Null', 'null', 578);
+(1, '', '', '', '', 587);
 
 -- --------------------------------------------------------
 
