@@ -21,6 +21,6 @@ def stringToList(texto):
 #retorna a string lida no ini
 def lerConfiguracaoIni(nome):
     cfg = ConfigParser.ConfigParser()
-    cfg.read(os.path.dirname(os.path.abspath(__file__)) + 'Config.ini')
+    cfg.read(os.path.dirname(os.path.abspath(__file__)) + '/Config.ini')
     return cfg.get('Dados', nome)
     
