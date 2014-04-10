@@ -51,9 +51,11 @@ class Automacao(Base.Base):
             
             if rele.status == 1:
                 rele.ligar()
+                rele.atualizarStatusBanco()
             else:
                 rele.desligar()
-            
+                rele.atualizarStatusBanco()
+                
             self.reles.insert(row["Id"], rele)    
     
     #liga ou desliga os reles/atuadores
