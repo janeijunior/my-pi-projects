@@ -238,9 +238,13 @@ public class MenuPrincipal extends ActionBarActivity {
     @Override
     protected void onResume() {
     	//Rele ou Camera
-    	if ((posicao == 0) || (posicao == 4)) {
-    		selectItem(posicao);
-    	}
+    	try {
+    		if ((posicao == 0) || (posicao == 4)) {
+        		selectItem(posicao);
+        	}
+		} catch (Exception e) {
+		
+		}
     	super.onResume();
     }
 }
