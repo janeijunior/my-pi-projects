@@ -63,7 +63,7 @@ class SomAmbiente(object):
         try:
             print self.executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
         except:
-            cmd = ['sudo', 'mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
+            cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
             self.__mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
             
     #pausa a musica
