@@ -66,16 +66,16 @@ class Automacao(Base.Base):
         if acao == "Ligar":
             if self.reles[int(numero)].ligar():
                 con.send("Ok\n")
+                self.reles[int(numero)].atualizarStatusBanco()
             else:
                 con.send("Erro\n")
             
         else:
             if self.reles[int(numero)].desligar():
                 con.send("Ok\n")
+                self.reles[int(numero)].atualizarStatusBanco()
             else:
                 con.send("Erro\n")
-        
-        self.reles[int(numero)].atualizarStatusBanco()
     
     #funcao que envia as configuracoes dos reles e status
     def enviarConfiguracaoStatusRele(self, con):
