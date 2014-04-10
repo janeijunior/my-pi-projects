@@ -2,6 +2,7 @@
 #-*- coding: utf-8 -*-
 
 import ConfigParser
+import os
 from unicodedata import normalize
 
 #remove caracteres invalidos
@@ -21,5 +22,5 @@ def stringToList(texto):
 def lerConfiguracaoIni(nome):
     cfg = ConfigParser.ConfigParser()
     cfg.read('Config.ini')
-    return cfg.get('Dados', nome)
+    return cfg.get(os.getcwd() + '/Dados', nome)
     
