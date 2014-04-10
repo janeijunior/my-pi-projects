@@ -6,6 +6,8 @@ import org.jdom2.output.XMLOutputter;
 import br.com.housepi.R;
 import br.com.housepi.classes.Conexao;
 import br.com.housepi.classes.Funcoes;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -152,8 +154,19 @@ public class Login extends ActionBarActivity {
 	
 	private void conectarServidor() {
 		try {
+			String mac = "";
+			WifiManager wifiMgr = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
+			WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
+			mac = wifiInfo.getBSSID();
 			
-			IP_SERVIDOR = Funcoes.carregarDadosComponente("edtHost", "", this);
+			//Tratamento para funcionar em casa onde a Ponto Telecom não permite conexão ao IP externo vindo da mesma rede
+			//Assim não preciso trocar o tempo todo o IP/DNS
+			if ((mac != null) && (mac.equals("1c:af:f7:7e:c9:1e"))) {
+				IP_SERVIDOR = "192.168.1.20";
+			} else {
+				IP_SERVIDOR = Funcoes.carregarDadosComponente("edtHost", "", this);
+			}
+			
 			PORTA_SERVIDOR = Funcoes.carregarDadosComponente("edtPorta", "", this);
 			
 			Conexao conexao = Conexao.createConnection(IP_SERVIDOR, PORTA_SERVIDOR);
