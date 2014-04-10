@@ -97,6 +97,7 @@ class Agendamento(Base.Base):
         except Exception, e:
             print "Erro ao remover agendamento: ", e
             return False
+            
     #funcao para desativar o agendamento no banco de dados
     def desativarRegistroBanco(self): 
         sql = "update Agendamento set Ativo = 0 where Id = {idRegistro}".format(idRegistro = self.id)
