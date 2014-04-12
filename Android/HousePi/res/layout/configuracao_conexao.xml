@@ -43,7 +43,7 @@
                 android:layout_height="match_parent"
                 android:ems="10"
                 android:inputType="number"
-                android:text="5000" />
+                android:text="2342" />
         </LinearLayout>
 
         <LinearLayout
