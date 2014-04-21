@@ -66,7 +66,7 @@ public class Rele {
 	}
 	
 	public Boolean desligar() {
-		return montarEnviarXMLControle("Desliga");
+		return montarEnviarXMLControle("Desligar");
 	}
 	
 	private Boolean montarEnviarXMLControle(String comando) {
