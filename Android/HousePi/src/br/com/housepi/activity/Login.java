@@ -17,6 +17,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.text.InputType;
 import android.util.Log;
@@ -26,6 +27,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+@SuppressLint("NewApi")
 public class Login extends ActionBarActivity {
 	private static final int MENU_CONFIG = 1;
 	private static final int ERRO_CONEXAO = -1;
@@ -101,7 +103,15 @@ public class Login extends ActionBarActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, MENU_CONFIG, 0, "Configurações");
+		MenuItem item;
+        
+        item = menu.add(0, MENU_CONFIG, 0, "Configurações");
+		
+		if (android.os.Build.VERSION.SDK_INT >= 11) { 
+	        item.setShowAsActionFlags(MenuItemCompat.SHOW_AS_ACTION_ALWAYS | MenuItemCompat.SHOW_AS_ACTION_WITH_TEXT);
+	        item.setIcon(R.drawable.ic_action_settings);
+		}
+		
 		return true;
 	}
 
