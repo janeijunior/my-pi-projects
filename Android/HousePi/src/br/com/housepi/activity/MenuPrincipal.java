@@ -2,15 +2,19 @@ package br.com.housepi.activity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import android.annotation.SuppressLint;
+import android.speech.RecognizerIntent;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -23,12 +27,12 @@ import android.widget.Toast;
 import br.com.housepi.R;
 import br.com.housepi.classes.Funcoes;
 
-@SuppressLint({"ShowToast" })
+@SuppressLint({"ShowToast", "NewApi" })
 public class MenuPrincipal extends ActionBarActivity {
-	private static final int MENU_ATUALIZAR = 1;
-	private static final int MENU_CONFIG = 2;
+	protected static final int RESULT_SPEECH = 1;
 	
 	private Integer posicao;
+	private MenuItem itemComandoVoz;
 	
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -51,7 +55,7 @@ public class MenuPrincipal extends ActionBarActivity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         
-        int[] image = new int[] {R.drawable.ic_action_settings, R.drawable.ic_action_accounts , R.drawable.ic_action_time, 
+        int[] image = new int[] {R.drawable.ic_action_view_as_grid, R.drawable.ic_action_accounts , R.drawable.ic_action_time, 
         		                 R.drawable.ic_action_view_as_list, R.drawable.ic_action_video,  R.drawable.ic_action_play_over_video, 
         		                 R.drawable.ic_action_about};
         
@@ -106,8 +110,30 @@ public class MenuPrincipal extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_principal, menu);
-        menu.add(0, MENU_ATUALIZAR, 0, "Atualizar");
-        menu.add(0, MENU_CONFIG, 0, "Configurações");
+               
+        itemComandoVoz = menu.findItem(R.id.action_voz);
+        
+        if (android.os.Build.VERSION.SDK_INT >= 11) { 
+	        itemComandoVoz.setShowAsActionFlags(MenuItemCompat.SHOW_AS_ACTION_ALWAYS | MenuItemCompat.SHOW_AS_ACTION_WITH_TEXT);
+	        
+	        MenuItem item;
+	        
+	        item = menu.findItem(R.id.action_atualizar);
+	        item.setShowAsActionFlags(MenuItemCompat.SHOW_AS_ACTION_ALWAYS | MenuItemCompat.SHOW_AS_ACTION_WITH_TEXT);
+	        
+	        item = menu.findItem(R.id.action_configuracao);
+	        item.setShowAsActionFlags(MenuItemCompat.SHOW_AS_ACTION_ALWAYS | MenuItemCompat.SHOW_AS_ACTION_WITH_TEXT);
+        }
+        
+        if ((posicao == 0) || (posicao == 1)) {
+	        if (itemComandoVoz != null) {
+	        	itemComandoVoz.setVisible(true);
+	        }
+	    } else {
+	        if (itemComandoVoz != null) {
+	        	itemComandoVoz.setVisible(false);
+	        }
+	    }
         
         return super.onCreateOptionsMenu(menu);
     }
@@ -122,19 +148,28 @@ public class MenuPrincipal extends ActionBarActivity {
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-               
-        switch (item.getItemId()) {
-	        case MENU_ATUALIZAR:
-	        	selectItem(posicao);
-				break;
-	        case MENU_CONFIG:
-				startActivity(new Intent(this, Configuracao.class));
-				break;
-			default:
-				break;
-		}
         
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId ())  { 
+        case R.id.action_voz: 
+        	Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+
+			intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
+
+			try {
+				startActivityForResult(intent, RESULT_SPEECH);
+			} catch (ActivityNotFoundException a) {
+				Toast.makeText(this, "Desculpe, seu dispositivo não suporta esta funcionalidade.", Toast.LENGTH_LONG).show();
+			} 
+            return true; 
+        case R.id.action_atualizar: 
+        	selectItem(posicao);
+            return true; 
+        case R.id.action_configuracao:
+        	startActivity(new Intent(this, Configuracao.class));
+        	return true;
+        default : 
+            return super.onOptionsItemSelected(item); 
+        } 
     }
 
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
@@ -161,7 +196,7 @@ public class MenuPrincipal extends ActionBarActivity {
         	newFragment = ControleAlarme.newInstance(this);
             transaction.replace(R.id.content_frame, newFragment);
             transaction.addToBackStack(null);
-            transaction.commit();
+            transaction.commit();           
             break;
         case 2:
         	newFragment = ControleAgendamento.newInstance(this);
@@ -247,4 +282,27 @@ public class MenuPrincipal extends ActionBarActivity {
 		}
     	super.onResume();
     }
+    
+    @Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+
+		switch (requestCode) {
+		case RESULT_SPEECH: {
+			if (resultCode == RESULT_OK && null != data) {
+
+				ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+				Toast.makeText(this, text.get(0), Toast.LENGTH_LONG).show();
+				
+				if (posicao == 0) {
+					ControleRele.comandoVoz(text.get(0), this);
+				} else if (posicao == 1) {
+					ControleAlarme.comandoVoz(text.get(0), this);
+				}
+			}
+			break;
+		}
+
+		}
+	}
 }

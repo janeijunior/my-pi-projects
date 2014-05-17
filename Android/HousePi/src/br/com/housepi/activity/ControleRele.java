@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ToggleButton;
 
 public class ControleRele extends Fragment implements OnClickListener {
-	private List<Rele> listaReles = new ArrayList<Rele>();
+	private static List<Rele> listaReles = new ArrayList<Rele>();
 
 	public static Fragment newInstance(Context context) {
 		ControleRele f = new ControleRele();
@@ -28,7 +28,9 @@ public class ControleRele extends Fragment implements OnClickListener {
 		View rootView = inflater.inflate(R.layout.controle_reles, container, false);
 
 		Rele rele;
-
+		
+		listaReles.clear();
+		
 		rele = new Rele(0, (ToggleButton) rootView.findViewById(R.id.btnRele0));
 		rele.getBotao().setOnClickListener(this);
 		listaReles.add(rele);
@@ -89,6 +91,14 @@ public class ControleRele extends Fragment implements OnClickListener {
 						rele.getBotao().setChecked(true);
 					}
 				}
+			}
+		}
+	}
+	
+	public static void comandoVoz(String comando, Context contexto){
+		for (Rele rele : listaReles) {
+			if (comando.trim().equalsIgnoreCase(rele.getNome())) {
+				rele.getBotao().performClick();
 			}
 		}
 	}

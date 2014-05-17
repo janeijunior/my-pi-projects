@@ -16,8 +16,8 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 public class ControleAlarme extends Fragment implements OnClickListener {
-	private Alarme alarme;
-	private Button btnDisparos;
+	private static Alarme alarme;
+	private static Button btnDisparos;
 	
 	public static Fragment newInstance(Context context) {
 		ControleAlarme f = new ControleAlarme();
@@ -68,6 +68,16 @@ public class ControleAlarme extends Fragment implements OnClickListener {
 			}
 		} else if (view == btnDisparos) {
 			startActivity(new Intent(this.getActivity(), VisualizacaoDisparos.class));
+		}
+	}
+	
+	public static void comandoVoz(String comando, Context contexto){
+		if (comando.trim().equalsIgnoreCase("Alarme")) {
+			alarme.getBtnAlarme().performClick();
+		} else if (comando.trim().equalsIgnoreCase("Pânico")) {
+			alarme.getBtnPanico().performClick();
+		} else if ((comando.trim().equalsIgnoreCase("Últimos Disparos")) || (comando.trim().equalsIgnoreCase("Disparos"))) {
+			btnDisparos.performClick();
 		}
 	}
 	
