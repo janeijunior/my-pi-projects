@@ -16,12 +16,12 @@ import br.com.housepi.R;
 import br.com.housepi.classes.Conexao;
 import br.com.housepi.classes.Funcoes;
 import android.os.Bundle;
-import android.app.Activity;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-public class VisualizacaoDisparos extends Activity {
+public class VisualizacaoDisparos extends ActionBarActivity {
 	private ListView listView;
 	private SimpleAdapter adapter;
 	private static final ArrayList<HashMap<String,String>> disparos = new ArrayList<HashMap<String,String>>(); 
