@@ -5,6 +5,7 @@ import Funcoes
 import subprocess
 import select
 import os
+import time
 
 class SomAmbiente(object):
     
@@ -90,7 +91,11 @@ class SomAmbiente(object):
     #reproduz a faixa a partir do nome
     def playNome(self, valor):
         try:
+            time.sleep(0.5)
+            
             nome = self.executarComandoMPlayer("get_file_name", "ANS_FILENAME")
+            
+            time.sleep(0.5)
             
             if valor <> nome[1:len(nome) -5]: 
                 atual = self.getPosicaoMusica(nome[1:len(nome) -5])
