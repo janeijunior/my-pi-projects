@@ -27,7 +27,7 @@ class Alarme(Base.Base):
         self.carregarConfiguracao()
         self.status = DESLIGADO
         
-    #funcoes
+    #funcoes 
     #funcao para ligar o alarme
     def ligarAlarme(self):
         if self.alarmeLigado == False:
