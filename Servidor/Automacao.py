@@ -360,7 +360,7 @@ class Automacao(Base.Base):
     def removerConexao(self, cliente):
         self.camera.removerConexao(cliente)
 
-    #finaliza os processos em execucao para encerrar o aplicativo servidor
+    #Finaliza os processos em execucao para encerrar o aplicativo servidor
     def finalizarProcessos(self):
         if self.alarme.alarmeLigado:
             alarme.desligarAlarme()
