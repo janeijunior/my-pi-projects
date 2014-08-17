@@ -15,7 +15,7 @@ class Camera(object):
     #inicia o servico da camera
     def ligar(self):
         porta = int(Funcoes.lerConfiguracaoIni("Porta")) + 1
-        dev = "/dev/video1"
+        dev = "/dev/video0"
         autenticacao = self.usuario.usuario + ":" + self.usuario.senha
         
         os.system("sudo " + self.MJPG + " start " +  str(porta) + " " + Funcoes.lerConfiguracaoIni("ConfiguracaoMJPG") + " " + dev + " " + autenticacao) 
