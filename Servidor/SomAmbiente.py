@@ -77,6 +77,8 @@ class SomAmbiente(object):
     
     #para a execucao
     def stop(self):
+        self.omx.stop()
+        
         self.executarComandoMPlayer("stop", "")
         
     #avanca ou retrocede a faixa
