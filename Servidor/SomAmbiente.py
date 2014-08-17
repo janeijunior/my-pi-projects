@@ -64,7 +64,7 @@ class SomAmbiente(object):
     #executa a musica
     def play(self):
         try:
-            
+            self.omx = OMXPlayer('/home/pi/HousePi/Videos/Rude.mp4')
             
             print self.executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
         except:
@@ -73,10 +73,14 @@ class SomAmbiente(object):
             
     #pausa a musica
     def pause(self):
+        self.omx.toggle_pause()
+        
         self.executarComandoMPlayer("pause", "")
     
     #para a execucao
     def stop(self):
+         self.omx.stop()
+        
         self.executarComandoMPlayer("stop", "")
         
     #avanca ou retrocede a faixa
