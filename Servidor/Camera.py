@@ -7,14 +7,18 @@ import os
 class Camera(object):
     
     #construtor
-    def __init__(self):
+    def __init__(self, usuario):
         self.MJPG     = Funcoes.lerConfiguracaoIni("CaminhoMJPG")
         self.conexoes = []
+        self.usuario = usuario
     
     #inicia o servico da camera
     def ligar(self):
         porta = int(Funcoes.lerConfiguracaoIni("Porta")) + 1
-        os.system("sudo " + self.MJPG + " start " +  str(porta) + " " + Funcoes.lerConfiguracaoIni("ConfiguracaoMJPG")) 
+        dev = ""
+        autenticacao = 
+        
+        os.system("sudo " + self.MJPG + " start " +  str(porta) + " " + Funcoes.lerConfiguracaoIni("ConfiguracaoMJPG") + " " + dev + " " + autenticacao) 
         
     #para o servico da camera
     def desligar(self):
