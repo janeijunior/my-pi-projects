@@ -18,7 +18,7 @@ class SomAmbiente(object):
     #funcoes
     #retorna a lista de musicas de uma pasta pre determinada
     def getListaMusica(self):
-        playlist = 'find ' + self.__caminhoMusicas + ' -name "*mp4" -o -name "*m4a" -o -name "*wma" -type f | sort > ' + self.__caminhoPlaylist
+        playlist = 'find ' + self.__caminhoMusicas + ' -name "*mp3" -o -name "*m4a" -o -name "*wma" -type f | sort > ' + self.__caminhoPlaylist
         os.system(playlist)
         arquivo = open(self.__caminhoPlaylist)
     
@@ -64,7 +64,7 @@ class SomAmbiente(object):
         try:
             print self.executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
         except:
-            cmd = ['omxplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
+            cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
             self.__mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)            
             
     #pausa a musica
@@ -80,7 +80,7 @@ class SomAmbiente(object):
         try:         
             self.executarComandoMPlayer("pt_step " + valor, "")
         except:
-            cmd = ['omxplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
+            cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
             self.__mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)    
             self.executarComandoMPlayer("pt_step " + str(int(valor) - 1), "")
 
@@ -103,7 +103,7 @@ class SomAmbiente(object):
                 step = proxima - atual
                 self.executarComandoMPlayer("pt_step " + str(step), "")
         except:
-            cmd = ['omxplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
+            cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
             self.__mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
             proxima = self.getPosicaoMusica(valor)
             
