@@ -6,6 +6,8 @@ import subprocess
 import select
 import os
 import time
+from pyomxplayer import OMXPlayer
+from pprint import pprint
 
 class SomAmbiente(object):
     
@@ -62,6 +64,8 @@ class SomAmbiente(object):
     #executa a musica
     def play(self):
         try:
+            
+            
             print self.executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
         except:
             cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
