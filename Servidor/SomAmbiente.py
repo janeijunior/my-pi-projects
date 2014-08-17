@@ -6,6 +6,8 @@ import subprocess
 import select
 import os
 import time
+from pyomxplayer import OMXPlayer
+from pprint import pprint
 
 class SomAmbiente(object):
     
