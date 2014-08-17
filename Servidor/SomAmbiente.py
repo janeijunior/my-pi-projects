@@ -107,7 +107,6 @@ class SomAmbiente(object):
         except:
             #cmd = ['mplayer', '-slave', '-quiet', '-playlist', self.__caminhoPlaylist]
             cmd = ['omxplayer', '/home/pi/HousePi/Videos/Rude.mp4']
-            
             self.__mplayer = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
             proxima = self.getPosicaoMusica(valor)
             
