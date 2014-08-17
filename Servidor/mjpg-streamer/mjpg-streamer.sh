@@ -5,6 +5,7 @@ FRAME_RATE="5"
 RESOLUTION="320x240"
 PORT="2343"
 YUV="true"
+USER_PASSWORD="rodrigo:batistello"
 
 MJPG_STREAMER_DIR="$(dirname $0)"
 MJPG_STREAMER_BIN="mjpg_streamer"
@@ -49,7 +50,7 @@ function start() {
         INPUT_OPTIONS+=" -y"
     fi
     
-    OUTPUT_OPTIONS="-p ${PORT} -w www"
+    OUTPUT_OPTIONS="-p ${PORT} -w www -c ${USER_PASSWORD}"
     
     ${MJPG_STREAMER_DIR}/${MJPG_STREAMER_BIN} -i "input_uvc.so ${INPUT_OPTIONS}" -o "output_http.so ${OUTPUT_OPTIONS}" >> ${LOG_FILE} 2>&1 &
 
