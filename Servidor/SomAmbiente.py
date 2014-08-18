@@ -16,7 +16,6 @@ class SomAmbiente(object):
         self.__caminhoPlaylist = Funcoes.lerConfiguracaoIni("CaminhoPlaylist") # Diretorio onde encontra-se a playlist de musicas
         self.__caminhoMusicas  = Funcoes.lerConfiguracaoIni("CaminhoMusicas")  # Diretorio das musicas
         self.__mplayer = None
-        self.omx = None        
         
     #funcoes
     #retorna a lista de musicas de uma pasta pre determinada
@@ -64,15 +63,9 @@ class SomAmbiente(object):
         
     #executa a musica
     def play(self):
-        omx = OMXPlayer('/home/pi/HousePi/Videos/Rude.mp4', None, True)
-        pprint(omx.__dict__)
-        
-        self.omx = omx
-        
-        time.sleep(5)
-        
-        omx.stop()
-        
+        #omx = OMXPlayer('/home/pi/HousePi/Videos/Rude.mp4', None, True)
+        #pprint(omx.__dict__)
+                
         try:
             print self.executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
         except:
@@ -85,10 +78,6 @@ class SomAmbiente(object):
     
     #para a execucao
     def stop(self):
-        global omx
-        
-        omx.stop()
-        
         self.executarComandoMPlayer("stop", "")
         
     #avanca ou retrocede a faixa
