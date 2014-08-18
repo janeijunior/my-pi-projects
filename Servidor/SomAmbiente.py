@@ -69,6 +69,8 @@ class SomAmbiente(object):
         
         self.omx = omx
         
+        time.sleep(5)
+        
         omx.stop()
         
         try:
