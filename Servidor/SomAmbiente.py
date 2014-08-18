@@ -9,8 +9,9 @@ import time
 from pyomxplayer import OMXPlayer
 from pprint import pprint
 
+omx = None
+    
 class SomAmbiente(object):
-    omx = None
     
     #construtor
     def __init__(self): 
