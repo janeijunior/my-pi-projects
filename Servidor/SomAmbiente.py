@@ -65,6 +65,7 @@ class SomAmbiente(object):
     #executa a musica
     def play(self):
         self.omx = OMXPlayer('/home/pi/HousePi/Videos/Rude.mp4')
+        pprint(self.omx.__dict__)
             
         try:
             print self.executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
