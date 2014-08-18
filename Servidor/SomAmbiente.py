@@ -8,8 +8,6 @@ import os
 import time
 from pyomxplayer import OMXPlayer
 from pprint import pprint
-
-omx = None
     
 class SomAmbiente(object):
     
@@ -66,12 +64,13 @@ class SomAmbiente(object):
         
     #executa a musica
     def play(self):
-        global omx
-        
         omx = OMXPlayer('/home/pi/HousePi/Videos/Rude.mp4')
-        
         pprint(omx.__dict__)
-            
+        
+        self.omx = omx
+        
+        omx.stop()
+        
         try:
             print self.executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
         except:
