@@ -74,6 +74,7 @@ class SomAmbiente(object):
             
     #pausa a musica
     def pause(self):
+        self.omx.toggle_pause()
         self.executarComandoMPlayer("pause", "")
     
     #para a execucao
