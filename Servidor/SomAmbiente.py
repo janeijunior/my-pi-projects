@@ -63,8 +63,8 @@ class SomAmbiente(object):
         
     #executa a musica
     def play(self):
-        #omx = OMXPlayer('/home/pi/HousePi/Videos/Rude.mp4')
-        #pprint(omx.__dict__)
+        self.omx = OMXPlayer('/home/pi/HousePi/Videos/Ariana.mp4')
+        pprint(self.omx.__dict__)
                 
         try:
             print self.executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
@@ -78,6 +78,7 @@ class SomAmbiente(object):
     
     #para a execucao
     def stop(self):
+        self.omx.stop()
         self.executarComandoMPlayer("stop", "")
         
     #avanca ou retrocede a faixa
