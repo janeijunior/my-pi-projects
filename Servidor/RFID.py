@@ -15,6 +15,7 @@ import time
 import sys
 
 card = '0019171125'
+
 def main():
     while True:
         sys.stdin = open('/dev/tty0', 'r')
