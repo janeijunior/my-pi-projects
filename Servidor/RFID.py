@@ -18,7 +18,7 @@ card = '0019171125'
 
 def main():
     while True:
-        sys.stdin = open('/dev/tty0', 'r')
+        sys.stdin = open('/dev/tty5', 'r')
         RFID_input = input()
         if RFID_input == card:
             print "Access Granted"
