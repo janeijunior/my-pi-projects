@@ -17,13 +17,13 @@ import sys
 card = '0019171125'
 
 def main():
-    while True:
-        sys.stdin = open('/dev/tty1', 'r')
-        RFID_input = input()
-        if RFID_input == card:
-            print "Access Granted"
-            print "Read code from RFID reader:{0}".format(RFID_input)
-        else:
-            print "Access Denied"
-            tty.close()
+    with open('/dev/tty0', 'r') as tty:
+        while True:
+            RFID_input = tty.readline()
+            if RFID_input == card:
+                print "Access Granted" 
+                print "Read code from RFID reader:{0}".format(RFID_input)
+            else:
+                print "Access Denied"
+                
 main()
