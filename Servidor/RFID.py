@@ -1,5 +1,5 @@
 import serial
-serial = serial.Serial("/dev/ttyUSB5", baudrate=9600)
+serial = serial.Serial("/dev/ttyUSB0", baudrate=9600)
 
 code = ''
 
