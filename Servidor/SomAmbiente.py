@@ -6,8 +6,8 @@ import subprocess
 import select
 import os
 import time
-from pyomxplayer import OMXPlayer
-from pprint import pprint
+#from pyomxplayer import OMXPlayer
+#from pprint import pprint
     
 class SomAmbiente(object):
     
@@ -63,8 +63,8 @@ class SomAmbiente(object):
         
     #executa a musica
     def play(self):
-        self.omx = OMXPlayer('/home/pi/HousePi/Videos/Ariana.mp4')
-        pprint(self.omx.__dict__)
+        #self.omx = OMXPlayer('/home/pi/HousePi/Videos/Ariana.mp4')
+        #pprint(self.omx.__dict__)
                 
         try:
             print self.executarComandoMPlayer("get_file_name", "ANS_FILENAME")   
@@ -74,12 +74,12 @@ class SomAmbiente(object):
             
     #pausa a musica
     def pause(self):
-        self.omx.toggle_pause()
+        #self.omx.toggle_pause()
         self.executarComandoMPlayer("pause", "")
     
     #para a execucao
     def stop(self):
-        self.omx.stop()
+        #self.omx.stop()
         self.executarComandoMPlayer("stop", "")
         
     #avanca ou retrocede a faixa
