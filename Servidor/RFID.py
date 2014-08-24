@@ -29,6 +29,7 @@ class RFID(threading.Thread):
                 resposta = resposta.strip()
             except:
                 print 'Erro na leitura.'
+                resposta = ''
             
             if resposta <> '':
                 print resposta
