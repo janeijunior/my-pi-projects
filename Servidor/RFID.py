@@ -26,16 +26,17 @@ class RFID(threading.Thread):
         while True:
             dados = raw_input()
             
-            print dados
-            
-            if (dados == card1) or (dados == card2):
-                print "Acesso Permitido."
+            if dados <> '':
+                print dados
                 
-                if self.alarme.alarmeLigado:
-                    self.alarme.ligarAlarme()
+                if (dados == card1) or (dados == card2):
+                    print "Acesso Permitido."
+                    
+                    if self.alarme.alarmeLigado:
+                        self.alarme.ligarAlarme()
+                    else:
+                        self.alarme.desligarAlarme()
                 else:
-                    self.alarme.desligarAlarme()
-            else:
-                print "Acesso Negado."
-            
-            time.sleep(1.5)
+                    print "Acesso Negado."
+                
+                time.sleep(1.5)
