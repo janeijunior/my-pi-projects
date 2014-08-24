@@ -37,11 +37,9 @@ class RFID(threading.Thread):
                     print "Acesso Permitido."
                     
                     if self.alarme.alarmeLigado:
-                        print 'if'
-                        self.alarme.ligarAlarme()
-                    else:
-                        print 'else'
                         self.alarme.desligarAlarme()
+                    else:
+                        self.alarme.ligarAlarme()
                 else:
                     print "Acesso Negado."
                     
