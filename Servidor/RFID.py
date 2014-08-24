@@ -6,7 +6,7 @@ import threading
 import time
 import serial
 
-card = ['0007181175', '0008056554']
+card = ['007181175', '008056554']
 
 class RFID(threading.Thread):
     def __init__(self, alarme):
@@ -24,7 +24,7 @@ class RFID(threading.Thread):
         
     def run(self):
         while True:
-            resposta = self.serial.read(20)
+            resposta = self.serial.read(12)
             
             if resposta <> '':
                 print resposta
