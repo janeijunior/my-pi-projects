@@ -17,6 +17,8 @@ class RFID(threading.Thread):
         
         #atributos
         self.alarme = alarme
+        self.serial = serial.Serial('/dev/tty0', 2400, timeout=1)
+
                 
     def stop(self):
         self.__stop_thread_event.set()
