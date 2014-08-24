@@ -26,6 +26,8 @@ class RFID(threading.Thread):
         while True:
             dados = raw_input()
             
+            print dados
+            
             if (dados == card1) or (dados == card2):
                 print "Acesso Permitido."
                 
