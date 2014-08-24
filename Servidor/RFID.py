@@ -24,7 +24,10 @@ class RFID(threading.Thread):
         
     def run(self):
         while True:
-            resposta = self.serial.read(14)
+            try:
+                resposta = self.serial.read(14)
+            except:
+                print 'Erro na leitura.'
             
             if resposta <> '':
                 print resposta
