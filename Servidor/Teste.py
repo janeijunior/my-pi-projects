@@ -1,6 +1,6 @@
 import serial
 
-serial = serial.Serial("/dev/tty", baudrate=9600)
+serial = serial.Serial("/dev/tty0", baudrate=9600)
 
 code = ''
 
