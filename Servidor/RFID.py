@@ -27,7 +27,6 @@ class RFID(threading.Thread):
         while True:
                 try:
                     resposta = tty.read()
-                    tty.
                     resposta = resposta.strip()
                 except:
                     print 'Erro na leitura.'
