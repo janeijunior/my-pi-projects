@@ -43,7 +43,7 @@
 
 import serial
 
-serial = serial.Serial("/dev/tty4", baudrate=9600)
+serial = serial.Serial("/dev/tty4", baudrate=2400)
 
 code = ''
 
