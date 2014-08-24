@@ -24,24 +24,24 @@ class RFID(threading.Thread):
     def run(self):
         serial = serial.Serial("/dev/tty0", baudrate=9600)
         
-            while True:
-                try:
-                    resposta = serial.read()
-                    resposta = resposta.strip()
-                except:
-                    print 'Erro na leitura.'
-                    resposta = ''
+        while True:
+            try:
+                resposta = serial.read()
+                resposta = resposta.strip()
+            except:
+                print 'Erro na leitura.'
+                resposta = ''
+            
+            if resposta <> '':
+                print resposta
                 
-                if resposta <> '':
-                    print resposta
+                if resposta in card:
+                    print "Acesso Permitido."
                     
-                    if resposta in card:
-                        print "Acesso Permitido."
-                        
-                        if self.alarme.alarmeLigado:
-                            self.alarme.desligarAlarme()
-                        else:
-                            self.alarme.ligarAlarme()
+                    if self.alarme.alarmeLigado:
+                        self.alarme.desligarAlarme()
                     else:
-                        print "Acesso Negado."
-                
+                        self.alarme.ligarAlarme()
+                else:
+                    print "Acesso Negado."
+            
