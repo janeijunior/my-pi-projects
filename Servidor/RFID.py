@@ -28,7 +28,7 @@ class RFID(threading.Thread):
             if dados <> '':
                 print dados
                 
-                if (dados == card1) or (dados == card2):
+                if dados in card:
                     print "Acesso Permitido."
                     
                     if self.alarme.alarmeLigado:
