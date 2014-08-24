@@ -5,6 +5,7 @@ import thread
 import threading
 import time
 import sys
+import serial
 
 card = ['0007181175', '0008056554']
 
@@ -21,10 +22,11 @@ class RFID(threading.Thread):
         self.__stop_thread_event.set()
         
     def run(self):
-        with open('/dev/tty0', 'r') as tty:
-            while True:
+        serial = serial.Serial("/dev/tty0", baudrate=9600)
+        
+        while True:
                 try:
-                    resposta = tty.readline()
+                    resposta = tty.read()
                     tty.
                     resposta = resposta.strip()
                 except:
