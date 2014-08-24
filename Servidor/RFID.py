@@ -44,4 +44,3 @@ class RFID(threading.Thread):
                     else:
                         print "Acesso Negado."
                 
-                time.sleep(0.1)
