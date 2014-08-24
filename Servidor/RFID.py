@@ -5,6 +5,7 @@ import thread
 import threading
 import time
 import sys
+import serial
 
 card1 = '0007181175'
 card2 = '0008056554'
