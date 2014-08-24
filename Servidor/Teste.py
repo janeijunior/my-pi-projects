@@ -5,10 +5,10 @@ serial = serial.Serial("/dev/tty0", baudrate=9600)
 code = ''
 
 while True:
-        data = serial.readline()
+    data = serial.readline()
         
-        if data == '\r':
-                print(code)
-                code = ''
-        else:
-                code = code + data
+    if data == '\r':
+        print(code)
+        code = ''
+    else:
+        code = code + data
