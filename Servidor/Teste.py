@@ -8,4 +8,5 @@ while True:
     data = serial.readline()
         
     
-    print(code)
+    if data <> '':
+        print(data)
