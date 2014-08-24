@@ -23,14 +23,17 @@ class RFID(threading.Thread):
         self.__stop_thread_event.set()
         
     def run(self):
-        dados = raw_input()
-        
-        if (dados == card1) or (dados == card2):
-            print "Acesso Permitido."
+        while True:
+            dados = raw_input()
             
-            if self.alarme.alarmeLigado:
-                self.alarme.ligarAlarme()
+            if (dados == card1) or (dados == card2):
+                print "Acesso Permitido."
+                
+                if self.alarme.alarmeLigado:
+                    self.alarme.ligarAlarme()
+                else:
+                    self.alarme.desligarAlarme()
             else:
-                self.alarme.desligarAlarme()
-        else:
-            print "Acesso Negado."
+                print "Acesso Negado."
+            
+            time.sleep(1.5)
