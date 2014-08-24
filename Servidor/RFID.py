@@ -36,7 +36,7 @@ class RFID(threading.Thread):
                 if resposta in card:
                     print "Acesso Permitido."
                     
-                    if self.alarme.alarmeLigado == True:
+                    if self.alarme.alarmeLigado:
                         self.alarme.ligarAlarme()
                     else:
                         self.alarme.desligarAlarme()
