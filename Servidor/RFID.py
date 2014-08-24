@@ -22,11 +22,11 @@ class RFID(threading.Thread):
         self.__stop_thread_event.set()
         
     def run(self):
-        serial = serial.Serial("/dev/tty0", baudrate=9600)
+        self.serial = serial.Serial("/dev/tty0", baudrate=9600)
         
         while True:
             try:
-                resposta = serial.read()
+                resposta = self.serial.read()
                 resposta = resposta.strip()
             except:
                 print 'Erro na leitura.'
