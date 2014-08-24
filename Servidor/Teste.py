@@ -1,12 +1,15 @@
+#! /usr/bin/python
 import serial
+import time
 
-serial = serial.Serial("/dev/tty0", baudrate=9600)
-
-code = ''
+ser = serial.Serial('/dev/tty0', 2400, timeout=1) # replace '/dev/ttyUSB0' with your port
 
 while True:
-    data = serial.readline()
-        
-    
-    if data <> '':
-        print(data)
+    response = ser.read(12)
+    if response <> "":
+        print "raw: " + str(response)
+        print "hex: " + str(response[-8:])
+        print "dec: " + str(int(response[-8:], 16))
+    time.sleep(1)
+
+ser.close()
