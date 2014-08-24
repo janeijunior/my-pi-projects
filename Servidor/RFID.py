@@ -42,6 +42,7 @@
 #                time.sleep(1.5)
 
 import serial
+
 serial = serial.Serial("/dev/tty4", baudrate=9600)
 
 code = ''
