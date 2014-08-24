@@ -24,7 +24,7 @@ class RFID(threading.Thread):
     def run(self):
         serial = serial.Serial("/dev/tty0", baudrate=9600)
         
-        while True:
+            while True:
                 try:
                     resposta = serial.read()
                     resposta = resposta.strip()
