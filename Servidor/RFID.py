@@ -7,8 +7,7 @@ import time
 import sys
 import serial
 
-card1 = '0007181175'
-card2 = '0008056554'
+card = ['0007181175', '0008056554']
 
 class RFID(threading.Thread):
     def __init__(self, alarme):
