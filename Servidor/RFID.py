@@ -20,6 +20,7 @@ class RFID(threading.Thread):
         self.serial = serial.Serial('/dev/tty0', 2400, timeout=1)
                 
     def stop(self):
+        self.serial.close()
         self.__stop_thread_event.set()
         
     def run(self):
