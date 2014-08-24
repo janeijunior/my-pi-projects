@@ -7,8 +7,5 @@ code = ''
 while True:
     data = serial.readline()
         
-    if data == '\r':
-        print(code)
-        code = ''
-    else:
-        code = code + data
+    
+    print(code)
