@@ -16,7 +16,7 @@ class RFID(threading.Thread):
         
         #atributos
         self.alarme = alarme
-        self.serial = serial.Serial('/dev/tty0', 2400, timeout=1)
+        self.serial = serial.Serial('/dev/tty0', 2400)
                 
     def stop(self):
         self.serial.close()
@@ -25,7 +25,7 @@ class RFID(threading.Thread):
     def run(self):
         while True:
             try:
-                resposta = self.serial.read(10)
+                resposta = self.serial.readline()
                 resposta = resposta.strip()
             except:
                 print 'Erro na leitura.'
