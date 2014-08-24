@@ -48,10 +48,10 @@ serial = serial.Serial("/dev/tty4", baudrate=9600)
 code = ''
 
 while True:
-        data = serial.read()
-        
         print 'lendo...'
-        
+
+        data = serial.read()
+                
         if data == '\r':
                 print(code)
                 code = ''
