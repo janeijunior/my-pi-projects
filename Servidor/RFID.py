@@ -25,8 +25,7 @@ class RFID(threading.Thread):
         with open('/dev/tty4', 'r') as tty:
             while True:
                 RFID_input = tty.readline()
-                if (RFID_input == card1) :
-                    print "Access Granted" 
-                    print "Read code from RFID reader:{0}".format(RFID_input)
+                if (RFID_input == card1) or (RFID_input == card2):
+                    if self.alarme.
                 else:
                     print "Access Denied"
