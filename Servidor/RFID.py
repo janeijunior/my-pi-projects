@@ -25,12 +25,12 @@ class RFID(threading.Thread):
         
     def run(self):
         while True:
-            dados = raw_input()
+            resposta = self.serial.read(12)
             
-            if dados <> '':
-                print dados
+            if resposta <> '':
+                print resposta
                 
-                if dados in card:
+                if resposta in card:
                     print "Acesso Permitido."
                     
                     if self.alarme.alarmeLigado:
@@ -40,4 +40,4 @@ class RFID(threading.Thread):
                 else:
                     print "Acesso Negado."
                 
-                time.sleep(1.5)
+            time.sleep(1)
