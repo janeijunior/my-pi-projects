@@ -4,7 +4,7 @@
 import thread
 import threading
 import time
-import serial
+import sys
 
 card = ['0007181175', '0008056554']
 
@@ -16,31 +16,31 @@ class RFID(threading.Thread):
         
         #atributos
         self.alarme = alarme
-        self.serial = serial.Serial('/dev/tty0', 2400, timeout=1)
                 
     def stop(self):
         self.serial.close()
         self.__stop_thread_event.set()
         
     def run(self):
-        while True:
-            try:
-                resposta = self.serial.readline()
-                resposta = resposta.strip()
-            except:
-                print 'Erro na leitura.'
-                resposta = ''
-            
-            if resposta <> '':
-                print resposta
+        with open('/dev/tty0', 'r') as tty:
+            while True:
+                try:
+                    resposta = tty.readline()
+                    resposta = resposta.strip()
+                except:
+                    print 'Erro na leitura.'
+                    resposta = ''
                 
-                if resposta in card:
-                    print "Acesso Permitido."
+                if resposta <> '':
+                    print resposta
                     
-                    if self.alarme.alarmeLigado:
-                        self.alarme.desligarAlarme()
+                    if resposta in card:
+                        print "Acesso Permitido."
+                        
+                        if self.alarme.alarmeLigado:
+                            self.alarme.desligarAlarme()
+                        else:
+                            self.alarme.ligarAlarme()
                     else:
-                        self.alarme.ligarAlarme()
-                else:
-                    print "Acesso Negado."
+                        print "Acesso Negado."
                     
