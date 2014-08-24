@@ -48,6 +48,9 @@ code = ''
 
 while True:
         data = serial.read()
+        
+        print 'lendo...'
+        
         if data == '\r':
                 print(code)
                 code = ''
