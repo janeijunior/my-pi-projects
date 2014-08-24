@@ -42,5 +42,3 @@ class RFID(threading.Thread):
                         self.alarme.desligarAlarme()
                 else:
                     print "Acesso Negado."
-                
-            time.sleep(0.15)
