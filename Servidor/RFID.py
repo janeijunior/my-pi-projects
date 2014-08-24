@@ -26,9 +26,11 @@ class RFID(threading.Thread):
             while True:
                 RFID_input = tty.readline()
                 if (RFID_input == card1) or (RFID_input == card2):
+                    print "Acesso Permitido."
+                    
                     if self.alarme.alarmeLigado:
                         self.alarme.ligarAlarme()
                     else:
                         self.alarme.desligarAlarme()
                 else:
-                    print "Access Denied"
+                    print "Acesso Negado."
