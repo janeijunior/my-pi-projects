@@ -24,6 +24,8 @@ class ControleAgendamento(threading.Thread):
     def run(self):
         #executa enquanto nao setar o evento
         while not self.__stop_thread_event.isSet(): 
+            temp = temp + 1;            
+            
             #data e hora atual
             atual     = datetime.now().strftime("%Y%m%d%H%M%S")
             diaAtual  = datetime.now().strftime("%Y%m%d") 
