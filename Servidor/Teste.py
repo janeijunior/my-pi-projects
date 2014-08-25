@@ -15,6 +15,4 @@ def main():
             else:
                 print "Access Denied: {0}".format(RFID_input)
             
-            time.sleep(0.15)
-                        
 main()
