@@ -2,7 +2,8 @@
 import time
 import sys
 
-card = '0019171125'
+card = '0007181175'
+
 def main():
     with open('/dev/tty0', 'r') as tty:
         while True:
