@@ -103,6 +103,8 @@ if __name__ == '__main__':
     #classe automacao
     automacao = Automacao.Automacao()
     
+    thread.start_new_thread(lerRFID, automacao))
+    
     signal.signal(signal.SIGINT, signal_handler)
     
     print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
