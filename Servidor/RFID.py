@@ -3,8 +3,6 @@
 
 import thread
 import threading
-import time
-import sys
 import serial
 
 card = ['0007181175', '0008056554']
