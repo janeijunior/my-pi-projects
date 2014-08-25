@@ -26,8 +26,6 @@ class RFID(threading.Thread):
     
     def lerDados(self):
         while True:
-            print 'lendo...'
-            
             try:
                 with open('/dev/tty1', 'r') as tty:
                     
