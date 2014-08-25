@@ -11,5 +11,5 @@ def main():
                 print "Access Granted" 
                 print "Read code from RFID reader:{0}".format(RFID_input)
             else:
-                print "Access Denied"
+                print "Access Denied::{0}".format(RFID_input)
 main()
