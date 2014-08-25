@@ -9,7 +9,7 @@ import threading
 import Funcoes
 import Automacao
 import signal
-import sys
+import time
 
 if __name__ == '__main__': 
     
@@ -110,5 +110,7 @@ if __name__ == '__main__':
     while True:
        conexao, cliente = tcp.accept()
        thread.start_new_thread(conectado, tuple([conexao, cliente]))
+       
+       time.sleep(0.15)
         
     tcp.close()
