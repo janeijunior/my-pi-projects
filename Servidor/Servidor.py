@@ -20,6 +20,7 @@ if __name__ == '__main__':
         tcp.close;
         sys.exit(0)
     
+    #lê o sensor RFID
     def lerRFID(automacao):
         while True:
             try:
