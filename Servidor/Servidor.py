@@ -9,8 +9,6 @@ import threading
 import Funcoes
 import Automacao
 import signal
-import time
-import RFID
 
 if __name__ == '__main__': 
     
@@ -103,9 +101,6 @@ if __name__ == '__main__':
     
     #classe automacao
     automacao = Automacao.Automacao()
-    
-    rfid = RFID.RFID(None)
-    rfid.start()
     
     signal.signal(signal.SIGINT, signal_handler)
     
