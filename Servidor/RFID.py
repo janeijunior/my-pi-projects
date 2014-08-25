@@ -3,7 +3,7 @@
 
 import thread
 import threading
-import serial
+import sys
 
 card = ['0007181175', '0008056554']
 
