@@ -20,6 +20,26 @@ if __name__ == '__main__':
         tcp.close;
         sys.exit(0)
     
+    def lerRFID(self):
+        while True:
+            try:
+                with open('/dev/tty1', 'r') as tty:
+                    RFID_input = tty.readline().rstrip()
+                    
+                    if RFID_input in card:
+                        print "Acesso Permitido: {0}".format(RFID_input)
+                        
+                        if self.automacao.alarme.alarmeLigado:
+                            self.automacao.alarme.desligarAlarme()
+                        else:
+                            self.automacao.alarme.ligarAlarme()
+                    else:
+                        print "Acesso Negado: {0}".format(RFID_input)
+                    
+                    tty.close()
+            except:
+                print "Erro ao abrir o arquivo."
+    
     #cliente conectado, verifica os comandos recebidos
     def conectado(con, cliente):    
         while True:
