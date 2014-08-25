@@ -28,6 +28,8 @@ class RFID(threading.Thread):
                     
                     resposta = tty.readline().rstrip()
                 
+                    print str(resposta)
+                    
                     if resposta in card:
                         print "Acesso Permitido."
                         
