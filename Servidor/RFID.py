@@ -31,10 +31,10 @@ class RFID(threading.Thread):
                     if RFID_input in card:
                         print "Acesso Permitido: {0}".format(RFID_input)
                         
-                        if self.alarme.alarmeLigado:
-                            self.alarme.desligarAlarme()
-                        else:
-                            self.alarme.ligarAlarme()
+                        #if self.alarme.alarmeLigado:
+                        #    self.alarme.desligarAlarme()
+                        #else:
+                        #    self.alarme.ligarAlarme()
                     else:
                         print "Acesso Negado: {0}".format(RFID_input)
                     
