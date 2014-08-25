@@ -94,6 +94,6 @@ class ControleAgendamento(threading.Thread):
                                 
                             agendamento.desativarRegistroBanco()
                     
-                    self.threadLock.release()
+            self.threadLock.release()
                     
             time.sleep(0.15) 
