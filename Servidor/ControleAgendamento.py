@@ -13,7 +13,6 @@ class ControleAgendamento(threading.Thread):
     def __init__(self, agendamentos):
         threading.Thread.__init__(self)
         self.name = 'ThreadAgendamento'
-        self.threadID = 10;
         self.__stop_thread_event = threading.Event()
         
         #atributos
