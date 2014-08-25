@@ -22,5 +22,6 @@ class ControleAgendamento(threading.Thread):
         self.__stop_thread_event.set()
         
     def run(self):
+        print 'entrou'
         
         
