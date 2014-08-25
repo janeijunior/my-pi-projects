@@ -8,7 +8,7 @@ card = ['0007181175']
 def main():
     with open('/dev/tty0', 'r') as tty:
         while True:
-            RFID_input = tty.readline()
+            RFID_input = tty.readline().rstrip()
             
             if RFID_input in card:
                 print "Access Granted: {0}".format(RFID_input)
@@ -16,6 +16,5 @@ def main():
                 print "Access Denied: {0}".format(RFID_input)
             
             tty.
-    
-    tty.close
+            
 main()
