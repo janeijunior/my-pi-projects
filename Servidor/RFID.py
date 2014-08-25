@@ -44,3 +44,6 @@ class RFID(threading.Thread):
                     tty.close()
             except:
                 print "Erro ao abrir o arquivo."
+            
+            self.threadLock.release()
+                    
