@@ -7,7 +7,7 @@ import serial
 
 delay  = 0
 port   = 2400
-tag_death = "440033886D"
+tag_death = "0007181175"
 serial = serial.Serial('/dev/tty0', port, timeout=1)
 
 def check():
@@ -15,6 +15,7 @@ def check():
   #return and ending with a newline return EM4001 tags will
   #never contain anything but ASCII digits 0-9A-F
   unique_id = serial.readline
+  
   if unique_id == tag_death:
     print("You found the death key")
     exit()
