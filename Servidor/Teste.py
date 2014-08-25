@@ -1,10 +1,16 @@
 #!/usr/bin/env python
 
 import sys
+import thread
+import threading
 
 card = ['0007181175', '0008056554']
 
 def main():
+    thread = threading.Thread(None, self.lerDados, None, ())
+    thread.start()
+            
+def lerDados(self)
     while True:
         try:
             with open('/dev/tty1', 'r') as tty:
