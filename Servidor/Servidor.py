@@ -20,7 +20,7 @@ if __name__ == '__main__':
         tcp.close;
         sys.exit(0)
     
-    def lerRFID(self, automacao):
+    def lerRFID(automacao):
         while True:
             try:
                 with open('/dev/tty1', 'r') as tty:
