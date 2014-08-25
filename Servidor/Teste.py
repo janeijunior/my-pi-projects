@@ -8,7 +8,7 @@ card = ['0007181175']
 def main():
     while True:
         try:
-            with open('/dev/tty0', 'r') as tty:
+            with open('/dev/tty1', 'r') as tty:
                 RFID_input = tty.readline().rstrip()
                 
                 if RFID_input in card:
