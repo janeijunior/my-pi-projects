@@ -1,31 +1,15 @@
-# Notes
-# Find the RFID reader within Raspberry Pi 
-# $ ls /dev/tty*
-
+#!/usr/bin/env python
 import time
-import serial
+import sys
 
-delay  = 0
-port   = 2400
-tag_death = "0007181175"
-serial = serial.Serial('/dev/tty0', port, timeout=1)
-
-def check():
-  #The tag is a 12-byte string starting with a carriage
-  #return and ending with a newline return EM4001 tags will
-  #never contain anything but ASCII digits 0-9A-F
-  unique_id = serial.readline()
-  serial.flushInput() 
-  
-  if unique_id == tag_death:
-    print("You found the death key")
-    exit()
-  else:
-      print("Sandy's Super Access Code:", unique_id)
-
-try:
-  while True:
-    time.sleep(delay)
-    check()
-except KeyboardInterrupt:
-  exit()
+card = '0019171125'
+def main():
+    with open('/dev/tty0', 'r') as tty:
+        while True:
+            RFID_input = tty.readline()
+            if RFID_input == card:
+                print "Access Granted" 
+                print "Read code from RFID reader:{0}".format(RFID_input)
+            else:
+                print "Access Denied"
+main()
