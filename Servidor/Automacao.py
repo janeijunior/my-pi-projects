@@ -16,6 +16,7 @@ import Agendamento
 import ControleAgendamento
 import xml.etree.ElementTree as ET
 import RFID
+import threading
 
 from xml.etree.ElementTree import Element
 
@@ -25,6 +26,7 @@ class Automacao(Base.Base):
     def __init__(self):
         
         #atributos
+        self.threadLock = threading.Lock()
         self.GPIOSirene = int(Funcoes.lerConfiguracaoIni("GPIOSirene")) 
         self.usuario = Usuario.Usuario()
         self.temperaturaHumidade = TemperaturaHumidade.TemperaturaHumidade()
