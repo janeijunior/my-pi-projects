@@ -5,11 +5,9 @@ import time
 ser = serial.Serial('/dev/tty0', 2400, timeout=1) # replace '/dev/ttyUSB0' with your port
 
 while True:
-    response = ser.read(12)
+    response = ser.readline()
     if response <> "":
-        print "raw: " + str(response)
-        print "hex: " + str(response[-8:])
-        print "dec: " + str(int(response[-8:], 16))
+        print str(response)
     time.sleep(1)
 
 ser.close()
