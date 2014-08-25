@@ -24,8 +24,6 @@ class RFID(threading.Thread):
     
     def lerDados(self):
         while not self.__stop_thread_event.isSet():
-            self.threadLock.acquire()
-            
             try:
                 with open('/dev/tty1', 'r') as tty:
                     RFID_input = tty.readline().rstrip()
@@ -43,5 +41,3 @@ class RFID(threading.Thread):
                     tty.close()
             except:
                 print "Erro ao abrir o arquivo."
-            
-            self.threadLock.release()
