@@ -25,7 +25,7 @@ ser = serial.Serial('/dev/tty1', 2400, timeout=1)
 
 while True:
     try:
-        response = ser.readline).rstrip()
+        response = ser.readline().rstrip()
     except:
         print "Erro"
         response = ""
