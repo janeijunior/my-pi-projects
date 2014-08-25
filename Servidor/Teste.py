@@ -14,7 +14,7 @@ def check():
   #The tag is a 12-byte string starting with a carriage
   #return and ending with a newline return EM4001 tags will
   #never contain anything but ASCII digits 0-9A-F
-  unique_id = serial.readline
+  unique_id = serial.readline()
   
   if unique_id == tag_death:
     print("You found the death key")
