@@ -22,4 +22,7 @@ class RFID(threading.Thread):
         self.__stop_thread_event.set()
         
     def run(self):
-        self.ler()
+        self.lerRFID()
+    
+    def ler(self):
+        
