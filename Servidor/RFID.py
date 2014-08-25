@@ -21,7 +21,7 @@ class RFID(threading.Thread):
     def stop(self):
         self.__stop_thread_event.set()
         
-    def run(self
+    def run(self):
         while True:
             try:
                 with open('/dev/tty1', 'r') as tty:
