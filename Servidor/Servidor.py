@@ -102,7 +102,7 @@ if __name__ == '__main__':
     tcp.listen(1)
     
     #classe automacao
-    #automacao = Automacao.Automacao()
+    automacao = Automacao.Automacao()
     
     rfid = RFID.RFID(None)
     rfid.start()
