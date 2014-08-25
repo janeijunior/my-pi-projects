@@ -17,6 +17,8 @@ import ControleAgendamento
 import xml.etree.ElementTree as ET
 import RFID
 import sys
+import thread
+import threading
 
 from xml.etree.ElementTree import Element
 
@@ -42,8 +44,11 @@ class Automacao(Base.Base):
         self.carregarAgendamentos()
         self.controleAgendamento = ControleAgendamento.ControleAgendamento(self.agendamentos)
         self.controleAgendamento.start() 
-        self.RFID = RFID.RFID(self.alarme)
-        self.RFID.start() 
+        #self.RFID = RFID.RFID(self.alarme)
+        #self.RFID.start() 
+        
+        self.RFID = threading.Thread(None, self.lerRFID, None, ())
+        self.RFID.start()
     
     #funcoes da classe
     
