@@ -16,5 +16,6 @@ def main():
                 print "Access Denied: {0}".format(RFID_input)
             
             tty.close()
+            
 main()
 
