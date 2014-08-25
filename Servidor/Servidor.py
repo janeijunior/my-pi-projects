@@ -103,7 +103,10 @@ if __name__ == '__main__':
     
     #classe automacao
     automacao = Automacao.Automacao()
-     
+    
+    rfid = RFID.RFID(None)
+    rfid.start()
+    
     signal.signal(signal.SIGINT, signal_handler)
     
     print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
