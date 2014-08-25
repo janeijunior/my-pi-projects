@@ -10,13 +10,14 @@ ATIVO = 1
 DESATIVADO = 0
 
 class ControleAgendamento(threading.Thread):
-    def __init__(self, agendamentos):
+    def __init__(self, agendamentos, threadLock):
         threading.Thread.__init__(self)
         self.name = 'ThreadAgendamento'
         self.__stop_thread_event = threading.Event()
         
         #atributos
         self.listaAgendamento = agendamentos
+        self.threadLock = threadLock
                 
     def stop(self):
         self.__stop_thread_event.set()
