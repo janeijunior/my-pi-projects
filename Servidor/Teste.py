@@ -2,7 +2,7 @@
 
 import sys
 
-card = ['0007181175']
+card = ['0007181175', '0008056554']
 
 def main():
     while True:
