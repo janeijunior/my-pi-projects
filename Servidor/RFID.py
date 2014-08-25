@@ -8,14 +8,13 @@ import sys
 card = ['0007181175', '0008056554']
 
 class RFID(threading.Thread):
-    def __init__(self, alarme, threadLock):
+    def __init__(self, alarme):
         threading.Thread.__init__(self)
         self.name = 'ThreadRFID'
         self.__stop_thread_event = threading.Event()
         
         #atributos
         self.alarme = alarme
-        self.threadLock = threadLock
                 
     def stop(self):
         self.__stop_thread_event.set()
