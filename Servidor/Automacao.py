@@ -16,7 +16,6 @@ import Agendamento
 import ControleAgendamento
 import xml.etree.ElementTree as ET
 import RFID
-import threading
 
 from xml.etree.ElementTree import Element
 
