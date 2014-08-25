@@ -6,7 +6,7 @@ import sys
 card = ['0007181175']
 
 def main():
-    with open('/dev/tty1', 'r') as tty:
+    with open('/dev/tty4', 'r') as tty:
         while True:
             RFID_input = tty.readline().rstrip()
             
