@@ -3,8 +3,8 @@
 import RFID
 
 def main():
-    RFID = RFID.RFID(None)
-    RFID.start() 
+    teste = RFID.RFID(None)
+    teste.start() 
 
 main()
 
