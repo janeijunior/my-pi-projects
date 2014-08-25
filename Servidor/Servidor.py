@@ -111,6 +111,4 @@ if __name__ == '__main__':
        conexao, cliente = tcp.accept()
        thread.start_new_thread(conectado, tuple([conexao, cliente]))
        
-       print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
-        
     tcp.close()
