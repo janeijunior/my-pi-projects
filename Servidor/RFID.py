@@ -28,6 +28,28 @@ class RFID(threading.Thread):
         while True:
             try:
                 with open('/dev/tty1', 'r') as tty:
+                    RFID_input = tty.readline().rstrip()
+                    
+                    if RFID_input in card:
+                        print "Acesso Permitido: {0}".format(RFID_input)
+                        
+                        if self.alarme.alarmeLigado:
+                            self.alarme.desligarAlarme()
+                        else:
+                            self.alarme.ligarAlarme()
+                    else:
+                        print "Acesso Negado: {0}".format(RFID_input)
+                    
+                    tty.close()
+            except:
+                print "Erro ao abrir o arquivo."
+        
+        
+        
+        
+        while True:
+            try:
+                with open('/dev/tty1', 'r') as tty:
                     
                     resposta = tty.readline().rstrip()
                 
