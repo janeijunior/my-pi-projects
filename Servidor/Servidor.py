@@ -123,7 +123,8 @@ if __name__ == '__main__':
     #classe automacao
     automacao = Automacao.Automacao()
     
-    thread.start_new_thread(lerRFID, automacao)
+    rfid = threading.Thread(None, lerRFID(automacao), None, ())
+    rfid.start()
     
     signal.signal(signal.SIGINT, signal_handler)
     
