@@ -15,6 +15,6 @@ def main():
             else:
                 print "Access Denied: {0}".format(RFID_input)
             
-            time.slee(1.5)
+            time.slee(0.15)
                         
 main()
