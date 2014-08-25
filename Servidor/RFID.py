@@ -26,7 +26,7 @@ class RFID(threading.Thread):
         while not self.__stop_thread_event.isSet():
             try:
                 with open('/dev/tty1', 'r') as tty:
-                    RFID_input = tty.read(12).rstrip()
+                    RFID_input = tty.readline().rstrip()
                     
                     if RFID_input in card:
                         print "Acesso Permitido: {0}".format(RFID_input)
