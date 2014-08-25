@@ -370,6 +370,7 @@ class Automacao(Base.Base):
         
         self.alarme.desligarPanico()
         self.controleAgendamento.stop()
+        self.RFID.stop()
         
         for rele in self.reles:    
     		rele.desligar()
