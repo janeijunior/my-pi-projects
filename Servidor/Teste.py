@@ -10,7 +10,7 @@ def main():
     thread = threading.Thread(None, self.lerDados, None, ())
     thread.start()
             
-def lerDados(self)
+def lerDados(self):
     while True:
         try:
             with open('/dev/tty1', 'r') as tty:
