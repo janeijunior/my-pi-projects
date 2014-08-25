@@ -386,4 +386,4 @@ class Automacao(Base.Base):
         if acao == "Reiniciar":
             os.system("/usr/bin/sudo /sbin/shutdown -r now")
         else:
-            os.system("/usr/bin/sudo /sbin/shutdown -h now")
+            s.system("/usr/bin/sudo /sbin/shutdown -h now")
