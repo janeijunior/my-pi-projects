@@ -25,6 +25,7 @@ class RFID(threading.Thread):
         while True:
             try:
                 with open('/dev/tty1', 'r') as tty:
+                    
                     resposta = tty.readline().rstrip()
                 
                     if resposta in card:
