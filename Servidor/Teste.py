@@ -8,8 +8,7 @@ def main():
         while True:
             RFID_input = tty.readline()
             if RFID_input == card:
-                print "Access Granted" 
-                print "Read code from RFID reader: {0}".format(RFID_input)
+                print "Access Granted: {0}".format(RFID_input)
             else:
                 print "Access Denied: {0}".format(RFID_input)
 main()
