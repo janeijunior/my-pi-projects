@@ -10,6 +10,7 @@ import Funcoes
 import Automacao
 import signal
 import time
+import RFID
 
 if __name__ == '__main__': 
     
