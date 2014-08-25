@@ -6,16 +6,16 @@ import sys
 card = ['0007181175']
 
 def main():
-    while True:
-        sys.stdin = open('/dev/tty0', 'r')
-        
-        RFID_input = str(input())
-        
-        if RFID_input == card:
-            print "Access Granted"
-            print "Read code from RFID reader:{0}".format(RFID_input)
-        else:
-            print "Access Denied"
-            tty.close()
+    with open('/dev/tty0', 'r') as tty:
+        while True:
+            RFID_input = tty.readline()
             
+            if RFID_input in card:
+                print "Access Granted: {0}".format(RFID_input)
+            else:
+                print "Access Denied: {0}".format(RFID_input)
+            
+            tty.
+    
+    tty.close
 main()
