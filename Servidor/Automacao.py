@@ -25,7 +25,6 @@ class Automacao(Base.Base):
     def __init__(self):
         
         #atributos
-        self.threadLock = threading.Lock()
         self.GPIOSirene = int(Funcoes.lerConfiguracaoIni("GPIOSirene")) 
         self.usuario = Usuario.Usuario()
         self.temperaturaHumidade = TemperaturaHumidade.TemperaturaHumidade()
