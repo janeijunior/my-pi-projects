@@ -91,4 +91,4 @@ class ControleAgendamento(threading.Thread):
                                 
                             agendamento.desativarRegistroBanco()
                 
-            #time.sleep(0.15) 
+            time.sleep(0.15) 
