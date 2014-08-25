@@ -34,11 +34,11 @@ class Automacao(Base.Base):
         self.reles = []
         self.carregarReles()
         self.alarme = Alarme.Alarme(self.reles[self.GPIOSirene], self.email)
-        #self.controleAgendamento = None
+        self.controleAgendamento = None
         self.agendamentos = []
-        #self.carregarAgendamentos()
-        #self.controleAgendamento = ControleAgendamento.ControleAgendamento(self.agendamentos)
-        #self.controleAgendamento.start() 
+        self.carregarAgendamentos()
+        self.controleAgendamento = ControleAgendamento.ControleAgendamento(self.agendamentos)
+        self.controleAgendamento.start() 
         self.RFID = RFID.RFID(self.alarme)
         self.RFID.start() 
         
