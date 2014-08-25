@@ -21,21 +21,28 @@ class RFID(threading.Thread):
     def stop(self):
         self.__stop_thread_event.set()
         
-    def run(self):
-        with open('/dev/tty0', 'r') as tty:
-            while True:
-                resposta = tty.readline().rstrip()
+    def run(self
+        while True:
+            try:
+                with open('/dev/tty1', 'r') as tty:
+                    resposta = tty.readline().rstrip()
                 
-                if resposta <> '':
-                    print resposta
+                    if resposta <> '':
+                        print resposta
                     
-                    if resposta in card:
-                        print "Acesso Permitido."
+                        if resposta in card:
+                            print "Acesso Permitido."
                         
-                        if self.alarme.alarmeLigado:
-                            self.alarme.desligarAlarme()
+                            if self.alarme.alarmeLigado:
+                                self.alarme.desligarAlarme()
+                            else:
+                                self.alarme.ligarAlarme()
                         else:
-                            self.alarme.ligarAlarme()
-                    else:
-                        print "Acesso Negado."
-                
+                            print "Acesso Negado."
+
+                    tty.close()
+            except:
+                print "Erro ao abrir o arquivo."
+    
+    
+    
