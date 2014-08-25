@@ -11,6 +11,8 @@ import Automacao
 import signal
 import sys
 
+card = ['0007181175', '0008056554']
+
 if __name__ == '__main__': 
     
     #para fechar o programa
