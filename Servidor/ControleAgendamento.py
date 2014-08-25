@@ -10,14 +10,13 @@ ATIVO = 1
 DESATIVADO = 0
 
 class ControleAgendamento(threading.Thread):
-    def __init__(self, agendamentos, threadLock):
+    def __init__(self, agendamentos):
         threading.Thread.__init__(self)
         self.name = 'ThreadAgendamento'
         self.__stop_thread_event = threading.Event()
         
         #atributos
         self.listaAgendamento = agendamentos
-        self.threadLock = threadLock
                 
     def stop(self):
         self.__stop_thread_event.set()
@@ -25,8 +24,6 @@ class ControleAgendamento(threading.Thread):
     def run(self):
         #executa enquanto nao setar o evento
         while not self.__stop_thread_event.isSet(): 
-            self.threadLock.acquire()
-            
             #data e hora atual
             atual     = datetime.now().strftime("%Y%m%d%H%M%S")
             diaAtual  = datetime.now().strftime("%Y%m%d") 
@@ -93,7 +90,5 @@ class ControleAgendamento(threading.Thread):
                                 agendamento.alarme.desligarAlarme()
                                 
                             agendamento.desativarRegistroBanco()
-                    
-            self.threadLock.release()
                     
             time.sleep(0.15) 
