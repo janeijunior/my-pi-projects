@@ -11,8 +11,6 @@ import Automacao
 import signal
 import sys
 
-card = ['0007181175', '0008056554']
-
 if __name__ == '__main__': 
     
     #para fechar o programa
@@ -21,28 +19,7 @@ if __name__ == '__main__':
         automacao.finalizarProcessos()
         tcp.close;
         sys.exit(0)
-    
-    #lê o sensor RFID
-    def lerRFID(automacao):
-        while True:
-            try:
-                with open('/dev/tty1', 'r') as tty:
-                    RFID_input = tty.readline().rstrip()
-                    
-                    if RFID_input in card:
-                        print "Acesso Permitido: {0}".format(RFID_input)
-                        
-                        if self.automacao.alarme.alarmeLigado:
-                            self.automacao.alarme.desligarAlarme()
-                        else:
-                            self.automacao.alarme.ligarAlarme()
-                    else:
-                        print "Acesso Negado: {0}".format(RFID_input)
-                    
-                    tty.close()
-            except:
-                print "Erro ao abrir o arquivo."
-    
+
     #cliente conectado, verifica os comandos recebidos
     def conectado(con, cliente):    
         while True:
