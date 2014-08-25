@@ -16,13 +16,8 @@ import Agendamento
 import ControleAgendamento
 import xml.etree.ElementTree as ET
 import RFID
-import sys
-import thread
-import threading
 
 from xml.etree.ElementTree import Element
-
-card = ['0007181175', '0008056554']
 
 class Automacao(Base.Base):
 
@@ -44,12 +39,9 @@ class Automacao(Base.Base):
         self.carregarAgendamentos()
         self.controleAgendamento = ControleAgendamento.ControleAgendamento(self.agendamentos)
         self.controleAgendamento.start() 
-        #self.RFID = RFID.RFID(self.alarme)
-        #self.RFID.start() 
+        self.RFID = RFID.RFID(self.alarme)
+        self.RFID.start() 
         
-        self.RFID = threading.Thread(None, self.lerRFID, None, ())
-        self.RFID.start()
-    
     #funcoes da classe
     
     #carrega a lista com os reles já configurados
@@ -366,27 +358,6 @@ class Automacao(Base.Base):
                     
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)
-        
-    #monitora o RFID
-    def lerRFID(self):
-        while True:
-            try:
-                with open('/dev/tty1', 'r') as tty:
-                    RFID_input = tty.readline().rstrip()
-                    
-                    if RFID_input in card:
-                        print "Acesso Permitido: {0}".format(RFID_input)
-                        
-                        if self.alarme.alarmeLigado:
-                            self.alarme.desligarAlarme()
-                        else:
-                            self.alarme.ligarAlarme()
-                    else:
-                        print "Acesso Negado: {0}".format(RFID_input)
-                    
-                    tty.close()
-            except:
-                print "Erro ao abrir o arquivo."
 
     #remove o cliente
     def removerConexao(self, cliente):
