@@ -27,8 +27,8 @@ while True:
     try:
         response = ser.read(12)
     except:
-        print 'Erro'
-        response = ''
+        print "Erro"
+        response = ""
     
     if response <> "":
         print str(response)
