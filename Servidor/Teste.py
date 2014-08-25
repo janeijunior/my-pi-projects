@@ -17,3 +17,16 @@
             
 #main()
 
+#! /usr/bin/python
+import serial
+import time
+
+ser = serial.Serial('/dev/tty1', 2400, timeout=1) 
+
+while True:
+    response = ser.read(12)
+    
+    if response <> "":
+        print str(response)
+
+ser.close()
