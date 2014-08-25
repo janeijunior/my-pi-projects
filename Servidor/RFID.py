@@ -23,7 +23,7 @@ class RFID(threading.Thread):
         self.lerDados()
     
     def lerDados(self):
-        while True:
+        while not self.__stop_thread_event.isSet():
             try:
                 with open('/dev/tty1', 'r') as tty:
                     RFID_input = tty.readline().rstrip()
