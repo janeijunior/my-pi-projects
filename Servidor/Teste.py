@@ -14,4 +14,6 @@ def main():
                 print "Access Granted: {0}".format(RFID_input)
             else:
                 print "Access Denied: {0}".format(RFID_input)
+            
+            tty.
 main()
