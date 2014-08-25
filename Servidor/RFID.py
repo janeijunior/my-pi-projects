@@ -43,28 +43,3 @@ class RFID(threading.Thread):
                     tty.close()
             except:
                 print "Erro ao abrir o arquivo."
-        
-        
-        
-        
-        while True:
-            try:
-                with open('/dev/tty1', 'r') as tty:
-                    
-                    resposta = tty.readline().rstrip()
-                
-                    print str(resposta)
-                    
-                    if resposta in card:
-                        print "Acesso Permitido."
-                        
-                        if self.alarme.alarmeLigado:
-                            self.alarme.desligarAlarme()
-                        else:
-                            self.alarme.ligarAlarme()
-                    else:
-                        print "Acesso Negado."
-
-                    tty.close()
-            except:
-                print "Erro ao abrir o arquivo."
