@@ -11,7 +11,6 @@ class RFID(threading.Thread):
     def __init__(self, alarme):
         threading.Thread.__init__(self)
         self.name = 'ThreadRFID'
-        self.threadID = 11
         self.__stop_thread_event = threading.Event()
         
         #atributos
