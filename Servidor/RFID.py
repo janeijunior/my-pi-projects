@@ -35,7 +35,7 @@ class RFID(threading.Thread):
                             self.alarme.desligarAlarme()
                         else:
                             self.alarme.ligarAlarme()
-                    else:
+                    #else:
                         #print "Acesso Negado: {0}".format(RFID_input)
                     
                     tty.close()
