@@ -7,8 +7,6 @@ import socket
 import sys
 import xml.etree.ElementTree as ET
 
-card = ['0007181175', '0008056554']
-
 def main():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_address = ('localhost', 2342)
