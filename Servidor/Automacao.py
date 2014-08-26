@@ -215,8 +215,6 @@ class Automacao(Base.Base):
         for child in root:
             cartao = str(child.get("Cartao")) 
         
-        print cartao
-        
         if cartao in card:
             if self.alarme.alarmeLigado:
                 self.alarme.desligarAlarme()
