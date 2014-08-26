@@ -31,7 +31,7 @@ def lerDados(sock):
         except:
             print "Erro ao abrir o arquivo."
 
-def enviarComando(sock, acao):
+def enviarComando(sock):
     root = Element("RFID")
     xmlstr = ET.tostring(root) + "\n"       
     sock.send(xmlstr)
