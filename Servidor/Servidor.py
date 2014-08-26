@@ -109,7 +109,7 @@ if __name__ == '__main__':
     
     signal.signal(signal.SIGINT, signal_handler)
     
-    subprocess.call("sudo python " + Funcoes.lerConfiguracaoIni("RFID"))
+    os.system("sudo python " + Funcoes.lerConfiguracaoIni("RFID"))
     
     print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
     
