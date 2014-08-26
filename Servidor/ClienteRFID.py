@@ -6,6 +6,7 @@ import threading
 import socket
 import sys
 import Funcoes
+import time
 import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import Element
 
