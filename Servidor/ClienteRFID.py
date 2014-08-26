@@ -16,6 +16,8 @@ def main():
         sock.connect(server_address)
     except:
         print "Erro ao conectar no servidor."
+        time.sleep(20)
+        sock.connect(server_address)
         
     lerDados(sock)
         
@@ -34,14 +36,12 @@ def lerDados(sock):
 
 def enviarComando(sock, RFID):
     root = Element("RFID")
-    cartao = Element("Cartao").text = RFID
-    root.append(cartao)
+    dados = Element("Dado", Cartao = RFID)
+    root.append(dados)
     xmlstr = ET.tostring(root) + "\n"       
-	
-    print xmlstr
-    
+	 
     try:
-        sock.sendall(xmlstr)
+        sock.sendall('//' + xmlstr)
     except:
         print "Erro ao enviar o RFID."
     
