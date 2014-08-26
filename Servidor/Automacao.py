@@ -210,7 +210,7 @@ class Automacao(Base.Base):
         
         con.send("Ok\n")
 
-    #liga ou desliga o alarme  se validar o RFID
+    #liga ou desliga o alarme se validar o RFID
     def controlarRFID(self, root, con):
         acao = root.find("Acao").text
         
