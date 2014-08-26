@@ -214,6 +214,8 @@ class Automacao(Base.Base):
     def controlarRFID(self, root, con):
         cartao = root.find("Cartao").text
         
+        print cartao
+        
         if cartao in card:
             if self.alarme.alarmeLigado:
                 self.alarme.desligarAlarme()
