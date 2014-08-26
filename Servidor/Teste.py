@@ -5,13 +5,14 @@ import thread
 import threading
 import socket
 import sys
+import Funcoes
 import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import Element
 
 def main():
     try:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        server_address = ('localhost', 2342)
+        server_address = ('localhost', int(int(Funcoes.lerConfiguracaoIni("Porta"))))
         sock.connect(server_address)
     except:
         print "Erro ao conectar no servidor."
@@ -35,6 +36,8 @@ def enviarComando(sock, RFID):
     root = Element("RFID", Cartao = RFID)
     
     xmlstr = ET.tostring(root) + "\n"       
+	
+    print xmlstr
     
     try:
         sock.sendall(xmlstr)
