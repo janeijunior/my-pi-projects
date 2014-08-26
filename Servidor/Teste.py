@@ -14,7 +14,7 @@ def main():
     sock.connect(server_address)
     lerDados(sock)
         
-def lerDados():
+def lerDados(sock):
     while True:
         try:
             with open('/dev/tty1', 'r') as tty:
