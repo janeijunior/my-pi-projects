@@ -108,6 +108,9 @@ if __name__ == '__main__':
     
     signal.signal(signal.SIGINT, signal_handler)
     
+    os.system("sudo ClienteRFID.py")
+
+    
     print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
     
     while True:
