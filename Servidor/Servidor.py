@@ -26,7 +26,7 @@ if __name__ == '__main__':
             
             print cliente
             
-            if cliente <> 'localhost'
+            if cliente <> 'localhost':
                 comando = msg[2:len(msg)]
          
             if not msg: 
