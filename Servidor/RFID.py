@@ -29,14 +29,14 @@ class RFID(threading.Thread):
                     RFID_input = tty.readline().rstrip()
                     
                     if RFID_input in card:
-                        #print "Acesso Permitido: {0}".format(RFID_input)
+                        print "Acesso Permitido: {0}".format(RFID_input)
                         
                         if self.alarme.alarmeLigado:
                             self.alarme.desligarAlarme()
                         else:
                             self.alarme.ligarAlarme()
-                    #else:
-                        #print "Acesso Negado: {0}".format(RFID_input)
+                    else:
+                        print "Acesso Negado: {0}".format(RFID_input)
                     
                     tty.close()
             except:
