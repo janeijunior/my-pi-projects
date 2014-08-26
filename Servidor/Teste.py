@@ -34,8 +34,6 @@ def enviarComando(sock, RFID):
     root.append(dados)
     xmlstr = ET.tostring(root) + "\n"       
     sock.sendall(xmlstr)
-    
-    print xmlstr
-            
+     
 main()
 
