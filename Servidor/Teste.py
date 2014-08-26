@@ -20,7 +20,7 @@ def lerDados(sock):
                 RFID_input = tty.readline().rstrip()
                 
                 print "RFID: {0}".format(RFID_input)
-                enviarComando(sock, RFID)
+                enviarComando(sock, RFID_input)
                 
                 tty.close()
         #except:
