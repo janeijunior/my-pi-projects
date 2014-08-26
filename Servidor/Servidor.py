@@ -10,6 +10,7 @@ import Funcoes
 import Automacao
 import signal
 import sys
+import os
 
 if __name__ == '__main__': 
     
