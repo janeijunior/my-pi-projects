@@ -24,7 +24,7 @@ if __name__ == '__main__':
         while True:
             msg = con.recv(1024)
             
-            print cliente ' - ' cliente[1:8]
+            print cliente, ' - ', cliente[1:8]
             
             if cliente[1:8] <> '127.0.0.1':
                 comando = msg[2:len(msg)]
