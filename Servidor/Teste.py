@@ -19,17 +19,14 @@ def lerDados(sock):
             with open('/dev/tty1', 'r') as tty:
                 RFID_input = tty.readline().rstrip()
                 
-                if RFID_input in card:
-                    print "Acesso Permitido: {0}".format(RFID_input)
-                    enviarComando(sock)
-                else:
-                    print "Acesso Negado: {0}".format(RFID_input)
+                print "RFID: {0}".format(RFID_input)
+                enviarComando(sock, RFID)
                 
                 tty.close()
         except:
             print "Erro ao abrir o arquivo."
 
-def enviarComando(sock):
+def enviarComando(sock, RFID):
     root = Element("RFID")
     xmlstr = ET.tostring(root) + "\n"       
     sock.send(xmlstr)
