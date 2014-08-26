@@ -30,7 +30,7 @@ def lerDados(sock):
         except:
             print "Erro ao abrir o arquivo."
 
-def enviarComando(acao):
+def enviarComando(sock, acao):
     root = Element("Acao")
     dados = Element(acao)
     
