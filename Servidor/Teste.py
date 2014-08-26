@@ -33,8 +33,9 @@ def lerDados(sock):
             print "Erro ao abrir o arquivo."
 
 def enviarComando(sock, RFID):
-    root = Element("RFID", Cartao = RFID)
-    
+    root = Element("RFID")
+    cartao = Element("Cartao").text = RFID
+    root.append(cartao)
     xmlstr = ET.tostring(root) + "\n"       
 	
     print xmlstr
