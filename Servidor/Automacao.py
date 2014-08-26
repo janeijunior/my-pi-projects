@@ -212,7 +212,7 @@ class Automacao(Base.Base):
 
     #liga ou desliga o alarme se validar o RFID
     def controlarRFID(self, root, con):
-        acao = root.find("Acao").text
+        acao = root.find("Cartao").text
         
         if acao in card:
             if self.alarme.alarmeLigado:
