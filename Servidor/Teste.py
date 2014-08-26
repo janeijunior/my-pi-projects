@@ -9,9 +9,13 @@ import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import Element
 
 def main():
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_address = ('localhost', 2342)
-    sock.connect(server_address)
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        server_address = ('localhost', 2342)
+        sock.connect(server_address)
+    except:
+        print "Erro ao conectar no servidor."
+        
     lerDados(sock)
         
 def lerDados(sock):
