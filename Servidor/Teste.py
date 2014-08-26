@@ -29,6 +29,14 @@ def lerDados(sock):
                 tty.close()
         except:
             print "Erro ao abrir o arquivo."
+
+def enviarComando(acao):
+    root = Element("Acao")
+    dados = Element(acao)
+    
+    root.append(dados)
+    xmlstr = ET.tostring(root) + "\n"       
+    sock.send(xmlstr)
             
 main()
 
