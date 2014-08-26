@@ -15,7 +15,7 @@ def main():
         
 def lerDados(sock):
     while True:
-        #try:
+        try:
             with open('/dev/tty1', 'r') as tty:
                 RFID_input = tty.readline().rstrip()
                 
@@ -23,8 +23,8 @@ def lerDados(sock):
                 enviarComando(sock, RFID_input)
                 
                 tty.close()
-        #except:
-        #    print "Erro ao abrir o arquivo."
+        except:
+            print "Erro ao abrir o arquivo."
 
 def enviarComando(sock, RFID):
     root = Element("RFID")
