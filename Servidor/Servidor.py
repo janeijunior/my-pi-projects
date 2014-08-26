@@ -24,7 +24,7 @@ if __name__ == '__main__':
         while True:
             msg = con.recv(1024)
             
-            #comando = msg[2:len(msg)]
+            comando = msg[2:len(msg)]
          
             if not msg: 
                 break
