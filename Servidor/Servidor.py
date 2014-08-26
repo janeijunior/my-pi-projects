@@ -76,6 +76,8 @@ if __name__ == '__main__':
                         automacao.controlarCamera(root, con, cliente)
                     elif root.tag == "EnviarUltimosDisparos":
                         automacao.enviarUltimosDisparos(con)
+                    elif root.tag == "RFID":
+                        automacao.controlarRFID(root, con)
                     else:
                         print "Comando não reconhecido!"
                 except Exception as e: 
