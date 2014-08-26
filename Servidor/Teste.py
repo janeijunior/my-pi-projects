@@ -5,6 +5,7 @@ import thread
 import threading
 import socket
 import sys
+import xml.etree.ElementTree as ET
 
 card = ['0007181175', '0008056554']
 
