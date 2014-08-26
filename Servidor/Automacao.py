@@ -211,7 +211,7 @@ class Automacao(Base.Base):
         con.send("Ok\n")
 
     #liga ou desliga o alarme se validar o RFID
-    def controlarRFID(self, root, con):
+    def controlarRFID(self, root):
         for child in root:
             cartao = str(child.get("Cartao")) 
         
