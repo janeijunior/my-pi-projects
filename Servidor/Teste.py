@@ -3,13 +3,17 @@
 import sys
 import thread
 import threading
+import socket
+import sys
 
 card = ['0007181175', '0008056554']
 
 def main():
-    thread = threading.Thread(None, lerDados, None, ())
-    thread.start()
-            
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_address = ('localhost', 2342)
+    sock.connect(server_address)
+    lerDados(sock)
+        
 def lerDados():
     while True:
         try:
