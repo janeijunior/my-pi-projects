@@ -10,7 +10,7 @@ import Funcoes
 import Automacao
 import signal
 import sys
-import os
+import subprocess
 
 if __name__ == '__main__': 
     
@@ -109,7 +109,7 @@ if __name__ == '__main__':
     
     signal.signal(signal.SIGINT, signal_handler)
     
-    os.system("sudo python ClienteRFID.py")
+    subprocess.call("sudo python ClienteRFID.py", shell=True)
     
     print "Aguardando conexoes... (CTRL + C encerra o aplicativo)"
     
