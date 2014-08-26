@@ -31,8 +31,6 @@ class ControleAgendamento(threading.Thread):
             dthoje    = datetime.today()
             hoje      = dthoje.strftime("%w")
             
-            print str(dthoje)
-            
             for agendamento in self.listaAgendamento:
                 if agendamento.ativo == 1:
                     #data e hora para ligar
