@@ -23,6 +23,7 @@ def lerDados(sock):
                 
                 if RFID_input in card:
                     print "Acesso Permitido: {0}".format(RFID_input)
+                    enviarComando(sock)
                 else:
                     print "Acesso Negado: {0}".format(RFID_input)
                 
@@ -31,10 +32,7 @@ def lerDados(sock):
             print "Erro ao abrir o arquivo."
 
 def enviarComando(sock, acao):
-    root = Element("Acao")
-    dados = Element(acao)
-    
-    root.append(dados)
+    root = Element("RFID")
     xmlstr = ET.tostring(root) + "\n"       
     sock.send(xmlstr)
             
