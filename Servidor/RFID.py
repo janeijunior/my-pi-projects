@@ -40,4 +40,4 @@ class RFID(threading.Thread):
                     
                     tty.close()
             except:
-                #print "Erro ao abrir o arquivo."
+                print "Erro ao abrir o arquivo."
