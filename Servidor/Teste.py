@@ -28,8 +28,9 @@ def lerDados(sock):
 
 def enviarComando(sock, RFID):
     root = Element("RFID")
+    dados = Element("Dado", Cartao = RFID)
     
-    
+    root.append(dados)
     xmlstr = ET.tostring(root) + "\n"       
     sock.send(xmlstr)
             
