@@ -9,6 +9,7 @@ import threading
 import Funcoes
 import Automacao
 import signal
+import sys
 
 if __name__ == '__main__': 
     
