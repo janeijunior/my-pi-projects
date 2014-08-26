@@ -33,7 +33,11 @@ def enviarComando(sock, RFID):
     
     root.append(dados)
     xmlstr = ET.tostring(root) + "\n"       
-    sock.sendall(xmlstr)
-     
+    
+    try:
+        sock.sendall(xmlstr)
+    except:
+        print "Erro ao enviar o RFID."
+    
 main()
 
