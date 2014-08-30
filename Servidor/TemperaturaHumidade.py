@@ -1,43 +1,23 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-import subprocess
-import re
-import sys
-import time
-import datetime
 import Funcoes
+import Adafruit_DHT
 
 class TemperaturaHumidade(object):
-
-    def __lerSensor(self):
-        return subprocess.check_output([Funcoes.lerConfiguracaoIni("CaminhoDHT"), Funcoes.lerConfiguracaoIni("TipoDHT"), Funcoes.lerConfiguracaoIni("GPIODHT")]);
-    
-    
     def getDados(self):
-        output  = self.__lerSensor(); 
-        matches = re.search("Temp =\s+([0-9.]+)", output)
+        sensor = Adafruit_DHT.DHT22
+        pin = Funcoes.lerConfiguracaoIni("GPIODHT")
         
-        if (not matches):
-          time.sleep(3)
-          output  = self.__lerSensor();
-          matches = re.search("Temp =\s+([0-9.]+)", output)
-          
-        temp = float(matches.group(1))
+        humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
         
-        matches = re.search("Hum =\s+([0-9.]+)", output)
-        
-        if (not matches):
-          time.sleep(3)
-          output  = self.__lerSensor();     
-          matches = re.search("Hum =\s+([0-9.]+)", output)  
-          
-        hum = float(matches.group(1))
-        
-        lista = []
-        lista.insert(0, "%.1f" % temp)
-        lista.insert(1, "%.1f" % hum)
-        
-        print "Temperatura: " + str(temp) + "ºC Humidade: " + str(hum) + "%"
-    
+        if humidity is not None and temperature is not None:            
+            print 'Temperatura={0:0.1f}*C  Humidade={1:0.1f}%'.format(temperature, humidity)
+            
+            lista = []
+            lista.insert(0, "%.1f" % temp)
+            lista.insert(1, "%.1f" % hum)
+        else:
+            print 'Falha ao obter os dados!'
+
         return lista
