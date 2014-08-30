@@ -9,7 +9,7 @@ class TemperaturaHumidade(object):
         sensor = Adafruit_DHT.DHT22
         pin = Funcoes.lerConfiguracaoIni("GPIODHT")
         
-        humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
+        humidade, temperatura = Adafruit_DHT.read_retry(sensor, pin)
         
         if humidity is not None and temperature is not None:            
             print 'Temperatura={0:0.1f}*C  Humidade={1:0.1f}%'.format(temperature, humidity)
