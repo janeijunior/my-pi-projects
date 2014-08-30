@@ -28,11 +28,11 @@ sensor = Adafruit_DHT.DHT22
 
 # Example using a Beaglebone Black with DHT sensor
 # connected to pin P8_11.
-pin = 'P8_11'
+#pin = 'P8_11'
 
 # Example using a Raspberry Pi with DHT sensor
 # connected to pin 23.
-#pin = 23
+pin = 28
 
 # Try to grab a sensor reading.  Use the read_retry method which will retry up
 # to 15 times to get a sensor reading (waiting 2 seconds between each retry).
