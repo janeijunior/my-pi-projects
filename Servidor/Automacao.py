@@ -121,7 +121,7 @@ class Automacao(Base.Base):
         humidade, temperatura = Adafruit_DHT.read_retry(sensor, self.GPIODHT)
         
         if humidade is not None and temperatura is not None:            
-            print 'Temperatura={0:0.1f}*C  Humidade={1:0.1f}%'.format(temperatura, humidade)
+            print 'Temperatura = {0:0.1f}*C  Humidade = {1:0.1f}%'.format(temperatura, humidade)
             
             root  = Element("TemperaturaHumidade")
             dados = Element("Dados", Temperatura="%.1f" % temperatura, Humidade="%.1f" % humidade)
