@@ -116,18 +116,19 @@ class Automacao(Base.Base):
     
     #le o sensor de temperatura e humidade e envia os resultados
     def enviarTemperaturaHumidade(self, con):    
-        try:
-            resultado = self.temperaturaHumidade.getDados()    
+        sensor = Adafruit_DHT.DHT22
+        humidade, temperatura = Adafruit_DHT.read_retry(sensor, int(Funcoes.lerConfiguracaoIni("GPIODHT")))
+        
+        if humidade is not None and temperatura is not None:            
+            print 'Temperatura={0:0.1f}*C  Humidade={1:0.1f}%'.format(temperatura, humidade)
+            
             root  = Element("TemperaturaHumidade")
-            dados = Element("Dados", Temperatura=resultado[0], Humidade=resultado[1])
+            dados = Element("Dados", Temperatura="%.1f" % temperatura, Humidade="%.1f" % humidade)
             root.append(dados)
             xmlstr = ET.tostring(root) + "\n"   
             con.send(xmlstr)    
-            
-            if len(self.camera.conexoes) > 0:
-                self.camera.ligar()        
-        except Exception as e: 
-            print "Erro: ", e
+        else:
+            print 'Falha ao obter os dados!'
             con.send("Erro\n")
     
     #controla o som ambiente
