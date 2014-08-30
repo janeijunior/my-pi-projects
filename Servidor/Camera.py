@@ -11,14 +11,14 @@ class Camera(object):
         self.MJPG     = Funcoes.lerConfiguracaoIni("CaminhoMJPG")
         self.conexoes = []
         self.usuario = usuario
-        self.dev = '/dev/video0'
+        self.device = '/dev/video0'
         
     #inicia o servico da camera
     def ligar(self):
         porta = int(Funcoes.lerConfiguracaoIni("Porta")) + 1
         autenticacao = self.usuario.usuario + ":" + self.usuario.senha
         
-        os.system("sudo " + self.MJPG + " start " +  str(porta) + " " + Funcoes.lerConfiguracaoIni("ConfiguracaoMJPG") + " " + self.dev + " " + autenticacao) 
+        os.system("sudo " + self.MJPG + " start " +  str(porta) + " " + Funcoes.lerConfiguracaoIni("ConfiguracaoMJPG") + " " + self.device + " " + autenticacao) 
         
     #para o servico da camera
     def desligar(self):
