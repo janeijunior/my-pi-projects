@@ -13,11 +13,7 @@ class TemperaturaHumidade(object):
         
         if humidade is not None and temperatura is not None:            
             print 'Temperatura={0:0.1f}*C  Humidade={1:0.1f}%'.format(temperatura, humidade)
-            
-            lista = []
-            lista.insert(0, "%.1f" % temperatura)
-            lista.insert(1, "%.1f" % humidade)
+            return(humidade, temperatura)
         else:
             print 'Falha ao obter os dados!'
-
-        return lista
+            return(0, 0)
