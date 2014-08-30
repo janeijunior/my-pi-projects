@@ -294,7 +294,10 @@ class Automacao(Base.Base):
         device = root.find("Camera").text  
         
         if acao == "Ligar":
-            self.device = device
+            if self.camera.device <> device:
+                self.camera.desligar()
+            
+            self.camera.device = device
             self.camera.adicionarConexao(cliente) 
             self.camera.acionamento()
             con.send("Ok\n")
