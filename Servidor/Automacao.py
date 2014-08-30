@@ -29,6 +29,7 @@ class Automacao(Base.Base):
         
         #atributos
         self.GPIOSirene = int(Funcoes.lerConfiguracaoIni("GPIOSirene")) 
+        self.GPIODHT = int(Funcoes.lerConfiguracaoIni("GPIODHT"))
         self.usuario = Usuario.Usuario()
         self.somAmbiente = SomAmbiente.SomAmbiente()
         self.email = Email.Email()
