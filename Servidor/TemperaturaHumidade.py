@@ -5,6 +5,7 @@ import Funcoes
 import Adafruit_DHT
 
 class TemperaturaHumidade(object):
+    
     def getDados(self):
         sensor = Adafruit_DHT.DHT22
         
