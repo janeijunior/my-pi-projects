@@ -117,9 +117,6 @@ class Automacao(Base.Base):
     #le o sensor de temperatura e humidade e envia os resultados
     def enviarTemperaturaHumidade(self, con):    
         try:
-            self.camera.desligar()
-            time.sleep(1)
-            
             resultado = self.temperaturaHumidade.getDados()    
             root  = Element("TemperaturaHumidade")
             dados = Element("Dados", Temperatura=resultado[0], Humidade=resultado[1])
@@ -132,9 +129,6 @@ class Automacao(Base.Base):
         except Exception as e: 
             print "Erro: ", e
             con.send("Erro\n")
-            
-            if len(self.camera.conexoes) > 0:
-                self.camera.ligar()
     
     #controla o som ambiente
     def controlarSomAmbiente(self, root, con):
