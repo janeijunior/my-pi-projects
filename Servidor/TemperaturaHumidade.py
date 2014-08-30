@@ -7,16 +7,15 @@ import Adafruit_DHT
 class TemperaturaHumidade(object):
     def getDados(self):
         sensor = Adafruit_DHT.DHT22
-        pin = Funcoes.lerConfiguracaoIni("GPIODHT")
         
-        humidade, temperatura = Adafruit_DHT.read_retry(sensor, pin)
+        humidade, temperatura = Adafruit_DHT.read_retry(sensor, int(Funcoes.lerConfiguracaoIni("GPIODHT")))
         
-        if humidity is not None and temperature is not None:            
-            print 'Temperatura={0:0.1f}*C  Humidade={1:0.1f}%'.format(temperature, humidity)
+        if humidade is not None and temperatura is not None:            
+            print 'Temperatura={0:0.1f}*C  Humidade={1:0.1f}%'.format(temperatura, humidade)
             
             lista = []
-            lista.insert(0, "%.1f" % temp)
-            lista.insert(1, "%.1f" % hum)
+            lista.insert(0, "%.1f" % temperatura)
+            lista.insert(1, "%.1f" % humidade)
         else:
             print 'Falha ao obter os dados!'
 
