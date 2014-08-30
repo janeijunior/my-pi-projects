@@ -291,8 +291,10 @@ class Automacao(Base.Base):
     #liga ou desliga o servico da camera
     def controlarCamera(self, root, con, cliente):
         acao = root.find("Acao").text  
+        device = root.find("Camera").text  
         
         if acao == "Ligar":
+            self.device = device
             self.camera.adicionarConexao(cliente) 
             self.camera.acionamento()
             con.send("Ok\n")
