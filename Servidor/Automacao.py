@@ -374,6 +374,14 @@ class Automacao(Base.Base):
                     
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)
+    
+    #controla a inserção, remoção das tags RFID
+    def configuracaoRFID(self, root, con)
+        
+        
+    #envia as tags RFID cadastradas
+    def enviarRFID(self, con ):
+        
 
     #remove o cliente
     def removerConexao(self, cliente):
