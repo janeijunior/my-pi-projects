@@ -4,7 +4,6 @@
 import thread
 import threading
 import sys
-import numpy
 
 class RFID(threading.Thread):
     def __init__(self, alarme, card):
