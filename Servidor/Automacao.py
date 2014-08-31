@@ -16,7 +16,7 @@ import Agendamento
 import ControleAgendamento
 import xml.etree.ElementTree as ET
 import Adafruit_DHT
-#import RFID
+import RFID
 
 from xml.etree.ElementTree import Element
 
@@ -42,8 +42,8 @@ class Automacao(Base.Base):
         self.carregarAgendamentos()
         self.controleAgendamento = ControleAgendamento.ControleAgendamento(self.agendamentos)
         self.controleAgendamento.start() 
-        #self.RFID = RFID.RFID(self.alarme)
-        #self.RFID.start() 
+        self.RFID = RFID.RFID(self.alarme)
+        self.RFID.start() 
         
     #funcoes da classe
     
@@ -386,7 +386,7 @@ class Automacao(Base.Base):
         
         self.alarme.desligarPanico()
         self.controleAgendamento.stop()
-        #self.RFID.stop()
+        self.RFID.stop()
         
         for rele in self.reles:    
     		rele.desligar()
