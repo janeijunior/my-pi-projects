@@ -80,6 +80,8 @@ if __name__ == '__main__':
                         automacao.enviarUltimosDisparos(con)
                     elif root.tag == "ConfiguracaoRFID":
                         automacao.configuracaoRFID(root, con) 
+                    elif root.tag == "EnviarRFID":
+                        automacao.enviarRFID(con)
                     elif root.tag == "RFID":
                         automacao.controlarRFID(root)
                     else:
