@@ -388,6 +388,7 @@ class Automacao(Base.Base):
             self.executarComando(sql)
         
         con.send("Ok\n")
+        self.carregarTag()
         
     #envia as tags RFID cadastradas
     def enviarRFID(self, con):
