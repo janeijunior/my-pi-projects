@@ -83,7 +83,7 @@ if __name__ == '__main__':
                     elif root.tag == "EnviarRFID":
                         automacao.enviarRFID(con)
                     elif root.tag == "RFID":
-                        automacao.controlarRFID(root)
+                        automacao.controlarRFID(root, con)
                     else:
                         print "Comando não reconhecido!"
                 except Exception as e: 
