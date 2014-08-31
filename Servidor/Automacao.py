@@ -42,10 +42,37 @@ class Automacao(Base.Base):
         self.carregarAgendamentos()
         self.controleAgendamento = ControleAgendamento.ControleAgendamento(self.agendamentos)
         self.controleAgendamento.start() 
+        
+        self.threadRFID = threading.Thread(None, self.lerRFID(card, self.alarme), None, ())
+        self.threadRFID.start()
+            
+        
+        
         #self.RFID = RFID.RFID(self.alarme)
         #self.RFID.start() 
         
     #funcoes da classe
+    
+    #leitor RFID
+    def lerRFID(self, card, alarme):
+        while True:
+            try:
+                with open('/dev/tty1', 'r') as tty:
+                    RFID_input = tty.readline().rstrip()
+                    
+                    if RFID_input in card:
+                        print "Acesso Permitido: {0}".format(RFID_input)
+                        
+                        if alarme.alarmeLigado:
+                            alarme.desligarAlarme()
+                        else:
+                            alarme.ligarAlarme()
+                    else:
+                        print "Acesso Negado: {0}".format(RFID_input)
+                    
+                    tty.close()
+            except:
+                print "Erro ao abrir o arquivo."
     
     #carrega a lista com os reles já configurados
     def carregarReles(self):
