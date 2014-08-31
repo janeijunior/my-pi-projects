@@ -377,10 +377,18 @@ class Automacao(Base.Base):
     
     #controla a inserção, remoção das tags RFID
     def configuracaoRFID(self, root, con)
+        comando = str(root.find("Comando").text)
+        valor   = str(root.find("Valor").text.encode('utf-8'))
         
-        sql = "insert into RFID (Tag) values ('{tag}')".format(tag = tag)
-        self.executarComando(sql)
-    
+        if comando == "Adicionar":
+            sql = "insert into RFID (Tag) values ('{tag}')".format(tag = tag)
+            self.executarComando(sql)
+        elif comando == "Remover":
+            sql = "insert into RFID (Tag) values ('{tag}')".format(tag = tag)
+            self.executarComando(sql)
+        
+        con.send("Ok\n")
+        
         
     #envia as tags RFID cadastradas
     def enviarRFID(self, con ):
