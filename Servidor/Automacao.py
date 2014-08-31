@@ -405,10 +405,16 @@ class Automacao(Base.Base):
         comando = str(root.find("Comando").text)
         
         if comando == "Adicionar":
-            sql = "insert into RFID (Tag) values ('{tag}')".format(tag = valor)
+            Nome   = str(root.find("Valor").text.encode('utf-8'))
+            Device = str(root.find("Valor").text.encode('utf-8'))
+            Porta  = str(root.find("Valor").text.encode('utf-8'))
+        
+            sql = "insert into Camera (Nome, Device, Porta) values ('{Nome}', '{Device}', {Porta})".format(tag = valor)
             self.executarComando(sql)
         elif comando == "Remover":
-            sql = "delete from RFID where Tag = '{tag}'".format(tag = valor)
+            Nome   = str(root.find("Valor").text.encode('utf-8'))
+            
+            sql = "delete from Camera where Nome = '{nome}'".format(nome = Nome)
             self.executarComando(sql)
         
         con.send("Ok\n")
