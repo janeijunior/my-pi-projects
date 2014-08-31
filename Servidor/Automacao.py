@@ -384,7 +384,14 @@ class Automacao(Base.Base):
         
     #envia as tags RFID cadastradas
     def enviarRFID(self, con ):
+        root = Element("EnviarRFID")
+        rows = self.consultarRegistros("select Tag from RFID") 
         
+        for row in rows:    
+            root.append(Element("RFID", Tag=str(row["Tag"])))
+                    
+        xmlstr = ET.tostring(root) + "\n"   
+        con.send(xmlstr)
 
     #remove o cliente
     def removerConexao(self, cliente):
