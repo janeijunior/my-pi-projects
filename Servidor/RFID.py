@@ -14,7 +14,7 @@ class RFID(threading.Thread):
         
         #atributos
         self.alarme = alarme
-        self.card = numpy.asarray(card)
+        self.card = card
                 
     def stop(self):
         self.__stop_thread_event.set()
