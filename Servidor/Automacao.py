@@ -403,6 +403,7 @@ class Automacao(Base.Base):
     
     #carrega as tags na lista
     def carregarTag(self):
+        rows = self.consultarRegistros("select Tag from RFID") 
         
 
     #remove o cliente
