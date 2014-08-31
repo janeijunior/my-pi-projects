@@ -390,7 +390,7 @@ class Automacao(Base.Base):
         con.send("Ok\n")
         
     #envia as tags RFID cadastradas
-    def enviarRFID(self, con ):
+    def enviarRFID(self, con):
         root = Element("EnviarRFID")
         rows = self.consultarRegistros("select Tag from RFID") 
         
