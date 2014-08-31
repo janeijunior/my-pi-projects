@@ -3,8 +3,9 @@
 
 import Funcoes
 import os
+import Base
 
-class Camera(object):
+class Camera(Base.Base):
     
     #construtor
     def __init__(self, usuario):
