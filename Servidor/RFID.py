@@ -5,16 +5,15 @@ import thread
 import threading
 import sys
 
-card = ['0007181175', '0008056554']
-
 class RFID(threading.Thread):
-    def __init__(self, alarme):
+    def __init__(self, alarme card):
         threading.Thread.__init__(self)
         self.name = 'ThreadRFID'
         self.__stop_thread_event = threading.Event()
         
         #atributos
         self.alarme = alarme
+        self.card = card
                 
     def stop(self):
         self.__stop_thread_event.set()
