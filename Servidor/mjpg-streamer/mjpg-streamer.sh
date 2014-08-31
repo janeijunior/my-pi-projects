@@ -66,7 +66,7 @@ function start() {
     
     ${MJPG_STREAMER_DIR}/${MJPG_STREAMER_BIN} -i "input_uvc.so ${INPUT_OPTIONS}" -o "output_http.so ${OUTPUT_OPTIONS}" >> ${LOG_FILE} 2>&1 &
 
-    sleep 1
+    sleep 2
 
     if running; then
         if [ "$1" != "nocheck" ]; then
