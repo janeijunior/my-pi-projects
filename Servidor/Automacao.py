@@ -46,7 +46,7 @@ class Automacao(Base.Base):
         self.controleAgendamento.start() 
         
         self.threadRFID = threading.Thread(None, self.lerRFID(card, self.alarme), None, ())
-        self.threadRFID.start()
+        #self.threadRFID.start()
             
         #self.RFID = RFID.RFID(self.alarme)
         #self.RFID.start() 
