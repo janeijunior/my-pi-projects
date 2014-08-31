@@ -78,6 +78,8 @@ if __name__ == '__main__':
                         automacao.controlarCamera(root, con, cliente)
                     elif root.tag == "EnviarUltimosDisparos":
                         automacao.enviarUltimosDisparos(con)
+                    elif root.tag == "ConfiguracaoRFID":
+                        automacao.configuracaoRFID(root, con) 
                     elif root.tag == "RFID":
                         automacao.controlarRFID(root)
                     else:
