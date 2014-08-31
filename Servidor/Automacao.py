@@ -54,7 +54,7 @@ class Automacao(Base.Base):
     #funcoes da classe
     
     #leitor RFID
-    def lerRFID(self):
+    def lerRFID(self, card, alarme):
         while True:
             try:
                 with open('/dev/tty1', 'r') as tty:
