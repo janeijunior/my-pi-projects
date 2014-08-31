@@ -43,7 +43,7 @@ class Automacao(Base.Base):
         self.controleAgendamento.start() 
         self.card = []
         self.carregarTag()
-        self.RFID = RFID.RFID(self.alarme, numpy.asarray(self.card))
+        self.RFID = RFID.RFID(self.alarme, numpy.asarray(self.tag))
         self.RFID.start()
         
     #funcoes da classe
