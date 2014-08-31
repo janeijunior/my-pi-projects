@@ -407,7 +407,9 @@ class Automacao(Base.Base):
         self.card = []
 
         for row in rows:
-            self.card.insert(row["Id"], row["Tag"])    
+            self.card.insert(row["Id"], row["Tag"])   
+        
+        self.RFID.card = numpy.asarray(card)
 
     #remove o cliente
     def removerConexao(self, cliente):
