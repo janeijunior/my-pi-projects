@@ -64,7 +64,7 @@ function start() {
     
     OUTPUT_OPTIONS="-p ${PORT} -w www -c ${USER_PASSWORD}"
     
-    ${MJPG_STREAMER_DIR}/${MJPG_STREAMER_BIN}  "input_uvc.so ${INPUT_OPTIONS}" -o "output_http.so ${OUTPUT_OPTIONS}" >> ${LOG_FILE} 2>&1 &
+    ${MJPG_STREAMER_DIR}/${MJPG_STREAMER_BIN} "input_uvc.so ${INPUT_OPTIONS}" -o "output_http.so ${OUTPUT_OPTIONS}" >> ${LOG_FILE} 2>&1 &
 
     sleep 1
 
