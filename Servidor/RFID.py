@@ -7,7 +7,7 @@ import sys
 import numpy
 
 class RFID(threading.Thread):
-    def __init__(self, alarme card):
+    def __init__(self, alarme, card):
         threading.Thread.__init__(self)
         self.name = 'ThreadRFID'
         self.__stop_thread_event = threading.Event()
