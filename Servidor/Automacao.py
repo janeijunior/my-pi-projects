@@ -399,7 +399,6 @@ class Automacao(Base.Base):
         
         self.RFID.tag = numpy.asarray(self.tag)
 
-    #############
     #controla a inserção, remoção das cameras
     def configuracaoCamera(self, root, con):
         comando = str(root.find("Comando").text)
