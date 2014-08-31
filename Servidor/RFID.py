@@ -23,7 +23,7 @@ class RFID(threading.Thread):
         self.lerDadosTeclado()
         #self.lerDadosTTY()
     
-    def lerDadosTeclado():
+    def lerDadosTeclado(self):
         while not self.__stop_thread_event.isSet():
             RFID_input = raw_input('RFID:')
                     
