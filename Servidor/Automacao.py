@@ -17,6 +17,7 @@ import ControleAgendamento
 import xml.etree.ElementTree as ET
 import Adafruit_DHT
 import RFID
+import numpy
 
 from xml.etree.ElementTree import Element
 
