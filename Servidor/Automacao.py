@@ -20,8 +20,6 @@ import RFID
 
 from xml.etree.ElementTree import Element
 
-card = ['0007181175', '0008056554']
-
 class Automacao(Base.Base):
 
     #construtor
