@@ -424,7 +424,7 @@ class Automacao(Base.Base):
         rows = self.consultarRegistros("select Nome from Camera") 
         
         for row in rows:    
-            root.append(Element("Camera", Nome=str(row["Nome"])))
+            root.append(Element("Camera", Nome=str(row["Nome"]).decode('utf-8')))
                     
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)
