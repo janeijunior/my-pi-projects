@@ -403,8 +403,12 @@ class Automacao(Base.Base):
     
     #carrega as tags na lista
     def carregarTag(self):
-        rows = self.consultarRegistros("select Tag from RFID") 
-        
+        rows  = self.consultarRegistros("select * from RFID")
+        self.card = []
+
+        for row in rows:
+            rele = Rele.Rele(row["Id"], row["Tag"])        
+   
 
     #remove o cliente
     def removerConexao(self, cliente):
