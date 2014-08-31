@@ -408,7 +408,7 @@ class Automacao(Base.Base):
             Device = str(root.find("Device").text.encode('utf-8'))
             Porta  = int(root.find("Porta").text.encode('utf-8'))
         
-            sql = "insert into Camera (Nome, Device, Porta) values ('{Nome}', '{Device}', {Porta})".format(tag = valor)
+            sql = "insert into Camera (Nome, Device, Porta) values ('{nome}', '{device}', {porta})".format(nome = Nome, device = Device, porta = Porta)
             self.executarComando(sql)
         elif comando == "Remover":
             Nome   = str(root.find("Nome").text.encode('utf-8'))
