@@ -376,7 +376,7 @@ class Automacao(Base.Base):
         con.send(xmlstr)
     
     #controla a inserção, remoção das tags RFID
-    def configuracaoRFID(self, root, con)
+    def configuracaoRFID(self, root, con):
         comando = str(root.find("Comando").text)
         valor   = str(root.find("Valor").text.encode('utf-8'))
         
