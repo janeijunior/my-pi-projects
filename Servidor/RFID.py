@@ -26,7 +26,7 @@ class RFID(threading.Thread):
         while not self.__stop_thread_event.isSet():
             RFID_input = raw_input('RFID:')
                     
-            if RFID_input in card:
+            if RFID_input in self.card:
                 print "Acesso Permitido: {0}".format(RFID_input)
                     
                 if self.alarme.alarmeLigado:
