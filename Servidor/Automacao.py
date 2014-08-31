@@ -16,6 +16,8 @@ import Agendamento
 import ControleAgendamento
 import xml.etree.ElementTree as ET
 import Adafruit_DHT
+import thread
+import threading
 #import RFID
 
 from xml.etree.ElementTree import Element
