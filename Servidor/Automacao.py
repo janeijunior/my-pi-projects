@@ -397,7 +397,7 @@ class Automacao(Base.Base):
         for row in rows:
             self.tag.insert(row["Id"], row["Tag"])   
         
-        self.RFID.tags = numpy.asarray(self.tag)
+        self.RFID.tag = numpy.asarray(self.tag)
 
     #remove o cliente
     def removerConexao(self, cliente):
