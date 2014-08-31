@@ -7,7 +7,7 @@ PORT="2343"
 YUV="true"
 USER_PASSWORD="rodrigo:batistello"
 
-MJPG_STREAMER_DIR="./"
+MJPG_STREAMER_DIR="$(dirname $0)"
 MJPG_STREAMER_BIN="mjpg_streamer"
 LOG_FILE="${MJPG_STREAMER_DIR}/mjpg-streamer.log"
 RUNNING_CHECK_INTERVAL="30" # how often to check to make sure the server is running (in seconds)
