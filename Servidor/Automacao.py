@@ -418,7 +418,6 @@ class Automacao(Base.Base):
             self.executarComando(sql)
         
         con.send("Ok\n")
-        self.carregarTag()
         
     #envia as cameras cadastradas
     def enviarCamera(self, con):
