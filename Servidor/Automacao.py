@@ -405,9 +405,9 @@ class Automacao(Base.Base):
         comando = str(root.find("Comando").text)
         
         if comando == "Adicionar":
-            Nome   = str(root.find("Valor").text.encode('utf-8'))
-            Device = str(root.find("Valor").text.encode('utf-8'))
-            Porta  = str(root.find("Valor").text.encode('utf-8'))
+            Nome   = str(root.find("Nome").text.encode('utf-8'))
+            Device = str(root.find("Device").text.encode('utf-8'))
+            Porta  = str(root.find("Porta").text.encode('utf-8'))
         
             sql = "insert into Camera (Nome, Device, Porta) values ('{Nome}', '{Device}', {Porta})".format(tag = valor)
             self.executarComando(sql)
