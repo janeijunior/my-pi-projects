@@ -6,14 +6,14 @@ import threading
 import sys
 
 class RFID(threading.Thread):
-    def __init__(self, alarme, card):
+    def __init__(self, alarme, tag):
         threading.Thread.__init__(self)
         self.name = 'ThreadRFID'
         self.__stop_thread_event = threading.Event()
         
         #atributos
         self.alarme = alarme
-        self.card = card
+        self.tag = tag
                 
     def stop(self):
         self.__stop_thread_event.set()
@@ -26,7 +26,7 @@ class RFID(threading.Thread):
         while not self.__stop_thread_event.isSet():
             RFID_input = raw_input('RFID:')
                     
-            if RFID_input in self.card:
+            if RFID_input in self.tag:
                 print "Acesso Permitido: {0}".format(RFID_input)
                     
                 if self.alarme.alarmeLigado:
@@ -42,7 +42,7 @@ class RFID(threading.Thread):
                 with open('/dev/tty1', 'r') as tty:
                     RFID_input = tty.readline().rstrip()
                     
-                    if RFID_input in card:
+                    if RFID_input in self.tag:
                         print "Acesso Permitido: {0}".format(RFID_input)
                         
                         if self.alarme.alarmeLigado:
