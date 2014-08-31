@@ -392,12 +392,12 @@ class Automacao(Base.Base):
     #carrega as tags na lista
     def carregarTag(self):
         rows  = self.consultarRegistros("select * from RFID")
-        self.card = []
+        self.tag = []
 
         for row in rows:
-            self.card.insert(row["Id"], row["Tag"])   
+            self.tag.insert(row["Id"], row["Tag"])   
         
-        self.RFID.card = numpy.asarray(card)
+        self.RFID.card = numpy.asarray(self.tag)
 
     #remove o cliente
     def removerConexao(self, cliente):
