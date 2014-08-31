@@ -12,7 +12,6 @@ class Camera(Base.Base):
         self.MJPG     = Funcoes.lerConfiguracaoIni("CaminhoMJPG")
         self.conexoes = []
         self.usuario = usuario
-        self.device = '/dev/video0'
         
     #inicia o servico da camera
     def ligar(self):
