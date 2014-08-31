@@ -412,7 +412,7 @@ class Automacao(Base.Base):
             sql = "insert into Camera (Nome, Device, Porta) values ('{Nome}', '{Device}', {Porta})".format(tag = valor)
             self.executarComando(sql)
         elif comando == "Remover":
-            Nome   = str(root.find("Valor").text.encode('utf-8'))
+            Nome   = str(root.find("Nome").text.encode('utf-8'))
             
             sql = "delete from Camera where Nome = '{nome}'".format(nome = Nome)
             self.executarComando(sql)
