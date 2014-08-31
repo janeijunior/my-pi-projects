@@ -384,7 +384,7 @@ class Automacao(Base.Base):
             sql = "insert into RFID (Tag) values ('{tag}')".format(tag = valor)
             self.executarComando(sql)
         elif comando == "Remover":
-            sql = "delete RFID where Tag = '{tag}'".format(tag = valor)
+            sql = "delete from RFID where Tag = '{tag}'".format(tag = valor)
             self.executarComando(sql)
         
         con.send("Ok\n")
