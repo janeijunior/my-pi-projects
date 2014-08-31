@@ -4,6 +4,7 @@
 import thread
 import threading
 import sys
+import numpy
 
 class RFID(threading.Thread):
     def __init__(self, alarme card):
@@ -13,7 +14,7 @@ class RFID(threading.Thread):
         
         #atributos
         self.alarme = alarme
-        self.card = card
+        self.card = numpy.asarray(card)
                 
     def stop(self):
         self.__stop_thread_event.set()
