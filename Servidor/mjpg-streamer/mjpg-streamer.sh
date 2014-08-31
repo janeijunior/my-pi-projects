@@ -30,8 +30,13 @@ function parseAdditionalArguments() {
         USER_PASSWORD=$6
     fi
 
-
     echo $PORT $RESOLUTION $FRAME_RATE $VIDEO_DEV $USER_PASSWORD
+}
+
+function parseAdditionalArgumentsStop() {
+   if [ "$2" != "" ]; then
+      VIDEO_DEV=$2
+   fi
 }
 
 function running() {
@@ -137,6 +142,7 @@ if [ "$1" == "start" ]; then
     start && exit 0 || exit -1
 
 elif [ "$1" == "stop" ]; then
+    parseAdditionalArgumentsStop "$@"
     stop && exit 0 || exit -1
 
 elif [ "$1" == "restart" ]; then
