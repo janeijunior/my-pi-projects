@@ -41,7 +41,9 @@ class Automacao(Base.Base):
         self.controleAgendamento = ControleAgendamento.ControleAgendamento(self.agendamentos)
         self.controleAgendamento.start() 
         self.RFID = RFID.RFID(self.alarme)
-        self.RFID.start() 
+        self.RFID.start()
+        self.card = []
+        self.carregarTag()
         
     #funcoes da classe
     
