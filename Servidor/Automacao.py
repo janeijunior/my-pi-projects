@@ -400,6 +400,10 @@ class Automacao(Base.Base):
                     
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)
+    
+    #carrega as tags na lista
+    def carregarTag(self):
+        
 
     #remove o cliente
     def removerConexao(self, cliente):
