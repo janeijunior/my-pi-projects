@@ -20,9 +20,24 @@ class RFID(threading.Thread):
         self.__stop_thread_event.set()
         
     def run(self):
-        self.lerDados()
+        self.lerDadosTeclado()
+        #self.lerDadosTTY()
     
-    def lerDados(self):
+    def lerDadosTeclado():
+        while not self.__stop_thread_event.isSet():
+            RFID_input = raw_input('RFID:')
+                    
+            if RFID_input in card:
+                print "Acesso Permitido: {0}".format(RFID_input)
+                    
+                if self.alarme.alarmeLigado:
+                    self.alarme.desligarAlarme()
+                else:
+                    self.alarme.ligarAlarme()
+            else:
+                print "Acesso Negado: {0}".format(RFID_input)
+                        
+    def lerDadosTTY(self):
         while not self.__stop_thread_event.isSet():
             try:
                 with open('/dev/tty1', 'r') as tty:
