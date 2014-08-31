@@ -399,6 +399,32 @@ class Automacao(Base.Base):
         
         self.RFID.tag = numpy.asarray(self.tag)
 
+    #############
+    #controla a inserção, remoção das cameras
+    def configuracaoCamera(self, root, con):
+        comando = str(root.find("Comando").text)
+        
+        if comando == "Adicionar":
+            sql = "insert into RFID (Tag) values ('{tag}')".format(tag = valor)
+            self.executarComando(sql)
+        elif comando == "Remover":
+            sql = "delete from RFID where Tag = '{tag}'".format(tag = valor)
+            self.executarComando(sql)
+        
+        con.send("Ok\n")
+        self.carregarTag()
+        
+    #envia as cameras cadastradas
+    def enviarCamera(self, con):
+        root = Element("EnviarCamera")
+        rows = self.consultarRegistros("select Nome from Camera") 
+        
+        for row in rows:    
+            root.append(Element("Camera", Nome=str(row["Nome"])))
+                    
+        xmlstr = ET.tostring(root) + "\n"   
+        con.send(xmlstr)
+
     #remove o cliente
     def removerConexao(self, cliente):
         self.camera.removerConexao(cliente)
