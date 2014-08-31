@@ -17,7 +17,6 @@ import ControleAgendamento
 import xml.etree.ElementTree as ET
 import Adafruit_DHT
 import thread
-import threading
 #import RFID
 
 from xml.etree.ElementTree import Element
@@ -45,7 +44,8 @@ class Automacao(Base.Base):
         self.controleAgendamento = ControleAgendamento.ControleAgendamento(self.agendamentos)
         self.controleAgendamento.start() 
         
-        self.threadRFID = threading.Thread(None, self.lerRFID(card, self.alarme), None, ())
+        thread.start_new_thread(self.lerRFID, tuple([card, self.alarme]))
+        #self.threadRFID = threading.Thread(None, self.lerRFID(card, self.alarme), None, ())
         #self.threadRFID.start()
             
         #self.RFID = RFID.RFID(self.alarme)
@@ -54,7 +54,7 @@ class Automacao(Base.Base):
     #funcoes da classe
     
     #leitor RFID
-    def lerRFID(self, card, alarme):
+    def lerRFID(self):
         while True:
             try:
                 with open('/dev/tty1', 'r') as tty:
