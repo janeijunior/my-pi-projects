@@ -207,19 +207,6 @@ class Automacao(Base.Base):
         
         con.send("Ok\n")
 
-    #liga ou desliga o alarme se validar o RFID
-    def controlarRFID(self, root):
-        cartao = ''
-        
-        for child in root:
-            cartao = str(child.get("Cartao")) 
-        
-        if cartao in card:
-            if self.alarme.alarmeLigado:
-                self.alarme.desligarAlarme()
-            else:
-                self.alarme.ligarAlarme()
-
     #liga ou desliga a funcao panico do alarme
     def controlarFuncaoPanico(self, root, con):
         acao = root.find("Acao").text
