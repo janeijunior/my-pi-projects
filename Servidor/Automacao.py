@@ -407,8 +407,7 @@ class Automacao(Base.Base):
         self.card = []
 
         for row in rows:
-            rele = Rele.Rele(row["Id"], row["Tag"])        
-   
+            self.card.insert(row["Id"], row["Tag"])    
 
     #remove o cliente
     def removerConexao(self, cliente):
