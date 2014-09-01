@@ -136,6 +136,7 @@ class Automacao(Base.Base):
             con.send("Erro\n")
         
         self.camera.ligar()
+
     #controla o som ambiente
     def controlarSomAmbiente(self, root, con):
         comando = str(root.find("Comando").text)
