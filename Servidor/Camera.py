@@ -19,7 +19,7 @@ class Camera(Base.Base):
         
         for row in rows:    
             autenticacao = self.usuario.usuario + ":" + self.usuario.senha
-            os.system("sudo " + self.MJPG + " start " +  str(porta) + " " + Funcoes.lerConfiguracaoIni("ConfiguracaoMJPG") + " " + self.device + " " + autenticacao) 
+            os.system("sudo " + self.MJPG + " start " +  str(row["Porta"]) + " " + Funcoes.lerConfiguracaoIni("ConfiguracaoMJPG") + " " + str(row["Device"]) + " " + autenticacao) 
         
     #para o servico da camera
     def desligar(self):
