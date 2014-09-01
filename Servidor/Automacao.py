@@ -33,6 +33,7 @@ class Automacao(Base.Base):
         self.somAmbiente = SomAmbiente.SomAmbiente()
         self.email = Email.Email()
         self.camera = Camera.Camera(self.usuario)
+        self.camera.ligar()
         self.reles = []
         self.carregarReles()
         self.alarme = Alarme.Alarme(self.reles[self.GPIOSirene], self.email)
