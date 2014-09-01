@@ -3,7 +3,6 @@
 
 import Base
 import Usuario
-import TemperaturaHumidade
 import SomAmbiente
 import Email
 import Rele
