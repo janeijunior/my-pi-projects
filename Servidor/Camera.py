@@ -26,7 +26,7 @@ class Camera(Base.Base):
         rows = self.consultarRegistros("select * from Camera") 
         
         for row in rows:    
-            os.system("sudo " + self.MJPG + " " + str(row["Device"]))
+            os.system("sudo " + self.MJPG + " stop " + str(row["Device"]))
     
     #inicia ou para o servico de stream da camera
     def acionamento(self):
