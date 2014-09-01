@@ -23,7 +23,10 @@ class Camera(Base.Base):
         
     #para o servico da camera
     def desligar(self):
-        os.system("sudo " + self.MJPG + " stop")
+        rows = self.consultarRegistros("select * from Camera") 
+        
+        for row in rows:    
+            os.system("sudo " + self.MJPG + " " + str(row["Device"]) )
     
     #inicia ou para o servico de stream da camera
     def acionamento(self):
