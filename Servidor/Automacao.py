@@ -31,6 +31,7 @@ class Automacao(Base.Base):
         self.GPIODHT = int(Funcoes.lerConfiguracaoIni("GPIODHT"))
         self.usuario = Usuario.Usuario()
         self.somAmbiente = SomAmbiente.SomAmbiente()
+        self.video = Video.Video()
         self.email = Email.Email()
         self.camera = Camera.Camera(self.usuario)
         self.camera.ligar()
