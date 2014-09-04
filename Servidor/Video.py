@@ -4,6 +4,9 @@
 import Funcoes
 from pyomxplayer import OMXPlayer
 from pprint import pprint
+from os import listdir
+from os.path 
+import isfile, join
     
 class Video(object):
     
@@ -14,6 +17,7 @@ class Video(object):
     #funcoes
     #retorna a lista de videos de uma pasta pre determinada
     def getListaVideo(self):
+onlyfiles = [ f for f in listdir(mypath) if isfile(join(mypath,f)) ]
         
     #executa os videos
     def play(self):
