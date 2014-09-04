@@ -9,7 +9,7 @@ class Video(object):
     
     #construtor
     def __init__(self): 
-        self.__caminhoVideo = Funcoes.lerConfiguracaoIni("CaminhoMusicas")  # Diretorio das musicas
+        self.__caminhoVideo = Funcoes.lerConfiguracaoIni("CaminhoVideos")  # Diretorio das musicas
         
     #funcoes
     #retorna a lista de videos de uma pasta pre determinada
