@@ -86,7 +86,10 @@ if __name__ == '__main__':
                         automacao.configuracaoCamera(root, con) 
                     elif root.tag == "EnviarCamera":
                         automacao.enviarCamera(con)
-                    
+                    elif root.tag == "EnviarListaVideo":
+                        automacao.enviarListaVideo(con)
+                    elif root.tag == "ControlarVideo":
+                        automacao.controlarVideo(root, con)
                     else:
                         print "Comando não reconhecido!"
                 except Exception as e: 
