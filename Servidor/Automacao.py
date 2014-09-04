@@ -463,7 +463,6 @@ class Automacao(Base.Base):
         xmlstr = ET.tostring(root) + "\n"  
         con.send(xmlstr)
 
-
     #remove o cliente
     def removerConexao(self, cliente):
         self.camera.removerConexao(cliente)
