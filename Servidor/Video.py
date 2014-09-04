@@ -18,6 +18,7 @@ class Video(object):
     #retorna a lista de videos de uma pasta pre determinada
     def getListaVideo(self):
         return arquivos = [f for f in listdir(mypath) if isfile(join(mypath,f))]
+        print arquivos
         return arquivos
         
     #executa os videos
