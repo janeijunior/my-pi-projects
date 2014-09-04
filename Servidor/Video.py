@@ -35,7 +35,8 @@ class Video(object):
         
     #avanca ou retrocede a faixa
     def step(self, valor):
-    
+        print 'Não implementado'
+        
     #reproduz a faixa a partir do nome
     def playNome(self, valor):
-    
+        print 'Não implementado'
