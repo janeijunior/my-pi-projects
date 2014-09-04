@@ -435,8 +435,8 @@ class Automacao(Base.Base):
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)
     
-    #controla o som ambiente
-    def controlarSomAmbiente(self, root, con):
+    #controla o video
+    def controlarVideo(self, root, con):
         comando = str(root.find("Comando").text)
         valor   = str(root.find("Valor").text.encode('utf-8'))
         
@@ -453,8 +453,8 @@ class Automacao(Base.Base):
         elif comando == "ReproduzirPorNome":
             self.video.playNome(valor)    
     
-    #envia a lista de musicas para o aparelho
-    def enviarListaMusica(self, con):
+    #envia a lista de videos para o aparelho
+    def enviarListaVideo(self, con):
         lista = self.video.getListaVideo()
         
         root = Element("EnviarListaVideo")
