@@ -432,6 +432,37 @@ class Automacao(Base.Base):
                     
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)
+    
+    #controla o som ambiente
+    def controlarSomAmbiente(self, root, con):
+        comando = str(root.find("Comando").text)
+        valor   = str(root.find("Valor").text.encode('utf-8'))
+        
+        if comando == "Play":
+            self.video.play()
+        elif comando == "Pause":
+            self.video.pause()
+        elif comando == "Stop":
+            self.video.stop()
+        elif comando == "AnteriorProxima":
+            self.video.step(valor)
+        elif comando == "Volume":
+           self.video.volume(valor)
+        elif comando == "ReproduzirPorNome":
+            self.video.playNome(valor)    
+    
+    #envia a lista de musicas para o aparelho
+    def enviarListaMusica(self, con):
+        lista = self.video.getListaVideo()
+        
+        root = Element("EnviarListaVideo")
+
+        for linha in lista:
+            root.append(Element("Videos", Nome=linha.decode('utf-8')))
+                
+        xmlstr = ET.tostring(root) + "\n"  
+        con.send(xmlstr)
+
 
     #remove o cliente
     def removerConexao(self, cliente):
