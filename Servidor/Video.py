@@ -5,8 +5,7 @@ import Funcoes
 from pyomxplayer import OMXPlayer
 from pprint import pprint
 from os import listdir
-from os.path 
-import isfile, join
+from os.path import isfile, join
     
 class Video(object):
     
