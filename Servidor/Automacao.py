@@ -440,16 +440,10 @@ class Automacao(Base.Base):
         comando = str(root.find("Comando").text)
         valor   = str(root.find("Valor").text.encode('utf-8'))
         
-        if comando == "Play":
-            self.video.play()
-        elif comando == "Pause":
+        if comando == "Pause":
             self.video.pause()
         elif comando == "Stop":
             self.video.stop()
-        elif comando == "AnteriorProxima":
-            self.video.step(valor)
-        elif comando == "Volume":
-           self.video.volume(valor)
         elif comando == "ReproduzirPorNome":
             self.video.playNome(valor)    
     
