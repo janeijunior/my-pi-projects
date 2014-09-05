@@ -21,7 +21,10 @@ class Video(object):
         return arquivos
         
     def pause(self):
-        self.omx.toggle_pause()
+        try:
+            self.omx.toggle_pause()
+        except:
+            print "Não está executando!"
     
     #para a execucao
     def stop(self):
