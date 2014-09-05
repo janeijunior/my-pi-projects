@@ -196,7 +196,7 @@ def check_input (videodir,track):
         
 # MAIN
 # change videodir to where you store your videos. Must be a path from root
-videodir ="/home/pi/videos/"
+videodir ="/home/HousePi/Videos/"
 debug = False
 
 
