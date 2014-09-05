@@ -28,7 +28,10 @@ class Video(object):
     
     #para a execucao
     def stop(self):
-        self.omx.stop()
+        try:
+            self.omx.stop()
+        except:
+            print "Não está executando!"
         
     #reproduz a partir do nome
     def playNome(self, valor):
