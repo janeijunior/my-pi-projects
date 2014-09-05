@@ -20,12 +20,6 @@ class Video(object):
         print arquivos
         return arquivos
         
-    #executa os videos
-    def play(self):
-        self.omx = OMXPlayer('/home/pi/HousePi/Videos/Ariana.mp4')
-        pprint(self.omx.__dict__)
-                
-    #pausa a musica
     def pause(self):
         self.omx.toggle_pause()
     
@@ -33,10 +27,8 @@ class Video(object):
     def stop(self):
         self.omx.stop()
         
-    #avanca ou retrocede a faixa
-    def step(self, valor):
-        print 'Não implementado'
-        
-    #reproduz a faixa a partir do nome
+    #reproduz a partir do nome
     def playNome(self, valor):
-        print 'Não implementado'
+        self.omx = OMXPlayer(self.__caminhoVideos + valor)
+        pprint(self.omx.__dict__)
+        
