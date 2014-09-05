@@ -37,6 +37,27 @@ CREATE TABLE IF NOT EXISTS `Agendamento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
+--
+-- Estrutura da tabela `Camera`
+--
+
+CREATE TABLE IF NOT EXISTS `Camera` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Nome` varchar(100) NOT NULL,
+  `Device` varchar(100) NOT NULL,
+  `Porta` int(11) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `Camera`
+--
+
+INSERT INTO `Camera` (`Id`, `Nome`, `Device`, `Porta`) VALUES
+(1, 'Camera 1', '/dev/video0', 2343),
+(2, 'Camera 2', '/dev/video1', 2344);
+
+-- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `ConfiguracaoAlarme`
@@ -141,6 +162,26 @@ CREATE TABLE IF NOT EXISTS `ReleAgendamento` (
   PRIMARY KEY (`IdAgendamento`,`IdRele`),
   KEY `Reles` (`IdRele`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `RFID`
+--
+
+CREATE TABLE IF NOT EXISTS `RFID` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Tag` varchar(50) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `RFID`
+--
+
+INSERT INTO `RFID` (`Id`, `Tag`) VALUES
+(1, '0007181175'),
+(2, '0008056554');
 
 -- --------------------------------------------------------
 

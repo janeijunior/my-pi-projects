@@ -1,233 +1,98 @@
-#! /usr/bin/env python
+import pexpect
+import re
 
-# omxplay is a simple python interface to omxplayer
-# Version 1.03 9/7/2012
-# ------------------------------------
+from threading import Thread
+from time import sleep
 
-# pyomxplayer.py AND omxchild.sh must be in the same directory
-# to run do:  python pyomxplayer.py from a terminal opened in the same directory
-# track to play is a file name e.g. my_track.mp4
+class OMXPlayer(object):
 
-# developed with python 2.7, not tried on python 3.
-# +,- commands do not work in Wheezy beta 18/08 unless you have installed a later version of omxplayer.
-# videos must be in a directory set in the variable videodir in main program below.
-# you need a long video or else the controls will not work (bug in omxplayer)
-# Running this with Idle produces funny results, just run from a terminal.
+    _FILEPROP_REXP = re.compile(r".*audio streams (\d+) video streams (\d+) chapters (\d+) subtitles (\d+).*")
+    _VIDEOPROP_REXP = re.compile(r".*Video codec ([\w-]+) width (\d+) height (\d+) profile (\d+) fps ([\d.]+).*")
+    _AUDIOPROP_REXP = re.compile(r"Audio codec (\w+) channels (\d+) samplerate (\d+) bitspersample (\d+).*")
+    _STATUS_REXP = re.compile(r"V :\s*([\d.]+).*")
+    _DONE_REXP = re.compile(r"have a nice day.*")
 
-# Changes from version 1.02
-#     simple error checking on user input
-#     check omxchild.sh exists and make it executable
+    _LAUNCH_CMD = '/usr/bin/omxplayer -s %s %s'
+    _PAUSE_CMD = 'p'
+    _TOGGLE_SUB_CMD = 's'
+    _QUIT_CMD = 'q'
 
+    paused = False
+    subtitles_visible = True
 
-# Changes from version 1.01
-#     rewritten to use python's subprocess module.
-#     reorganised code into functions so omx_play could be cut and pasted into a better program.
-#     now works if the video runs to its end.
-
-
-# Bugs and Features
-# quitting (q) a short video leaves omxchild running until pyomx is exited (may be related to omxplayer bug)
-# would like to put the FIFO in the cwd but if so how to communicate this to omxchild.sh
-
-
-import subprocess, os, time, sys, select
-
-# function to play a track
-
-def omx_play(omxoptions, track):
-
-    # KEYBOARD
-
-    def keyboard_poll():
-        i,o,e = select.select([sys.stdin],[],[],0)
-        for s in i:
-            if s == sys.stdin:
-                input = sys.stdin.readline().rstrip()
-                return input
-        return None
-
-    # OMXCHILD
-
-    def child_start(cwd):
-    # create the subprocess which will call omxplayer
-    # a subprocess is needed because omxplayer controls must be piped
-    # if I specify omxplayer  as the first argument of Popen then
-    # I could not get the control commands to it hence the child is a shell script
-    # which calls omxplayer.
-
-        proc=subprocess.Popen([cwd + '/omxchild.sh'], shell=False, \
-              stderr=subprocess.PIPE, \
-              stdout=subprocess.PIPE, \
-              stdin=subprocess.PIPE)
-        pid = proc.pid
-        if debug: print "PID: ", pid
+    def __init__(self, mediafile, args=None, start_playback=False):
+        if not args:
+            args = ""
+        cmd = self._LAUNCH_CMD % (mediafile, args)
+        self._process = pexpect.spawn(cmd)
         
-        # wait until child has started otherwise commands sent get confused
-        while proc.poll()!= None:
-            time.sleep(0.1)
-        if debug: print 'Subprocess ',pid," started"
-        return proc
+        self.video = dict()
+        self.audio = dict()
+        # Get file properties
+        file_props = self._FILEPROP_REXP.match(self._process.readline()).groups()
+        (self.audio['streams'], self.video['streams'],
+         self.chapters, self.subtitles) = [int(x) for x in file_props]
+        # Get video properties
+        video_props = self._VIDEOPROP_REXP.match(self._process.readline()).groups()
+        self.video['decoder'] = video_props[0]
+        self.video['dimensions'] = tuple(int(x) for x in video_props[1:3])
+        self.video['profile'] = int(video_props[3])
+        self.video['fps'] = float(video_props[4])
+        # Get audio properties
+        audio_props = self._AUDIOPROP_REXP.match(self._process.readline()).groups()
+        self.audio['decoder'] = audio_props[0]
+        (self.audio['channels'], self.audio['rate'],
+         self.audio['bps']) = [int(x) for x in audio_props[1:]]
 
-    # poll child process to see if it is running
-    def child_running(proc):
-            if proc.poll() != None:
-                return False
+        if self.audio['streams'] > 0:
+            self.current_audio_stream = 1
+            self.current_volume = 0.0
+
+        self._position_thread = Thread(target=self._get_position)
+        self._position_thread.start()
+
+        if not start_playback:
+            self.toggle_pause()
+        self.toggle_subtitles()
+
+
+    def _get_position(self):
+        while True:
+            index = self._process.expect([self._STATUS_REXP,
+                                            pexpect.TIMEOUT,
+                                            pexpect.EOF,
+                                            self._DONE_REXP])
+            if index == 1: continue
+            elif index in (2, 3): break
             else:
-                return True
+                self.position = float(self._process.match.group(1))
+            sleep(0.05)
 
-    # wait for the child process to terminate
-    def child_wait_for_terminate(proc):
-        while proc.poll()!= None:
-            time.sleep(0.1)
-        if debug: print 'Child terminated'
+    def toggle_pause(self):
+        if self._process.send(self._PAUSE_CMD):
+            self.paused = not self.paused
 
-    # send a command to the child
-    def child_send_command (command, proc ):
-        if debug: print "To child: "+ command
-        proc.stdin.write(command)
+    def toggle_subtitles(self):
+        if self._process.send(self._TOGGLE_SUB_CMD):
+            self.subtitles_visible = not self.subtitles_visible
+    def stop(self):
+        self._process.send(self._QUIT_CMD)
+        self._process.terminate(force=True)
 
-    # not used
-    def child_get_status():
-        opp=proc.stdout.readline()
-        print "From child:  " + opp
+    def set_speed(self):
+        raise NotImplementedError
 
+    def set_audiochannel(self, channel_idx):
+        raise NotImplementedError
 
-    # PIPE TO OMXPLAYER
+    def set_subtitles(self, sub_idx):
+        raise NotImplementedError
 
-    def omx_send_control(char,fifo):
-        command="echo -n " + char + ">" + fifo
-        if debug: print "To omx: " + command
-        os.system(command)
+    def set_chapter(self, chapter_idx):
+        raise NotImplementedError
 
+    def set_volume(self, volume):
+        raise NotImplementedError
 
-
-
-    # current working directory
-    cwd= os.getcwd()
-    
-    # create a FIFO to be used between the parent and omxplayer
-    fifo = "/tmp/omxcmd"
-    if os.path.exists (fifo): os.system("rm " + fifo )
-    os.system("mkfifo " + fifo )
-
-    # start omxchild the child process that will run omxplayer
-    proc=child_start(cwd)
-
-    #send a 'track' command to the child to start the video
-    child_send_command("track " + omxoptions + " " + track + "\n", proc )
-
-    # and send the start command to omxplayer through the FIFO
-    omx_send_control('.',fifo)
-
-    # loop obtaining user input and send to omxplayer
-    while True:
-        # has the child process terminated because the track has ended
-        if child_running(proc) == False:
-                if debug: print "child now not running"
-                # close the FIFO
-                os.system("rm " + fifo)
-                return
-            
-        # potential race condition here as omxplayer may terminate here
-        # so sending the control will fail
-            
-        # poll the keyboard for a control
-        # this will be replaced by polling the gpio inputs in my project
-        key = keyboard_poll ()            # you need to press [enter] after the command.
-        if key != None:
-            # send the control to omxplayer through the FIFO
-            omx_send_control(key,fifo)
-            if key == 'q':
-                # q has been sent and omxplayer is terminating, wait for child to terminate
-                # and then close the FIFO
-                child_wait_for_terminate(proc)
-                os.system("rm " + fifo)
-                return
-            
-        time.sleep(0.1)
-
-
-
-
-
-# FUNCTIONS FOR MAIN
-
-def get_track():
-    print("Track to Play, help, or bye to exit")
-    track = sys.stdin.readline()
-    track = track.rstrip()
-    return track
-
-
-def show_help ():
-    print (" To control video type a character followed by [ENTER]")
-    print (" p - pause/play\n spacebar - pause/play\n q - quit\n + - increase volume\n - - decrease volume")
-    print (" z - tv show info\n 1 - reduce speed\n 2 - increase speed\n j - previous audio index\n k - next audio index\n i - back a chapter\n o - forward a chapter")
-    print (" n - previous subtitle index\n m - next subtitle index\n s - toggle subtitles\n >cursor - seek forward 30\n <cursor - seek back 30\n ^cursor - seek forward 600\n _^cursor - seek back 600")
-
-
-def check_runnable():
-    # current working directory
-    cwd= os.getcwd()
-    
-    path = cwd + "/omxchild.sh"
-    if os.path.exists(path) == False:
-	print "omxchild.sh not found, download from github"
-        sys.exit()
-    command = "chmod +x " + path
-    os.system(command) 
-
-# check user input is OK
-def check_input (videodir,track):
-    if '.' in track:
-        path = videodir + track
-        if os.path.exists(path) == True:
-            return True
-        else:
-            print "File " + path + " not found"
-    else:
-        if (track == "help") or (track == "bye"):
-            return True
-        else:
-            print track, " not understood"
-            return False
-
-
-        
-# MAIN
-# change videodir to where you store your videos. Must be a path from root
-videodir ="/home/pi/HousePi/Videos/"
-debug = False
-
-
-print "******* Welcome to pyomxplayer *******"
-
-# check all is OK to run
-check_runnable()
-
-
-# ask where to send the sound
-while True:
-    print ("Output, hdmi or local")
-    op = sys.stdin.readline().rstrip()
-    if (op == "hdmi") or (op == "local"):
-        omxoptions = "-o" + op
-        break
-    else:
-        print op + " not understood"
-
-    
-# loop to get a track and play it
-while True:
-    track = get_track()
-    if check_input(videodir, track) == False:
-        continue
-    if track == "help":
-        show_help()
-        continue
-    if track == "bye": break
-    omx_play(omxoptions, videodir + track)
-
-# say goodbye
-print ("sweet dreams")
-sys.exit()
+    def seek(self, minutes):
+        raise NotImplementedError
