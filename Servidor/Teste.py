@@ -292,6 +292,3 @@ if __name__ == "__main__":
 	import code
 	shell = code.InteractiveConsole(globals())
 	shell.interact()
-
-
-
