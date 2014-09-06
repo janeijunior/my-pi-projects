@@ -14,8 +14,8 @@ __audio_enabled = False
 
 def init():
     """ A wrapper for pygame.mixer.init(). """
-	global __audio_enabled
-	try:
+    global __audio_enabled
+    try:
 		if not __audio_enabled:
 			pygame.mixer.init(22050, -16, 2, 1024) # in pygame 1.9, third argument is stereo if 2.
 			#pygame.mixer.init()
