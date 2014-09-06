@@ -249,7 +249,7 @@ class Playlist():
 		self.update()
 
 	def add(self, filename, dirname):
-		fullname = os.path.join( dirname, filename)
+		fullname = os.path.join(dirname, filename)
         self.playlist.append(fullname)
         self._resetrandom()
 
