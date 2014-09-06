@@ -250,6 +250,7 @@ class Playlist():
 
 	def add(self, filename, dirname = "bgm"):
 		fullname = os.path.join( dirname, filename)
+        print dirname + filename
 		self.playlist.append(fullname)
 		self._resetrandom()
 
