@@ -24,7 +24,7 @@ def init():
     except pygame.error, message:
 		__audio_enabled = False
 		print "Audio disabled:", message
-	return __audio_enabled
+    return __audio_enabled
 
 def isenabled():
 	return __audio_enabled
