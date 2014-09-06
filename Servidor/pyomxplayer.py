@@ -24,7 +24,6 @@ class OMXPlayer(object):
         if not args:
             args = ""
         cmd = self._LAUNCH_CMD % (mediafile, args)
-        print cmd
         self._process = pexpect.spawn(cmd)
         
         self.video = dict()
