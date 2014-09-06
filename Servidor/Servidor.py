@@ -96,7 +96,7 @@ if __name__ == '__main__':
                     print "Erro: ", e
                     con.send("Erro\n")
                     
-        print "Finalizando conexao do cliente", cliente
+        print "Finalizando conexao do cliente: ", cliente
         
         automacao.removerConexao(cliente)
         
