@@ -250,13 +250,12 @@ class Playlist():
 
 	def add(self, filename, dirname = "bgm"):
 		fullname = os.path.join( dirname, filename)
-        print dirname + filename
         self.playlist.append(fullname)
         self._resetrandom()
 
 	def addfolder(self, foldername = "bgm"):
 		for filename in os.listdir(foldername):
-			if filename.endswith(".mp3") or filename.endswith(".wav"):
+			if filename.endswith(".mp3") or filename.endswith(".wma"):
 				self.add(filename, foldername)
 
 	def setrandom(self):
