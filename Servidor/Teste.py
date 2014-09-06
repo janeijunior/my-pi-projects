@@ -21,7 +21,7 @@ def init():
 			#pygame.mixer.init()
 			__audio_enabled = True
 			print "Audio Enabled."
-	except pygame.error, message :
+	except pygame.error, message:
 		__audio_enabled = False
 		print "Audio disabled:", message
 	return __audio_enabled
