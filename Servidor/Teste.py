@@ -248,12 +248,12 @@ class Playlist():
 		self._stop()
 		self.update()
 
-	def add(self, filename, dirname = "bgm"):
+	def add(self, filename, dirname):
 		fullname = os.path.join( dirname, filename)
         self.playlist.append(fullname)
         self._resetrandom()
 
-	def addfolder(self, foldername = "bgm"):
+	def addfolder(self, foldername):
 		for filename in os.listdir(foldername):
 			if filename.endswith(".mp3") or filename.endswith(".wma") or filename.endswith(".m4a"):
 				self.add(filename, foldername)
