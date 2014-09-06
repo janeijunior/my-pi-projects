@@ -35,5 +35,5 @@ class Video(object):
     #reproduz a partir do nome
     def playNome(self, valor):
         self.stop()
-        self.omx = OMXPlayer(self.__caminhoVideos + valor.replace(' ', new['\ ']))
+        self.omx = OMXPlayer(self.__caminhoVideos + valor.replace(' ', '\ '))
         pprint(self.omx.__dict__)
