@@ -6,6 +6,7 @@
 
 import pygame, sys, os
 import math, copy, random
+
 if not pygame.mixer: print 'Warning, pygame.mixer did not load. Sound disabled.'
 
 __all__ = ["init", "isenabled", "NoneSound", "load_sound", "load_music", "Playlist"]
@@ -13,42 +14,38 @@ __all__ = ["init", "isenabled", "NoneSound", "load_sound", "load_music", "Playli
 __audio_enabled = False
 
 def init():
-    """ A wrapper for pygame.mixer.init(). """
     global __audio_enabled
     try:
-		if not __audio_enabled:
-			pygame.mixer.init(22050, -16, 2, 1024) # in pygame 1.9, third argument is stereo if 2.
-			#pygame.mixer.init()
-			__audio_enabled = True
-			print "Audio Enabled."
+        if not __audio_enabled:
+            pygame.mixer.init(22050, -16, 2, 1024) # in pygame 1.9, third argument is stereo if 2.
+            __audio_enabled = True
+            print "Audio Enabled."
     except pygame.error, message:
-		__audio_enabled = False
-		print "Audio disabled:", message
+        __audio_enabled = False
+        print "Audio disabled:", message
     return __audio_enabled
 
 def isenabled():
-	return __audio_enabled
+    return __audio_enabled
 
 class NoneSound:
-	def play(self): pass
-	def stop(self): pass
-	def fadeout(self, *args): pass
-	def set_volume(self, *args): pass
-	def get_volume(self, *args): pass
-	def get_num_channels(self, *args): pass
-	def get_length(self, *args): pass
-	def get_buffer(self, *args): pass
+    def play(self): pass
+    def stop(self): pass
+    def fadeout(self, *args): pass
+    def set_volume(self, *args): pass
+    def get_volume(self, *args): pass
+    def get_num_channels(self, *args): pass
+    def get_length(self, *args): pass
+    def get_buffer(self, *args): pass
 
-
-#sound loader
 def load_sound(name, dirname = 'sounds', soundcache = {}):
 
-	if not pygame.mixer or not __audio_enabled:
-		return NoneSound()
+    if not pygame.mixer or not __audio_enabled:
+        return NoneSound()
 	fullname = os.path.join(dirname, name)
 
-	if fullname in soundcache:
-		return soundcache[fullname]
+    if fullname in soundcache:
+        return soundcache[fullname]
 
 	try:
 		sound = pygame.mixer.Sound(fullname)
