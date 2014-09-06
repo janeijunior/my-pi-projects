@@ -281,7 +281,7 @@ class Playlist():
 if __name__ == "__main__":
 	player = Playlist()
 
-	player.addfolder()
+	player.addfolder("/home/pi/HousePi/Musicas")
 
 	def playloop(player):
 		player.play()
