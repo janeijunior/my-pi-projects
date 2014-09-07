@@ -16,6 +16,9 @@ class OMXPlayer(object):
     _PAUSE_CMD = 'p'
     _TOGGLE_SUB_CMD = 's'
     _QUIT_CMD = 'q'
+    _BACKWARD = '\x5b\x44'
+    _FORWARD = '\x5b\x43'
+
 
     paused = False
     subtitles_visible = True
@@ -96,3 +99,9 @@ class OMXPlayer(object):
 
     def seek(self, minutes):
         raise NotImplementedError
+
+    def backward(self)
+        self._process.send(self._BACKWARD)
+    
+    def forkward(self)
+        self._process.send(self._FORWARD)    
