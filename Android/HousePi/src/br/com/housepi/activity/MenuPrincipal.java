@@ -56,8 +56,8 @@ public class MenuPrincipal extends ActionBarActivity {
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         
         int[] image = new int[] {R.drawable.ic_action_view_as_grid, R.drawable.ic_action_accounts , R.drawable.ic_action_time, 
-        		                 R.drawable.ic_action_view_as_list, R.drawable.ic_action_video,  R.drawable.ic_action_play_over_video, 
-        		                 R.drawable.ic_action_about};
+        		                 R.drawable.ic_action_view_as_list, R.drawable.ic_action_video,  R.drawable.ic_action_play, 
+        		                 R.drawable.ic_action_play_over_video, R.drawable.ic_action_about};
         
         ArrayList<HashMap<String,String>> listinfo = new ArrayList<HashMap<String, String>>();
         listinfo.clear();
@@ -223,6 +223,12 @@ public class MenuPrincipal extends ActionBarActivity {
             transaction.commit();
             break;
         case 6:
+        	newFragment = ControleVideo.newInstance(this);
+            transaction.replace(R.id.content_frame, newFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+            break;
+        case 7:
         	newFragment = Sobre.newInstance(this);
             transaction.replace(R.id.content_frame, newFragment);
             transaction.addToBackStack(null);

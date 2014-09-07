@@ -2,11 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.housepi"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.1" >
 
-    <uses-sdk
-        android:minSdkVersion="3"
-        android:targetSdkVersion="3" />
+    <uses-sdk android:minSdkVersion="8" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -17,9 +15,10 @@
         android:label="@string/app_name"
         android:theme="@style/HousePi" >
         <activity
-            android:name="br.com.housepi.activity.Login"
+            android:name=".activity.Login"
             android:label="@string/app_name"
-            android:launchMode="singleTop" >
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,68 +26,82 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.com.housepi.activity.ConfiguracaoConexao"
+            android:name=".activity.ConfiguracaoConexao"
             android:label="@string/title_activity_configuracao_conexao" >
         </activity>
         <activity
-            android:name="br.com.housepi.activity.MenuPrincipal"
+            android:name=".activity.MenuPrincipal"
             android:label="@string/title_activity_menu_principal" >
         </activity>
         <activity
-            android:name="br.com.housepi.activity.ControleReles"
+            android:name=".activity.ControleReles"
             android:label="@string/title_activity_controle_reles" >
         </activity>
         <activity
-            android:name="br.com.housepi.activity.ControleAlarme"
+            android:name=".activity.ControleAlarme"
             android:label="@string/title_activity_controle_alarme" >
         </activity>
         <activity
-            android:name="br.com.housepi.activity.ControleAgendamento"
+            android:name=".activity.ControleAgendamento"
             android:label="@string/title_activity_controle_agendamento" >
         </activity>
         <activity
-            android:name="br.com.housepi.activity.VisualizacaoCamera"
+            android:name=".activity.VisualizacaoCamera"
             android:label="@string/title_activity_visualizacao_camera" >
         </activity>
         <activity
-            android:name="br.com.housepi.activity.ControleSomAmbiente"
+            android:name=".activity.ControleSomAmbiente"
             android:label="@string/title_activity_controle_som_ambiente" >
         </activity>
         <activity
-            android:name="br.com.housepi.activity.TemperaturaHumidade"
+            android:name=".activity.TemperaturaHumidade"
             android:label="@string/title_activity_temperatura_humidade" >
         </activity>
         <activity
-            android:name="br.com.housepi.activity.ConfiguracaoAlarme"
+            android:name=".activity.ConfiguracaoAlarme"
             android:label="@string/title_activity_configuracao_alarme" >
         </activity>
         <activity
-            android:name="br.com.housepi.activity.ConfiguracaoGeral"
-            android:label="@string/title_activity_configuracao_geral" >
+            android:name=".activity.ConfiguracaoGeral"
+            android:label="@string/title_activity_configuracao_geral"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
-            android:name="br.com.housepi.activity.ConfiguracaoEmail"
+            android:name=".activity.ConfiguracaoEmail"
             android:label="@string/title_activity_configuracao_email" >
         </activity>
         <activity
-            android:name="br.com.housepi.activity.ConfiguracaoRele"
+            android:name=".activity.ConfiguracaoRele"
             android:label="@string/title_activity_configuracao_rele" >
         </activity>
         <activity
-            android:name="br.com.housepi.activity.Configuracao"
-            android:label="@string/title_activity_configuracao" >
+            android:name=".activity.Configuracao"
+            android:label="@string/title_activity_configuracao"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
-            android:name="br.com.housepi.activity.Sobre"
+            android:name=".activity.Sobre"
             android:label="@string/title_activity_sobre" >
         </activity>
         <activity
-            android:name="br.com.housepi.activity.CadastroAgendamento"
+            android:name=".activity.CadastroAgendamento"
             android:label="@string/title_activity_cadastro_agendamento" >
         </activity>
         <activity
-            android:name="br.com.housepi.activity.VisualizacaoDisparos"
+            android:name=".activity.VisualizacaoDisparos"
             android:label="@string/title_activity_visualizacao_disparos" >
+        </activity>
+        <activity
+            android:name=".activity.ConfiguracaoCamera"
+            android:label="@string/title_activity_configuracao_camera" >
+        </activity>
+        <activity
+            android:name=".activity.ConfiguracaoRFID"
+            android:label="@string/title_activity_configuracao_rfid" >
+        </activity>
+        <activity
+            android:name="br.com.housepi.activity.ControleVideo"
+            android:label="@string/title_activity_controle_video" >
         </activity>
     </application>
 

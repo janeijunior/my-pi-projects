@@ -40,6 +40,8 @@ public class Login extends ActionBarActivity {
 	
 	public static String IP_SERVIDOR;
 	public static String PORTA_SERVIDOR;
+	public static String USUARIO;
+	public static String SENHA;
 	
 	private ProgressDialog dialog;
 
@@ -219,6 +221,9 @@ public class Login extends ActionBarActivity {
 					Funcoes.salvarDadosComponente("edtSenha", "", this);
 					Funcoes.salvarDadosComponente("cbxSalvarSenha", "0", this);
 				}
+				
+				USUARIO = edtUsuario.getText().toString();
+				SENHA = edtSenha.getText().toString();
 				
 				startActivity(new Intent(this, MenuPrincipal.class));
 			} else if (mensagem.equals("NaoLogado")) {

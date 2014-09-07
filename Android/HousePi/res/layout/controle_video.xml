@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".ControleSomAmbiente" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/edPesquisaVideo"
+            android:layout_width="165dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.01"
+            android:ems="10"
+            android:hint="Pesquisar" >
+
+            <requestFocus />
+        </EditText>
+
+        <ImageButton
+            android:id="@+id/btPauseVideo"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_blue"
+            android:src="@drawable/ic_action_pause" />
+
+        <ImageButton
+            android:id="@+id/btStopVideo"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_blue"
+            android:src="@drawable/ic_action_stop" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp" >
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvVideo"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent" >
+    </ListView>
+
+</LinearLayout>

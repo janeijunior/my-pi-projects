@@ -18,6 +18,8 @@
     <string name="title_section2">RELÉS</string>
     <string name="title_section3">ALARME</string>
     <string name="title_section4">E-MAIL</string>
+    <string name="title_section5">CÂMERAS</string>
+    <string name="title_section6">RFID</string>
     <string name="title_activity_configuracao">Configuracões</string>
     <string name="title_activity_configuracao_alarme">Configuração do Alarme</string>
     <string name="title_activity_configuracao_email">Configuração do E-mail</string>
@@ -46,10 +48,14 @@
         <item>Temperatura</item>
         <item>Câmera</item>
         <item>Som Ambiente</item>
+        <item>Videos</item>
         <item>Sobre</item>
     </string-array>
 
     <string name="title_activity_visualizacao_disparos">Últimos Disparos</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_configuracao_camera">Configuração Câmera</string>
+    <string name="title_activity_configuracao_rfid">Configuração RFID</string>
+    <string name="title_activity_controle_video">ControleVideo</string>
 
 </resources>

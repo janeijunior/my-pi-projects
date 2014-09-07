@@ -68,6 +68,8 @@ public class Configuracao extends ActionBarActivity implements
 		fragments.add(Fragment.instantiate(this, ConfiguracaoRele.class.getName()));
 		fragments.add(Fragment.instantiate(this, ConfiguracaoAlarme.class.getName()));
 		fragments.add(Fragment.instantiate(this, ConfiguracaoEmail.class.getName()));
+		fragments.add(Fragment.instantiate(this, ConfiguracaoCamera.class.getName()));
+		fragments.add(Fragment.instantiate(this, ConfiguracaoRFID.class.getName()));
 		
 		this.mPagerAdapter = new ViewPagerAdapter(super.getSupportFragmentManager(), fragments);
 		this.mViewPager = (ViewPager) super.findViewById(R.id.pager);
@@ -110,8 +112,8 @@ public class Configuracao extends ActionBarActivity implements
 
 		@Override
 		public int getCount() {
-			// Show 4 total pages.
-			return 4;
+			// Show 6 total pages.
+			return 6;
 		}
 
 		@Override
@@ -126,6 +128,10 @@ public class Configuracao extends ActionBarActivity implements
 				return getString(R.string.title_section3).toUpperCase(l);
 			case 3:
 				return getString(R.string.title_section4).toUpperCase(l);
+			case 4:
+				return getString(R.string.title_section5).toUpperCase(l);
+			case 5:
+				return getString(R.string.title_section6).toUpperCase(l);
 			}
 			return null;
 		}
