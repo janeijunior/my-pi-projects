@@ -17,7 +17,7 @@ class OMXPlayer(object):
     _TOGGLE_SUB_CMD = 's'
     _QUIT_CMD = 'q'
     _BACKWARD = '\x5b\x44'
-    _FORWARD = "\x5b\x43"
+    _FORWARD = '\x5b\x43'
 
 
     paused = False
