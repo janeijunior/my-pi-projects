@@ -95,6 +95,7 @@ class Email(Base.Base):
             mailServer.login(msg['From'], msg['Pass'])
             mailServer.sendmail(msg['From'], para, msg.as_string())
             mailServer.close()
+            
         except Exception, e:
             print "Erro no envio do e-mail: ", e
         else:
