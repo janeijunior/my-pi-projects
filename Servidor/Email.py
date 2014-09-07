@@ -63,29 +63,38 @@ class Email(Base.Base):
         assunto   = "Alarme disparado!"
         separador = "-----------------------------------------------------------\n"
         
-        conteudo = "O alarme de sua residencia esta disparado. \n" + separador + "Sensor: {idSensor} - {nomeSensor}\nData e hora do disparo: {dataHora}\n" + separador + "E-mail enviado automaticamento pelo sistema House Pi"
-        conteudo = conteudo.format(idSensor = int(self.idSensor), nomeSensor = Funcoes.removerAcentos(self.nomeSensor), dataHora =  datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+        mensagem = "O alarme de sua residencia esta disparado. \n" + separador + "Sensor: {idSensor} - {nomeSensor}\nData e hora do disparo: {dataHora}\n" + separador + "E-mail enviado automaticamento pelo sistema House Pi"
+        mensagem = mensagem.format(idSensor = int(self.idSensor), nomeSensor = Funcoes.removerAcentos(self.nomeSensor), dataHora =  datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         
         print 'Enviando e-mail\n'
             
         try:
-            msg = MIMEText('%s'% conteudo)
+            msg = MIMEMultipart()
+            msg['To'] = self.destinatario
             msg['Subject'] = assunto
             msg['From'] = self.remetente
-            msg['To'] = self.destinatario
+            msg['Pass'] = self.senha
+            msg['SMTP'] = self.servidorSMTP
+            
+            if mensagem != '':
+                msg.attach(MIMEText(mensagem))
             
             part = MIMEBase('application', 'octet-stream')
-            anexo = 'Config.ini'
-            part.set_payload(open(anexo, 'rb').read())
-            part.add_header('Content-Disposition', 'attachment; filename="%s"' %  os.path.basename(anexo))
-            msg.attach(part)
             
-            smtp = smtplib.SMTP(self.servidorSMTP, int(self.portaSMTP))
-            smtp.ehlo()
-            smtp.starttls()
-            smtp.login(self.remetente, self.senha)
-            smtp.sendmail(msg['From'], msg['To'], msg.as_string())
-            smtp.quit()
+            anexo = 'Config.ini'
+            if anexo != '':
+                part.set_payload(open(anexo, 'rb').read())
+                part.add_header('Content-Disposition', 'attachment; filename="%s"' %  os.path.basename(anexo))
+            
+            msg.attach(part)
+            Encoders.encode_base64(part)
+            mailServer = smtplib.SMTP(msg['SMTP'], int(self.portaSMTP))
+            mailServer.ehlo()
+            mailServer.starttls()
+            mailServer.ehlo()
+            mailServer.login(msg['From'], msg['Pass'])
+            mailServer.sendmail(msg['From'], para, msg.as_string())
+            mailServer.close()
         except Exception, e:
             print "Erro no envio do e-mail: ", e
         else:
