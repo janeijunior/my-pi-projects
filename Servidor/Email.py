@@ -87,7 +87,7 @@ class Email(Base.Base):
             
             for row in rows:    
                 anexo = "Imagens/" + str(row["Nome"]) + "_" + datetime.datetime.now().strftime("%d-%m-%Y_%H%M%S.jpg")
-                device = '/dev/video0'
+                device = str(row["Device"])
                 self.camera.CapturarImagem(device, anexo)
                 
                 if anexo != '':
