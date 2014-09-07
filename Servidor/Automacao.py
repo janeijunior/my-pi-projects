@@ -444,6 +444,10 @@ class Automacao(Base.Base):
             self.video.pause()
         elif comando == "Stop":
             self.video.stop()
+        elif comando == "Avancar":
+            self.video.avancar()
+        elif comando == "Retroceder":
+            self.video.retroceder()
         elif comando == "ReproduzirPorNome":
             self.video.playNome(valor)    
     
