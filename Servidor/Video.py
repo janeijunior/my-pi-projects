@@ -37,3 +37,10 @@ class Video(object):
         self.stop()
         self.omx = OMXPlayer(self.__caminhoVideos + valor.replace(' ', '\ '))
         pprint(self.omx.__dict__)
+    
+    #avanca a execucao
+    def stop(self):
+        try:
+            self.omx.stop()
+        except:
+            print "Não está executando!"
