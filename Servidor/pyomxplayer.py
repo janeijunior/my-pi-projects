@@ -103,5 +103,5 @@ class OMXPlayer(object):
     def backward(self):
         self._process.send(self._BACKWARD)
     
-    def forkward(self):
+    def forward(self):
         self._process.send(self._FORWARD)    
