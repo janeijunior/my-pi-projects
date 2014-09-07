@@ -81,7 +81,9 @@ class Email(Base.Base):
             
             part = MIMEBase('application', 'octet-stream')
             
-            anexo = 'Config.ini'
+            anexo = datetime.datetime.now().strftime("%d-%m-%Y_%H%M%S")
+            device = '/dev/video0'
+            
             if anexo != '':
                 part.set_payload(open(anexo, 'rb').read())
                 part.add_header('Content-Disposition', 'attachment; filename="%s"' %  os.path.basename(anexo))
