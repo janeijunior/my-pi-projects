@@ -50,6 +50,4 @@ class Camera(Base.Base):
     
     #captura uma imagem do dispositivo (/dev/video0) com o nome e extensão (foto.jpg) passado por parametro
     def CapturarImagem(self, device, nome):
-        self.desligar()
         os.system("sudo fswebcam -r 320x240 -d " + str(device) + " --no-banner " + str(nome)) 
-        self.ligar()
