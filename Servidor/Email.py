@@ -71,6 +71,7 @@ class Email(Base.Base):
             msg['From'] = self.remetente
             msg['To'] = self.destinatario
             
+            part = MIMEBase('application', 'octet-stream')
             anexo = 'Config.ini'
             part.set_payload(open(anexo, 'rb').read())
             part.add_header('Content-Disposition', 'attachment; filename="%s"' %  os.path.basename(anexo))
