@@ -48,7 +48,7 @@ class Camera(Base.Base):
     def adicionarConexao(self, cliente):
         self.conexoes.insert(len(self.conexoes) + 1, cliente)
     
-    #captura uma imagem com o nome e extensão (foto.jpg) passado por parametro
+    #captura uma imagem do dispositivo com o nome e extensão (foto.jpg) passado por parametro
     def CapturarImagem(self, device, nome):
         self.desligar()
         os.system("sudo fswebcam -r 320x240 -d " + str(device) + " " + str(nome)) 
