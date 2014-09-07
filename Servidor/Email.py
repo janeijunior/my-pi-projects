@@ -69,6 +69,12 @@ class Email(Base.Base):
             msg['Subject'] = assunto
             msg['From'] = self.remetente
             msg['To'] = self.destinatario
+            
+            anexo = 'Config.ini'
+            part.set_payload(open(anexo, 'rb').read())
+            part.add_header('Content-Disposition', 'attachment; filename="%s"' %  os.path.basename(anexo))
+            msg.attach(part)
+            
             smtp = smtplib.SMTP(self.servidorSMTP, int(self.portaSMTP))
             smtp.ehlo()
             smtp.starttls()
