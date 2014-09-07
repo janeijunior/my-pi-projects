@@ -49,7 +49,7 @@ class Camera(Base.Base):
         self.conexoes.insert(len(self.conexoes) + 1, cliente)
     
     #captura uma imagem com o nome e extensão (foto.jpg) passado por parametro
-    def CapturarImagem(self, nome):
+    def CapturarImagem(self, device, nome):
         self.desligar()
-        os.system("sudo " + str(nome)) 
+        os.system("sudo fswebcam -r 320x240 -d " + str(device) + " " + str(nome)) 
         self.ligar()
