@@ -47,4 +47,7 @@ class Camera(Base.Base):
     #adiciona o cliente na lista de conexões
     def adicionarConexao(self, cliente):
         self.conexoes.insert(len(self.conexoes) + 1, cliente)
-                
+    
+    #captura uma imagem com o nome passado por parametro
+    def CapturarImagem(self, nome):
+        
