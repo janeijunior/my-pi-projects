@@ -100,8 +100,8 @@ class OMXPlayer(object):
     def seek(self, minutes):
         raise NotImplementedError
 
-    def backward(self)
+    def backward(self):
         self._process.send(self._BACKWARD)
     
-    def forkward(self)
+    def forkward(self):
         self._process.send(self._FORWARD)    
