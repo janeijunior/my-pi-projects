@@ -15,7 +15,7 @@ from email.MIMEText import MIMEText
 class Email(Base.Base):
     
     #construtor
-    def __init__(self, alarme):
+    def __init__(self, email):
         self.carregarConfiguracao()
         self.alarme = alarme
     
