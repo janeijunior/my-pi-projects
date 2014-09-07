@@ -32,9 +32,9 @@ class Automacao(Base.Base):
         self.usuario = Usuario.Usuario()
         self.somAmbiente = SomAmbiente.SomAmbiente()
         self.video = Video.Video()
-        self.email = Email.Email()
         self.camera = Camera.Camera(self.usuario)
         self.camera.ligar()
+        self.email = Email.Email(self.camera)
         self.reles = []
         self.carregarReles()
         self.alarme = Alarme.Alarme(self.reles[self.GPIOSirene], self.email)
