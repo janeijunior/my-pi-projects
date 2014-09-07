@@ -89,12 +89,11 @@ class Email(Base.Base):
                     device = str(row["Device"])
                     self.camera.CapturarImagem(device, anexo)
                     
-                    if anexo != '':
+                    if os.path.isfile(anexo):
                         part.set_payload(open(anexo, 'rb').read())
                         part.add_header('Content-Disposition', 'attachment; filename="%s"' %  os.path.basename(anexo))
-                    
-                    msg.attach(part)
-                    Encoders.encode_base64(part)
+                        msg.attach(part)
+                        Encoders.encode_base64(part)
                 
                 self.camera.ligar()
             except Exception, e:
