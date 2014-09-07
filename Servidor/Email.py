@@ -85,7 +85,7 @@ class Email(Base.Base):
                 self.camera.desligar()
                 
                 for row in rows:    
-                    anexo = Funcoes.lerConfiguracaoIni("CaminhoImagens") + "Imagens/" + str(row["Nome"]).replace(' ', '-') + "_" + datetime.datetime.now().strftime("%d%m%Y_%H%M%S.jpg")
+                    anexo = Funcoes.lerConfiguracaoIni("CaminhoImagens") + str(row["Nome"]).replace(' ', '-') + "_" + datetime.datetime.now().strftime("%d%m%Y_%H%M%S.jpg")
                     device = str(row["Device"])
                     self.camera.CapturarImagem(device, anexo)
                     
