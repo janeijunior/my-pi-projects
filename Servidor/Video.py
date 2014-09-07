@@ -39,8 +39,15 @@ class Video(object):
         pprint(self.omx.__dict__)
     
     #avanca a execucao
-    def stop(self):
+    def avancar(self):
         try:
-            self.omx.stop()
+            self.omx.forward()
+        except:
+            print "Não está executando!"
+    
+    #retrocede a execucao
+    def retroceder(self):
+        try:
+            self.omx.forward()
         except:
             print "Não está executando!"
