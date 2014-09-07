@@ -86,7 +86,7 @@ class Email(Base.Base):
             self.camera.desligar()
             
             for row in rows:    
-                anexo = datetime.datetime.now().strftime("Imagens/%d-%m-%Y_%H%M%S.jpg")
+                anexo = datetime.datetime.now().strftime("Imagens/" + str(row["Nome"]) + "_" + %d-%m-%Y_%H%M%S.jpg")
                 device = '/dev/video0'
                 self.camera.CapturarImagem(device, anexo)
                 
