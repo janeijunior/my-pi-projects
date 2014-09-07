@@ -48,6 +48,8 @@ class Camera(Base.Base):
     def adicionarConexao(self, cliente):
         self.conexoes.insert(len(self.conexoes) + 1, cliente)
     
-    #captura uma imagem com o nome passado por parametro
+    #captura uma imagem com o nome e extensão passado por parametro
     def CapturarImagem(self, nome):
-        
+        self.desligar()
+        os.system("sudo " + str(nome)) 
+        self.ligar()
