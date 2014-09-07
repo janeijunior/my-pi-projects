@@ -93,7 +93,7 @@ class Email(Base.Base):
             mailServer.starttls()
             mailServer.ehlo()
             mailServer.login(msg['From'], msg['Pass'])
-            mailServer.sendmail(msg['From'], para, msg.as_string())
+            mailServer.sendmail(msg['From'], self.destinatario, msg.as_string())
             mailServer.close()
             
         except Exception, e:
