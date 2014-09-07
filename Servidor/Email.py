@@ -102,7 +102,6 @@ class Email(Base.Base):
             except Exception, e:
                 print "Erro ao anexar: ", e
                 self.camera.ligar()
-                
             
             mailServer = smtplib.SMTP(msg['SMTP'], int(self.portaSMTP))
             mailServer.ehlo()
