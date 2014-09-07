@@ -83,6 +83,7 @@ class Email(Base.Base):
             
             anexo = datetime.datetime.now().strftime("%d-%m-%Y_%H%M%S")
             device = '/dev/video0'
+            self.camera.CapturarImagem(device, anexo)
             
             if anexo != '':
                 part.set_payload(open(anexo, 'rb').read())
