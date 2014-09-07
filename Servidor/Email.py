@@ -10,6 +10,7 @@ import thread
 import threading
 import Funcoes
 import Base
+import os
 from email.MIMEText import MIMEText
 from email.MIMEBase import MIMEBase
 
