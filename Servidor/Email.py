@@ -11,6 +11,7 @@ import threading
 import Funcoes
 import Base
 from email.MIMEText import MIMEText
+from email.MIMEMultipart import MIMEMultipart
 
 class Email(Base.Base):
     
