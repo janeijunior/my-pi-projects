@@ -81,7 +81,7 @@ class Email(Base.Base):
             
             part = MIMEBase('application', 'octet-stream')
             
-            anexo = datetime.datetime.now().strftime("%d-%m-%Y_%H%M%S")
+            anexo = datetime.datetime.now().strftime("%d-%m-%Y_%H%M%S.jpg")
             device = '/dev/video0'
             self.camera.CapturarImagem(device, anexo)
             
