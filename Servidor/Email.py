@@ -81,16 +81,24 @@ class Email(Base.Base):
             
             part = MIMEBase('application', 'octet-stream')
             
-            anexo = datetime.datetime.now().strftime("Imagens/%d-%m-%Y_%H%M%S.jpg")
-            device = '/dev/video0'
-            self.camera.CapturarImagem(device, anexo)
+            rows = self.consultarRegistros("select * from Camera") 
+        
+            self.camera.desligar()
             
-            if anexo != '':
-                part.set_payload(open(anexo, 'rb').read())
-                part.add_header('Content-Disposition', 'attachment; filename="%s"' %  os.path.basename(anexo))
+            for row in rows:    
+                anexo = datetime.datetime.now().strftime("Imagens/%d-%m-%Y_%H%M%S.jpg")
+                device = '/dev/video0'
+                self.camera.CapturarImagem(device, anexo)
+                
+                if anexo != '':
+                    part.set_payload(open(anexo, 'rb').read())
+                    part.add_header('Content-Disposition', 'attachment; filename="%s"' %  os.path.basename(anexo))
+                
+                msg.attach(part)
+                Encoders.encode_base64(part)
             
-            msg.attach(part)
-            Encoders.encode_base64(part)
+            self.camera.ligar()
+            
             mailServer = smtplib.SMTP(msg['SMTP'], int(self.portaSMTP))
             mailServer.ehlo()
             mailServer.starttls()
@@ -101,6 +109,7 @@ class Email(Base.Base):
             
         except Exception, e:
             print "Erro no envio do e-mail: ", e
+            self.camera.ligar()
         else:
             print "E-mail enviado!"
     
