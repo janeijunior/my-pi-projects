@@ -48,6 +48,6 @@ class Video(object):
     #retrocede a execucao
     def retroceder(self):
         try:
-            self.omx.forward()
+            self.omx.backward()
         except:
             print "Não está executando!"
