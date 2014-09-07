@@ -99,7 +99,9 @@ class Email(Base.Base):
                     Encoders.encode_base64(part)
                 
                 self.camera.ligar()
-            except:
+            except Exception, e:
+                print "Erro ao anexar: ", e
+                self.camera.ligar()
                 
             
             mailServer = smtplib.SMTP(msg['SMTP'], int(self.portaSMTP))
