@@ -79,11 +79,9 @@ class Email(Base.Base):
             if mensagem != '':
                 msg.attach(MIMEText(mensagem))
             
-            part = MIMEBase('application', 'octet-stream')
-            
-            rows = self.consultarRegistros("select * from Camera") 
-        
             try:
+                part = MIMEBase('application', 'octet-stream')
+                rows = self.consultarRegistros("select * from Camera") 
                 self.camera.desligar()
                 
                 for row in rows:    
