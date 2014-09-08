@@ -34,6 +34,8 @@ import android.widget.AdapterView.OnItemClickListener;
 public class ControleVideo extends Fragment implements OnClickListener {
 	
 	private ListView listView;
+	private ImageButton btnRetroceder;
+	private ImageButton btnAvancar;
 	private ImageButton btnPause;
 	private ImageButton btnStop;
 	private ArrayAdapter<String> adapter;
@@ -51,6 +53,12 @@ public class ControleVideo extends Fragment implements OnClickListener {
 				container, false);
 		
 		edtPesquisaVideo = (EditText) rootView.findViewById(R.id.edPesquisaVideo);
+		
+		btnRetroceder = (ImageButton) rootView.findViewById(R.id.btRetrocederVideo);
+		btnRetroceder.setOnClickListener(this);
+		
+		btnAvancar = (ImageButton) rootView.findViewById(R.id.btAvancarVideo);
+		btnAvancar.setOnClickListener(this);
 		
 		btnPause = (ImageButton) rootView.findViewById(R.id.btPauseVideo);
 		btnPause.setOnClickListener(this);
@@ -147,6 +155,10 @@ public class ControleVideo extends Fragment implements OnClickListener {
 			enviarComando("Pause", "0");
 		} else if (v == btnStop) {
 			enviarComando("Stop", "0");
+		} else if (v == btnAvancar) {
+			enviarComando("Avancar", "0");
+		} else if (v == btnRetroceder) {
+			enviarComando("Retroceder", "0");
 		}
 	}
 	

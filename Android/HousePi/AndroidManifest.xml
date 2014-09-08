@@ -27,7 +27,8 @@
         </activity>
         <activity
             android:name=".activity.ConfiguracaoConexao"
-            android:label="@string/title_activity_configuracao_conexao" >
+            android:label="@string/title_activity_configuracao_conexao"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".activity.MenuPrincipal"

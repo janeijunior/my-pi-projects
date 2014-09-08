@@ -12,24 +12,16 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center" >
-    </LinearLayout>
+        android:layout_height="wrap_content" 
+        android:gravity="center">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <EditText
-            android:id="@+id/edPesquisaVideo"
-            android:layout_width="165dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1.01"
-            android:ems="10"
-            android:hint="Pesquisar" >
-
-            <requestFocus />
-        </EditText>
+        <ImageButton
+            android:id="@+id/btRetrocederVideo"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_blue"
+            android:src="@drawable/ic_action_rewind" />
 
         <ImageButton
             android:id="@+id/btPauseVideo"
@@ -46,6 +38,31 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn_blue"
             android:src="@drawable/ic_action_stop" />
+
+        <ImageButton
+            android:id="@+id/btAvancarVideo"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_blue"
+            android:src="@drawable/ic_action_fast_forward" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <EditText
+            android:id="@+id/edPesquisaVideo"
+            android:layout_width="61dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Pesquisar" >
+
+            <requestFocus />
+        </EditText>
     </LinearLayout>
 
     <LinearLayout
