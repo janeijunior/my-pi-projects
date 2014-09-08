@@ -63,7 +63,7 @@ class Email(Base.Base):
         assunto   = "Alarme disparado!"
         separador = "-----------------------------------------------------------\n"
         
-        mensagem = "O alarme de sua residencia esta disparado. \n" + separador + "Sensor: {idSensor} - {nomeSensor}\nData e hora do disparo: {dataHora}\n" + separador + "E-mail enviado automaticamento pelo sistema House Pi"
+        mensagem = "O alarme de sua residencia esta disparado. \n" + separador + "Sensor: {idSensor} - {nomeSensor}\nData e hora do disparo: {dataHora}\n" + separador + "E-mail enviado automaticamente pelo sistema House Pi"
         mensagem = mensagem.format(idSensor = int(self.idSensor), nomeSensor = Funcoes.removerAcentos(self.nomeSensor), dataHora =  datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         
         print 'Enviando e-mail\n'
