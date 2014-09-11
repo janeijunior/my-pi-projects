@@ -442,12 +442,12 @@ class Automacao(Base.Base):
         sql = "select Porta from Camera where Nome = '{nome}'".format(nome = nome)
         row = self.consultarRegistro(sql)
         
-        con.send(str(row["Porta"]).decode('utf-8'))        
+        con.send(str(row["Porta"]).decode('utf-8')+ "\n")        
     
     #controla o video
     def controlarVideo(self, root, con):
         comando = str(root.find("Comando").text)
-        valor   = str(root.find("Valor").text.encode('utf-8') + "\n")
+        valor   = str(root.find("Valor").text.encode('utf-8'))
         
         if comando == "Pause":
             self.video.pause()
