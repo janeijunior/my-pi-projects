@@ -442,7 +442,7 @@ class Automacao(Base.Base):
         sql = "select Porta from Camera where Nome = '{nome}'".format(nome = nome)
         row = self.consultarRegistro(sql)
         
-        con.send(str(row["Porta"]).decode('utf-8')+ "\n")        
+        con.send(str(row["Porta"]).decode('utf-8') + "\n")        
     
     #controla o video
     def controlarVideo(self, root, con):
