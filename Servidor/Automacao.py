@@ -435,6 +435,16 @@ class Automacao(Base.Base):
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)
     
+    #envia a porta da camera com o nome requisitado
+    def enviarPortaCamera(self, root, con):
+        nome = str(root.find("Nome").text.encode('utf-8'))
+        
+        sql = "select Porta from Camera where Nome = '{nome}')".format(nome = Nome)
+        
+        
+            
+        
+    
     #controla o video
     def controlarVideo(self, root, con):
         comando = str(root.find("Comando").text)
