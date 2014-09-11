@@ -439,7 +439,7 @@ class Automacao(Base.Base):
     def enviarPortaCamera(self, root, con):
         nome = str(root.find("Nome").text.encode('utf-8'))
         
-        sql = "select Porta from Camera where Nome = '{nome}')".format(nome = Nome)
+        sql = "select Porta from Camera where Nome = '{nome}')".format(nome = nome)
         row = self.consultarRegistro(sql)
         
         con.send(Valor=str(row["Porta"]).decode('utf-8'))        
