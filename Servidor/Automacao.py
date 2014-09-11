@@ -440,6 +440,7 @@ class Automacao(Base.Base):
         nome = str(root.find("Nome").text.encode('utf-8'))
         
         sql = "select Porta from Camera where Nome = '{nome}')".format(nome = Nome)
+        row = self.consultarRegistro("select Nome from Camera") 
         
         
             
