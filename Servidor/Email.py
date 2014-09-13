@@ -69,8 +69,9 @@ class Email(Base.Base):
         print 'Enviando e-mail\n'
             
         try:
+            to = self.destinatario.split(',')
             msg = MIMEMultipart()
-            msg['To'] = ", ".join(self.destinatario)
+            msg['To'] = ", ".join(to)
             msg['Subject'] = assunto
             msg['From'] = self.remetente
             msg['Pass'] = self.senha
