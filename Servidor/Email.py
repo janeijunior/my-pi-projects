@@ -29,7 +29,7 @@ class Email(Base.Base):
         row = self.consultarRegistro("select * from ConfiguracaoEmail")
         
         self.remetente    = row["Remetente"]
-        self.destinatario = row["Destinatario"].split(',')
+        self.destinatario = row["Destinatario"]
         self.servidorSMTP = row["ServidorSMTP"]
         self.portaSMTP    = row["PortaSMTP"]
         self.senha        = row["Senha"]
