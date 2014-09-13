@@ -29,7 +29,7 @@ class Email(Base.Base):
         row = self.consultarRegistro("select * from ConfiguracaoEmail")
         
         self.remetente    = row["Remetente"]
-        self.destinatario = row["Destinatario"]
+        self.destinatario = row["Destinatario"].split(',')
         self.servidorSMTP = row["ServidorSMTP"]
         self.portaSMTP    = row["PortaSMTP"]
         self.senha        = row["Senha"]
@@ -70,7 +70,7 @@ class Email(Base.Base):
             
         try:
             msg = MIMEMultipart()
-            msg['To'] = self.destinatario
+            msg['To'] = ", ".join(self.destinatario)
             msg['Subject'] = assunto
             msg['From'] = self.remetente
             msg['Pass'] = self.senha
