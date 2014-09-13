@@ -70,6 +70,7 @@ class Email(Base.Base):
             
         try:
             to = self.destinatario.split(',')
+            
             msg = MIMEMultipart()
             msg['To'] = ", ".join(to)
             msg['Subject'] = assunto
