@@ -150,7 +150,7 @@ class Alarme(Base.Base):
             #percorre os sensores
             for sensor in self.sensores:
                 #le os status dos sensores ativos
-                if (sensor.ativo == 1) and (sensor.lerStatus() == 0):
+                if (self.alarmeLigado) and (sensor.ativo == 1) and (sensor.lerStatus() == 0):
                     self.status = DISPARADO
                     
                     #se estiver violado mostra msg na tela
