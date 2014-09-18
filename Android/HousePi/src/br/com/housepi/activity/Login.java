@@ -80,24 +80,28 @@ public class Login extends ActionBarActivity {
 	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
-			synchronized (msg) {
-				switch (msg.arg1) {
-				case ERRO_CONEXAO:
-					dialog.dismiss();  
-					AlertDialog.Builder builder = new AlertDialog.Builder(context);  
-					builder.setMessage(msgErro);  
-					builder.setCancelable(false);  
-					builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {  
-	                @Override  
-	                public void onClick(DialogInterface dialog, int which) {  
-	                    dialog.dismiss();  
-	                	}  
-					});  
-	                
-					AlertDialog alert = builder.create();  
-					alert.show(); 
-					break;
+			try {
+				synchronized (msg) {
+					switch (msg.arg1) {
+					case ERRO_CONEXAO:
+						dialog.dismiss();  
+						AlertDialog.Builder builder = new AlertDialog.Builder(context);  
+						builder.setMessage(msgErro);  
+						builder.setCancelable(false);  
+						builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {  
+		                @Override  
+		                public void onClick(DialogInterface dialog, int which) {  
+		                    dialog.dismiss();  
+		                	}  
+						});  
+		                
+						AlertDialog alert = builder.create();  
+						alert.show(); 
+						break;
+					}
 				}
+			} catch (Exception e) {
+			
 			}
 		};
 

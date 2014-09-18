@@ -5,6 +5,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import android.util.Log;
+import br.com.housepi.activity.Login;
 
 
 /**
@@ -53,7 +55,21 @@ public class Conexao {
 	}
 
 	public void enviarMensagem(String mensagem) {
-		enviar.setMensagem(mensagem);
+		if (enviar != null) {
+			enviar.setMensagem(mensagem);
+		} else {
+			new Thread() {
+				public void run() {
+					try{
+						conexao = Conexao.createConnection(Login.IP_SERVIDOR, Login.PORTA_SERVIDOR);	
+		    			conexao.conectar();
+		    			conexao.iniciar();
+		            } catch (Exception e) {
+		            	Log.e("tag", e.getMessage());
+		            }
+				}
+			}.start();
+		}
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -72,6 +88,7 @@ public class Conexao {
 
 	public void disconnect() throws Exception {
 		enviar.disconnect();
+		enviar = null;
 		socket.close();
 	}
 }

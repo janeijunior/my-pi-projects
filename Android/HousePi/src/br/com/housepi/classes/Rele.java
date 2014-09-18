@@ -1,6 +1,7 @@
 package br.com.housepi.classes;
 import java.io.Reader;
 import java.io.StringReader;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.jdom2.Document;
@@ -16,6 +17,7 @@ public class Rele {
 	private Integer numero;
 	private String nome;
 	private ToggleButton botao;
+	private static List<String> nomeReles = new ArrayList<String>();
 	
 	public Rele(Integer numero, ToggleButton botao) {
 		super();
@@ -123,12 +125,18 @@ public class Rele {
 			@SuppressWarnings("rawtypes")
 			Iterator j = elements.iterator();
 
+			if (j.hasNext()) {
+				nomeReles.clear();
+			}
+			
 			for (Rele rele : listaReles) {
 				Element element = (Element) j.next();
 		
 				rele.setStatus(element.getAttribute("Status").getIntValue());
 				rele.setNome(element.getAttribute("Nome").getValue());
 
+				nomeReles.add(rele.getNome());
+				
 				if (rele.getBotao() != null) {
 					rele.getBotao().setChecked(rele.getStatus() == 1);
 					rele.getBotao().setText(rele.getNome());
@@ -140,6 +148,14 @@ public class Rele {
 		return listaReles;
 		
 		} catch (Exception e) {
+			for (int i = 0; i < 10; i++) {
+				if (listaReles.get(i).getBotao() != null) {
+					listaReles.get(i).getBotao().setText(nomeReles.get(i));
+					listaReles.get(i).getBotao().setTextOn(nomeReles.get(i));
+					listaReles.get(i).getBotao().setTextOff(nomeReles.get(i));
+				}
+			}
+			
 			return listaReles;
 		}
 	}

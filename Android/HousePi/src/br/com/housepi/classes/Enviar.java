@@ -28,9 +28,22 @@ class Enviar implements Runnable {
 					out.flush();
 					mensagem = null;
 				}
+				
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
-				//running = false;
+				mensagem = null;
+				running = false;
+				
+				try {
+					Conexao.getConexaoAtual().disconnect();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
 			}
 		}
 		try {

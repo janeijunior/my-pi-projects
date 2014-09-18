@@ -60,15 +60,15 @@ public class Funcoes {
 	}
 	
 	public static void msgToastErroComando(Context classe) {
-		Toast.makeText(classe, "Não foi possível enviar o comando.", Toast.LENGTH_LONG).show();
+		Toast.makeText(classe, "Não foi possível enviar o comando.", Toast.LENGTH_SHORT).show();
 	}
 	
 	public static void msgToastDadosGravados(Context classe) {
-		Toast.makeText(classe, "Dados gravados com sucesso!", Toast.LENGTH_LONG).show();
+		Toast.makeText(classe, "Dados gravados com sucesso!", Toast.LENGTH_SHORT).show();
 	}
 	
 	public static void msgToastErroGravar(Context classe) {
-		Toast.makeText(classe, "Não foi possível gravar os dados no servidor.", Toast.LENGTH_LONG).show();
+		Toast.makeText(classe, "Não foi possível gravar os dados no servidor.", Toast.LENGTH_SHORT).show();
 	}
 	
 	/*public static String removerAcentos(String str) {  
