@@ -136,7 +136,7 @@ class Alarme(Base.Base):
                                             join SensorAlarme SA 
                                               on SA.Id = DA.IdSensorAlarme 
                                         order by DA.Id desc
-                                           limit 20''')
+                                           limit 10''')
 
     #função que é executada como thread que monitora os sensores    
     def __monitorarSensores(self):
