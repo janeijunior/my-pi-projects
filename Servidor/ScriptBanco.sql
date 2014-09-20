@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `Camera` (
 --
 
 INSERT INTO `Camera` (`Id`, `Nome`, `Device`, `Porta`) VALUES
-(1, 'Camera 1', '/dev/video0', 2343),
+(1, 'Camera 1', '/dev/video0', 2343);
 
 -- --------------------------------------------------------
 
