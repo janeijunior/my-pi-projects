@@ -151,32 +151,37 @@ class Alarme(Base.Base):
             for sensor in self.sensores:
                 #le os status dos sensores ativos
                 if (self.alarmeLigado) and (sensor.ativo == 1) and (sensor.lerStatus() == 0):
-                    self.status = DISPARADO
+                        
+                    time.sleep(0.2)
                     
-                    #se estiver violado mostra msg na tela
-                    print("Sensor: " + str(sensor.id) + " - " + sensor.nome + " violado.")
-                    
-                    #se estiver configurado dispara a sirene
-                    if self.usarSirene == 1:
-                        self.sirene.ligar()
-                    
-                    #se estiver configurado envia o e-mail
-                    if self.enviarEmail == 1:
-                        self.email.carregarConfiguracao()
-                        self.email.enviar(sensor.id, sensor.nome) 
-                    
-                    #grava o disparo no banco
-                    self.gravarRegistroDisparo(sensor.id)
-                    
-                    #aguarda o tempo configurado ate iniciar a proxima leitura
-                    time.sleep(self.tempoDisparo)
-                    
-                    if self.alarmeLigado:
-                        self.status = NORMAL
-                    
-                    #desliga a sirene se necessario
-                    if self.usarSirene == 1:
-                        self.sirene.desligar() 
+                    #duas leituras para garantir que esta realmente disparado
+                    if (self.alarmeLigado) and (sensor.ativo == 1) and (sensor.lerStatus() == 0):
+                        self.status = DISPARADO
+                        
+                        #se estiver violado mostra msg na tela
+                        print("Sensor: " + str(sensor.id) + " - " + sensor.nome + " violado.")
+                        
+                        #se estiver configurado dispara a sirene
+                        if self.usarSirene == 1:
+                            self.sirene.ligar()
+                        
+                        #se estiver configurado envia o e-mail
+                        if self.enviarEmail == 1:
+                            self.email.carregarConfiguracao()
+                            self.email.enviar(sensor.id, sensor.nome) 
+                        
+                        #grava o disparo no banco
+                        self.gravarRegistroDisparo(sensor.id)
+                        
+                        #aguarda o tempo configurado ate iniciar a proxima leitura
+                        time.sleep(self.tempoDisparo)
+                        
+                        if self.alarmeLigado:
+                            self.status = NORMAL
+                        
+                        #desliga a sirene se necessario
+                        if self.usarSirene == 1:
+                            self.sirene.desligar() 
                         
             time.sleep(0.05)
 
