@@ -33,6 +33,7 @@ if __name__ == '__main__':
             print 'Autorizacao Direta'
             r = '1'
         else:
+            print 'Autorizacao Via Internet'
             f = urllib.urlopen("http://www.housepi.com.br/Autenticacao/?Serial=" + serial)
             r = str(f.read()).strip()
         
