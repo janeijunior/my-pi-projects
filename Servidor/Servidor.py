@@ -23,7 +23,7 @@ if __name__ == '__main__':
         
     #valida autorizacao de abertura
     def validarAbertura():
-        serial = Funcoes.getSerial() + '1'
+        serial = Funcoes.getSerial()
 
         print serial
         
