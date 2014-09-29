@@ -12,6 +12,8 @@ import signal
 import sys
 import urllib
 
+serialAutorizado = ['0000000059cb692e']
+
 if __name__ == '__main__': 
     
     #para fechar o programa
@@ -26,9 +28,12 @@ if __name__ == '__main__':
         serial = Funcoes.getSerial()
 
         print 'Serial: ' + serial
-        
-        f = urllib.urlopen("http://www.housepi.com.br/Autenticacao/?Serial=" + serial)
-        r = str(f.read()).strip()
+
+        if serial in serialAutorizado:
+            r = '1'
+        else:
+            f = urllib.urlopen("http://www.housepi.com.br/Autenticacao/?Serial=" + serial)
+            r = str(f.read()).strip()
         
         print 'Resposta: ' + r
         
