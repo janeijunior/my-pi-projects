@@ -35,7 +35,7 @@ if __name__ == '__main__':
         if (r == '1'):
             print "Autorizado"
         elif (r == '0'):
-            print "Bloqueado"
+            print "Serial Bloqueado"
             sys.exit(0)    
         else:
             print "Nao autorizado"
