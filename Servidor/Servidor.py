@@ -12,7 +12,7 @@ import signal
 import sys
 import urllib
 
-serialAutorizado = ['0000000059cb692e']
+serialAutorizado = ['0000000059cb692e', '00000000d240bf8a']
 
 if __name__ == '__main__': 
     
