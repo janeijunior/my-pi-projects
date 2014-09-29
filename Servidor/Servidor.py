@@ -25,12 +25,12 @@ if __name__ == '__main__':
     def validarAbertura():
         serial = Funcoes.getSerial()
 
-        print serial
+        print 'Serial: ' + serial
         
         f = urllib.urlopen("http://www.housepi.com.br/Autenticacao/?Serial=" + serial)
         r = str(f.read()).strip()
         
-        print r
+        print 'Resposta: ' + r
         
         if (r == '1'):
             print "Serial Autorizado"
