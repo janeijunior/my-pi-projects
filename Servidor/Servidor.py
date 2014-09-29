@@ -38,7 +38,7 @@ if __name__ == '__main__':
             print "Serial Bloqueado"
             sys.exit(0)    
         else:
-            print "Nao autorizado"
+            print "Serial Nao autorizado"
             sys.exit(0)
             
     #cliente conectado, verifica os comandos recebidos
