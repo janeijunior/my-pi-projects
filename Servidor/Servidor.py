@@ -28,7 +28,6 @@ if __name__ == '__main__':
         print serial
         
         f = urllib.urlopen("http://www.housepi.com.br/Autenticacao/?Serial=" + serial)
-        
         r = str(f.read()).strip()
         
         print r
