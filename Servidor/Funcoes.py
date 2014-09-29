@@ -23,4 +23,20 @@ def lerConfiguracaoIni(nome):
     cfg = ConfigParser.ConfigParser()
     cfg.read(os.path.dirname(os.path.abspath(__file__)) + '/Config.ini')
     return cfg.get('Dados', nome)
-    
+
+#retorna o serial do Raspberry Pi
+def getSerial():
+  
+  cpuserial = "0000000000000000"
+  
+  try:
+    f = open('/proc/cpuinfo','r')
+    for line in f:
+      if line[0:6]=='Serial':
+        cpuserial = line[10:26]
+    f.close()
+  
+  except:
+    cpuserial = "ERROR000000000"
+
+  return cpuserial  
