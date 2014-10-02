@@ -34,7 +34,7 @@ class Alarme(Base.Base):
             self.status = NORMAL
             self.alarmeLigado = True
             
-                
+            
             self.thread = threading.Thread(None, self.__monitorarSensores, None, ())
             self.thread.start()
             
