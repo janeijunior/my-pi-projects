@@ -183,6 +183,7 @@ class Alarme(Base.Base):
                         
                         while tempo < self.tempoDisparo:
                             if self.alarmeLigado == False:
+                                print "Break tempo disparo..."
                                 break
                             
                             time.sleep(1)
