@@ -21,6 +21,7 @@ class Alarme(Base.Base):
         #atributos publicos da classe
         self.alarmeLigado = False
         self.panicoLigado = False    
+        self.thread = None
         self.status = DESLIGADO
         self.sirene = sirene
         self.email = email
@@ -34,6 +35,9 @@ class Alarme(Base.Base):
             self.status = NORMAL
             self.alarmeLigado = True
             
+            if self.thread <> None:
+                self.thread.join()
+                
             self.thread = threading.Thread(None, self.__monitorarSensores, None, ())
             self.thread.start()
             
