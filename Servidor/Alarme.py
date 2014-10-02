@@ -190,6 +190,7 @@ class Alarme(Base.Base):
                             tempo = tempo + 1
                         
                         if self.alarmeLigado:
+                            print "Alarme ligado novamente..."
                             self.status = NORMAL
                         
                         #desliga a sirene se necessario
