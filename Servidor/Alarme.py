@@ -26,7 +26,6 @@ class Alarme(Base.Base):
         self.carregarSensores()
         self.carregarConfiguracao()
         self.status = DESLIGADO
-        self.thread = None
         
     #funcoes 
     #funcao para ligar o alarme
@@ -35,8 +34,6 @@ class Alarme(Base.Base):
             self.status = NORMAL
             self.alarmeLigado = True
             
-            if self.thread <> None:
-                self.thread.join()
                 
             self.thread = threading.Thread(None, self.__monitorarSensores, None, ())
             self.thread.start()
