@@ -174,7 +174,13 @@ class Alarme(Base.Base):
                         self.gravarRegistroDisparo(sensor.id)
                         
                         #aguarda o tempo configurado ate iniciar a proxima leitura
-                        time.sleep(self.tempoDisparo)
+                        tempo = 0
+                        
+                        while tempo < self.tempoDisparo:
+                            if self.alarmeLigado == False:
+                                break
+                            
+                            time.sleep(1)
                         
                         if self.alarmeLigado:
                             self.status = NORMAL
