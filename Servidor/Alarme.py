@@ -181,6 +181,7 @@ class Alarme(Base.Base):
                                 break
                             
                             time.sleep(1)
+                            tempo = tempo + 1
                         
                         if self.alarmeLigado:
                             self.status = NORMAL
