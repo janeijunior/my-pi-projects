@@ -479,7 +479,7 @@ class Automacao(Base.Base):
     #Finaliza os processos em execucao para encerrar o aplicativo servidor
     def finalizarProcessos(self):
         if self.alarme.alarmeLigado:
-            alarme.desligarAlarme()
+            self.alarme.desligarAlarme()
         
         self.alarme.desligarPanico()
         self.controleAgendamento.stop()
