@@ -36,6 +36,7 @@ class Alarme(Base.Base):
             self.alarmeLigado = True
             
             if self.thread <> None:
+                print "Aguardando thread terminar..."
                 self.thread.join()
                 
             self.thread = threading.Thread(None, self.__monitorarSensores, None, ())
