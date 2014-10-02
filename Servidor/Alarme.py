@@ -26,6 +26,7 @@ class Alarme(Base.Base):
         self.carregarSensores()
         self.carregarConfiguracao()
         self.status = DESLIGADO
+        self.thread = None
         
     #funcoes 
     #funcao para ligar o alarme
