@@ -21,11 +21,11 @@ class Alarme(Base.Base):
         #atributos publicos da classe
         self.alarmeLigado = False
         self.panicoLigado = False    
+        self.status = DESLIGADO
         self.sirene = sirene
         self.email = email
         self.carregarSensores()
         self.carregarConfiguracao()
-        self.status = DESLIGADO
         
     #funcoes 
     #funcao para ligar o alarme
