@@ -448,9 +448,7 @@ class Automacao(Base.Base):
     def controlarVideo(self, root, con):
         comando = str(root.find("Comando").text)
         valor   = str(root.find("Valor").text.encode('utf-8'))
-        
-        print comando, " ", valor
-        
+               
         if comando == "Pause":
             self.video.pause()
         elif comando == "Stop":
