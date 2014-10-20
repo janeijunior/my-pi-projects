@@ -12,7 +12,7 @@ import signal
 import sys
 import urllib
 
-#                   Rodrigo              Mae e Pai           Paulo
+# Rodrigo, Mae e Pai, Paulo
 serialAutorizado = ['0000000059cb692e', '00000000d240bf8a', '000000000fcac140']
 
 if __name__ == '__main__': 
