@@ -28,15 +28,27 @@ sudo apt-get -y install i2c-tools
 sed -i 's/blacklist spi-bcm2708/#blacklist spi-bcm2708/g' /etc/modprobe.d/raspi-blacklist.conf
 sed -i 's/blacklist i2c-bcm2708/#blacklist i2c-bcm2708/g' /etc/modprobe.d/raspi-blacklist.conf
 
+dbPass=$(grep "SenhaBanco" /home/pi/HousePi/bin/Config.ini);dbPass=${dbPass#SenhaBanco=}
+dbPass=${dbPass//[[:space:]]/}
+
 echo "Instalando MySQL..."
-sudo apt-get -y install mysql-server python-mysqldb
+export DEBIAN_FRONTEND=noninteractive
+sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $dbPass"
+sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $dbPass"
+sudo apt-get -q -y install mysql-server python-mysqldb
 
 echo "Instalando phpMyAdmin..."
-sudo apt-get -y install phpmyadmin
+export DEBIAN_FRONTEND=noninteractive
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean true"
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password $dbPass"
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password $dbPass"
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $dbPass"
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2"
+sudo apt-get -q -y install phpmyadmin
 
 echo "Instalando FTP.." 
-sudo cp /home/pi/HousePi/bin/vsftpd.conf /etc/
 sudo apt-get -y install vsftpd 
+sudo cp /home/pi/HousePi/bin/vsftpd.conf /etc/
 sudo /etc/init.d/vsftpd restart
 
 echo "Instalando mjpg-streamer..."
@@ -73,7 +85,10 @@ sed -i '\@1:2345:respawn:/bin/login -f pi tty1 </dev/tty1 >/dev/tty1 2>&1@d' /et
 sed -i "/--noclear 38400 tty1/a1:2345:respawn:/bin/login -f pi tty1 </dev/tty1 >/dev/tty1 2>&1" /etc/inittab
 
 echo "Configurando inicio automatico..."
-sed -i '\@/opt/vc/bin/tvservice -o@d' /etc/init.d/rc.local
-sed -i '\@/opt/vc/bin/tvservice -p@d' /etc/init.d/rc.local
 sed -i '\@sudo python /home/pi/HousePi/bin/Servidor.pyc@d' /etc/init.d/rc.local
-sed -i "/esac/a/opt/vc/bin/tvservice -o\n/opt/vc/bin/tvservice -p\nsudo python /home/pi/HousePi/bin/Servidor.pyc\n#nohup sudo python /home/pi/HousePi/bin/Servidor.pyc& </dev/null >/dev/null 2>&1 &" /etc/init.d/rc.local
+sed -i "/esac/a#sudo python /home/pi/HousePi/bin/Servidor.pyc\nnohup sudo python /home/pi/HousePi/bin/Servidor.pyc& </dev/null >/dev/null 2>&1 &" /etc/init.d/rc.local
+
+echo "Criando banco de dados..."
+mysql -u root -h localhost --password=$dbPass -Bse "DROP DATABASE IF EXISTS HousePi"
+mysql -u root -h localhost --password=$dbPass -Bse "CREATE DATABASE HousePi"
+mysql -u root -h localhost --password=$dbPass HousePi < /home/pi/HousePi/bin/ScriptBanco.sql
