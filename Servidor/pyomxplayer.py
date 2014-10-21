@@ -12,7 +12,7 @@ class OMXPlayer(object):
     _STATUS_REXP = re.compile(r"V :\s*([\d.]+).*")
     _DONE_REXP = re.compile(r"have a nice day.*")
 
-    _LAUNCH_CMD = 'sudo /usr/bin/omxplayer -o both -b -s %s %s'
+    _LAUNCH_CMD = 'sudo /usr/bin/omxplayer -r -s %s %s'
     _PAUSE_CMD = 'p'
     _TOGGLE_SUB_CMD = 's'
     _QUIT_CMD = 'q'
