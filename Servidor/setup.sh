@@ -75,8 +75,9 @@ sudo python ./setup.py install
 cd /home/pi/HousePi
 
 echo "Configurando tempo do monitor..."
-sed -i 's/BLANK_TIME=30/BLANK_TIME=0/g' /etc/inittab
-sed -i 's/POWERDOWN_TIME=15/POWERDOWN_TIME=0/g' /etc/inittab
+sed -i 's/BLANK_TIME=30/BLANK_TIME=0/g' /etc/kbd/config
+sed -i 's/POWERDOWN_TIME=15/POWERDOWN_TIME=0/g' /etc/kbd/config
+sed -i 's/POWERDOWN_TIME=30/POWERDOWN_TIME=0/g' /etc/kbd/config
 sudo /etc/init.d/kbd restart
 
 echo "Configurando login automatico..."
