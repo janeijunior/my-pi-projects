@@ -2,7 +2,6 @@
 #-*- coding: utf-8 -*-
 
 import Funcoes
-import os
 from pyomxplayer import OMXPlayer
 from pprint import pprint
 from os import listdir
