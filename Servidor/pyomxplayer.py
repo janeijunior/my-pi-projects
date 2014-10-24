@@ -1,6 +1,5 @@
 import pexpect
 import re
-import os
 
 from threading import Thread
 from time import sleep
