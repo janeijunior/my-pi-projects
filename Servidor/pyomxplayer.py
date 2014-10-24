@@ -63,6 +63,7 @@ class OMXPlayer(object):
     def stop(self):
         self._process.send(self._QUIT_CMD)
         self._process.terminate(force=True)
+        os.system("omxplayer -r housepi")
 
     def set_speed(self):
         raise NotImplementedError
