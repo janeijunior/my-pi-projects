@@ -29,20 +29,10 @@ class Video(object):
     #para a execucao
     def stop(self):
         try:
-            self.omx.stop()
-            
-            try:
-                os.system("sudo omxplayer -r housepi")
-            except:
-                print "Atualizar tela."
+            self.omx.stop()            
         except:
             print "Não está executando!"
 
-            try:
-                os.system("sudo omxplayer -r housepi")
-            except:
-                print "Atualizar tela."
-            
     #reproduz a partir do nome
     def playNome(self, valor):
         self.stop()
