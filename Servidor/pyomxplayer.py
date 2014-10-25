@@ -1,5 +1,6 @@
 import pexpect
 import re
+import Funcoes
 
 from threading import Thread
 from time import sleep
@@ -12,7 +13,11 @@ class OMXPlayer(object):
     _STATUS_REXP = re.compile(r"V :\s*([\d.]+).*")
     _DONE_REXP = re.compile(r"have a nice day.*")
 
-    _LAUNCH_CMD = 'omxplayer -r -s %s %s'
+    if Funcoes.getSerial() == '00000000d240bf8a':
+        _LAUNCH_CMD = 'omxplayer -r -s %s %s'
+    else:
+        _LAUNCH_CMD = 'omxplayer -s %s %s'
+        
     _PAUSE_CMD = 'p'
     _TOGGLE_SUB_CMD = 's'
     _QUIT_CMD = 'q'
