@@ -95,9 +95,10 @@ class Alarme(Base.Base):
         sql = '''update ConfiguracaoAlarme 
                     set TempoDisparo = {tempo}, 
                         UsarSirene = {usarSirene},
-                        EnviarEmail = {enviarEmail}'''
+                        EnviarEmail = {enviarEmail},
+                        DesligarDisparoConsecutivo = {desligarDisparoConsecutivo}'''
             
-        sql = sql.format(tempo = int(self.tempoDisparo), usarSirene = int(self.usarSirene), enviarEmail = int(self.enviarEmail))
+        sql = sql.format(tempo = int(self.tempoDisparo), usarSirene = int(self.usarSirene), enviarEmail = int(self.enviarEmail), desligarDisparoConsecutivo = int(self.desligarDisparoConsecutivo))
             
         return self.executarComando(sql)
      
