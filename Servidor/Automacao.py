@@ -245,7 +245,7 @@ class Automacao(Base.Base):
     #funcao para enviar as configuracoes atuais do alarme
     def enviarConfiguracaoAlarme(self, con):
         root = Element("EnviarConfiguracaoAlarme")
-        root.append(Element("Geral", TempoDisparo=str(self.alarme.tempoDisparo), UsarSirene=str(self.alarme.usarSirene), UsarEmail=str(self.alarme.enviarEmail), Desligar=str(self.desligarDisparoConsecutivo) ))
+        root.append(Element("Geral", TempoDisparo=str(self.alarme.tempoDisparo), UsarSirene=str(self.alarme.usarSirene), UsarEmail=str(self.alarme.enviarEmail), DesligarDisparoConsecutivo=str(self.desligarDisparoConsecutivo) ))
     
         sensores = Element("Sensores")
         
