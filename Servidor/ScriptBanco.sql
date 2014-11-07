@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `ConfiguracaoAlarme` (
 --
 
 INSERT INTO `ConfiguracaoAlarme` (`Id`, `EnviarEmail`, `UsarSirene`, `DesligarDisparoConsecutivo`, `TempoDisparo`, `StatusAlarme`, `StatusPanico`) VALUES
-(1, 1, 1, 25, 0, 0);
+(1, 1, 1, 1, 25, 0, 0);
 
 -- --------------------------------------------------------
 
