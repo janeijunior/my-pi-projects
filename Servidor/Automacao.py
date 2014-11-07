@@ -245,7 +245,7 @@ class Automacao(Base.Base):
     #funcao para enviar as configuracoes atuais do alarme
     def enviarConfiguracaoAlarme(self, con):
         root = Element("EnviarConfiguracaoAlarme")
-        root.append(Element("Geral", TempoDisparo=str(self.alarme.tempoDisparo), UsarSirene=str(self.alarme.usarSirene), UsarEmail=str(self.alarme.enviarEmail), DesligarDisparoConsecutivo=str(self.desligarDisparoConsecutivo) ))
+        root.append(Element("Geral", TempoDisparo=str(self.alarme.tempoDisparo), UsarSirene=str(self.alarme.usarSirene), UsarEmail=str(self.alarme.enviarEmail), DesligarDisparoConsecutivo=str(self.alarme.desligarDisparoConsecutivo) ))
     
         sensores = Element("Sensores")
         
@@ -259,9 +259,10 @@ class Automacao(Base.Base):
     #funcao para gravar as novas configuracoes do alarme
     def alterarConfiguracaoAlarme(self, root, con):
         try:
-            self.alarme.tempoDisparo = int(root.find("TempoDisparo").text)
-            self.alarme.usarSirene   = int(root.find("UsarSirene").text)
-            self.alarme.enviarEmail  = int(root.find("UsarEmail").text)
+            self.alarme.tempoDisparo               = int(root.find("TempoDisparo").text)
+            self.alarme.usarSirene                 = int(root.find("UsarSirene").text)
+            self.alarme.enviarEmail                = int(root.find("UsarEmail").text)
+            self.alarme.DesligarDisparoConsecutivo = int(root.find("DesligarDisparoConsecutivo").text)
             
             self.alarme.gravarConfiguracaoBanco()
             sensores  = root.find("Sensores")
