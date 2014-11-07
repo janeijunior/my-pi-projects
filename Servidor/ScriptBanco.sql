@@ -66,7 +66,8 @@ CREATE TABLE IF NOT EXISTS `ConfiguracaoAlarme` (
   `Id` int(11) NOT NULL,
   `EnviarEmail` int(11) NOT NULL,
   `UsarSirene` int(11) NOT NULL,
-  `TempoDisparo` int(11) NOT NULL,
+  `DesligarDisparoConsecutivo` int(11) NOT NULL,
+`TempoDisparo` int(11) NOT NULL,
   `StatusAlarme` int(11) NOT NULL DEFAULT '0',
   `StatusPanico` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`Id`)
