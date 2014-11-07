@@ -116,9 +116,10 @@ class Alarme(Base.Base):
     def carregarConfiguracao(self):
         row = self.consultarRegistro("select * from ConfiguracaoAlarme")
         
-        self.tempoDisparo = row["TempoDisparo"]
-        self.usarSirene   = row["UsarSirene"]
-        self.enviarEmail  = row["EnviarEmail"]
+        self.tempoDisparo               = row["TempoDisparo"]
+        self.usarSirene                 = row["UsarSirene"]
+        self.enviarEmail                = row["EnviarEmail"]
+        self.desligarDisparoConsecutivo = row["DesligarDisparoConsecutivo"]
         
         if row['StatusAlarme'] == 1:
             self.ligarAlarme()
