@@ -262,7 +262,7 @@ class Automacao(Base.Base):
             self.alarme.tempoDisparo               = int(root.find("TempoDisparo").text)
             self.alarme.usarSirene                 = int(root.find("UsarSirene").text)
             self.alarme.enviarEmail                = int(root.find("UsarEmail").text)
-            self.alarme.DesligarDisparoConsecutivo = int(root.find("DesligarDisparoConsecutivo").text)
+            self.alarme.desligarDisparoConsecutivo = int(root.find("DesligarDisparoConsecutivo").text)
             
             self.alarme.gravarConfiguracaoBanco()
             sensores  = root.find("Sensores")
