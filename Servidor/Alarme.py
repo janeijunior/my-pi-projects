@@ -152,7 +152,8 @@ class Alarme(Base.Base):
             time.sleep(0.2)
             self.sirene.desligar()
         
-        disparos = 0
+        disparos =  0
+        idSensor = -1
         
         #executa enquanto o alarme estiver ativo
         while self.alarmeLigado: 
