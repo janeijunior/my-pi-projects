@@ -209,9 +209,9 @@ class Alarme(Base.Base):
                                 #desliga a sirene se necessario
                                 if self.usarSirene == 1:
                                     self.sirene.desligar() 
-                            elif:
+                            else:
                                 disparos = 0;
-                    elif:
+                    else:
                         disparos = 0
             time.sleep(0.05)
 
