@@ -91,6 +91,7 @@ class ControleAgendamento(threading.Thread):
                         
                             if (agendamento.alarme <> None) and (agendamento.alarme.alarmeLigado == True):
                                 agendamento.alarme.desligarAlarme()
+                                agendamento.alarme.atualizarStatusBanco()
                                 
                             agendamento.desativarRegistroBanco()
                     
