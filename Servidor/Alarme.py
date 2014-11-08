@@ -219,7 +219,6 @@ class Alarme(Base.Base):
                                     self.sirene.desligar()
                                 
                                 break
-                                
                             else:
                                 disparos = 0;
                     else:
