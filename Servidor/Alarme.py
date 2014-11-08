@@ -214,6 +214,7 @@ class Alarme(Base.Base):
                                 print "Disparos zerados!"
                     else:
                         disparos = 0
+                        print "Disparos zerados!"
             time.sleep(0.05)
 
     #destrutor
