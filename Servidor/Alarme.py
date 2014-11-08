@@ -169,7 +169,7 @@ class Alarme(Base.Base):
                             if (sensor.lerStatus() == 0):
                                 disparos = disparos + 1
                                 
-                                print str(disparos) "º consecutivo..."
+                                print str(disparos) + "º consecutivo..."
                                 
                                 if (disparos > 3) and (self.desligarDisparoConsecutivo == 1):
                                     disparos = 0
