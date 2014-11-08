@@ -208,7 +208,6 @@ class Alarme(Base.Base):
                                 disparos = 0;
                     elif:
                         disparos = 0
-            
             time.sleep(0.05)
 
     #destrutor
