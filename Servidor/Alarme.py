@@ -220,9 +220,11 @@ class Alarme(Base.Base):
                                 
                                 break
                             elif idSensor <> sensor.id:
-                                disparos = 0;
+                                disparos =  0
+                                idSensor = -1
                     else idSensor <> sensor.id:
-                        disparos = 0
+                        disparos =  0
+                        idSensor = -1
             time.sleep(0.05)
 
     #destrutor
