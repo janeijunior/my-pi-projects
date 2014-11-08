@@ -65,6 +65,7 @@ class ControleAgendamento(threading.Thread):
                                         for rele in agendamento.reles:                        
                                             if rele.status == 1:
                                                 rele.desligar()
+                                                rele.atualizarStatusBanco()
                                     
                                         if (agendamento.alarme <> None) and (agendamento.alarme.alarmeLigado == True):
                                             agendamento.alarme.desligarAlarme()    
@@ -85,6 +86,7 @@ class ControleAgendamento(threading.Thread):
                             for rele in agendamento.reles:                        
                                 if rele.status == 1:
                                     rele.desligar()
+                                    rele.atualizarStatusBanco()
                         
                             if (agendamento.alarme <> None) and (agendamento.alarme.alarmeLigado == True):
                                 agendamento.alarme.desligarAlarme()
