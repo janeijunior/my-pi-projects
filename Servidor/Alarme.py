@@ -219,9 +219,9 @@ class Alarme(Base.Base):
                                     self.sirene.desligar()
                                 
                                 break
-                            else:
+                            elif idSensor <> sensor.id:
                                 disparos = 0;
-                    else:
+                    else idSensor <> sensor.id:
                         disparos = 0
             time.sleep(0.05)
 
