@@ -152,53 +152,62 @@ class Alarme(Base.Base):
             time.sleep(0.2)
             self.sirene.desligar()
         
+        disparos = 0
+        
         #executa enquanto o alarme estiver ativo
         while self.alarmeLigado: 
             #percorre os sensores
             for sensor in self.sensores:
                 #le os status dos sensores ativos
-                if (self.alarmeLigado) and (sensor.ativo == 1) and (sensor.lerStatus() == 0):
+                if (self.alarmeLigado) and (sensor.ativo == 1):
+                    if (sensor.lerStatus() == 0):
                         
-                    time.sleep(0.5)
-                    
-                    #duas leituras para garantir que esta realmente disparado
-                    if (self.alarmeLigado) and (sensor.ativo == 1) and (sensor.lerStatus() == 0):
-                        self.status = DISPARADO
+                        time.sleep(0.5)
                         
-                        #se estiver violado mostra msg na tela
-                        print("Sensor: " + str(sensor.id) + " - " + sensor.nome + " violado.")
-                        
-                        #se estiver configurado dispara a sirene
-                        if self.usarSirene == 1:
-                            self.sirene.ligar()
-                        
-                        #se estiver configurado envia o e-mail
-                        if self.enviarEmail == 1:
-                            self.email.carregarConfiguracao()
-                            self.email.enviar(sensor.id, sensor.nome) 
-                        
-                        #grava o disparo no banco
-                        self.gravarRegistroDisparo(sensor.id)
-                        
-                        #aguarda o tempo configurado ate iniciar a proxima leitura
-                        tempo = 0
-                        
-                        while tempo < self.tempoDisparo:
-                            if self.alarmeLigado == False:
-                                print "Break tempo disparo..."
-                                break
-                            
-                            time.sleep(1)
-                            tempo = tempo + 1
-                        
-                        if self.alarmeLigado:
-                            print "Alarme ligado novamente..."
-                            self.status = NORMAL
-                        
-                        #desliga a sirene se necessario
-                        if self.usarSirene == 1:
-                            self.sirene.desligar() 
-                        
+                        #duas leituras para garantir que esta realmente disparado
+                        if (self.alarmeLigado) and (sensor.ativo == 1):
+                            if (sensor.lerStatus() == 0):
+                                disparos = disparos + 1
+                                
+                                self.status = DISPARADO
+                                
+                                #se estiver violado mostra msg na tela
+                                print("Sensor: " + str(sensor.id) + " - " + sensor.nome + " violado.")
+                                
+                                #se estiver configurado dispara a sirene
+                                if self.usarSirene == 1:
+                                    self.sirene.ligar()
+                                
+                                #se estiver configurado envia o e-mail
+                                if self.enviarEmail == 1:
+                                    self.email.carregarConfiguracao()
+                                    self.email.enviar(sensor.id, sensor.nome) 
+                                
+                                #grava o disparo no banco
+                                self.gravarRegistroDisparo(sensor.id)
+                                
+                                #aguarda o tempo configurado ate iniciar a proxima leitura
+                                tempo = 0
+                                
+                                while tempo < self.tempoDisparo:
+                                    if self.alarmeLigado == False:
+                                        print "Break tempo disparo..."
+                                        break
+                                    
+                                    time.sleep(1)
+                                    tempo = tempo + 1
+                                
+                                if self.alarmeLigado:
+                                    print "Alarme ligado novamente..."
+                                    self.status = NORMAL
+                                
+                                #desliga a sirene se necessario
+                                if self.usarSirene == 1:
+                                    self.sirene.desligar() 
+                            elif:
+                                disparos = 0;
+                    elif:
+                        disparos = 0
             time.sleep(0.05)
 
     #destrutor
