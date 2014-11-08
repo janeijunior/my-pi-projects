@@ -173,7 +173,6 @@ class Alarme(Base.Base):
                                 
                                 if (disparos > 3) and (self.desligarDisparoConsecutivo == 1):
                                     disparos = 0
-                                    print "Disparos zerados!"
                                     self.desligarAlarme()
                                     break
                                 
