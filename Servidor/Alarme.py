@@ -214,11 +214,12 @@ class Alarme(Base.Base):
                                     print "Alarme ligado novamente..."
                                     self.status = NORMAL
                                 
-                                break
-                                
                                 #desliga a sirene se necessario
                                 if self.usarSirene == 1:
-                                    self.sirene.desligar() 
+                                    self.sirene.desligar()
+                                
+                                break
+                                
                             else:
                                 disparos = 0;
                     else:
