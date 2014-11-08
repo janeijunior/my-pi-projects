@@ -213,10 +213,8 @@ class Alarme(Base.Base):
                                     self.sirene.desligar() 
                             else:
                                 disparos = 0;
-                                print "Disparos zerados!"
                     else:
                         disparos = 0
-                        print "Disparos zerados!"
             time.sleep(0.05)
 
     #destrutor
