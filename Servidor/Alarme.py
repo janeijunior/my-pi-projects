@@ -169,6 +169,9 @@ class Alarme(Base.Base):
                             if (sensor.lerStatus() == 0):
                                 disparos = disparos + 1
                                 
+                                if (disparos > 3) and (self.desligarDisparoConsecutivo == 1):
+                                    self.desligarAlarme()
+                                
                                 self.status = DISPARADO
                                 
                                 #se estiver violado mostra msg na tela
