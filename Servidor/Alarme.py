@@ -161,7 +161,7 @@ class Alarme(Base.Base):
                 #le os status dos sensores ativos
                 if (self.alarmeLigado) and (sensor.ativo == 1):
                     if (sensor.lerStatus() == 0):
-                        
+                    
                         time.sleep(0.5)
                         
                         #duas leituras para garantir que esta realmente disparado
