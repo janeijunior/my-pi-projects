@@ -68,7 +68,8 @@ class ControleAgendamento(threading.Thread):
                                                 rele.atualizarStatusBanco()
                                     
                                         if (agendamento.alarme <> None) and (agendamento.alarme.alarmeLigado == True):
-                                            agendamento.alarme.desligarAlarme()    
+                                            agendamento.alarme.desligarAlarme()
+                                            agendamento.alarme.atualizarStatusBanco()
                         
                         if (diaAtual > diaDesligar) or ((diaAtual >= diaDesligar) and (horaAtual > horaDesligar)):
                             agendamento.desativarRegistroBanco()
