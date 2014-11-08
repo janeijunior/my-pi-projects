@@ -168,10 +168,14 @@ class Alarme(Base.Base):
                         #duas leituras para garantir que esta realmente disparado
                         if (self.alarmeLigado) and (sensor.ativo == 1):
                             if (sensor.lerStatus() == 0):
-                                disparos = disparos + 1
-                                idSensor = sensor.id
                                 
-                                print str(disparos) + "º disparo consecutivo..."
+                                if idSensor == sensor.id:
+                                    disparos = disparos + 1
+                                else:
+                                    disparos = 1
+                                    idSensor = sensor.id
+                                    
+                                print str(disparos) + "º disparo consecutivo. Sensor: " + str(sensor.id)
                                 
                                 if (disparos > 3) and (self.desligarDisparoConsecutivo == 1):
                                     disparos = 0
