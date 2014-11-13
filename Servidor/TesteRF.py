@@ -5,7 +5,7 @@ maxcount = 200
 import RPi.GPIO as GPIO, time, sys
 GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(4, GPIO.IN)
+GPIO.setup(21, GPIO.IN)
 
 while True:
   pin = GPIO.input(4)
