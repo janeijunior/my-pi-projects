@@ -3,6 +3,8 @@
 maxcount = 200
 
 import RPi.GPIO as GPIO, time, sys
+GPIO.setwarnings(False)
+
 GPIO.setmode(GPIO.BCM)
 
 GPIO.setup(21, GPIO.IN)
