@@ -12,58 +12,68 @@ def fMain():
 			vTReceiver.daemon = True
 			vTReceiver.start()
 			
-			vTTransmiter = threading.Thread(target=fTransmiter, args=(outPin,))
-			vTTransmiter.daemon = True
-			vTTransmiter.start()
+			vTTransmitter = threading.Thread(target=fTransmiter, args=(outPin,))
+			vTTransmitter.daemon = True
+			vTTransmitter.start()
 			
 			vTReceiver.join()
-			vTTransmiter.join()
+			vTTransmitter.join()
 	
 
 def fReceiver(inPin):
 	t=time()
+	d=0
 	ps=None
 	st = ''
+	str=''
 	while True:
 		s = inPin.value
-		sleep(0.05)
+		sleep(0.0005)
 		if ps!=s:
 			if s:
-				d = round(time()-t, 1)
-				if d == 0.1:
-					st += '0'
-				elif d == 0.2:
+				d = round(time()-t, 3)
+				if d < 0.02:
 					st += '1'
-				else:
+				elif d >= 0.02 and d <= 0.03:
+					st += '0'
+				elif d > 0.03 and d < 0.2:
 					if len(st)>0:
-                        print(chr(int(st, 2)), end = '')
-					    st = ''
+						str+=chr(int(st, 2))
+						st = ''
 				t=time()
 			ps = s
+		d2 = round(time()-t, 3)
+		if d2 > 0.2 and str!='':
+				print('\nReceived:\n'+str)
+				str=''
 			
 
 def fTransmiter(outPin):
 	while True:
 		print ('\nWrite something:')
 		i = input()
+		if i=='':
+			continue
 		print ('\nSending. Please wait...\n')
 		t=time()
 		fSendText(outPin, i)
-		print ('\n\nSent = Receive!', '('+str(round(time()-t, 2))+' sec)')
+		print ('Sent in '+str(round(time()-t, 2))+' seconds')
+		sleep(1)
 
 def fTransmiter_Send(outPin, n=0):
 	outPin.value=1
-	sleep(0.05)
+	sleep(0.005)
 	outPin.value=0
-	sleep(0.05)
-	if n==1:
-		sleep(0.1)
+	sleep(0.005)
+	if n==0:
+		sleep(0.01)
 	elif n==-1:
-		sleep(0.2)
+		sleep(0.03)
 
 def fSendText(outPin, s):
-	for v in s:
-		f = format(ord(v), 'b')
+	b = bytes(s, 'utf-8')
+	for v in b:
+		f = format(v, 'b')#.zfill(8)
 		for b in f:
 			fTransmiter_Send(outPin, int(b))
 		fTransmiter_Send(outPin, -1)
