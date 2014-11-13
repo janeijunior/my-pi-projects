@@ -1,20 +1,35 @@
 #!/usr/bin/python
 
-maxcount = 200
+# Import required Python libraries
+import RPi.GPIO as GPIO
+import time
 
-import RPi.GPIO as GPIO, time, sys
+# Use BCM GPIO references instead of physical pin numbers
 GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(4, GPIO.IN)
+# init list with pin numbers
 
-while True:
-  pin = GPIO.input(4)
-  if pin:
-    count = 0
-    while (count < maxcount):
-      pin = GPIO.input(4)
-      sys.stdout.write(str(int(pin)))
-      pin = 0
-      count = count + 1
-      if count == maxcount:
-        print("---")
+pinList = [4]
+
+# loop through pins and set mode and state to 'low'
+
+for i in pinList: 
+    GPIO.setup(i, GPIO.OUT) 
+    GPIO.output(i, GPIO.HIGH)
+
+def trigger() :
+        for i in pinList:
+          GPIO.output(i, GPIO.LOW)
+          time.sleep(0.5) 
+          GPIO.output(i, GPIO.HIGH)
+          GPIO.cleanup()
+     
+
+try: 
+    trigger()
+         
+      
+except KeyboardInterrupt:
+  print "  Quit" 
+  # Reset GPIO settings
+  GPIO.cleanup()
