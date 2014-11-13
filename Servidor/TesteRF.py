@@ -36,7 +36,7 @@ def fReceiver(inPin):
 					st += '1'
 				else:
 					if len(st)>0:
-						print(chr(int(st, 2)), end='')
+                        print(chr(int(st, 2)), end = '')
 						st = ''
 				t=time()
 			ps = s
