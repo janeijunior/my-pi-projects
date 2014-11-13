@@ -1,41 +1,20 @@
-#!/usr/bin/env python
-        
-import time
-        
-import pigpio
-        
-GPIO_ON=17
-GPIO_OFF=22
+#!/usr/bin/python
 
-pigpio.start()
+maxcount = 200
 
-pigpio.set_mode(GPIO_ON, pigpio.OUTPUT)
-pigpio.set_mode(GPIO_OFF, pigpio.OUTPUT)
+import RPi.GPIO as GPIO, time, sys
+GPIO.setmode(GPIO.BCM)
 
-##num_array=('i', [1,0,1,0,0,1,0,0,1,1,0,0,0,0,1,1,0]) ##84358
-    
-Pulse_len=350
-f1=[]
+GPIO.setup(4, GPIO.IN)
 
-f1.append(pigpio.pulse(GPIO_ON,GPIO_OFF,Pulse_len*1))
-f1.append(pigpio.pulse(GPIO_OFF,GPIO_ON,Pulse_len*1))
-f1.append(pigpio.pulse(GPIO_ON,GPIO_OFF,Pulse_len*1))
-f1.append(pigpio.pulse(GPIO_OFF,GPIO_ON,Pulse_len*2))
-f1.append(pigpio.pulse(GPIO_ON,GPIO_OFF,Pulse_len*1))
-f1.append(pigpio.pulse(GPIO_OFF,GPIO_ON,Pulse_len*2))
-f1.append(pigpio.pulse(GPIO_ON,GPIO_OFF,Pulse_len*2))
-f1.append(pigpio.pulse(GPIO_OFF,GPIO_ON,Pulse_len*4))
-f1.append(pigpio.pulse(GPIO_ON,GPIO_OFF,Pulse_len*2))
-f1.append(pigpio.pulse(GPIO_OFF,GPIO_ON,Pulse_len*1))
-
-pigpio.wave_clear()
-
-pigpio.wave_add_generic(f1)
-
-pigpio.wave_tx_repeat()
-
-time.sleep(10)
-
-pigpio.wave_tx_stop()
-
-pigpio.stop()
+while True:
+  pin = GPIO.input(4)
+  if pin:
+    count = 0
+    while (count < maxcount):
+      pin = GPIO.input(4)
+      sys.stdout.write(str(int(pin)))
+      pin = 0
+      count = count + 1
+      if count == maxcount:
+        print("---")
