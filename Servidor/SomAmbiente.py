@@ -111,5 +111,5 @@ class SomAmbiente(object):
                 self.executarComandoMPlayer("pt_step " + str(proxima), "")           
     
     #Tipo do audio 1 = P2 e 2 = HDMI
-    def volume(self, valor):
+    def tipoAudio(self, valor):
         self.executarComandoMPlayer("set_property volume " + valor, "")
