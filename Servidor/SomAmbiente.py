@@ -112,4 +112,7 @@ class SomAmbiente(object):
     
     #Tipo do audio 1 = P2 e 2 = HDMI
     def tipoAudio(self, valor):
-        self.executarComandoMPlayer("set_property volume " + valor, "")
+        try:
+            os.system("amixer cset numid=3 " + str(valor))
+        except:
+            print "Erro no comando de tipo do audio."
