@@ -113,6 +113,6 @@ class SomAmbiente(object):
     #Tipo do audio 1 = P2 e 2 = HDMI
     def tipoAudio(self, valor):
         try:
-            os.system("amixer cset numid=3 " + str(valor))
+            os.system("amixer cset numid=3 " + valor)
         except:
             print "Erro no comando de tipo do audio."
