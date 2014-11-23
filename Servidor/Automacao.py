@@ -155,7 +155,9 @@ class Automacao(Base.Base):
         elif comando == "Volume":
            self.somAmbiente.volume(valor)
         elif comando == "ReproduzirPorNome":
-            self.somAmbiente.playNome(valor)    
+            self.somAmbiente.playNome(valor)
+        elif comando == "TipoAudio":
+            self.somAmbiente.tipoAudio(valor)
     
     #envia a lista de musicas para o aparelho
     def enviarListaMusica(self, con):
