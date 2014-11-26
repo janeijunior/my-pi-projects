@@ -34,6 +34,7 @@ class Rele(Base.Base):
     #funcao para ligar o rele
     def ligar(self):
         try:
+            self.configurar()
             mcp.output(self.numeroGPIO, LIGAR)
             self.status = STATUS_LIGADO
             return True
@@ -43,6 +44,7 @@ class Rele(Base.Base):
     #funcao para desligar o rele
     def desligar(self):
         try:
+            self.configurar()
             mcp.output(self.numeroGPIO, DESLIGAR)
             self.status = STATUS_DESLIGADO
             return True
