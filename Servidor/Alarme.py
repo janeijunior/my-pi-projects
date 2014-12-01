@@ -155,8 +155,8 @@ class Alarme(Base.Base):
         disparos =  0
         idSensor = -1
         
-        #for sensor in self.sensores:
-        #    sensor.configurar()
+        for sensor in self.sensores:
+            sensor.configurar()
         
         #executa enquanto o alarme estiver ativo
         while self.alarmeLigado: 
