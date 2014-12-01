@@ -15,7 +15,7 @@ class SensorAlarme(Base.Base):
         self.ativo      = ativo
         self.nome       = nome
         
-       # self.configurar()
+        self.configurar()
             
     #funcoes
     #funcao para configurar o sensor
