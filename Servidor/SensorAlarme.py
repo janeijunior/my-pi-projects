@@ -20,8 +20,8 @@ class SensorAlarme(Base.Base):
     #funcoes
     #funcao para configurar o sensor
     def configurar(self):
-        #GPIO.setmode(GPIO.BCM) 
-        GPIO.setup(self.numeroGPIO, GPIO.IN)
+        GPIO.setmode(GPIO.BCM) 
+        GPIO.setup(int(self.numeroGPIO), GPIO.IN)
     
     #funcao para ler o status do sensor (1 = normal e 0 = violado)
     def lerStatus(self):
