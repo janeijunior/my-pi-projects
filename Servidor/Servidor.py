@@ -10,6 +10,10 @@ import Funcoes
 import Automacao
 import signal
 import sys
+import urllib
+
+#Rodrigo, Mae e Pai, Paulo
+serialAutorizado = ['0000000059cb692e', '00000000d240bf8a', '000000000fcac140']
 
 if __name__ == '__main__': 
     
@@ -19,7 +23,32 @@ if __name__ == '__main__':
         automacao.finalizarProcessos()
         tcp.close;
         sys.exit(0)
-                    
+        
+    #valida autorizacao de abertura
+    def validarAbertura():
+        serial = Funcoes.getSerial()
+
+        print 'Serial: ' + serial
+
+        if serial in serialAutorizado:
+            print 'Autorizacao Direta'
+            r = '1'
+        else:
+            print 'Autorizacao Via Internet'
+            f = urllib.urlopen("http://www.housepi.com.br/autenticacao/?serial=" + serial)
+            r = str(f.read()).strip()
+        
+        print 'Resposta: ' + r
+        
+        if (r == '1'):
+            print "Serial Autorizado"
+        elif (r == '0'):
+            print "Serial Bloqueado"
+            sys.exit(0)    
+        else:
+            print "Serial Nao autorizado"
+            sys.exit(0)
+            
     #cliente conectado, verifica os comandos recebidos
     def conectado(con, cliente):    
         while True:
@@ -104,6 +133,8 @@ if __name__ == '__main__':
         
         con.close()
         thread.exit()
+    
+    validarAbertura()
     
     #inicia o servidor    
     HOST = ""                                       
