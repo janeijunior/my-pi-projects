@@ -28,6 +28,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -44,6 +45,8 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 	private ArrayAdapter<String> adapter;
 	private EditText edtPesquisaMusica;
 	private List<String> musicas = new LinkedList<String>();
+	private RadioButton rbHDMI;
+	private RadioButton rbP2;
 	
 	public static Fragment newInstance(Context context) {
 		ControleSomAmbiente f = new ControleSomAmbiente();
@@ -79,6 +82,19 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 		String vol = Funcoes.carregarDadosComponente("sbVolume", "60", this.getActivity());
 		sbVolume.setProgress(Integer.parseInt(vol));
 		sbVolume.refreshDrawableState();
+		
+		rbHDMI = (RadioButton) rootView.findViewById(R.id.rbHDMI);
+		rbP2 = (RadioButton) rootView.findViewById(R.id.rbP2);
+
+		String tipoAudio = Funcoes.carregarDadosComponente("TipoAudio", "2", this.getActivity());
+		
+		rbHDMI.setChecked(tipoAudio.equals("2"));
+		rbP2.setChecked(tipoAudio.equals("1"));
+		
+		enviarComando("TipoAudio", tipoAudio);
+		
+		rbHDMI.setOnClickListener(this);
+		rbP2.setOnClickListener(this);
 		
 		listView = (ListView) rootView.findViewById(R.id.listMusica);
 				
@@ -182,6 +198,12 @@ public class ControleSomAmbiente extends Fragment implements OnClickListener, On
 			enviarComando("AnteriorProxima", "-1");
 		} else if (v == btnProxima) {
 			enviarComando("AnteriorProxima", "1");
+		} else if (v == rbHDMI) {
+			enviarComando("TipoAudio", "2");
+			Funcoes.salvarDadosComponente("TipoAudio", "2", this.getActivity());
+		} else if (v == rbP2) {
+			enviarComando("TipoAudio", "1");
+			Funcoes.salvarDadosComponente("TipoAudio", "1", this.getActivity());
 		}
 	}
 	

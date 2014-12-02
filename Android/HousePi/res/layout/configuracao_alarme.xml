@@ -19,6 +19,7 @@
             android:orientation="vertical" >
 
             <LinearLayout
+                android:id="@+id/linearLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" >
@@ -28,19 +29,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ativar sirene?" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
 
                 <CheckBox
                     android:id="@+id/cbxUsarEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ativar envio de e-mail?" />
+
+                <CheckBox
+                    android:id="@+id/cbxDesligar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Desligar após 3 disparos consecutivos?" />
             </LinearLayout>
 
             <LinearLayout
@@ -309,17 +309,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="bottom"
-                android:layout_marginTop="10dp" >
+                >
 
                 <Button
                     android:id="@+id/btnSalvarConfAlarme"
                     style="@style/ButtonText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="974.71"
                     android:background="@drawable/btn_blue"
-                    android:text="Salvar" />
+                    android:text="Salvar"
+                    android:layout_marginTop="15dp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

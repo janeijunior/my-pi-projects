@@ -4,6 +4,7 @@ import org.jdom2.Element;
 import org.jdom2.output.XMLOutputter;
 
 import br.com.housepi.R;
+import br.com.housepi.classes.Banco;
 import br.com.housepi.classes.Conexao;
 import br.com.housepi.classes.Funcoes;
 //import android.net.wifi.WifiInfo;
@@ -17,6 +18,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.text.InputType;
@@ -26,6 +29,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 @SuppressLint("NewApi")
 public class Login extends ActionBarActivity {
@@ -125,16 +129,44 @@ public class Login extends ActionBarActivity {
 		if ((edtUsuario.getText().toString().trim().equals("")) || (edtSenha.getText().toString().trim().equals(""))) {
 			Funcoes.msgDialogoInformacao("Atenção", "Informe o usuário e a senha!", this);
 		} else {
-			dialog = ProgressDialog.show(Login.this, "Aguarde", "Conectando ao servidor..."); 
-	        new Thread() {
-	            public void run() {
-	                try{
-	                	conectarServidor();
-	                } catch (Exception e) {
-	                    Log.e("tag", e.getMessage());
-	                }
-	            }
-	        }.start();
+			//String mac = "";
+			//WifiManager wifiMgr = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
+			//WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
+			//mac = wifiInfo.getBSSID();
+			
+			//Tratamento para funcionar em casa onde a Ponto Telecom não permite conexão ao IP externo vindo da mesma rede
+			//Assim não preciso trocar o tempo todo o IP/DNS
+			//if ((mac != null) && (mac.equals("1c:af:f7:7e:c9:1e"))) {
+			//	IP_SERVIDOR = "192.168.1.20";
+			//} else {
+			//}
+			
+			Banco banco = new Banco(getBaseContext());
+			SQLiteDatabase acessaBanco = banco.getWritableDatabase();
+					
+			String descricao = Funcoes.carregarDadosComponente("ConexaoSelecionada", "", this);
+
+			Cursor c = acessaBanco.query("Conexao", new String[] {"Host", "Porta"}, "Descricao=?", new String[] {descricao}, null, null, null, null);
+			
+			if (c.getCount() > 0) {
+				c.moveToFirst();
+				
+				IP_SERVIDOR = c.getString(0);
+				PORTA_SERVIDOR = c.getString(1);
+				
+				dialog = ProgressDialog.show(Login.this, "Aguarde", "Conectando ao servidor... \r\n(" + descricao + ")"); 
+		        new Thread() {
+		            public void run() {
+		                try{
+		                	conectarServidor();
+		                } catch (Exception e) {
+		                    Log.e("tag", e.getMessage());
+		                }
+		            }
+		        }.start();
+			} else {
+				Toast.makeText(this, "Utilize o menu 'Configurações' para selecionar ou cadastrar uma nova conexão!", Toast.LENGTH_SHORT).show();
+			}
 		}
 	}
 	
@@ -170,20 +202,6 @@ public class Login extends ActionBarActivity {
 	
 	private void conectarServidor() {
 		try {
-			//String mac = "";
-			//WifiManager wifiMgr = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
-			//WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
-			//mac = wifiInfo.getBSSID();
-			
-			//Tratamento para funcionar em casa onde a Ponto Telecom não permite conexão ao IP externo vindo da mesma rede
-			//Assim não preciso trocar o tempo todo o IP/DNS
-			//if ((mac != null) && (mac.equals("1c:af:f7:7e:c9:1e"))) {
-			//	IP_SERVIDOR = "192.168.1.20";
-			//} else {
-			IP_SERVIDOR = Funcoes.carregarDadosComponente("edtHost", "", this);
-			//}
-			PORTA_SERVIDOR = Funcoes.carregarDadosComponente("edtPorta", "", this);
-			
 			Conexao conexao = Conexao.createConnection(IP_SERVIDOR, PORTA_SERVIDOR);
 			conexao.conectar();
 

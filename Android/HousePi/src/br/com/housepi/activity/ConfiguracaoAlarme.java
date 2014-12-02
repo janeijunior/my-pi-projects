@@ -27,6 +27,7 @@ public class ConfiguracaoAlarme extends Fragment implements OnClickListener {
 	private Button btnSalvar;
 	private CheckBox cbxUsarSirene;
 	private CheckBox cbxUsarEmail;
+	private CheckBox cbxDesligar;
 	private CheckBox cbxSensor0;
 	private CheckBox cbxSensor1;
 	private CheckBox cbxSensor2;
@@ -56,6 +57,7 @@ public class ConfiguracaoAlarme extends Fragment implements OnClickListener {
 		
 		cbxUsarEmail = (CheckBox) rootView.findViewById(R.id.cbxUsarEmail);
 		cbxUsarSirene = (CheckBox) rootView.findViewById(R.id.cbxUsarSirene);
+		cbxDesligar = (CheckBox) rootView.findViewById(R.id.cbxDesligar);
 		cbxSensor0 = (CheckBox) rootView.findViewById(R.id.cbxSensor0);
 		cbxSensor1 = (CheckBox) rootView.findViewById(R.id.cbxSensor1);
 		cbxSensor2 = (CheckBox) rootView.findViewById(R.id.cbxSensor2);
@@ -100,6 +102,12 @@ public class ConfiguracaoAlarme extends Fragment implements OnClickListener {
 				root.addContent(new Element("UsarEmail").setText(cbxUsarEmail.isChecked()?"1":"0"));
 				root.addContent(new Element("UsarSirene").setText(cbxUsarSirene.isChecked()?"1":"0"));
 				
+				try {
+					root.addContent(new Element("DesligarDisparoConsecutivo").setText(cbxDesligar.isChecked()?"1":"0"));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+					
 				Element sensor;
 				Element sensores = new Element("Sensores");
 				
@@ -198,6 +206,13 @@ public class ConfiguracaoAlarme extends Fragment implements OnClickListener {
 			
 			cbxUsarSirene.setChecked(retorno.getChild("Geral").getAttribute("UsarSirene").getIntValue() == 1);
 			cbxUsarEmail.setChecked(retorno.getChild("Geral").getAttribute("UsarEmail").getIntValue() == 1);
+			
+			try {
+				cbxDesligar.setChecked(retorno.getChild("Geral").getAttribute("DesligarDisparoConsecutivo").getIntValue() == 1);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 			edtTempoDisparo.setText(retorno.getChild("Geral").getAttribute("TempoDisparo").getValue());
 			
 			Element sensores = retorno.getChild("Sensores");
