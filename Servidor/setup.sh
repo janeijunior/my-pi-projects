@@ -59,6 +59,9 @@ sudo apt-get -y install mplayer mplayer-gui alsa-base alsa-utils pulseaudio mpg1
 
 echo "Configurando som..."
 sed -i 's/#hdmi_drive=2/hdmi_drive=2/g' /boot/config.txt
+sudo modprobe snd_bcm2835
+sudo echo 'snd_bcm2835' >> /etc/modules
+sudo amixer cset numid=3 2
 
 echo "Instalando OmxPlayer..."
 sudo apt-get -y install omxplayer
