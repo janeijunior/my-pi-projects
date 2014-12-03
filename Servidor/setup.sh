@@ -23,7 +23,8 @@ sudo apt-get -y install python-dev
 sudo apt-get -y install python-rpi.gpio
 sed -i '/i2c-bcm2708/d' /etc/modules
 sed -i '/i2c-dev/d' /etc/modules
-sed -i "/snd-bcm2835/ai2c-bcm2708\ni2c-dev" /etc/modules
+sudo echo 'i2c-bcm2708' >> /etc/modules
+sudo echo 'i2c-dev' >> /etc/modules
 sudo apt-get -y install python-smbus
 sudo apt-get -y install i2c-tools
 sed -i 's/blacklist spi-bcm2708/#blacklist spi-bcm2708/g' /etc/modprobe.d/raspi-blacklist.conf
