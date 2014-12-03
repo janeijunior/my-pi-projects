@@ -57,6 +57,9 @@ sudo apt-get -y install libv41-0
 echo "Instalando MPlayer..."
 sudo apt-get -y install mplayer
 
+echo "Configurando som..."
+sed -i 's/#hdmi_drive=2/hdmi_drive=2/g' /boot/config.txt
+
 echo "Instalando OmxPlayer..."
 sudo apt-get -y install omxplayer
 
