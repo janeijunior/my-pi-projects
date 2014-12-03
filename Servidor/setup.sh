@@ -62,6 +62,7 @@ sed -i 's/#hdmi_drive=2/hdmi_drive=2/g' /boot/config.txt
 sudo modprobe snd_bcm2835
 sudo echo 'snd_bcm2835' >> /etc/modules
 sudo amixer cset numid=3 2
+sudo cp /home/pi/HousePi/bin/asound.conf /etc/
 
 echo "Instalando OmxPlayer..."
 sudo apt-get -y install omxplayer
