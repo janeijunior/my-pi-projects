@@ -55,7 +55,7 @@ echo "Instalando mjpg-streamer..."
 sudo apt-get -y install libv41-0
 
 echo "Instalando MPlayer..."
-sudo apt-get -y install mplayer
+sudo apt-get -y install mplayer mplayer-gui alsa-base alsa-utils pulseaudio mpg123
 
 echo "Configurando som..."
 sed -i 's/#hdmi_drive=2/hdmi_drive=2/g' /boot/config.txt
