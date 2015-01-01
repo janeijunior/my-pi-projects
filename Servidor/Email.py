@@ -83,8 +83,8 @@ class Email(Base.Base):
             
             try:
                 part = MIMEBase('application', 'octet-stream')
-                rows = self.consultarRegistros("select * from Camera") 
                 self.camera.desligar()
+                rows = self.consultarRegistros("select * from Camera") 
                 
                 for row in rows:    
                     anexo = Funcoes.lerConfiguracaoIni("CaminhoImagens") + str(row["Nome"]).replace(' ', '-') + "_" + datetime.datetime.now().strftime("%d%m%Y_%H%M%S.jpg")
