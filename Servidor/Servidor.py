@@ -12,8 +12,8 @@ import signal
 import sys
 import urllib
 
-#Rodrigo, Mae e Pai, Paulo
-serialAutorizado = ['0000000059cb692e', '00000000d240bf8a', '000000000fcac140']
+#Rodrigo, Mae e Pai, Paulo, Pedro
+serialAutorizado = ['0000000059cb692e', '00000000d240bf8a', '000000000fcac140', '0000000047c096fe']
 
 if __name__ == '__main__': 
     
