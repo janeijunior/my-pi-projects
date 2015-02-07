@@ -30,6 +30,9 @@ sudo apt-get -y install i2c-tools
 sed -i 's/blacklist spi-bcm2708/#blacklist spi-bcm2708/g' /etc/modprobe.d/raspi-blacklist.conf
 sed -i 's/blacklist i2c-bcm2708/#blacklist i2c-bcm2708/g' /etc/modprobe.d/raspi-blacklist.conf
 
+sed -i '/dtparam=i2c_arm=on/d' /boot/config.txt
+sudo echo 'dtparam=i2c_arm=on' >> /boot/config.txt
+
 dbPass=$(grep "SenhaBanco" /home/pi/HousePi/bin/Config.ini);dbPass=${dbPass#SenhaBanco=}
 dbPass=${dbPass//[[:space:]]/}
 
