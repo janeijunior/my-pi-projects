@@ -2,8 +2,8 @@
 
 echo "Instalando atualizacoes..."
 sudo apt-get -y update
-sudo apt-get -y upgrade
-sudo rpi-update
+#sudo apt-get -y upgrade
+#sudo rpi-update
 
 echo "Configurando permissoes..."
 sudo chmod 777 /home/pi/HousePi
