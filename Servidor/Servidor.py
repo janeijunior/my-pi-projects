@@ -24,11 +24,11 @@ if __name__ == '__main__':
     #notifica a abertura do sistema, apenas para saber quantas pessoas estão utilizando o mesmo :)
     def notificarAbertura():
         try:
-            print "Notificando abertura do sistema."
+            print "Notificando abertura do sistema"
             serial = Funcoes.getSerial()
             urllib.urlopen("http://www.housepi.com.br/autenticacao/?serial=" + serial)
         except:
-            print "Erro ao notificar abertura do sistema."
+            print "Erro ao notificar abertura do sistema"
             
     #cliente conectado, verifica os comandos recebidos
     def conectado(con, cliente):    
