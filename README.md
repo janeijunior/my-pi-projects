@@ -13,3 +13,8 @@
 * Após executar a instalação indicada no vídeo acima sugere-se instalar a IDE: https://learn.adafruit.com/webide/installation e clonar este repositório. Para iniciar o aplicativo automaticamanete pelos fontes e não pelos arquivos compilados gerados pela instalação automatica basta modificar o local da inicialização que esta no final do arquivo: /etc/init.d/rc.local
 
 * Se for utilizar o Eclipse para o projeto Android importe o mesmo juntamente com a appcompat v7 support library, pode ser necessário atualizar sua referencia no projeto principal.
+
+
+**Imagens:**
+
+![Screenshot_2014-05-17-14-07-11.png](https://bitbucket.org/repo/KbG8KA/images/2324044091-Screenshot_2014-05-17-14-07-11.png)![20140509_003926_Android.jpg](https://bitbucket.org/repo/KbG8KA/images/2019319887-20140509_003926_Android.jpg)
