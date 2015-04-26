@@ -10,4 +10,6 @@
  
 * A instalação das dependências (no Raspberry) pode ser feita de maneira automática seguindo os passos do vídeo: https://www.youtube.com/watch?v=r7ZKW1A3y1I
  
-* Após executar a instalação indicada no vídeo acima sugere-se utilizar a IDE: https://learn.adafruit.com/webide/installation e clonar este repositório. Para iniciar o aplicativo automaticamanete pelos fontes e não pelos arquivos compilados gerados pela instalação automatica basta modificar a inicialização que esta no final do arquivo: /etc/init.d/rc.local
+* Após executar a instalação indicada no vídeo acima sugere-se instalar a IDE: https://learn.adafruit.com/webide/installation e clonar este repositório. Para iniciar o aplicativo automaticamanete pelos fontes e não pelos arquivos compilados gerados pela instalação automatica basta modificar o local da inicialização que esta no final do arquivo: /etc/init.d/rc.local
+
+* Se for utilizar o Eclipse para o projeto Android importe o mesmo juntamente com a appcompat v7 support library, pode ser necessário atualizar sua referencia no projeto principal.
