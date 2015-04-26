@@ -1,0 +1,17 @@
+#---------------------------------------------------------------------------------
+
+wget www.housepi.com.br/download/servidor/HousePi.tar.gz
+tar -xzvf HousePi.tar.gz
+
+#---------------------------------------------------------------------------------
+
+sudo nano /etc/init.d/rc.local
+
+#sudo python /home/pi/HousePi/bin/Servidor.pyc
+nohup sudo python /home/pi/HousePi/bin/Servidor.pyc& </dev/null >/dev/null 2>&1 &
+
+#---------------------------------------------------------------------------------
+
+tar -czvf HousePi.tar.gz HousePi
+
+#---------------------------------------------------------------------------------
