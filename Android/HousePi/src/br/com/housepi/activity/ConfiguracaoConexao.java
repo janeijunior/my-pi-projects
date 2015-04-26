@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ public class ConfiguracaoConexao extends ActionBarActivity {
 	private MenuItem itemSalvar;
 	private MenuItem itemCancelar;
 	private ListView listView;
+	private CheckBox cbxConectarAutomaticamente;
 	private ArrayAdapter<String> adapter;
 	private static final int MENU_INSERIR = 1;
 	private static final int MENU_ALTERAR = 2;
@@ -52,11 +54,13 @@ public class ConfiguracaoConexao extends ActionBarActivity {
 		edtHost = (EditText) findViewById(R.id.edtHost);
 		edtPorta = (EditText) findViewById(R.id.edtPorta);
 		edtDescricao = (EditText) findViewById(R.id.edtDescricaoConexao);
+		cbxConectarAutomaticamente = (CheckBox) findViewById(R.id.cbxConectarAutomaticamente);
 		
 		edtHost.setEnabled(false);
 		edtPorta.setEnabled(false);
 		edtDescricao.setEnabled(false);
-
+		cbxConectarAutomaticamente.setEnabled(false);
+		
 		listView = (ListView) findViewById(R.id.listConexoes);
 		
 		adapter = new ArrayAdapter<String>(this, R.layout.linha_list_view_musica, R.id.listNomeMusica, conexoes);
@@ -116,10 +120,12 @@ public class ConfiguracaoConexao extends ActionBarActivity {
 			edtHost.setEnabled(true);
 			edtPorta.setEnabled(true);
 			edtDescricao.setEnabled(true);
+			cbxConectarAutomaticamente.setEnabled(true);
 		
 			edtHost.setText("");
 			edtPorta.setText("");
 			edtDescricao.setText("");
+			cbxConectarAutomaticamente.setChecked(false);
 		
 			break;
 		case MENU_ALTERAR:
@@ -135,6 +141,7 @@ public class ConfiguracaoConexao extends ActionBarActivity {
 				edtHost.setEnabled(true);
 				edtPorta.setEnabled(true);
 				edtDescricao.setEnabled(false);
+				cbxConectarAutomaticamente.setEnabled(true);
 			}
 			
 			break;
@@ -158,6 +165,7 @@ public class ConfiguracaoConexao extends ActionBarActivity {
 						edtHost.setText("");
 						edtPorta.setText("");
 						edtDescricao.setText("");
+						cbxConectarAutomaticamente.setChecked(false);
 						
 						Funcoes.salvarDadosComponente("ConexaoSelecionada", "", getBaseContext());
 						carregarLista();
@@ -192,6 +200,12 @@ public class ConfiguracaoConexao extends ActionBarActivity {
 						valores.put("Host", edtHost.getText().toString().trim());
 						valores.put("Porta", edtPorta.getText().toString().trim());
 						
+						if (cbxConectarAutomaticamente.isChecked()) {
+							valores.put("ConectarAutomaticamente", 1);
+						} else {
+							valores.put("ConectarAutomaticamente", 0);
+						}						
+						
 						acessaBanco.insert("Conexao", null, valores);
 						
 						Toast.makeText(getBaseContext(), "Dados gravados com sucesso!", Toast.LENGTH_SHORT).show();
@@ -207,6 +221,7 @@ public class ConfiguracaoConexao extends ActionBarActivity {
 						edtHost.setEnabled(false);
 						edtPorta.setEnabled(false);
 						edtDescricao.setEnabled(false);
+						cbxConectarAutomaticamente.setEnabled(false);
 					}
 				} else {
 					Toast.makeText(getBaseContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
@@ -221,7 +236,13 @@ public class ConfiguracaoConexao extends ActionBarActivity {
 					
 					valores.put("Host", edtHost.getText().toString().trim());
 					valores.put("Porta", edtPorta.getText().toString().trim());
-	
+					
+					if (cbxConectarAutomaticamente.isChecked()) {
+						valores.put("ConectarAutomaticamente", 1);
+					} else {
+						valores.put("ConectarAutomaticamente", 0);
+					}
+					
 					acessaBanco.update("Conexao", valores, "Descricao=?", new String[]{edtDescricao.getText().toString()});
 					
 					Toast.makeText(getBaseContext(), "Dados alterados com sucesso!", Toast.LENGTH_SHORT).show();
@@ -235,6 +256,7 @@ public class ConfiguracaoConexao extends ActionBarActivity {
 					edtHost.setEnabled(false);
 					edtPorta.setEnabled(false);
 					edtDescricao.setEnabled(false);
+					cbxConectarAutomaticamente.setEnabled(false);
 				} else {
 					Toast.makeText(getBaseContext(), "Informe o Host e a porta!", Toast.LENGTH_SHORT).show();
 				}	
@@ -255,6 +277,7 @@ public class ConfiguracaoConexao extends ActionBarActivity {
 			edtHost.setEnabled(false);
 			edtPorta.setEnabled(false);
 			edtDescricao.setEnabled(false);
+			cbxConectarAutomaticamente.setEnabled(false);
 			
 			break;
 		default:
@@ -287,7 +310,7 @@ public class ConfiguracaoConexao extends ActionBarActivity {
 			Banco banco = new Banco(getBaseContext());
 			SQLiteDatabase acessaBanco = banco.getWritableDatabase();
 					
-			Cursor c = acessaBanco.query("Conexao", new String[] {"Descricao", "Host", "Porta"}, "Descricao=?", new String[] {descricao}, null, null, null, null);
+			Cursor c = acessaBanco.query("Conexao", new String[] {"Descricao", "Host", "Porta", "ConectarAutomaticamente"}, "Descricao=?", new String[] {descricao}, null, null, null, null);
 			
 			if (c.getCount() > 0) {
 				c.moveToFirst();
@@ -295,15 +318,24 @@ public class ConfiguracaoConexao extends ActionBarActivity {
 				edtDescricao.setText(c.getString(0));
 				edtHost.setText(c.getString(1));
 				edtPorta.setText(c.getString(2));
+				
+				if (c.getInt(3) == 1) {
+					cbxConectarAutomaticamente.setChecked(true);
+				} else {
+					cbxConectarAutomaticamente.setChecked(false);
+				}
+				
 			} else {
 				edtDescricao.setText("");
 				edtHost.setText("");
 				edtPorta.setText("");
+				cbxConectarAutomaticamente.setChecked(false);
 			}
 		} else {
 			edtDescricao.setText("");
 			edtHost.setText("");
 			edtPorta.setText("");
+			cbxConectarAutomaticamente.setChecked(false);
 		}
 	}
 

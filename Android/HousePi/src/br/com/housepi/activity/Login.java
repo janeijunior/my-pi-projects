@@ -2,7 +2,6 @@ package br.com.housepi.activity;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.output.XMLOutputter;
-
 import br.com.housepi.R;
 import br.com.housepi.classes.Banco;
 import br.com.housepi.classes.Conexao;
@@ -36,7 +35,7 @@ public class Login extends ActionBarActivity {
 	private static final int MENU_CONFIG = 1;
 	private static final int ERRO_CONEXAO = -1;
 	private Context context = this; 
-	private String msgErro;
+	private String msgErro = "";
 	private EditText edtUsuario;
 	private EditText edtSenha;
 	private CheckBox cbxMostrarSenha;
@@ -46,6 +45,7 @@ public class Login extends ActionBarActivity {
 	public static String PORTA_SERVIDOR;
 	public static String USUARIO;
 	public static String SENHA;
+	public static Integer CONECTAR_AUTOMATICAMENTE = 0;
 	
 	private ProgressDialog dialog;
 
@@ -61,6 +61,22 @@ public class Login extends ActionBarActivity {
 		cbxSalvarSenha = (CheckBox) findViewById(R.id.cbxSalvarSenha);
 		
 		carregarComponentes();
+		
+		Banco banco = new Banco(getBaseContext());
+		SQLiteDatabase acessaBanco = banco.getWritableDatabase();
+				
+		String descricao = Funcoes.carregarDadosComponente("ConexaoSelecionada", "", this);
+
+		Cursor c = acessaBanco.query("Conexao", new String[] {"ConectarAutomaticamente"}, "Descricao=?", new String[] {descricao}, null, null, null, null);
+		
+		if (c.getCount() > 0) {
+			c.moveToFirst();
+			CONECTAR_AUTOMATICAMENTE = c.getInt(0);
+		}
+
+		if ((CONECTAR_AUTOMATICAMENTE == 1) && (savedInstanceState == null) && (!edtUsuario.getText().toString().equals("")) && (!edtSenha.getText().toString().equals(""))) {
+			conectar();
+		}
 	}
 	
 	private void carregarComponentes() {
@@ -126,6 +142,10 @@ public class Login extends ActionBarActivity {
 	}
 
 	public void onClickConectar(View view) {
+		conectar();
+	}
+	
+	private void conectar() {
 		if ((edtUsuario.getText().toString().trim().equals("")) || (edtSenha.getText().toString().trim().equals(""))) {
 			Funcoes.msgDialogoInformacao("Atenção", "Informe o usuário e a senha!", this);
 		} else {

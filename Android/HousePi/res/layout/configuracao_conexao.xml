@@ -55,6 +55,12 @@
                 android:ems="10"
                 android:inputType="number" />
 
+            <CheckBox
+                android:id="@+id/cbxConectarAutomaticamente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Conectar automaticamente?" />
+
         </LinearLayout>
 
         <LinearLayout

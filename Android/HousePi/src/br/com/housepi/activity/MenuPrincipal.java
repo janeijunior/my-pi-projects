@@ -99,11 +99,16 @@ public class MenuPrincipal extends ActionBarActivity {
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         
+        posicao = Integer.valueOf(Funcoes.carregarDadosComponente("PosicaoMenu", "0", MenuPrincipal.this));
+        
         if (savedInstanceState == null) {
-            selectItem(0);
+	        if (Login.CONECTAR_AUTOMATICAMENTE == 1) {
+	        	selectItem(posicao);
+	        } else {
+				selectItem(0);
+			}
         }
         
-        posicao = Integer.valueOf(Funcoes.carregarDadosComponente("PosicaoMenu", "0", MenuPrincipal.this));
         setTitle(mMenu[posicao]);
     }
     
@@ -252,7 +257,12 @@ public class MenuPrincipal extends ActionBarActivity {
     		if (toast != null) {
     			toast.cancel();
     		}
-    		Funcoes.salvarDadosComponente("PosicaoMenu", "0", MenuPrincipal.this);
+    		if (Login.CONECTAR_AUTOMATICAMENTE == 1) {
+    			Funcoes.salvarDadosComponente("PosicaoMenu", String.valueOf(posicao), MenuPrincipal.this);
+    			Login.CONECTAR_AUTOMATICAMENTE = 0;
+    		} else {
+    			Funcoes.salvarDadosComponente("PosicaoMenu", "0", MenuPrincipal.this);
+    		}
     		finish();
     		System.exit(0);
     	}
