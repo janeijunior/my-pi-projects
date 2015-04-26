@@ -21,7 +21,7 @@ if __name__ == '__main__':
         tcp.close;
         sys.exit(0)
         
-    #notifica a abertura do sistema
+    #notifica a abertura do sistema, apenas para saber quantas pessoas estão utilizando o mesmo :)
     def notificarAbertura():
         try:
             print "Notificando abertura do sistema."
