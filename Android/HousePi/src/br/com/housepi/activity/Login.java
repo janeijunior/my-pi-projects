@@ -148,19 +148,7 @@ public class Login extends ActionBarActivity {
 	private void conectar() {
 		if ((edtUsuario.getText().toString().trim().equals("")) || (edtSenha.getText().toString().trim().equals(""))) {
 			Funcoes.msgDialogoInformacao("Atenção", "Informe o usuário e a senha!", this);
-		} else {
-			//String mac = "";
-			//WifiManager wifiMgr = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
-			//WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
-			//mac = wifiInfo.getBSSID();
-			
-			//Tratamento para funcionar em casa onde a Ponto Telecom não permite conexão ao IP externo vindo da mesma rede
-			//Assim não preciso trocar o tempo todo o IP/DNS
-			//if ((mac != null) && (mac.equals("1c:af:f7:7e:c9:1e"))) {
-			//	IP_SERVIDOR = "192.168.1.20";
-			//} else {
-			//}
-			
+		} else {	
 			Banco banco = new Banco(getBaseContext());
 			SQLiteDatabase acessaBanco = banco.getWritableDatabase();
 					
