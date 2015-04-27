@@ -173,15 +173,8 @@ CREATE TABLE IF NOT EXISTS `RFID` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Tag` varchar(50) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
--- Extraindo dados da tabela `RFID`
---
-
-INSERT INTO `RFID` (`Id`, `Tag`) VALUES
-(1, '0007181175'),
-(2, '0008056554');
 
 -- --------------------------------------------------------
 
