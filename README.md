@@ -14,6 +14,8 @@
 
 * Se for utilizar o Eclipse para o projeto Android importe o mesmo juntamente com a appcompat v7 support library, pode ser necessário atualizar sua referencia no projeto principal.
 
+* O Apk também encontra-se na Google Play: https://play.google.com/store/apps/details?id=br.com.housepi 
+
 
 **Imagens:**
 
