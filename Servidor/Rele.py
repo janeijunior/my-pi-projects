@@ -24,7 +24,7 @@ class Rele(Base.Base):
         self.status     = status
         self.nome       = nome
         self.ativo      = ativo
-    	self.automatico = False
+        self.automatico = False
         
         self.configurar()
             
