@@ -16,13 +16,15 @@ STATUS_DESLIGADO = 0
 class Rele(Base.Base):
     
     #construtor
-    def __init__(self, id, numeroGPIO, status, nome):
+    def __init__(self, id, numeroGPIO, status, nome, ativo):
         
         #atributos publicos da classe
         self.id         = id
         self.numeroGPIO = numeroGPIO
         self.status     = status
         self.nome       = nome
+        self.ativo      = ativo
+    	self.automatico = False
         
         self.configurar()
             
@@ -53,7 +55,7 @@ class Rele(Base.Base):
     
     #funcao para gravar o novo nome do rele
     def gravarNomeBanco(self):
-        sql = "update Rele set Nome = '{nomeRele}' where Id = {idRele}".format(nomeRele = self.nome, idRele = self.id)
+        sql = "update Rele set Nome = '{nomeRele}', Ativo = {ativo} where Id = {idRele}".format(nomeRele = self.nome, ativo = self.ativo, idRele = self.id)
         
         return self.executarComando(sql)
     
