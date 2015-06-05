@@ -34,7 +34,7 @@ if __name__ == '__main__':
     def conectado(con, cliente):    
         while True:
             msg = con.recv(1024)
-            
+
             comando = msg[2:len(msg)]
          
             if not msg: 
