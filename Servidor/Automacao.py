@@ -18,7 +18,7 @@ import Adafruit_DHT
 import RFID
 import numpy
 import Video
-import DVR
+#import DVR
 
 from xml.etree.ElementTree import Element
 
