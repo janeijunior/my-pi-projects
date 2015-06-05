@@ -19,7 +19,7 @@ class DVR(threading.Thread):
         self.listaRele = reles
         self.tempo = 0
         self.ativo = True
-	    self.thread = None
+        self.thread = None
 
     def stop(self):
         self.__stop_thread_event.set()
