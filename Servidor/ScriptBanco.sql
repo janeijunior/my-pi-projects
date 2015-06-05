@@ -128,6 +128,7 @@ CREATE TABLE IF NOT EXISTS `Rele` (
   `Nome` varchar(60) DEFAULT NULL,
   `Status` int(11) NOT NULL,
   `NumeroGPIO` int(11) NOT NULL,
+  `Ativo` int(11) NOT NULL,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
@@ -135,20 +136,20 @@ CREATE TABLE IF NOT EXISTS `Rele` (
 -- Extraindo dados da tabela `Rele`
 --
 
-INSERT INTO `Rele` (`Id`, `Nome`, `Status`, `NumeroGPIO`) VALUES
-(0, 'Rele 1', 0, 0),
-(1, 'Rele 2', 0, 1),
-(2, 'Rele 3', 0, 2),
-(3, 'Rele 4', 0, 3),
-(4, 'Rele 5', 0, 4),
-(5, 'Rele 6', 0, 5),
-(6, 'Rele 7', 0, 6),
-(7, 'Rele 8', 0, 7),
-(8, 'Rele 9', 0, 8),
-(9, 'Rele 10', 0, 9),
-(10, '12 Volts - GPB2', 0, 10),
-(11, '12 Volts - GPB3', 0, 11),
-(12, '12 Volts - GPB4', 0, 12);
+INSERT INTO `Rele` (`Id`, `Nome`, `Status`, `NumeroGPIO`, `Ativo`) VALUES
+(0, 'Rele 1', 0, 0, 1),
+(1, 'Rele 2', 0, 1, 1),
+(2, 'Rele 3', 0, 2, 1),
+(3, 'Rele 4', 0, 3, 1),
+(4, 'Rele 5', 0, 4, 1),
+(5, 'Rele 6', 0, 5, 1),
+(6, 'Rele 7', 0, 6, 1),
+(7, 'Rele 8', 0, 7, 1),
+(8, 'Rele 9', 0, 8, 1),
+(9, 'Rele 10', 0, 9, 1),
+(10, '12 Volts - GPB2', 0, 10, 1),
+(11, '12 Volts - GPB3', 0, 11, 1),
+(12, '12 Volts - GPB4', 0, 12, 1);
 
 -- --------------------------------------------------------
 
