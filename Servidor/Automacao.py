@@ -18,6 +18,7 @@ import Adafruit_DHT
 import RFID
 import numpy
 import Video
+import DVR
 
 from xml.etree.ElementTree import Element
 
@@ -47,7 +48,9 @@ class Automacao(Base.Base):
         self.RFID = RFID.RFID(self.alarme, numpy.asarray(self.tag))
         self.carregarTag()
         self.RFID.start()
-        
+        #self.DVR = DVR.DVR(self.reles)
+    	#self.DVR.start()        
+
     #funcoes da classe
     
     #carrega a lista com os reles já configurados
@@ -56,7 +59,7 @@ class Automacao(Base.Base):
         self.reles = []
 
         for row in rows:
-            rele = Rele.Rele(row["Id"], row["NumeroGPIO"], row["Status"], row["Nome"])        
+            rele = Rele.Rele(row["Id"], row["NumeroGPIO"], row["Status"], row["Nome"], int(row["Ativo"]))        
             
             if rele.status == 1:
                 rele.ligar()
@@ -75,6 +78,7 @@ class Automacao(Base.Base):
         if acao == "Ligar":
             if self.reles[int(numero)].ligar():
                 con.send("Ok\n")
+		self.reles[int(numero)].automatico = False
                 self.reles[int(numero)].atualizarStatusBanco()
             else:
                 con.send("Erro\n")
@@ -82,6 +86,7 @@ class Automacao(Base.Base):
         else:
             if self.reles[int(numero)].desligar():
                 con.send("Ok\n")
+		self.reles[int(numero)].automatico = False
                 self.reles[int(numero)].atualizarStatusBanco()
             else:
                 con.send("Erro\n")
@@ -91,7 +96,7 @@ class Automacao(Base.Base):
         root = Element("StatusRele")
         
         for rele in self.reles:
-            root.append(Element("Rele" + str(rele.id), Status=str(rele.status), Nome=rele.nome.decode('utf-8')))
+            root.append(Element("Rele" + str(rele.id), Status=str(rele.status), Ativo=str(rele.ativo), Nome=rele.nome.decode('utf-8')))
         
         xmlstr = ET.tostring(root) + "\n"   
         con.send(xmlstr)
@@ -101,6 +106,7 @@ class Automacao(Base.Base):
         try:
             for child in root:
                 self.reles[int(child.get("Id"))].nome = str(child.get("Nome").encode('utf-8')) 
+		self.reles[int(child.get("Id"))].ativo = int(child.get("Ativo"))
                 self.reles[int(child.get("Id"))].gravarNomeBanco();
             
             con.send("Ok\n")
