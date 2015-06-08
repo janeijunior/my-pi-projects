@@ -1,6 +1,8 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
+### CLASSE DE TESTE PARA INTEGRAÇÃO COM DVR ###
+
 from datetime import date, datetime
 import socket
 import thread
@@ -25,42 +27,42 @@ class DVR(threading.Thread):
         self.__stop_thread_event.set()
 
     def controlarRele(self):
-    	while self.ativo:
-    	    if self.tempo > 0:
-    		    if self.listaRele[0].status == 0:
-    		        if self.listaRele[0].ligar():
-    			        self.listaRele[0].automatico = True
-    			        #self.listaRele[0].atualizarStatusBanco()
+        while self.ativo:
+            if self.tempo > 0:
+                if self.listaRele[0].status == 0:
+                    if self.listaRele[0].ligar():
+                        self.listaRele[0].automatico = True
+                        #self.listaRele[0].atualizarStatusBanco()
     
-    	    elif (self.tempo == 0) and (self.listaRele[0].automatico):
+            elif (self.tempo == 0) and (self.listaRele[0].automatico):
                 if self.listaRele[0].status == 1:
-    	            if self.listaRele[0].desligar():
-    			        self.listaRele[0].automatico = False
+                    if self.listaRele[0].desligar():
+                        self.listaRele[0].automatico = False
                         #self.listaRele[0].atualizarStatusBanco()
     			
-    	    if self.tempo > 0:
-    	        self.tempo = self.tempo - 1
+            if self.tempo > 0:
+                self.tempo = self.tempo - 1
     	
-    	    time.sleep(1)
+            time.sleep(1)
 
     def run(self):      
-   	    self.thread = threading.Thread(None, self.controlarRele, None, ())
+        self.thread = threading.Thread(None, self.controlarRele, None, ())
         self.thread.start()
 
-	    orig = ("", 2344)
+        orig = ("", 2344)
     
-    	tcp  = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    	tcp.bind(orig)
-    	tcp.listen(1)
+        tcp  = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        tcp.bind(orig)
+        tcp.listen(1)
           	 
-    	print "Aguardando notificacoes do DVR..."
+        print "Aguardando notificacoes do DVR..."
     
-    	while not self.__stop_thread_event.isSet():
-       	    conexao, cliente = tcp.accept()
+        while not self.__stop_thread_event.isSet():
+            conexao, cliente = tcp.accept()
        
-       	    msg = conexao.recv(1024)
+            msg = conexao.recv(1024)
 		
-	        print "Comando DVR: " + msg + " Tamanho: " + str(len(msg))
+            print "Comando DVR: " + msg + " Tamanho: " + str(len(msg))
 
             horaAtual = datetime.now().strftime("%H%M%S")
 
@@ -75,8 +77,9 @@ class DVR(threading.Thread):
             horaAmanhecer = amanhecer.strftime("%H%M%S")
 
             if  len(msg) > 0:
-	            if ((horaAtual > horaLigar) and (horaAtual < horaAnoitecer)) or ((horaAtual > horaAmanhecer) and (horaAtual < horaDesligar)):
-		            self.tempo = 10
+                if ((horaAtual > horaLigar) and (horaAtual < horaAnoitecer)) or ((horaAtual > horaAmanhecer) and (horaAtual < horaDesligar)):
+                    self.tempo = 10
        
-   	tcp.close()
-	self.ativo = False
+   	    
+        tcp.close()
+	    self.ativo = False
