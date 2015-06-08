@@ -3,6 +3,7 @@ package br.com.housepi.activity;
 import br.com.housepi.R;
 import br.com.housepi.classes.Alarme;
 import br.com.housepi.classes.Funcoes;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
@@ -36,6 +37,8 @@ public class ControleAlarme extends Fragment implements OnClickListener {
 		alarme.getBtnPanico().setOnClickListener(this);
 		
 		alarme.getConfiguracaoStatus();
+		
+		new AtualizaTela().execute();
 		
 		return rootView;
 	}
@@ -81,5 +84,22 @@ public class ControleAlarme extends Fragment implements OnClickListener {
 		}
 	}
 	
-	
+	private class AtualizaTela extends AsyncTask<Void, Void, Void> {
+		@Override
+        protected Void doInBackground(Void... voids) {
+			try{    
+                Thread.sleep(10000);
+            }catch(InterruptedException e){
+                e.printStackTrace();
+            }
+			
+            return null;
+        }
+
+        protected void onPostExecute(Void result) {
+        	alarme.getConfiguracaoStatus();
+    		
+        	new AtualizaTela().execute();
+        }
+    }
 }

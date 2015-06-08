@@ -9,6 +9,8 @@ import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.XMLOutputter;
+
+import android.view.View;
 import android.widget.ToggleButton;
 import br.com.housepi.classes.Conexao;
 
@@ -16,6 +18,7 @@ public class Rele {
 	private Integer status;
 	private Integer numero;
 	private String nome;
+	private Integer ativo;
 	private ToggleButton botao;
 	private static List<String> nomeReles = new ArrayList<String>();
 	
@@ -63,6 +66,14 @@ public class Rele {
 		this.nome = nome;
 	}	
 	
+	public Integer getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Integer ativo) {
+		this.ativo = ativo;
+	}
+
 	public Boolean ligar() {
 		return montarEnviarXMLControle("Ligar");
 	}
@@ -134,7 +145,8 @@ public class Rele {
 		
 				rele.setStatus(element.getAttribute("Status").getIntValue());
 				rele.setNome(element.getAttribute("Nome").getValue());
-
+				rele.setAtivo(element.getAttribute("Ativo").getIntValue());
+				
 				nomeReles.add(rele.getNome());
 				
 				if (rele.getBotao() != null) {
@@ -142,6 +154,12 @@ public class Rele {
 					rele.getBotao().setText(rele.getNome());
 					rele.getBotao().setTextOn(rele.getNome());
 					rele.getBotao().setTextOff(rele.getNome());
+				
+					if (rele.getAtivo() == 1) {
+						rele.getBotao().setVisibility(View.VISIBLE);
+					} else {
+						rele.getBotao().setVisibility(View.GONE);
+					}
 				}
 			}
 		
@@ -153,6 +171,7 @@ public class Rele {
 					listaReles.get(i).getBotao().setText(nomeReles.get(i));
 					listaReles.get(i).getBotao().setTextOn(nomeReles.get(i));
 					listaReles.get(i).getBotao().setTextOff(nomeReles.get(i));
+					listaReles.get(i).getBotao().setVisibility(View.VISIBLE);
 				}
 			}
 			

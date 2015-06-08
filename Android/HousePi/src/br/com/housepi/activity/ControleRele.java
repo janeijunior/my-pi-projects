@@ -6,6 +6,7 @@ import java.util.List;
 import br.com.housepi.R;
 import br.com.housepi.classes.Funcoes;
 import br.com.housepi.classes.Rele;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -73,6 +74,8 @@ public class ControleRele extends Fragment implements OnClickListener {
 
 		listaReles = Rele.getConfiguracaoStatus(listaReles);
 
+		new AtualizaTela().execute();
+		
 		return rootView;
 	}
 
@@ -102,4 +105,23 @@ public class ControleRele extends Fragment implements OnClickListener {
 			}
 		}
 	}
+	
+	private class AtualizaTela extends AsyncTask<Void, Void, Void> {
+		@Override
+        protected Void doInBackground(Void... voids) {
+			try{    
+                Thread.sleep(10000);
+            }catch(InterruptedException e){
+                e.printStackTrace();
+            }
+			
+            return null;
+        }
+
+        protected void onPostExecute(Void result) {
+        	listaReles = Rele.getConfiguracaoStatus(listaReles);
+        	
+        	new AtualizaTela().execute();
+        }
+    }
 }

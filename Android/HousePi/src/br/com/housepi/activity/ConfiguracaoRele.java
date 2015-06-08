@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 public class ConfiguracaoRele extends Fragment implements OnClickListener {
@@ -32,7 +33,17 @@ public class ConfiguracaoRele extends Fragment implements OnClickListener {
 	private EditText edtNomeRele7;
 	private EditText edtNomeRele8;
 	private EditText edtNomeRele9;
-	private Button btnSalvar;
+	private CheckBox cbxRele0;
+	private CheckBox cbxRele1;
+	private CheckBox cbxRele2;
+	private CheckBox cbxRele3;
+	private CheckBox cbxRele4;
+	private CheckBox cbxRele5;
+	private CheckBox cbxRele6;
+	private CheckBox cbxRele7;
+	private CheckBox cbxRele8;
+	private CheckBox cbxRele9;
+		private Button btnSalvar;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,6 +60,17 @@ public class ConfiguracaoRele extends Fragment implements OnClickListener {
 		edtNomeRele7  = (EditText) rootView.findViewById(R.id.edtNomeRele7);
 		edtNomeRele8  = (EditText) rootView.findViewById(R.id.edtNomeRele8);
 		edtNomeRele9  = (EditText) rootView.findViewById(R.id.edtNomeRele9);
+		
+		cbxRele0 = (CheckBox) rootView.findViewById(R.id.cbxRele0);
+		cbxRele1 = (CheckBox) rootView.findViewById(R.id.cbxRele1);
+		cbxRele2 = (CheckBox) rootView.findViewById(R.id.cbxRele2);
+		cbxRele3 = (CheckBox) rootView.findViewById(R.id.cbxRele3);
+		cbxRele4 = (CheckBox) rootView.findViewById(R.id.cbxRele4);
+		cbxRele5 = (CheckBox) rootView.findViewById(R.id.cbxRele5);
+		cbxRele6 = (CheckBox) rootView.findViewById(R.id.cbxRele6);
+		cbxRele7 = (CheckBox) rootView.findViewById(R.id.cbxRele7);
+		cbxRele8 = (CheckBox) rootView.findViewById(R.id.cbxRele8);
+		cbxRele9 = (CheckBox) rootView.findViewById(R.id.cbxRele9);
 		
 		btnSalvar  = (Button) rootView.findViewById(R.id.btnSalvarConfRele);
 		btnSalvar.setOnClickListener(this);
@@ -78,51 +100,61 @@ public class ConfiguracaoRele extends Fragment implements OnClickListener {
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "0"));
 				rele.setAttribute(new Attribute("Nome", edtNomeRele0.getText().toString()));
+				rele.setAttribute(new Attribute("Ativo", cbxRele0.isChecked()?"1":"0"));
 				root.addContent(rele);
 				
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "1"));
 				rele.setAttribute(new Attribute("Nome", edtNomeRele1.getText().toString()));
+				rele.setAttribute(new Attribute("Ativo", cbxRele1.isChecked()?"1":"0"));
 				root.addContent(rele);
 
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "2"));
 				rele.setAttribute(new Attribute("Nome", edtNomeRele2.getText().toString()));
+				rele.setAttribute(new Attribute("Ativo", cbxRele2.isChecked()?"1":"0"));
 				root.addContent(rele);
 
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "3"));
 				rele.setAttribute(new Attribute("Nome", edtNomeRele3.getText().toString()));
+				rele.setAttribute(new Attribute("Ativo", cbxRele3.isChecked()?"1":"0"));
 				root.addContent(rele);
 
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "4"));
 				rele.setAttribute(new Attribute("Nome", edtNomeRele4.getText().toString()));
+				rele.setAttribute(new Attribute("Ativo", cbxRele4.isChecked()?"1":"0"));
 				root.addContent(rele);
 
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "5"));
 				rele.setAttribute(new Attribute("Nome", edtNomeRele5.getText().toString()));
+				rele.setAttribute(new Attribute("Ativo", cbxRele5.isChecked()?"1":"0"));
 				root.addContent(rele);
 
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "6"));
 				rele.setAttribute(new Attribute("Nome", edtNomeRele6.getText().toString()));
+				rele.setAttribute(new Attribute("Ativo", cbxRele6.isChecked()?"1":"0"));
 				root.addContent(rele);
 
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "7"));
 				rele.setAttribute(new Attribute("Nome", edtNomeRele7.getText().toString()));
+				rele.setAttribute(new Attribute("Ativo", cbxRele7.isChecked()?"1":"0"));
 				root.addContent(rele);
 
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "8"));
 				rele.setAttribute(new Attribute("Nome", edtNomeRele8.getText().toString()));
+				rele.setAttribute(new Attribute("Ativo", cbxRele8.isChecked()?"1":"0"));
 				root.addContent(rele);
 
 				rele = new Element("Rele");
 				rele.setAttribute(new Attribute("Id", "9"));
 				rele.setAttribute(new Attribute("Nome", edtNomeRele9.getText().toString()));
+				rele.setAttribute(new Attribute("Ativo", cbxRele9.isChecked()?"1":"0"));
 				root.addContent(rele);
 				
 				doc.setRootElement(root);
@@ -160,5 +192,16 @@ public class ConfiguracaoRele extends Fragment implements OnClickListener {
 		edtNomeRele7.setText(listaReles.get(7).getNome());
 		edtNomeRele8.setText(listaReles.get(8).getNome());
 		edtNomeRele9.setText(listaReles.get(9).getNome());
+		
+		cbxRele0.setChecked(listaReles.get(0).getAtivo() == 1);
+		cbxRele1.setChecked(listaReles.get(1).getAtivo() == 1);
+		cbxRele2.setChecked(listaReles.get(2).getAtivo() == 1);
+		cbxRele3.setChecked(listaReles.get(3).getAtivo() == 1);
+		cbxRele4.setChecked(listaReles.get(4).getAtivo() == 1);
+		cbxRele5.setChecked(listaReles.get(5).getAtivo() == 1);
+		cbxRele6.setChecked(listaReles.get(6).getAtivo() == 1);
+		cbxRele7.setChecked(listaReles.get(7).getAtivo() == 1);
+		cbxRele8.setChecked(listaReles.get(8).getAtivo() == 1);
+		cbxRele9.setChecked(listaReles.get(9).getAtivo() == 1);
 	}
 }
