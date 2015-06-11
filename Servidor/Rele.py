@@ -19,12 +19,13 @@ class Rele(Base.Base):
     def __init__(self, id, numeroGPIO, status, nome, ativo):
         
         #atributos publicos da classe
-        self.id         = id
-        self.numeroGPIO = numeroGPIO
-        self.status     = status
-        self.nome       = nome
-        self.ativo      = ativo
-        self.automatico = False
+        self.id           = id
+        self.numeroGPIO   = numeroGPIO
+        self.status       = status
+        self.nome         = nome
+        self.ativo        = ativo
+        self.automatico   = False
+        self.temporizador = 0
         
         self.configurar()
             
@@ -34,7 +35,7 @@ class Rele(Base.Base):
         mcp.config(self.numeroGPIO, mcp.OUTPUT)
     
     #funcao para ligar o rele
-    def ligar(self):
+    def ligar(self, temporizador = 0):
         try:
             #self.configurar()
             mcp.output(self.numeroGPIO, LIGAR)
