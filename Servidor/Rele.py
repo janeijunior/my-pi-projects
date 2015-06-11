@@ -3,6 +3,7 @@
 
 import Adafruit_MCP230xx
 import Base
+import time
 
 #variavel para controle dos pinos GPIO (reles)
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
@@ -26,6 +27,7 @@ class Rele(Base.Base):
         self.ativo        = ativo
         self.automatico   = False
         self.temporizador = 0
+        self.thread       = None
         
         self.configurar()
             
@@ -40,6 +42,13 @@ class Rele(Base.Base):
             #self.configurar()
             mcp.output(self.numeroGPIO, LIGAR)
             self.status = STATUS_LIGADO
+            
+            if temporizador > 0:
+                print "Temporizando rele para " + str(temporizador) + " minuto(s)."
+                
+                self.thread = threading.Thread(None, self.__temporizarRele, None, ())
+                self.thread.start()
+            
             return True
         except:
             return False
@@ -68,6 +77,18 @@ class Rele(Base.Base):
             return self.executarComando(sql)
         else:
             return True
+    
+    def __temporizarRele(self):
+        tempoDecorido = 0
+        
+        while self.status == STATUS_LIGADO:
+            time.sleep(1)
+            
+            tempoDecorido = tempoDecorido + 1;
+            
+            if (tempoDecorido / 60) >= self.temporizador:
+                self.desligar()
+    
     #destrutor
     #def __done__(self):
     #    self.desligar()
