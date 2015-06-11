@@ -80,7 +80,7 @@ class Automacao(Base.Base):
             
             if self.reles[int(numero)].ligar(temporizador):
                 con.send("Ok\n")
-		        self.reles[int(numero)].automatico = False
+                self.reles[int(numero)].automatico = False
                 self.reles[int(numero)].atualizarStatusBanco()
             else:
                 con.send("Erro\n")
@@ -88,7 +88,7 @@ class Automacao(Base.Base):
         else:
             if self.reles[int(numero)].desligar():
                 con.send("Ok\n")
-		        self.reles[int(numero)].automatico = False
+                self.reles[int(numero)].automatico = False
                 self.reles[int(numero)].atualizarStatusBanco()
             else:
                 con.send("Erro\n")
