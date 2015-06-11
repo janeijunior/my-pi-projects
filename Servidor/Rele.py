@@ -4,6 +4,7 @@
 import Adafruit_MCP230xx
 import Base
 import time
+import thread
 
 #variavel para controle dos pinos GPIO (reles)
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
@@ -84,9 +85,13 @@ class Rele(Base.Base):
         while self.status == STATUS_LIGADO:
             time.sleep(1)
             
-            tempoDecorido = tempoDecorido + 1;
+            tempoDecorido = tempoDecorido + 1
+            
+            print "Tempo decorido: " + str(tempoDecorido)
             
             if (tempoDecorido / 60) >= self.temporizador:
+                print "Desligando rele via temporizador."
+                
                 self.desligar()
     
     #destrutor
