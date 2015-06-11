@@ -146,7 +146,7 @@ public class ControleRele extends Fragment implements OnClickListener, OnLongCli
 		RelativeLayout linearLayout = new RelativeLayout(getActivity());
         final NumberPicker aNumberPicker = new NumberPicker(getActivity());
         aNumberPicker.setMaxValue(1440);
-        aNumberPicker.setMinValue(0);
+        aNumberPicker.setMinValue(1);
         aNumberPicker.setValue(1);
 
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(50, 50);
