@@ -19,6 +19,7 @@ import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.NumberPicker;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class ControleRele extends Fragment implements OnClickListener, OnLongClickListener {
@@ -156,11 +157,13 @@ public class ControleRele extends Fragment implements OnClickListener, OnLongCli
         linearLayout.addView(aNumberPicker, numPicerParams);
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
-        alertDialogBuilder.setTitle("Selecione o tempo (em minutos) para permanecer ligado");
+        alertDialogBuilder.setTitle("Informe o tempo (em minutos) para que o relé permaneça ligado");
         alertDialogBuilder.setView(linearLayout);
         alertDialogBuilder.setCancelable(false)
-        	.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        	.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
                 	public void onClick(DialogInterface dialog, int id) {
+                        
+                		aNumberPicker.clearFocus();
                 		
                 		releTemporizador.getBotao().setChecked(true);
         				releTemporizador.setTemporizador(aNumberPicker.getValue());
@@ -168,6 +171,9 @@ public class ControleRele extends Fragment implements OnClickListener, OnLongCli
         				if (!releTemporizador.ligar()) {
         					Funcoes.msgToastErroComando(getActivity());
         					releTemporizador.getBotao().setChecked(false);
+        				} else {
+        					Toast.makeText(getActivity(), releTemporizador.getNome() + " temporizado para " + 
+        				      releTemporizador.getTemporizador().toString() + " minuto(s).", Toast.LENGTH_SHORT).show();
         				}
                 	}
     			})
