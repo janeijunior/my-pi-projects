@@ -5,6 +5,7 @@ import Adafruit_MCP230xx
 import Base
 import time
 import thread
+import threading
 
 #variavel para controle dos pinos GPIO (reles)
 mcp = Adafruit_MCP230xx.Adafruit_MCP230XX(address=0x20, num_gpios=16)
