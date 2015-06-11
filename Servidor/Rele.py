@@ -48,7 +48,7 @@ class Rele(Base.Base):
             if temporizador > 0:
                 print "Temporizando rele para " + str(temporizador) + " minuto(s)."
                 
-                if self.temporizador = 0:
+                if self.temporizador == 0:
                     self.temporizador = temporizador
                     self.thread = threading.Thread(None, self.__temporizarRele, None, ())
                     self.thread.start()
