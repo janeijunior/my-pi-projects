@@ -21,6 +21,7 @@ public class Rele {
 	private Integer ativo;
 	private ToggleButton botao;
 	private static List<String> nomeReles = new ArrayList<String>();
+	private Integer temporizador;
 	
 	public Rele(Integer numero, ToggleButton botao) {
 		super();
@@ -73,6 +74,14 @@ public class Rele {
 	public void setAtivo(Integer ativo) {
 		this.ativo = ativo;
 	}
+	
+	public Integer getTemporizador() {
+		return temporizador;
+	}
+
+	public void setTemporizador(Integer temporizador) {
+		this.temporizador = temporizador;
+	}
 
 	public Boolean ligar() {
 		return montarEnviarXMLControle("Ligar");
@@ -93,6 +102,11 @@ public class Rele {
 		Element numero = new Element("Numero");
 		numero.setText(getNumero().toString());
 		root.addContent(numero);
+		
+		Element temporizador = new Element("Temporizador");
+		temporizador.setText(getTemporizador().toString());
+		root.addContent(temporizador);
+		
 		doc.setRootElement(root);
 		
 		Conexao.getConexaoAtual().enviarMensagem(new XMLOutputter().outputString(doc));
