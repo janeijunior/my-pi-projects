@@ -97,6 +97,7 @@ class Rele(Base.Base):
                 print "Desligando rele via temporizador."
                 
                 self.desligar()
+                self.atualizarStatusBanco()
     
     #destrutor
     #def __done__(self):
