@@ -95,7 +95,7 @@ class Rele(Base.Base):
             
             print "Tempo decorido: " + str(tempoDecorido)
             
-            if (tempoDecorido / 60) >= self.temporizador:
+            if (self.status == STATUS_LIGADO) and ((tempoDecorido / 60) >= self.temporizador):
                 print "Desligando rele via temporizador."
                 
                 self.desligar()
