@@ -12,6 +12,8 @@
  
 * Após executar a instalação indicada no vídeo acima sugere-se instalar a IDE: https://learn.adafruit.com/webide/installation e clonar este repositório. Para iniciar o aplicativo automaticamanete pelos fontes e não pelos arquivos compilados gerados pela instalação automatica basta modificar o local da inicialização que esta no final do arquivo: /etc/init.d/rc.local
 
+* Pode ser necessário executar novamente o script de criação do banco (ScriptBanco.sql) pois aqui pode estar mais atualizado, verifique também o nome do usuário do banco no arquivo Config.ini o mesmo deve ser "HousePi".
+
 * Se for utilizar o Eclipse para o projeto Android importe o mesmo juntamente com a appcompat v7 support library, pode ser necessário atualizar sua referencia no projeto principal.
 
 * O Apk também encontra-se na Google Play: https://play.google.com/store/apps/details?id=br.com.housepi 
