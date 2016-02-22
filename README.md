@@ -22,3 +22,5 @@
 **Imagens:**
 
 ![Screenshot_2014-05-17-14-07-11.png](https://bitbucket.org/repo/KbG8KA/images/2324044091-Screenshot_2014-05-17-14-07-11.png)![20140509_003926_Android.jpg](https://bitbucket.org/repo/KbG8KA/images/2019319887-20140509_003926_Android.jpg)
+
+**Se for utilizar, referencie o autor!** 
