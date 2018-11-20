@@ -1,6 +1,6 @@
 **Bem vindo!**
 
-Baixe o App atualizado que jÃ¡ instalada o servidor no rpi: https://play.google.com/store/apps/details?id=br.com.housepi
+Baixe o App atualizado que já instalada o servidor no rpi: https://play.google.com/store/apps/details?id=br.com.housepi
 
 
 ------------------------------------------------------------------------------------
@@ -10,9 +10,14 @@ Baixe o App atualizado que jÃ¡ instalada o servidor no rpi: https://play.google.
 
 Os fontes do aplicativo servidor encontram-se na pasta Servidor, o mesmo foi desenvolvido em Python utilizando a WebIDE da Adafruit.
 
-JÃ¡ os do aplicativo mobile encontram-se na pasta Android e foi desenvolvido em Java utilizando o Eclipse Juno.
+Já os do aplicativo mobile encontram-se na pasta Android e foi desenvolvido em Java utilizando o Eclipse Juno.
 
-Na pasta documentos encontram-se alguns arquivos que podem ser Ãºteis.
+Na pasta documentos encontram-se alguns arquivos que podem ser úteis.
+
+**Este repositório não é mais atualizado, novas versões em:**
+
+Servidor: https://bitbucket.org/robatistello/srv-housepi
+Aplicativo: https://bitbucket.org/robatistello/app-housepi
 
 Imagens:
 
