@@ -14,10 +14,12 @@ Já os do aplicativo mobile encontram-se na pasta Android e foi desenvolvido em J
 
 Na pasta documentos encontram-se alguns arquivos que podem ser úteis.
 
+
 **Este repositório não é mais atualizado, novas versões em:**
 
-Servidor: https://bitbucket.org/robatistello/srv-housepi
-Aplicativo: https://bitbucket.org/robatistello/app-housepi
+* Servidor: https://bitbucket.org/robatistello/srv-housepi
+
+* Aplicativo: https://bitbucket.org/robatistello/app-housepi
 
 Imagens:
 
